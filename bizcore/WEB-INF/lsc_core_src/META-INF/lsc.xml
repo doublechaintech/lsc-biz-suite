@@ -104,6 +104,8 @@
 		<property name="dataSource" ref="dataSource" /><property name="merchantDAO" ref="merchantDAO" /><property name="platformDAO" ref="platformDAO" />
 		<property name="transportItemDAO" ref="transportItemDAO" />
 		
+		<property name="transportTaskDAO" ref="transportTaskDAO" />
+		
 	</bean>
 	<bean id="transportProjectDAO" parent="transportProjectDAOBase"></bean>	
 	
@@ -115,7 +117,7 @@
 	
 	
 	<bean id="transportTaskDAOBase" class="com.doublechaintech.lsc.transporttask.TransportTaskJDBCTemplateDAO">
-		<property name="dataSource" ref="dataSource" /><property name="transportTaskStatusDAO" ref="transportTaskStatusDAO" /><property name="merchantDAO" ref="merchantDAO" /><property name="locationDAO" ref="locationDAO" /><property name="platformDAO" ref="platformDAO" />
+		<property name="dataSource" ref="dataSource" /><property name="transportProjectDAO" ref="transportProjectDAO" /><property name="transportTaskStatusDAO" ref="transportTaskStatusDAO" /><property name="merchantDAO" ref="merchantDAO" /><property name="locationDAO" ref="locationDAO" /><property name="platformDAO" ref="platformDAO" />
 		<property name="transportTaskTrackDAO" ref="transportTaskTrackDAO" />
 		
 	</bean>

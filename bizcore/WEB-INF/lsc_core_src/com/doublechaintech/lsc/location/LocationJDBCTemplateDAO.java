@@ -229,9 +229,10 @@ public class LocationJDBCTemplateDAO extends LscNamingServiceDAO implements Loca
  		return checkOptions(options,LocationTokens.TRANSPORT_TASK_LIST_AS_SOURCE);
  	}
  	protected boolean isAnalyzeTransportTaskListAsSourceEnabled(Map<String,Object> options){		
- 		return checkOptions(options,LocationTokens.TRANSPORT_TASK_LIST_AS_SOURCE+".analyze");
+ 		return true;
+ 		//return checkOptions(options,LocationTokens.TRANSPORT_TASK_LIST_AS_SOURCE+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskListAsSourceEnabled(Map<String,Object> options){
 		return checkOptions(options, LocationTokens.TRANSPORT_TASK_LIST_AS_SOURCE);
 		
@@ -243,9 +244,10 @@ public class LocationJDBCTemplateDAO extends LscNamingServiceDAO implements Loca
  		return checkOptions(options,LocationTokens.TRANSPORT_TASK_LIST_AS_DESTINATION);
  	}
  	protected boolean isAnalyzeTransportTaskListAsDestinationEnabled(Map<String,Object> options){		
- 		return checkOptions(options,LocationTokens.TRANSPORT_TASK_LIST_AS_DESTINATION+".analyze");
+ 		return true;
+ 		//return checkOptions(options,LocationTokens.TRANSPORT_TASK_LIST_AS_DESTINATION+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskListAsDestinationEnabled(Map<String,Object> options){
 		return checkOptions(options, LocationTokens.TRANSPORT_TASK_LIST_AS_DESTINATION);
 		
@@ -287,7 +289,7 @@ public class LocationJDBCTemplateDAO extends LscNamingServiceDAO implements Loca
 	 		extractTransportTaskListAsSource(location, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskListAsSourceEnabled(loadOptions)){
-	 		// analyzeTransportTaskListAsSource(location, loadOptions);
+	 		analyzeTransportTaskListAsSource(location, loadOptions);
  		}
  		
 		
@@ -295,7 +297,7 @@ public class LocationJDBCTemplateDAO extends LscNamingServiceDAO implements Loca
 	 		extractTransportTaskListAsDestination(location, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskListAsDestinationEnabled(loadOptions)){
-	 		// analyzeTransportTaskListAsDestination(location, loadOptions);
+	 		analyzeTransportTaskListAsDestination(location, loadOptions);
  		}
  		
 		
@@ -739,6 +741,50 @@ public class LocationJDBCTemplateDAO extends LscNamingServiceDAO implements Loca
 	}
 
 
+	//disconnect Location with project in TransportTask
+	public Location planToRemoveTransportTaskListAsSourceWithProject(Location location, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+		
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SOURCE_PROPERTY, location.getId());
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		SmartList<TransportTask> externalTransportTaskList = getTransportTaskDAO().
+				findTransportTaskWithKey(key, options);
+		if(externalTransportTaskList == null){
+			return location;
+		}
+		if(externalTransportTaskList.isEmpty()){
+			return location;
+		}
+		
+		for(TransportTask transportTask: externalTransportTaskList){
+			transportTask.clearProject();
+			transportTask.clearSource();
+			
+		}
+		
+		
+		SmartList<TransportTask> transportTaskList = location.getTransportTaskListAsSource();		
+		transportTaskList.addAllToRemoveList(externalTransportTaskList);
+		return location;
+	}
+	
+	public int countTransportTaskListAsSourceWithProject(String locationId, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SOURCE_PROPERTY, locationId);
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		int count = getTransportTaskDAO().countTransportTaskWithKey(key, options);
+		return count;
+	}
+	
 	//disconnect Location with status in TransportTask
 	public Location planToRemoveTransportTaskListAsSourceWithStatus(Location location, String statusId, Map<String,Object> options)throws Exception{
 				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
@@ -943,6 +989,50 @@ public class LocationJDBCTemplateDAO extends LscNamingServiceDAO implements Loca
 	}
 
 
+	//disconnect Location with project in TransportTask
+	public Location planToRemoveTransportTaskListAsDestinationWithProject(Location location, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+		
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SOURCE_PROPERTY, location.getId());
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		SmartList<TransportTask> externalTransportTaskList = getTransportTaskDAO().
+				findTransportTaskWithKey(key, options);
+		if(externalTransportTaskList == null){
+			return location;
+		}
+		if(externalTransportTaskList.isEmpty()){
+			return location;
+		}
+		
+		for(TransportTask transportTask: externalTransportTaskList){
+			transportTask.clearProject();
+			transportTask.clearSource();
+			
+		}
+		
+		
+		SmartList<TransportTask> transportTaskList = location.getTransportTaskListAsSource();		
+		transportTaskList.addAllToRemoveList(externalTransportTaskList);
+		return location;
+	}
+	
+	public int countTransportTaskListAsDestinationWithProject(String locationId, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SOURCE_PROPERTY, locationId);
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		int count = getTransportTaskDAO().countTransportTaskWithKey(key, options);
+		return count;
+	}
+	
 	//disconnect Location with status in TransportTask
 	public Location planToRemoveTransportTaskListAsDestinationWithStatus(Location location, String statusId, Map<String,Object> options)throws Exception{
 				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();

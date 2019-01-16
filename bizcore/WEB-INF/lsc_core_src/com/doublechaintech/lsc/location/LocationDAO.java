@@ -50,6 +50,10 @@ public interface LocationDAO{
 	public Location planToRemoveTransportTaskListAsSource(Location location, String transportTaskIds[], Map<String,Object> options)throws Exception;
 
 
+	//disconnect Location with project in TransportTask
+	public Location planToRemoveTransportTaskListAsSourceWithProject(Location location, String projectId, Map<String,Object> options)throws Exception;
+	public int countTransportTaskListAsSourceWithProject(String locationId, String projectId, Map<String,Object> options)throws Exception;
+	
 	//disconnect Location with status in TransportTask
 	public Location planToRemoveTransportTaskListAsSourceWithStatus(Location location, String statusId, Map<String,Object> options)throws Exception;
 	public int countTransportTaskListAsSourceWithStatus(String locationId, String statusId, Map<String,Object> options)throws Exception;
@@ -69,6 +73,10 @@ public interface LocationDAO{
 	public Location planToRemoveTransportTaskListAsDestination(Location location, String transportTaskIds[], Map<String,Object> options)throws Exception;
 
 
+	//disconnect Location with project in TransportTask
+	public Location planToRemoveTransportTaskListAsDestinationWithProject(Location location, String projectId, Map<String,Object> options)throws Exception;
+	public int countTransportTaskListAsDestinationWithProject(String locationId, String projectId, Map<String,Object> options)throws Exception;
+	
 	//disconnect Location with status in TransportTask
 	public Location planToRemoveTransportTaskListAsDestinationWithStatus(Location location, String statusId, Map<String,Object> options)throws Exception;
 	public int countTransportTaskListAsDestinationWithStatus(String locationId, String statusId, Map<String,Object> options)throws Exception;

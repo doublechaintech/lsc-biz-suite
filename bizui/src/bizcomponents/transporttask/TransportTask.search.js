@@ -57,6 +57,7 @@ const showAssociateDialog = (targetComponent) => {
   
   const {selectedRows} = targetComponent.state
   
+  const { TransportProjectAssociateForm } = GlobalComponents
   const { LocationAssociateForm } = GlobalComponents
   const { TransportTaskStatusAssociateForm } = GlobalComponents
   const { MerchantAssociateForm } = GlobalComponents
@@ -68,7 +69,11 @@ const showAssociateDialog = (targetComponent) => {
   
    
   
-    <LocationAssociateForm 
+    <TransportProjectAssociateForm 
+	visible={currentAssociateModal==='project'} 
+	data={{transportTaskList:selectedRows}} owner={owner}  
+	onCancel={()=>toggleAssociateModalVisible(targetComponent,'project')} 
+	onCreate={()=>toggleAssociateModalVisible(targetComponent,'project')}/> <LocationAssociateForm 
 	visible={currentAssociateModal==='source'} 
 	data={{transportTaskListAsSource:selectedRows}} owner={owner}  
 	onCancel={()=>toggleAssociateModalVisible(targetComponent,'source')} 

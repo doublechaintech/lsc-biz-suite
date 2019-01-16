@@ -101,6 +101,9 @@
 <c:if test="${param.referName ne 'name'}">
 	<th>${userContext.localeMap['transport_task.name']}</th>
 </c:if>
+<c:if test="${param.referName ne 'project'}">
+	<th>${userContext.localeMap['transport_task.project']}</th>
+</c:if>
 <c:if test="${param.referName ne 'source'}">
 	<th>${userContext.localeMap['transport_task.source']}</th>
 </c:if>
@@ -135,7 +138,26 @@
 			<c:forEach var="item" items="${transportTaskList}">
 				<tr currentVersion='${item.version}' id="transportTask-${item.id}" ><td><a class="link-action-removed" href="./transportTaskManager/view/${item.id}/"> ${item.id}</a></td>
 <c:if test="${param.referName ne 'name'}">	<td contenteditable='true' class='edit-value'  propertyToChange='name' storedCellValue='${item.name}' prefix='${ownerBeanName}Manager/updateTransportTask/${result.id}/${item.id}/'>${item.name}</td>
-</c:if><c:if test="${param.referName ne 'source'}">
+</c:if><c:if test="${param.referName ne 'project'}">
+	<td class="select_candidate_td"
+			data-candidate-method="./transportTaskManager/requestCandidateProject/${ownerBeanName}/${item.id}/"
+			data-switch-method="./transportTaskManager/transferToAnotherProject/${item.id}/"
+			data-link-template="./transportProjectManager/view/${'$'}{ID}/">
+		<span class="display_span">
+			<c:if test="${not empty  item.project}">
+			<a href='./transportProjectManager/view/${item.project.id}/'>${item.project.displayName}</a>
+			</c:if>
+			<c:if test="${empty  item.project}">
+			<a href='#'></a>
+			</c:if>
+			<button class="btn btn-link candidate-action">...</button>
+		</span>
+		<div class="candidate_span" style="display:none;">
+			<input type="text" data-provide="typeahead" class="input-sm form-control candidate-filter-input" autocomplete="off" />
+		</div>
+	</td>
+</c:if>
+<c:if test="${param.referName ne 'source'}">
 	<td class="select_candidate_td"
 			data-candidate-method="./transportTaskManager/requestCandidateSource/${ownerBeanName}/${item.id}/"
 			data-switch-method="./transportTaskManager/transferToAnotherSource/${item.id}/"

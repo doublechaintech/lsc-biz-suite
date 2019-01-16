@@ -70,6 +70,7 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'transportTask') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '10',render: (text, record)=>renderTextCell(text,record) },
+  { title: '项目', dataIndex: 'project', render: (text, record) => renderReferenceCell(text, record)},
   { title: '源', dataIndex: 'source', render: (text, record) => renderReferenceCell(text, record)},
   { title: '目的地', dataIndex: 'destination', render: (text, record) => renderReferenceCell(text, record)},
   { title: '备注', debugtype: 'string', dataIndex: 'remark', width: '9',render: (text, record)=>renderTextCell(text,record) },
@@ -85,6 +86,7 @@ const displayColumns = [
 const fieldLabels = {
   id: 'ID',
   name: '名称',
+  project: '项目',
   source: '源',
   destination: '目的地',
   remark: '备注',

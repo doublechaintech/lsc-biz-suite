@@ -428,6 +428,15 @@ public class LscChecker extends BaseChecker{
 		return this;
 	}	 			
 
+	public static final String  PROJECT_OF_TRANSPORT_TASK ="transport_task.project";
+	public LscChecker checkProjectIdOfTransportTask(String projectId)
+	{
+		
+	 	checkIdOfTransportTask(projectId ); 		
+		
+		return this;
+	}	 			
+
 	public static final String  SOURCE_OF_TRANSPORT_TASK ="transport_task.source";
 	public LscChecker checkSourceIdOfTransportTask(String sourceId)
 	{

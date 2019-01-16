@@ -39,6 +39,16 @@ public interface TransportProjectManager{
 
 	*/
 
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String transportProjectId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
+	
+	public  TransportProject addTransportTask(LscUserContext userContext, String transportProjectId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
+	public  TransportProject removeTransportTask(LscUserContext userContext, String transportProjectId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
+	public  TransportProject updateTransportTask(LscUserContext userContext, String transportProjectId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
+
+	/*
+
+	*/
+
 
 
 }

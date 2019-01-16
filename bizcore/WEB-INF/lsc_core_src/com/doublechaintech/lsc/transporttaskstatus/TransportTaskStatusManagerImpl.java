@@ -26,6 +26,7 @@ import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.platform.CandidatePlatform;
 
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
@@ -424,6 +425,24 @@ public class TransportTaskStatusManagerImpl extends CustomLscCheckerManager impl
 	}
 
 
+	//disconnect TransportTaskStatus with project in TransportTask
+	protected TransportTaskStatus breakWithTransportTaskByProject(LscUserContext userContext, String transportTaskStatusId, String projectId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportTaskStatus transportTaskStatus = loadTransportTaskStatus(userContext, transportTaskStatusId, allTokens());
+
+			synchronized(transportTaskStatus){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportTaskStatusDAO().planToRemoveTransportTaskListWithProject(transportTaskStatus, projectId, this.emptyOptions());
+
+				transportTaskStatus = saveTransportTaskStatus(userContext, transportTaskStatus, tokens().withTransportTaskList().done());
+				return transportTaskStatus;
+			}
+	}
 	//disconnect TransportTaskStatus with source in TransportTask
 	protected TransportTaskStatus breakWithTransportTaskBySource(LscUserContext userContext, String transportTaskStatusId, String sourceId,  String [] tokensExpr)
 		 throws Exception{
@@ -520,7 +539,7 @@ public class TransportTaskStatusManagerImpl extends CustomLscCheckerManager impl
 	
 	
 
-	protected void checkParamsForAddingTransportTask(LscUserContext userContext, String transportTaskStatusId, String name, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
+	protected void checkParamsForAddingTransportTask(LscUserContext userContext, String transportTaskStatusId, String name, String projectId, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
 		
 		
 
@@ -530,6 +549,8 @@ public class TransportTaskStatusManagerImpl extends CustomLscCheckerManager impl
 
 		
 		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkProjectIdOfTransportTask(projectId);
 		
 		userContext.getChecker().checkSourceIdOfTransportTask(sourceId);
 		
@@ -547,12 +568,12 @@ public class TransportTaskStatusManagerImpl extends CustomLscCheckerManager impl
 
 	
 	}
-	public  TransportTaskStatus addTransportTask(LscUserContext userContext, String transportTaskStatusId, String name, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
+	public  TransportTaskStatus addTransportTask(LscUserContext userContext, String transportTaskStatusId, String name, String projectId, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
 	{	
 		
-		checkParamsForAddingTransportTask(userContext,transportTaskStatusId,name, sourceId, destinationId, remark, senderId, receiverId, platformId,tokensExpr);
+		checkParamsForAddingTransportTask(userContext,transportTaskStatusId,name, projectId, sourceId, destinationId, remark, senderId, receiverId, platformId,tokensExpr);
 		
-		TransportTask transportTask = createTransportTask(userContext,name, sourceId, destinationId, remark, senderId, receiverId, platformId);
+		TransportTask transportTask = createTransportTask(userContext,name, projectId, sourceId, destinationId, remark, senderId, receiverId, platformId);
 		
 		TransportTaskStatus transportTaskStatus = loadTransportTaskStatus(userContext, transportTaskStatusId, allTokens());
 		synchronized(transportTaskStatus){ 
@@ -605,12 +626,15 @@ public class TransportTaskStatusManagerImpl extends CustomLscCheckerManager impl
 	}
 	
 	
-	protected TransportTask createTransportTask(LscUserContext userContext, String name, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId) throws Exception{
+	protected TransportTask createTransportTask(LscUserContext userContext, String name, String projectId, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId) throws Exception{
 
 		TransportTask transportTask = new TransportTask();
 		
 		
 		transportTask.setName(name);		
+		TransportProject  project = new TransportProject();
+		project.setId(projectId);		
+		transportTask.setProject(project);		
 		Location  source = new Location();
 		source.setId(sourceId);		
 		transportTask.setSource(source);		

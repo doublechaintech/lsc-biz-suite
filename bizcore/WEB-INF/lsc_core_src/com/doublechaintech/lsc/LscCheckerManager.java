@@ -369,6 +369,14 @@ public class LscCheckerManager extends BaseManagerImpl {
 		
 	}	 			
 	
+	public static final String  PROJECT_OF_TRANSPORT_TASK ="transport_task.project";
+	protected void checkProjectIdOfTransportTask(LscUserContext userContext, String projectId, List<Message> messageList)
+	{
+		
+	 	checkIdOfTransportTask(userContext,projectId, messageList); 		
+		
+	}	 			
+	
 	public static final String  SOURCE_OF_TRANSPORT_TASK ="transport_task.source";
 	protected void checkSourceIdOfTransportTask(LscUserContext userContext, String sourceId, List<Message> messageList)
 	{

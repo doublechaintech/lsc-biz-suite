@@ -61,6 +61,7 @@ Version|版本
 Transport Task|运输任务
 Id|ID
 Name|名称
+Project|项目
 Source|源
 Destination|目的地
 Remark|备注

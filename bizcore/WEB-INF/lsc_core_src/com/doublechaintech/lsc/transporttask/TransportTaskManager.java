@@ -12,13 +12,14 @@ public interface TransportTaskManager{
 
 		
 
-	public TransportTask createTransportTask(LscUserContext userContext, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception;	
+	public TransportTask createTransportTask(LscUserContext userContext, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception;	
 	public TransportTask updateTransportTask(LscUserContext userContext,String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr) throws Exception;
 	public TransportTask loadTransportTask(LscUserContext userContext, String transportTaskId, String [] tokensExpr) throws Exception;
 	public TransportTask internalSaveTransportTask(LscUserContext userContext, TransportTask transportTask) throws Exception;
 	public TransportTask internalSaveTransportTask(LscUserContext userContext, TransportTask transportTask,Map<String,Object>option) throws Exception;
 	
-	public TransportTask transferToAnotherSource(LscUserContext userContext, String transportTaskId, String anotherSourceId)  throws Exception;
+	public TransportTask transferToAnotherProject(LscUserContext userContext, String transportTaskId, String anotherProjectId)  throws Exception;
+ 	public TransportTask transferToAnotherSource(LscUserContext userContext, String transportTaskId, String anotherSourceId)  throws Exception;
  	public TransportTask transferToAnotherDestination(LscUserContext userContext, String transportTaskId, String anotherDestinationId)  throws Exception;
  	public TransportTask transferToAnotherStatus(LscUserContext userContext, String transportTaskId, String anotherStatusId)  throws Exception;
  	public TransportTask transferToAnotherSender(LscUserContext userContext, String transportTaskId, String anotherSenderId)  throws Exception;

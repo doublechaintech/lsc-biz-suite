@@ -22,7 +22,7 @@
 	<!-- 货主的货，这个信息由渠道录入 -->
 	<transport_item name="橡胶" quantity="1000" unit="吨|立方" project="$(transport_project)" merchant="$(merchant_type)"  platform="$(platform)" create_time="createTime()" update_time="updateTime()"/>
 	<!-- 运输任务，这个司机可以抢, merchant 是谁在运输, 是谁在运输 -->
-	<transport_task name="橡胶运输任务" source="$(location)" destination="$(location)" remark="在二号通道" status="$(transport_task_status)" sender="$(merchant)" receiver="$(merchant)" platform="$(platform)" create_time="createTime()" update_time="updateTime()"/>
+	<transport_task name="橡胶运输任务" project="$(transport_project)" source="$(location)" destination="$(location)" remark="在二号通道" status="$(transport_task_status)" sender="$(merchant)" receiver="$(merchant)" platform="$(platform)" create_time="createTime()" update_time="updateTime()"/>
 	<transport_task_track name="陕西宝鸡" latitude="40.776877" longitude="130.273647" task="$(transport_task)" create_time="createTime()" update_time="updateTime()"/>
 	
 	

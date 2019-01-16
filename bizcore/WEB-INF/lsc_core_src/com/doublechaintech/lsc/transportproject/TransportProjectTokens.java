@@ -65,7 +65,8 @@ public class TransportProjectTokens extends CommonTokens{
 		return start()
 			.withMerchant()
 			.withPlatform()
-			.withTransportItemList();
+			.withTransportItemList()
+			.withTransportTaskList();
 	
 	}
 	public static TransportProjectTokens withoutListsTokens(){
@@ -168,10 +169,73 @@ public class TransportProjectTokens extends CommonTokens{
 	
 	
 		
+	protected static final String TRANSPORT_TASK_LIST = "transportTaskList";
+	public String getTransportTaskList(){
+		return TRANSPORT_TASK_LIST;
+	}
+	public TransportProjectTokens withTransportTaskList(){		
+		addSimpleOptions(TRANSPORT_TASK_LIST);
+		return this;
+	}
+	public TransportProjectTokens analyzeTransportTaskList(){		
+		addSimpleOptions(TRANSPORT_TASK_LIST+".anaylze");
+		return this;
+	}
+	public boolean analyzeTransportTaskListEnabled(){		
+		
+		return checkOptions(this.options(), TRANSPORT_TASK_LIST+".anaylze");
+	}
+	public TransportProjectTokens extractMoreFromTransportTaskList(String idsSeperatedWithComma){		
+		addSimpleOptions(TRANSPORT_TASK_LIST+".extractIds", idsSeperatedWithComma);
+		return this;
+	}
+	
+	
+	
+	
+	private int transportTaskListSortCounter = 0;
+	public TransportProjectTokens sortTransportTaskListWith(String field, String descOrAsc){		
+		addSortMoreOptions(TRANSPORT_TASK_LIST,transportTaskListSortCounter++, field, descOrAsc);
+		return this;
+	}
+	private int transportTaskListSearchCounter = 0;
+	public TransportProjectTokens searchTransportTaskListWith(String field, String verb, String value){		
+		addSearchMoreOptions(TRANSPORT_TASK_LIST,transportTaskListSearchCounter++, field, verb, value);
+		return this;
+	}
+	
+	public TransportProjectTokens searchAllTextOfTransportTaskList(String verb, String value){	
+		String field = "id|name|remark";
+		addSearchMoreOptions(TRANSPORT_TASK_LIST,transportTaskListSearchCounter++, field, verb, value);
+		return this;
+	}
+	
+	
+	
+	public TransportProjectTokens rowsPerPageOfTransportTaskList(int rowsPerPage){		
+		addSimpleOptions(TRANSPORT_TASK_LIST+"RowsPerPage",rowsPerPage);
+		return this;
+	}
+	public TransportProjectTokens currentPageNumberOfTransportTaskList(int currentPageNumber){		
+		addSimpleOptions(TRANSPORT_TASK_LIST+"CurrentPage",currentPageNumber);
+		return this;
+	}
+	public TransportProjectTokens retainColumnsOfTransportTaskList(String[] columns){		
+		addSimpleOptions(TRANSPORT_TASK_LIST+"RetainColumns",columns);
+		return this;
+	}
+	public TransportProjectTokens excludeColumnsOfTransportTaskList(String[] columns){		
+		addSimpleOptions(TRANSPORT_TASK_LIST+"ExcludeColumns",columns);
+		return this;
+	}
+	
+	
+		
 	
 	public  TransportProjectTokens searchEntireObjectText(String verb, String value){
 		
 		searchAllTextOfTransportItemList(verb, value);	
+		searchAllTextOfTransportTaskList(verb, value);	
 		return this;
 	}
 }

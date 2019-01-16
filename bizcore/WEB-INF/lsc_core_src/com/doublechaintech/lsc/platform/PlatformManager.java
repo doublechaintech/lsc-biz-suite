@@ -97,9 +97,9 @@ public interface PlatformManager{
 
 	*/
 
-	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String platformId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId ,String [] tokensExpr)  throws Exception;
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String platformId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId ,String [] tokensExpr)  throws Exception;
 	
-	public  Platform addTransportTask(LscUserContext userContext, String platformId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId , String [] tokensExpr)  throws Exception;
+	public  Platform addTransportTask(LscUserContext userContext, String platformId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId , String [] tokensExpr)  throws Exception;
 	public  Platform removeTransportTask(LscUserContext userContext, String platformId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
 	public  Platform updateTransportTask(LscUserContext userContext, String platformId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
 

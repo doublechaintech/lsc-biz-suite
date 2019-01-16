@@ -204,6 +204,52 @@ class TransportProjectBizApp extends React.PureComponent {
     }))(TransportItemUpdateForm)
   }
 
+  getTransportTaskSearch = () => {
+    const {TransportTaskSearch} = GlobalComponents;
+    return connect(state => ({
+      rule: state.rule,
+      name: "运输任务",
+      role: "transportTask",
+      data: state._transportProject.transportTaskList,
+      metaInfo: state._transportProject.transportTaskListMetaInfo,
+      count: state._transportProject.transportTaskCount,
+      currentPage: state._transportProject.transportTaskCurrentPageNumber,
+      searchFormParameters: state._transportProject.transportTaskSearchFormParameters,
+      searchParameters: {...state._transportProject.searchParameters},
+      expandForm: state._transportProject.expandForm,
+      loading: state._transportProject.loading,
+      partialList: state._transportProject.partialList,
+      owner: { type: '_transportProject', id: state._transportProject.id, 
+      referenceName: 'project', 
+      listName: 'transportTaskList', ref:state._transportProject, 
+      listDisplayName: '运输任务列表' }, // this is for model namespace and
+    }))(TransportTaskSearch)
+  }
+  getTransportTaskCreateForm = () => {
+   	const {TransportTaskCreateForm} = GlobalComponents;
+    return connect(state => ({
+      rule: state.rule,
+      role: "transportTask",
+      data: state._transportProject.transportTaskList,
+      metaInfo: state._transportProject.transportTaskListMetaInfo,
+      count: state._transportProject.transportTaskCount,
+      currentPage: state._transportProject.transportTaskCurrentPageNumber,
+      searchFormParameters: state._transportProject.transportTaskSearchFormParameters,
+      loading: state._transportProject.loading,
+      owner: { type: '_transportProject', id: state._transportProject.id, referenceName: 'project', listName: 'transportTaskList', ref:state._transportProject, listDisplayName: '运输任务列表'}, // this is for model namespace and
+    }))(TransportTaskCreateForm)
+  }
+  
+  getTransportTaskUpdateForm = () => {
+  	const {TransportTaskUpdateForm} = GlobalComponents;
+    return connect(state => ({
+      selectedRows: state._transportProject.selectedRows,
+      role: "transportTask",
+      currentUpdateIndex: state._transportProject.currentUpdateIndex,
+      owner: { type: '_transportProject', id: state._transportProject.id, listName: 'transportTaskList', ref:state._transportProject, listDisplayName: '运输任务列表' }, // this is for model namespace and
+    }))(TransportTaskUpdateForm)
+  }
+
 
   
   buildRouters = () =>{
@@ -220,6 +266,10 @@ class TransportProjectBizApp extends React.PureComponent {
   	{path:"/transportProject/:id/list/transportItemList", component: this.getTransportItemSearch()},
   	{path:"/transportProject/:id/list/transportItemCreateForm", component: this.getTransportItemCreateForm()},
   	{path:"/transportProject/:id/list/transportItemUpdateForm", component: this.getTransportItemUpdateForm()},
+   	
+  	{path:"/transportProject/:id/list/transportTaskList", component: this.getTransportTaskSearch()},
+  	{path:"/transportProject/:id/list/transportTaskCreateForm", component: this.getTransportTaskCreateForm()},
+  	{path:"/transportProject/:id/list/transportTaskUpdateForm", component: this.getTransportTaskUpdateForm()},
      	
   	
   	]

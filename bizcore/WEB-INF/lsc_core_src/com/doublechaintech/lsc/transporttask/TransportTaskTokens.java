@@ -63,6 +63,7 @@ public class TransportTaskTokens extends CommonTokens{
 	protected static TransportTaskTokens allTokens(){
 		
 		return start()
+			.withProject()
 			.withSource()
 			.withDestination()
 			.withStatus()
@@ -75,6 +76,7 @@ public class TransportTaskTokens extends CommonTokens{
 	public static TransportTaskTokens withoutListsTokens(){
 		
 		return start()
+			.withProject()
 			.withSource()
 			.withDestination()
 			.withStatus()
@@ -94,6 +96,16 @@ public class TransportTaskTokens extends CommonTokens{
 		return start().done();
 	}
 
+	protected static final String PROJECT = "project";
+	public String getProject(){
+		return PROJECT;
+	}
+	public TransportTaskTokens withProject(){		
+		addSimpleOptions(PROJECT);
+		return this;
+	}
+	
+	
 	protected static final String SOURCE = "source";
 	public String getSource(){
 		return SOURCE;

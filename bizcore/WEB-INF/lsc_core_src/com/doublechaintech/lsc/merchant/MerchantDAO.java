@@ -68,6 +68,10 @@ public interface MerchantDAO{
 	public Merchant planToRemoveTransportTaskListAsSender(Merchant merchant, String transportTaskIds[], Map<String,Object> options)throws Exception;
 
 
+	//disconnect Merchant with project in TransportTask
+	public Merchant planToRemoveTransportTaskListAsSenderWithProject(Merchant merchant, String projectId, Map<String,Object> options)throws Exception;
+	public int countTransportTaskListAsSenderWithProject(String merchantId, String projectId, Map<String,Object> options)throws Exception;
+	
 	//disconnect Merchant with source in TransportTask
 	public Merchant planToRemoveTransportTaskListAsSenderWithSource(Merchant merchant, String sourceId, Map<String,Object> options)throws Exception;
 	public int countTransportTaskListAsSenderWithSource(String merchantId, String sourceId, Map<String,Object> options)throws Exception;
@@ -87,6 +91,10 @@ public interface MerchantDAO{
 	public Merchant planToRemoveTransportTaskListAsReceiver(Merchant merchant, String transportTaskIds[], Map<String,Object> options)throws Exception;
 
 
+	//disconnect Merchant with project in TransportTask
+	public Merchant planToRemoveTransportTaskListAsReceiverWithProject(Merchant merchant, String projectId, Map<String,Object> options)throws Exception;
+	public int countTransportTaskListAsReceiverWithProject(String merchantId, String projectId, Map<String,Object> options)throws Exception;
+	
 	//disconnect Merchant with source in TransportTask
 	public Merchant planToRemoveTransportTaskListAsReceiverWithSource(Merchant merchant, String sourceId, Map<String,Object> options)throws Exception;
 	public int countTransportTaskListAsReceiverWithSource(String merchantId, String sourceId, Map<String,Object> options)throws Exception;

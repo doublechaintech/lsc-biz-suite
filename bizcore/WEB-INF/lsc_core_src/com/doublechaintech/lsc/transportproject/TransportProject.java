@@ -12,6 +12,7 @@ import com.doublechaintech.lsc.KeyValuePair;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transporttask.TransportTask;
 import com.doublechaintech.lsc.transportitem.TransportItem;
 import com.doublechaintech.lsc.platform.Platform;
 
@@ -28,6 +29,7 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 	public static final String VERSION_PROPERTY               = "version"           ;
 
 	public static final String TRANSPORT_ITEM_LIST                      = "transportItemList" ;
+	public static final String TRANSPORT_TASK_LIST                      = "transportTaskList" ;
 
 	public static final String INTERNAL_TYPE="TransportProject";
 	public String getInternalType(){
@@ -58,6 +60,7 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 	
 	
 	protected		SmartList<TransportItem>	mTransportItemList  ;
+	protected		SmartList<TransportTask>	mTransportTaskList  ;
 	
 		
 	public 	TransportProject(){
@@ -79,7 +82,8 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 		setCreateTime(createTime);
 		setUpdateTime(updateTime);
 
-		this.mTransportItemList = new SmartList<TransportItem>();	
+		this.mTransportItemList = new SmartList<TransportItem>();
+		this.mTransportTaskList = new SmartList<TransportTask>();	
 	}
 	
 	//Support for changing the property
@@ -350,6 +354,104 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 	
 
 
+	public  SmartList<TransportTask> getTransportTaskList(){
+		if(this.mTransportTaskList == null){
+			this.mTransportTaskList = new SmartList<TransportTask>();
+			this.mTransportTaskList.setListInternalName (TRANSPORT_TASK_LIST );
+			//有名字，便于做权限控制
+		}
+		
+		return this.mTransportTaskList;	
+	}
+	public  void setTransportTaskList(SmartList<TransportTask> transportTaskList){
+		for( TransportTask transportTask:transportTaskList){
+			transportTask.setProject(this);
+		}
+
+		this.mTransportTaskList = transportTaskList;
+		this.mTransportTaskList.setListInternalName (TRANSPORT_TASK_LIST );
+		
+	}
+	
+	public  void addTransportTask(TransportTask transportTask){
+		transportTask.setProject(this);
+		getTransportTaskList().add(transportTask);
+	}
+	public  void addTransportTaskList(SmartList<TransportTask> transportTaskList){
+		for( TransportTask transportTask:transportTaskList){
+			transportTask.setProject(this);
+		}
+		getTransportTaskList().addAll(transportTaskList);
+	}
+	
+	public  TransportTask removeTransportTask(TransportTask transportTaskIndex){
+		
+		int index = getTransportTaskList().indexOf(transportTaskIndex);
+        if(index < 0){
+        	String message = "TransportTask("+transportTaskIndex.getId()+") with version='"+transportTaskIndex.getVersion()+"' NOT found!";
+            throw new IllegalStateException(message);
+        }
+        TransportTask transportTask = getTransportTaskList().get(index);        
+        // transportTask.clearProject(); //disconnect with Project
+        transportTask.clearFromAll(); //disconnect with Project
+		
+		boolean result = getTransportTaskList().planToRemove(transportTask);
+        if(!result){
+        	String message = "TransportTask("+transportTaskIndex.getId()+") with version='"+transportTaskIndex.getVersion()+"' NOT found!";
+            throw new IllegalStateException(message);
+        }
+        return transportTask;
+        
+	
+	}
+	//断舍离
+	public  void breakWithTransportTask(TransportTask transportTask){
+		
+		if(transportTask == null){
+			return;
+		}
+		transportTask.setProject(null);
+		//getTransportTaskList().remove();
+	
+	}
+	
+	public  boolean hasTransportTask(TransportTask transportTask){
+	
+		return getTransportTaskList().contains(transportTask);
+  
+	}
+	
+	public void copyTransportTaskFrom(TransportTask transportTask) {
+
+		TransportTask transportTaskInList = findTheTransportTask(transportTask);
+		TransportTask newTransportTask = new TransportTask();
+		transportTaskInList.copyTo(newTransportTask);
+		newTransportTask.setVersion(0);//will trigger copy
+		getTransportTaskList().add(newTransportTask);
+		addItemToFlexiableObject(COPIED_CHILD, newTransportTask);
+	}
+	
+	public  TransportTask findTheTransportTask(TransportTask transportTask){
+		
+		int index =  getTransportTaskList().indexOf(transportTask);
+		//The input parameter must have the same id and version number.
+		if(index < 0){
+ 			String message = "TransportTask("+transportTask.getId()+") with version='"+transportTask.getVersion()+"' NOT found!";
+			throw new IllegalStateException(message);
+		}
+		
+		return  getTransportTaskList().get(index);
+		//Performance issue when using LinkedList, but it is almost an ArrayList for sure!
+	}
+	
+	public  void cleanUpTransportTaskList(){
+		getTransportTaskList().clear();
+	}
+	
+	
+	
+
+
 	public void collectRefercences(BaseEntity owner, List<BaseEntity> entityList, String internalType){
 
 		addToEntityList(this, entityList, getMerchant(), internalType);
@@ -362,6 +464,7 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 		
 		List<BaseEntity> entityList = new ArrayList<BaseEntity>();
 		collectFromList(this, entityList, getTransportItemList(), internalType);
+		collectFromList(this, entityList, getTransportTaskList(), internalType);
 
 		return entityList;
 	}
@@ -370,6 +473,7 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 		List<SmartList<?>> listOfList = new ArrayList<SmartList<?>>();
 		
 		listOfList.add( getTransportItemList());
+		listOfList.add( getTransportTaskList());
 			
 
 		return listOfList;
@@ -390,6 +494,11 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 		if(!getTransportItemList().isEmpty()){
 			appendKeyValuePair(result, "transportItemCount", getTransportItemList().getTotalCount());
 			appendKeyValuePair(result, "transportItemCurrentPageNumber", getTransportItemList().getCurrentPageNumber());
+		}
+		appendKeyValuePair(result, TRANSPORT_TASK_LIST, getTransportTaskList());
+		if(!getTransportTaskList().isEmpty()){
+			appendKeyValuePair(result, "transportTaskCount", getTransportTaskList().getTotalCount());
+			appendKeyValuePair(result, "transportTaskCurrentPageNumber", getTransportTaskList().getCurrentPageNumber());
 		}
 
 		
@@ -413,6 +522,7 @@ public class TransportProject extends BaseEntity implements  java.io.Serializabl
 			dest.setUpdateTime(getUpdateTime());
 			dest.setVersion(getVersion());
 			dest.setTransportItemList(getTransportItemList());
+			dest.setTransportTaskList(getTransportTaskList());
 
 		}
 		super.copyTo(baseDest);

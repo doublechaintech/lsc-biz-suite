@@ -28,9 +28,9 @@ public interface LocationManager{
 	/*======================================================DATA MAINTENANCE===========================================================*/
 	
 
-	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
 	
-	public  Location addTransportTaskAsSource(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
+	public  Location addTransportTaskAsSource(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
 	public  Location removeTransportTaskAsSource(LscUserContext userContext, String locationId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
 	public  Location updateTransportTaskAsSource(LscUserContext userContext, String locationId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
 
@@ -38,9 +38,9 @@ public interface LocationManager{
 
 	*/
 
-	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
 	
-	public  Location addTransportTaskAsDestination(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
+	public  Location addTransportTaskAsDestination(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
 	public  Location removeTransportTaskAsDestination(LscUserContext userContext, String locationId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
 	public  Location updateTransportTaskAsDestination(LscUserContext userContext, String locationId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
 

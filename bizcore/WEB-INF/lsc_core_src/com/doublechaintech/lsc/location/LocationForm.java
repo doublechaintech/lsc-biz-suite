@@ -222,6 +222,20 @@ public class LocationForm extends BaseForm {
 	}
 
 
+	public LocationForm projectIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  projectIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public LocationForm projectIdFieldForTransportTask(String initValue){
+		return projectIdFieldForTransportTask("projectId",initValue);
+	}
+	public LocationForm projectIdFieldForTransportTask(){
+		return projectIdFieldForTransportTask("projectId","");
+	}
+
+
 	public LocationForm sourceIdFieldForTransportTask(String parameterName, String initValue){
 		FormField field =  sourceIdFromTransportTask(parameterName, initValue);		
 		this.addFormField(field);

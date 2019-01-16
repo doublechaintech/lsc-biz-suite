@@ -39,7 +39,7 @@ const transferToAnotherPlatform = (id, parameters) => {
 
 
 const addTransportTaskAsSource = (targetObjectId, parameters) => {
-  const url = `${PREFIX}locationManager/addTransportTaskAsSource/locationId/name/remark/statusId/senderId/receiverId/platformId/tokensExpr/`
+  const url = `${PREFIX}locationManager/addTransportTaskAsSource/locationId/name/projectId/remark/statusId/senderId/receiverId/platformId/tokensExpr/`
   const locationId = targetObjectId
   const requestParameters = { ...parameters, locationId, tokensExpr: 'none' }
   return postForm({ url,requestParameters})
@@ -61,7 +61,7 @@ const removeTransportTaskListAsSource = (targetObjectId, parameters) => {
 
 
 const addTransportTaskAsDestination = (targetObjectId, parameters) => {
-  const url = `${PREFIX}locationManager/addTransportTaskAsDestination/locationId/name/remark/statusId/senderId/receiverId/platformId/tokensExpr/`
+  const url = `${PREFIX}locationManager/addTransportTaskAsDestination/locationId/name/projectId/remark/statusId/senderId/receiverId/platformId/tokensExpr/`
   const locationId = targetObjectId
   const requestParameters = { ...parameters, locationId, tokensExpr: 'none' }
   return postForm({ url,requestParameters})

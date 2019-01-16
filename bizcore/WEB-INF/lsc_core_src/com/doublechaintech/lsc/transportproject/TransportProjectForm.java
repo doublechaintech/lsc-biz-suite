@@ -389,6 +389,174 @@ public class TransportProjectForm extends BaseForm {
 		return updateTimeFieldForTransportItem("updateTime","");
 	}
 
+
+	public TransportProjectForm transportTaskIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  idFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm transportTaskIdFieldForTransportTask(String initValue){
+		return transportTaskIdFieldForTransportTask("transportTaskId",initValue);
+	}
+	public TransportProjectForm transportTaskIdFieldForTransportTask(){
+		return transportTaskIdFieldForTransportTask("transportTaskId","");
+	}
+
+
+	public TransportProjectForm nameFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  nameFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm nameFieldForTransportTask(String initValue){
+		return nameFieldForTransportTask("name",initValue);
+	}
+	public TransportProjectForm nameFieldForTransportTask(){
+		return nameFieldForTransportTask("name","");
+	}
+
+
+	public TransportProjectForm projectIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  projectIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm projectIdFieldForTransportTask(String initValue){
+		return projectIdFieldForTransportTask("projectId",initValue);
+	}
+	public TransportProjectForm projectIdFieldForTransportTask(){
+		return projectIdFieldForTransportTask("projectId","");
+	}
+
+
+	public TransportProjectForm sourceIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  sourceIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm sourceIdFieldForTransportTask(String initValue){
+		return sourceIdFieldForTransportTask("sourceId",initValue);
+	}
+	public TransportProjectForm sourceIdFieldForTransportTask(){
+		return sourceIdFieldForTransportTask("sourceId","");
+	}
+
+
+	public TransportProjectForm destinationIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  destinationIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm destinationIdFieldForTransportTask(String initValue){
+		return destinationIdFieldForTransportTask("destinationId",initValue);
+	}
+	public TransportProjectForm destinationIdFieldForTransportTask(){
+		return destinationIdFieldForTransportTask("destinationId","");
+	}
+
+
+	public TransportProjectForm remarkFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  remarkFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm remarkFieldForTransportTask(String initValue){
+		return remarkFieldForTransportTask("remark",initValue);
+	}
+	public TransportProjectForm remarkFieldForTransportTask(){
+		return remarkFieldForTransportTask("remark","");
+	}
+
+
+	public TransportProjectForm statusIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  statusIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm statusIdFieldForTransportTask(String initValue){
+		return statusIdFieldForTransportTask("statusId",initValue);
+	}
+	public TransportProjectForm statusIdFieldForTransportTask(){
+		return statusIdFieldForTransportTask("statusId","");
+	}
+
+
+	public TransportProjectForm senderIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  senderIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm senderIdFieldForTransportTask(String initValue){
+		return senderIdFieldForTransportTask("senderId",initValue);
+	}
+	public TransportProjectForm senderIdFieldForTransportTask(){
+		return senderIdFieldForTransportTask("senderId","");
+	}
+
+
+	public TransportProjectForm receiverIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  receiverIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm receiverIdFieldForTransportTask(String initValue){
+		return receiverIdFieldForTransportTask("receiverId",initValue);
+	}
+	public TransportProjectForm receiverIdFieldForTransportTask(){
+		return receiverIdFieldForTransportTask("receiverId","");
+	}
+
+
+	public TransportProjectForm platformIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  platformIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm platformIdFieldForTransportTask(String initValue){
+		return platformIdFieldForTransportTask("platformId",initValue);
+	}
+	public TransportProjectForm platformIdFieldForTransportTask(){
+		return platformIdFieldForTransportTask("platformId","");
+	}
+
+
+	public TransportProjectForm createTimeFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  createTimeFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm createTimeFieldForTransportTask(String initValue){
+		return createTimeFieldForTransportTask("createTime",initValue);
+	}
+	public TransportProjectForm createTimeFieldForTransportTask(){
+		return createTimeFieldForTransportTask("createTime","");
+	}
+
+
+	public TransportProjectForm updateTimeFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  updateTimeFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportProjectForm updateTimeFieldForTransportTask(String initValue){
+		return updateTimeFieldForTransportTask("updateTime",initValue);
+	}
+	public TransportProjectForm updateTimeFieldForTransportTask(){
+		return updateTimeFieldForTransportTask("updateTime","");
+	}
+
 	
 
 	

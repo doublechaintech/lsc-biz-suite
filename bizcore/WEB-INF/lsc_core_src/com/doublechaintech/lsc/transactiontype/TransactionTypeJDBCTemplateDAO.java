@@ -222,9 +222,10 @@ public class TransactionTypeJDBCTemplateDAO extends LscNamingServiceDAO implemen
  		return checkOptions(options,TransactionTypeTokens.TRANSACTION_LIST);
  	}
  	protected boolean isAnalyzeTransactionListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,TransactionTypeTokens.TRANSACTION_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,TransactionTypeTokens.TRANSACTION_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransactionListEnabled(Map<String,Object> options){
 		return checkOptions(options, TransactionTypeTokens.TRANSACTION_LIST);
 		
@@ -266,7 +267,7 @@ public class TransactionTypeJDBCTemplateDAO extends LscNamingServiceDAO implemen
 	 		extractTransactionList(transactionType, loadOptions);
  		}	
  		if(isAnalyzeTransactionListEnabled(loadOptions)){
-	 		// analyzeTransactionList(transactionType, loadOptions);
+	 		analyzeTransactionList(transactionType, loadOptions);
  		}
  		
 		

@@ -48,6 +48,20 @@ public class TransportTaskForm extends BaseForm {
 	}
 
 
+	public TransportTaskForm projectIdField(String parameterName, String initValue){
+		FormField field = projectIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public TransportTaskForm projectIdField(String initValue){
+		return projectIdField("projectId",initValue);
+	}
+	public TransportTaskForm projectIdField(){
+		return projectIdField("projectId","");
+	}
+
+
 	public TransportTaskForm sourceIdField(String parameterName, String initValue){
 		FormField field = sourceIdFromTransportTask(parameterName, initValue);		
 		this.addFormField(field);
@@ -175,6 +189,90 @@ public class TransportTaskForm extends BaseForm {
 
 	
 	
+
+
+	public TransportTaskForm transportProjectIdFieldOfTransportProject(String parameterName, String initValue){
+		FormField field =  idFromTransportProject(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskForm transportProjectIdFieldOfTransportProject(String initValue){
+		return transportProjectIdFieldOfTransportProject("transportProjectId",initValue);
+	}
+	public TransportTaskForm transportProjectIdFieldOfTransportProject(){
+		return transportProjectIdFieldOfTransportProject("transportProjectId","");
+	}
+
+
+	public TransportTaskForm nameFieldOfTransportProject(String parameterName, String initValue){
+		FormField field =  nameFromTransportProject(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskForm nameFieldOfTransportProject(String initValue){
+		return nameFieldOfTransportProject("name",initValue);
+	}
+	public TransportTaskForm nameFieldOfTransportProject(){
+		return nameFieldOfTransportProject("name","");
+	}
+
+
+	public TransportTaskForm merchantIdFieldOfTransportProject(String parameterName, String initValue){
+		FormField field =  merchantIdFromTransportProject(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskForm merchantIdFieldOfTransportProject(String initValue){
+		return merchantIdFieldOfTransportProject("merchantId",initValue);
+	}
+	public TransportTaskForm merchantIdFieldOfTransportProject(){
+		return merchantIdFieldOfTransportProject("merchantId","");
+	}
+
+
+	public TransportTaskForm platformIdFieldOfTransportProject(String parameterName, String initValue){
+		FormField field =  platformIdFromTransportProject(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskForm platformIdFieldOfTransportProject(String initValue){
+		return platformIdFieldOfTransportProject("platformId",initValue);
+	}
+	public TransportTaskForm platformIdFieldOfTransportProject(){
+		return platformIdFieldOfTransportProject("platformId","");
+	}
+
+
+	public TransportTaskForm createTimeFieldOfTransportProject(String parameterName, String initValue){
+		FormField field =  createTimeFromTransportProject(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskForm createTimeFieldOfTransportProject(String initValue){
+		return createTimeFieldOfTransportProject("createTime",initValue);
+	}
+	public TransportTaskForm createTimeFieldOfTransportProject(){
+		return createTimeFieldOfTransportProject("createTime","");
+	}
+
+
+	public TransportTaskForm updateTimeFieldOfTransportProject(String parameterName, String initValue){
+		FormField field =  updateTimeFromTransportProject(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskForm updateTimeFieldOfTransportProject(String initValue){
+		return updateTimeFieldOfTransportProject("updateTime",initValue);
+	}
+	public TransportTaskForm updateTimeFieldOfTransportProject(){
+		return updateTimeFieldOfTransportProject("updateTime","");
+	}
 
 
 	public TransportTaskForm locationIdFieldOfLocation(String parameterName, String initValue){
@@ -588,6 +686,16 @@ public class TransportTaskForm extends BaseForm {
 	
 
 	
+ 	public TransportTaskForm transferToAnotherProjectAction(){
+		FormAction action = new FormAction();
+		action.setLabel("显示");
+		action.setLocaleKey("show");
+		action.setUrl("transferToAnotherProject/transportTaskId/");
+		this.addFormAction(action);
+		return this;
+	}
+
+ 	
  	public TransportTaskForm transferToAnotherSourceAction(){
 		FormAction action = new FormAction();
 		action.setLabel("显示");

@@ -481,6 +481,24 @@ public class PlatformManagerImpl extends CustomLscCheckerManager implements Plat
 				return platform;
 			}
 	}
+	//disconnect Platform with project in TransportTask
+	protected Platform breakWithTransportTaskByProject(LscUserContext userContext, String platformId, String projectId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			Platform platform = loadPlatform(userContext, platformId, allTokens());
+
+			synchronized(platform){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getPlatformDAO().planToRemoveTransportTaskListWithProject(platform, projectId, this.emptyOptions());
+
+				platform = savePlatform(userContext, platform, tokens().withTransportTaskList().done());
+				return platform;
+			}
+	}
 	//disconnect Platform with source in TransportTask
 	protected Platform breakWithTransportTaskBySource(LscUserContext userContext, String platformId, String sourceId,  String [] tokensExpr)
 		 throws Exception{
@@ -2297,7 +2315,7 @@ public class PlatformManagerImpl extends CustomLscCheckerManager implements Plat
 
 
 
-	protected void checkParamsForAddingTransportTask(LscUserContext userContext, String platformId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId,String [] tokensExpr) throws Exception{
+	protected void checkParamsForAddingTransportTask(LscUserContext userContext, String platformId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId,String [] tokensExpr) throws Exception{
 		
 		
 
@@ -2307,6 +2325,8 @@ public class PlatformManagerImpl extends CustomLscCheckerManager implements Plat
 
 		
 		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkProjectIdOfTransportTask(projectId);
 		
 		userContext.getChecker().checkSourceIdOfTransportTask(sourceId);
 		
@@ -2324,12 +2344,12 @@ public class PlatformManagerImpl extends CustomLscCheckerManager implements Plat
 
 	
 	}
-	public  Platform addTransportTask(LscUserContext userContext, String platformId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String [] tokensExpr) throws Exception
+	public  Platform addTransportTask(LscUserContext userContext, String platformId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String [] tokensExpr) throws Exception
 	{	
 		
-		checkParamsForAddingTransportTask(userContext,platformId,name, sourceId, destinationId, remark, statusId, senderId, receiverId,tokensExpr);
+		checkParamsForAddingTransportTask(userContext,platformId,name, projectId, sourceId, destinationId, remark, statusId, senderId, receiverId,tokensExpr);
 		
-		TransportTask transportTask = createTransportTask(userContext,name, sourceId, destinationId, remark, statusId, senderId, receiverId);
+		TransportTask transportTask = createTransportTask(userContext,name, projectId, sourceId, destinationId, remark, statusId, senderId, receiverId);
 		
 		Platform platform = loadPlatform(userContext, platformId, allTokens());
 		synchronized(platform){ 
@@ -2382,12 +2402,15 @@ public class PlatformManagerImpl extends CustomLscCheckerManager implements Plat
 	}
 	
 	
-	protected TransportTask createTransportTask(LscUserContext userContext, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId) throws Exception{
+	protected TransportTask createTransportTask(LscUserContext userContext, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId) throws Exception{
 
 		TransportTask transportTask = new TransportTask();
 		
 		
 		transportTask.setName(name);		
+		TransportProject  project = new TransportProject();
+		project.setId(projectId);		
+		transportTask.setProject(project);		
 		Location  source = new Location();
 		source.setId(sourceId);		
 		transportTask.setSource(source);		

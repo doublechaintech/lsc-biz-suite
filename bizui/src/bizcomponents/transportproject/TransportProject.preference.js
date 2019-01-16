@@ -305,7 +305,7 @@ class TransportProjectPreference extends Component {
 
   render() {
     // eslint-disable-next-line max-len
-    const { id,displayName, transportItemCount } = this.props.transportProject
+    const { id,displayName, transportItemCount, transportTaskCount } = this.props.transportProject
     const cardsData = {cardsName:"交通项目",cardsFor: "transportProject",cardsSource: this.props.transportProject,
   		subItems: [
     

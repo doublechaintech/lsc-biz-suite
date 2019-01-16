@@ -75,11 +75,36 @@ const removeTransportItemList = (targetObjectId, parameters) => {
 }
 
 
+
+const addTransportTask = (targetObjectId, parameters) => {
+  const url = `${PREFIX}transportProjectManager/addTransportTask/transportProjectId/name/sourceId/destinationId/remark/statusId/senderId/receiverId/platformId/tokensExpr/`
+  const transportProjectId = targetObjectId
+  const requestParameters = { ...parameters, transportProjectId, tokensExpr: 'none' }
+  return postForm({ url,requestParameters})
+}
+
+const updateTransportTask = (targetObjectId, parameters) => {
+  const url = `${PREFIX}transportProjectManager/updateTransportTaskProperties/transportProjectId/id/name/remark/tokensExpr/`
+  const transportProjectId = targetObjectId
+  const requestParameters = { ...parameters, transportProjectId, tokensExpr: 'none' }
+  return postForm({ url,requestParameters})
+}
+
+const removeTransportTaskList = (targetObjectId, parameters) => {
+  const url = `${PREFIX}transportProjectManager/removeTransportTaskList/transportProjectId/transportTaskIds/tokensExpr/`
+  const requestParameters = { ...parameters, transportProjectId: targetObjectId, tokensExpr: 'none' }
+  return postForm({ url,requestParameters})
+}
+
+
 const TransportProjectService = { view,
   load,
   addTransportItem,
+  addTransportTask,
   updateTransportItem,
+  updateTransportTask,
   removeTransportItemList,
+  removeTransportTaskList,
   requestCandidateMerchant,
   requestCandidatePlatform,
   transferToAnotherMerchant,

@@ -19,6 +19,7 @@ const testValues = {};
 const testValues = {
   name: '橡胶运输任务',
   remark: '在二号通道',
+  projectId: 'TP000001',
   sourceId: 'L000001',
   destinationId: 'L000001',
   statusId: 'TTS000001',
@@ -247,6 +248,23 @@ class TransportTaskCreateForm extends Component {
         <Card title="关联" className={styles.card} bordered={false}>
           <Form >
             <Row gutter={16}>
+
+              <Col lg={12} md={12} sm={24}>
+                <Form.Item label={fieldLabels.project} {...formItemLayout}>
+                  {getFieldDecorator('projectId', {
+                  	initialValue: tryinit('project'),
+                    rules: [{ required: true, message: '请输入项目' }],
+                  })(
+                  
+                  <SelectObject 
+                    disabled={!availableForEdit('project')}
+                    targetType={"project"} 
+                    requestFunction={TransportTaskService.requestCandidateProject}/>
+                  
+                 
+                  )}
+                </Form.Item>
+              </Col>
 
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.source} {...formItemLayout}>

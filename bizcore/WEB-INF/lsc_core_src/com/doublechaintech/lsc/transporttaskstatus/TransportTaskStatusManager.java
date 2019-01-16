@@ -28,9 +28,9 @@ public interface TransportTaskStatusManager{
 	/*======================================================DATA MAINTENANCE===========================================================*/
 	
 
-	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String transportTaskStatusId, String name, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String transportTaskStatusId, String name, String projectId, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId ,String [] tokensExpr)  throws Exception;
 	
-	public  TransportTaskStatus addTransportTask(LscUserContext userContext, String transportTaskStatusId, String name, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
+	public  TransportTaskStatus addTransportTask(LscUserContext userContext, String transportTaskStatusId, String name, String projectId, String sourceId, String destinationId, String remark, String senderId, String receiverId, String platformId , String [] tokensExpr)  throws Exception;
 	public  TransportTaskStatus removeTransportTask(LscUserContext userContext, String transportTaskStatusId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
 	public  TransportTaskStatus updateTransportTask(LscUserContext userContext, String transportTaskStatusId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
 

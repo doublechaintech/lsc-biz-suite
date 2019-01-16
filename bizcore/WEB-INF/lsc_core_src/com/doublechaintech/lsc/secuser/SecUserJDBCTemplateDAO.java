@@ -305,9 +305,10 @@ public class SecUserJDBCTemplateDAO extends LscNamingServiceDAO implements SecUs
  		return checkOptions(options,SecUserTokens.USER_APP_LIST);
  	}
  	protected boolean isAnalyzeUserAppListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,SecUserTokens.USER_APP_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,SecUserTokens.USER_APP_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveUserAppListEnabled(Map<String,Object> options){
 		return checkOptions(options, SecUserTokens.USER_APP_LIST);
 		
@@ -319,9 +320,10 @@ public class SecUserJDBCTemplateDAO extends LscNamingServiceDAO implements SecUs
  		return checkOptions(options,SecUserTokens.LOGIN_HISTORY_LIST);
  	}
  	protected boolean isAnalyzeLoginHistoryListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,SecUserTokens.LOGIN_HISTORY_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,SecUserTokens.LOGIN_HISTORY_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveLoginHistoryListEnabled(Map<String,Object> options){
 		return checkOptions(options, SecUserTokens.LOGIN_HISTORY_LIST);
 		
@@ -367,7 +369,7 @@ public class SecUserJDBCTemplateDAO extends LscNamingServiceDAO implements SecUs
 	 		extractUserAppList(secUser, loadOptions);
  		}	
  		if(isAnalyzeUserAppListEnabled(loadOptions)){
-	 		// analyzeUserAppList(secUser, loadOptions);
+	 		analyzeUserAppList(secUser, loadOptions);
  		}
  		
 		
@@ -375,7 +377,7 @@ public class SecUserJDBCTemplateDAO extends LscNamingServiceDAO implements SecUs
 	 		extractLoginHistoryList(secUser, loadOptions);
  		}	
  		if(isAnalyzeLoginHistoryListEnabled(loadOptions)){
-	 		// analyzeLoginHistoryList(secUser, loadOptions);
+	 		analyzeLoginHistoryList(secUser, loadOptions);
  		}
  		
 		

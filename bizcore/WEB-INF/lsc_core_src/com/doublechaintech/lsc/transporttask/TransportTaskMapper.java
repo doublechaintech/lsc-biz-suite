@@ -6,6 +6,7 @@ import java.util.Date;
 import java.math.BigDecimal;
 import com.doublechaintech.lsc.BaseRowMapper;
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
@@ -17,6 +18,7 @@ public class TransportTaskMapper extends BaseRowMapper<TransportTask>{
 		 		
  		setId(transportTask, rs, rowNumber); 		
  		setName(transportTask, rs, rowNumber); 		
+ 		setProject(transportTask, rs, rowNumber); 		
  		setSource(transportTask, rs, rowNumber); 		
  		setDestination(transportTask, rs, rowNumber); 		
  		setRemark(transportTask, rs, rowNumber); 		
@@ -59,6 +61,24 @@ public class TransportTaskMapper extends BaseRowMapper<TransportTask>{
 		transportTask.setName(name);
 	}
 		 		
+ 	protected void setProject(TransportTask transportTask, ResultSet rs, int rowNumber) throws SQLException{
+ 		String transportProjectId = rs.getString(TransportTaskTable.COLUMN_PROJECT);
+ 		if( transportProjectId == null){
+ 			return;
+ 		}
+ 		if( transportProjectId.isEmpty()){
+ 			return;
+ 		}
+ 		TransportProject transportProject = transportTask.getProject();
+ 		if( transportProject != null ){
+ 			//if the root object 'transportTask' already have the property, just set the id for it;
+ 			transportProject.setId(transportProjectId);
+ 			
+ 			return;
+ 		}
+ 		transportTask.setProject(createEmptyProject(transportProjectId));
+ 	}
+ 	 		
  	protected void setSource(TransportTask transportTask, ResultSet rs, int rowNumber) throws SQLException{
  		String locationId = rs.getString(TransportTaskTable.COLUMN_SOURCE);
  		if( locationId == null){
@@ -217,6 +237,13 @@ public class TransportTaskMapper extends BaseRowMapper<TransportTask>{
 		
 		
 
+ 	protected TransportProject  createEmptyProject(String transportProjectId){
+ 		TransportProject transportProject = new TransportProject();
+ 		transportProject.setId(transportProjectId);
+ 		transportProject.setVersion(Integer.MAX_VALUE);
+ 		return transportProject;
+ 	}
+ 	
  	protected Location  createEmptySource(String locationId){
  		Location location = new Location();
  		location.setId(locationId);

@@ -26,6 +26,7 @@ import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.platform.CandidatePlatform;
 
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
@@ -446,6 +447,24 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 	}
 
 
+	//disconnect Location with project in TransportTask
+	protected Location breakWithTransportTaskAsSourceByProject(LscUserContext userContext, String locationId, String projectId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			Location location = loadLocation(userContext, locationId, allTokens());
+
+			synchronized(location){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getLocationDAO().planToRemoveTransportTaskListAsSourceWithProject(location, projectId, this.emptyOptions());
+
+				location = saveLocation(userContext, location, tokens().withTransportTaskListAsSource().done());
+				return location;
+			}
+	}
 	//disconnect Location with status in TransportTask
 	protected Location breakWithTransportTaskAsSourceByStatus(LscUserContext userContext, String locationId, String statusId,  String [] tokensExpr)
 		 throws Exception{
@@ -515,6 +534,24 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 				userContext.getDAOGroup().getLocationDAO().planToRemoveTransportTaskListAsSourceWithPlatform(location, platformId, this.emptyOptions());
 
 				location = saveLocation(userContext, location, tokens().withTransportTaskListAsSource().done());
+				return location;
+			}
+	}
+	//disconnect Location with project in TransportTask
+	protected Location breakWithTransportTaskAsDestinationByProject(LscUserContext userContext, String locationId, String projectId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			Location location = loadLocation(userContext, locationId, allTokens());
+
+			synchronized(location){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getLocationDAO().planToRemoveTransportTaskListAsDestinationWithProject(location, projectId, this.emptyOptions());
+
+				location = saveLocation(userContext, location, tokens().withTransportTaskListAsDestination().done());
 				return location;
 			}
 	}
@@ -596,7 +633,7 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 	
 	
 
-	protected void checkParamsForAddingTransportTaskAsSource(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
+	protected void checkParamsForAddingTransportTaskAsSource(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
 		
 		
 
@@ -606,6 +643,8 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 
 		
 		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkProjectIdOfTransportTask(projectId);
 		
 		userContext.getChecker().checkRemarkOfTransportTask(remark);
 		
@@ -621,12 +660,12 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 
 	
 	}
-	public  Location addTransportTaskAsSource(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
+	public  Location addTransportTaskAsSource(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
 	{	
 		
-		checkParamsForAddingTransportTaskAsSource(userContext,locationId,name, remark, statusId, senderId, receiverId, platformId,tokensExpr);
+		checkParamsForAddingTransportTaskAsSource(userContext,locationId,name, projectId, remark, statusId, senderId, receiverId, platformId,tokensExpr);
 		
-		TransportTask transportTask = createTransportTaskAsSource(userContext,name, remark, statusId, senderId, receiverId, platformId);
+		TransportTask transportTask = createTransportTaskAsSource(userContext,name, projectId, remark, statusId, senderId, receiverId, platformId);
 		
 		Location location = loadLocation(userContext, locationId, allTokens());
 		synchronized(location){ 
@@ -679,12 +718,15 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 	}
 	
 	
-	protected TransportTask createTransportTaskAsSource(LscUserContext userContext, String name, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception{
+	protected TransportTask createTransportTaskAsSource(LscUserContext userContext, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception{
 
 		TransportTask transportTask = new TransportTask();
 		
 		
 		transportTask.setName(name);		
+		TransportProject  project = new TransportProject();
+		project.setId(projectId);		
+		transportTask.setProject(project);		
 		transportTask.setRemark(remark);		
 		TransportTaskStatus  status = new TransportTaskStatus();
 		status.setId(statusId);		
@@ -861,7 +903,7 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 
 
 
-	protected void checkParamsForAddingTransportTaskAsDestination(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
+	protected void checkParamsForAddingTransportTaskAsDestination(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
 		
 		
 
@@ -871,6 +913,8 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 
 		
 		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkProjectIdOfTransportTask(projectId);
 		
 		userContext.getChecker().checkRemarkOfTransportTask(remark);
 		
@@ -886,12 +930,12 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 
 	
 	}
-	public  Location addTransportTaskAsDestination(LscUserContext userContext, String locationId, String name, String remark, String statusId, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
+	public  Location addTransportTaskAsDestination(LscUserContext userContext, String locationId, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
 	{	
 		
-		checkParamsForAddingTransportTaskAsDestination(userContext,locationId,name, remark, statusId, senderId, receiverId, platformId,tokensExpr);
+		checkParamsForAddingTransportTaskAsDestination(userContext,locationId,name, projectId, remark, statusId, senderId, receiverId, platformId,tokensExpr);
 		
-		TransportTask transportTask = createTransportTaskAsDestination(userContext,name, remark, statusId, senderId, receiverId, platformId);
+		TransportTask transportTask = createTransportTaskAsDestination(userContext,name, projectId, remark, statusId, senderId, receiverId, platformId);
 		
 		Location location = loadLocation(userContext, locationId, allTokens());
 		synchronized(location){ 
@@ -944,12 +988,15 @@ public class LocationManagerImpl extends CustomLscCheckerManager implements Loca
 	}
 	
 	
-	protected TransportTask createTransportTaskAsDestination(LscUserContext userContext, String name, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception{
+	protected TransportTask createTransportTaskAsDestination(LscUserContext userContext, String name, String projectId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception{
 
 		TransportTask transportTask = new TransportTask();
 		
 		
 		transportTask.setName(name);		
+		TransportProject  project = new TransportProject();
+		project.setId(projectId);		
+		transportTask.setProject(project);		
 		transportTask.setRemark(remark);		
 		TransportTaskStatus  status = new TransportTaskStatus();
 		status.setId(statusId);		

@@ -18,8 +18,8 @@ const testValues = {};
 /*
 const testValues = {
   name: '陕西宝鸡',
-  latitude: '40.228903515677786',
-  longitude: '129.3855159670576',
+  latitude: '40.06913327976372',
+  longitude: '130.22549183724155',
   taskId: 'TT000001',
 }
 */

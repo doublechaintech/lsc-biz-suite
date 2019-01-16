@@ -1,4 +1,4 @@
--- BUILD WITH MODEL TIME 190116T1604
+-- BUILD WITH MODEL TIME 190116T1634
 drop database  if exists lsc;
 create database lsc;
 alter  database lsc  character set = utf8mb4  collate = utf8mb4_unicode_ci; -- 支持表情符号
@@ -99,6 +99,7 @@ drop table  if exists transport_task_data;
 create table transport_task_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(24)                              comment '名称',
+	project             	varchar(48)                              comment '项目',
 	source              	varchar(48)                              comment '源',
 	destination         	varchar(48)                              comment '目的地',
 	remark              	varchar(20)                              comment '备注',
@@ -349,13 +350,13 @@ insert into location_data values ('L000001','河南橡胶二号仓','西蒙罗',
 
 可以空行。
 
-','P000001','2018-12-29 05:07:41','2019-01-10 15:58:12','1');
+','P000001','2019-01-06 11:28:39','2019-01-04 18:56:11','1');
 insert into location_data values ('L000002','河南橡胶二号仓0002','西蒙罗0002','13900000002','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','P000001','2019-01-06 15:47:03','2019-01-11 09:33:04','1');
+','P000001','2019-01-03 04:42:59','2019-01-01 13:20:41','1');
 
 	
 insert into merchant_data values ('M000001','王司机','MT000001','P000001','    一段样例文字。
@@ -363,109 +364,133 @@ insert into merchant_data values ('M000001','王司机','MT000001','P000001','  
 
 可以空行。
 
-','2019-01-12 10:45:32','2018-12-30 10:05:35','1');
+','2018-12-27 11:59:17','2018-12-27 14:50:49','1');
 insert into merchant_data values ('M000002','青白江物流代理点','MT000002','P000001','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','2019-01-01 13:03:50','2019-01-08 05:11:53','1');
+','2019-01-15 21:53:13','2019-01-07 19:41:51','1');
 insert into merchant_data values ('M000003','王司机','MT000003','P000001','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','2019-01-15 21:23:08','2018-12-26 13:22:22','1');
+','2019-01-09 11:23:15','2018-12-29 16:24:23','1');
 insert into merchant_data values ('M000004','青白江物流代理点','MT000004','P000001','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','2018-12-31 23:15:56','2019-01-01 15:08:33','1');
+','2019-01-15 15:40:48','2019-01-10 18:26:47','1');
 
 	
-insert into transport_project_data values ('TP000001','李先生的大批货物','M000001','P000001','2019-01-11 18:07:31','2019-01-04 22:49:33','1');
-insert into transport_project_data values ('TP000002','李先生的大批货物0002','M000001','P000001','2018-12-31 17:14:01','2019-01-09 12:42:36','1');
-insert into transport_project_data values ('TP000003','李先生的大批货物0003','M000002','P000001','2019-01-09 18:24:12','2019-01-13 03:46:05','1');
-insert into transport_project_data values ('TP000004','李先生的大批货物0004','M000002','P000001','2019-01-12 20:47:20','2019-01-03 20:53:59','1');
-insert into transport_project_data values ('TP000005','李先生的大批货物0005','M000003','P000001','2018-12-30 03:10:14','2019-01-04 04:59:00','1');
-insert into transport_project_data values ('TP000006','李先生的大批货物0006','M000003','P000001','2019-01-11 18:40:45','2018-12-28 05:06:34','1');
-insert into transport_project_data values ('TP000007','李先生的大批货物0007','M000004','P000001','2019-01-09 00:17:17','2019-01-15 22:12:12','1');
-insert into transport_project_data values ('TP000008','李先生的大批货物0008','M000004','P000001','2018-12-26 06:24:19','2018-12-27 19:52:26','1');
+insert into transport_project_data values ('TP000001','李先生的大批货物','M000001','P000001','2019-01-15 15:59:45','2019-01-16 07:50:53','1');
+insert into transport_project_data values ('TP000002','李先生的大批货物0002','M000001','P000001','2018-12-31 23:27:46','2018-12-29 11:10:59','1');
+insert into transport_project_data values ('TP000003','李先生的大批货物0003','M000002','P000001','2019-01-14 16:30:56','2019-01-07 06:15:59','1');
+insert into transport_project_data values ('TP000004','李先生的大批货物0004','M000002','P000001','2019-01-15 22:49:51','2019-01-04 07:53:44','1');
+insert into transport_project_data values ('TP000005','李先生的大批货物0005','M000003','P000001','2019-01-12 22:51:07','2019-01-11 16:34:01','1');
+insert into transport_project_data values ('TP000006','李先生的大批货物0006','M000003','P000001','2018-12-28 13:57:45','2018-12-27 14:51:39','1');
+insert into transport_project_data values ('TP000007','李先生的大批货物0007','M000004','P000001','2019-01-06 09:55:16','2018-12-26 00:51:57','1');
+insert into transport_project_data values ('TP000008','李先生的大批货物0008','M000004','P000001','2019-01-10 13:48:41','2018-12-30 05:15:11','1');
 
 	
-insert into transport_item_data values ('TI000001','橡胶','915','吨','TP000001','MT000001','P000001','2019-01-06 19:02:07','2018-12-29 20:14:06','1');
-insert into transport_item_data values ('TI000002','橡胶0002','993','立方','TP000001','MT000001','P000001','2018-12-29 07:48:00','2019-01-13 06:02:13','1');
-insert into transport_item_data values ('TI000003','橡胶0003','798','吨','TP000002','MT000001','P000001','2019-01-15 15:54:49','2019-01-01 20:41:40','1');
-insert into transport_item_data values ('TI000004','橡胶0004','797','立方','TP000002','MT000001','P000001','2018-12-27 19:00:09','2019-01-02 23:00:17','1');
-insert into transport_item_data values ('TI000005','橡胶0005','779','吨','TP000003','MT000002','P000001','2019-01-09 13:40:22','2019-01-09 05:48:13','1');
-insert into transport_item_data values ('TI000006','橡胶0006','911','立方','TP000003','MT000002','P000001','2018-12-31 07:50:14','2018-12-28 21:40:06','1');
-insert into transport_item_data values ('TI000007','橡胶0007','832','吨','TP000004','MT000002','P000001','2019-01-01 13:35:16','2019-01-08 21:39:10','1');
-insert into transport_item_data values ('TI000008','橡胶0008','948','立方','TP000004','MT000002','P000001','2019-01-08 07:34:39','2019-01-02 11:48:35','1');
-insert into transport_item_data values ('TI000009','橡胶0009','867','吨','TP000005','MT000003','P000001','2019-01-14 04:46:39','2019-01-11 11:28:14','1');
-insert into transport_item_data values ('TI000010','橡胶0010','895','立方','TP000005','MT000003','P000001','2019-01-13 03:54:13','2019-01-11 07:26:38','1');
-insert into transport_item_data values ('TI000011','橡胶0011','956','吨','TP000006','MT000003','P000001','2019-01-12 09:18:16','2019-01-03 05:41:54','1');
-insert into transport_item_data values ('TI000012','橡胶0012','928','立方','TP000006','MT000003','P000001','2019-01-06 00:43:33','2018-12-29 05:08:33','1');
-insert into transport_item_data values ('TI000013','橡胶0013','801','吨','TP000007','MT000004','P000001','2019-01-02 01:34:31','2019-01-09 13:50:05','1');
-insert into transport_item_data values ('TI000014','橡胶0014','967','立方','TP000007','MT000004','P000001','2019-01-01 08:45:13','2018-12-27 20:41:06','1');
-insert into transport_item_data values ('TI000015','橡胶0015','826','吨','TP000008','MT000004','P000001','2018-12-26 17:01:27','2019-01-15 07:37:44','1');
-insert into transport_item_data values ('TI000016','橡胶0016','967','立方','TP000008','MT000004','P000001','2019-01-04 04:19:04','2019-01-01 06:02:05','1');
+insert into transport_item_data values ('TI000001','橡胶','736','吨','TP000001','MT000001','P000001','2018-12-27 19:53:53','2019-01-07 02:42:39','1');
+insert into transport_item_data values ('TI000002','橡胶0002','842','立方','TP000001','MT000001','P000001','2019-01-16 06:52:51','2018-12-29 13:13:20','1');
+insert into transport_item_data values ('TI000003','橡胶0003','846','吨','TP000002','MT000001','P000001','2019-01-02 06:18:56','2019-01-11 18:46:24','1');
+insert into transport_item_data values ('TI000004','橡胶0004','833','立方','TP000002','MT000001','P000001','2019-01-06 10:07:11','2019-01-03 09:08:02','1');
+insert into transport_item_data values ('TI000005','橡胶0005','885','吨','TP000003','MT000002','P000001','2019-01-15 10:56:07','2019-01-12 15:36:43','1');
+insert into transport_item_data values ('TI000006','橡胶0006','962','立方','TP000003','MT000002','P000001','2018-12-31 14:17:16','2019-01-14 13:29:51','1');
+insert into transport_item_data values ('TI000007','橡胶0007','848','吨','TP000004','MT000002','P000001','2019-01-01 11:26:10','2018-12-28 14:40:48','1');
+insert into transport_item_data values ('TI000008','橡胶0008','918','立方','TP000004','MT000002','P000001','2018-12-29 11:17:44','2019-01-13 22:50:37','1');
+insert into transport_item_data values ('TI000009','橡胶0009','816','吨','TP000005','MT000003','P000001','2018-12-27 19:52:19','2019-01-13 01:27:41','1');
+insert into transport_item_data values ('TI000010','橡胶0010','764','立方','TP000005','MT000003','P000001','2019-01-14 23:28:18','2019-01-01 15:41:27','1');
+insert into transport_item_data values ('TI000011','橡胶0011','837','吨','TP000006','MT000003','P000001','2019-01-13 08:46:26','2019-01-15 07:34:59','1');
+insert into transport_item_data values ('TI000012','橡胶0012','868','立方','TP000006','MT000003','P000001','2018-12-27 14:20:46','2019-01-02 10:15:25','1');
+insert into transport_item_data values ('TI000013','橡胶0013','716','吨','TP000007','MT000004','P000001','2019-01-07 04:22:16','2018-12-28 02:28:20','1');
+insert into transport_item_data values ('TI000014','橡胶0014','825','立方','TP000007','MT000004','P000001','2019-01-09 03:53:21','2018-12-26 02:08:38','1');
+insert into transport_item_data values ('TI000015','橡胶0015','999','吨','TP000008','MT000004','P000001','2019-01-09 06:31:13','2018-12-26 16:44:35','1');
+insert into transport_item_data values ('TI000016','橡胶0016','714','立方','TP000008','MT000004','P000001','2019-01-07 00:04:10','2018-12-31 17:43:10','1');
 
 	
-insert into transport_task_data values ('TT000001','橡胶运输任务','L000001','L000001','在二号通道','TTS000001','M000001','M000001','P000001','2019-01-14 15:02:26','2019-01-04 23:17:30','1');
-insert into transport_task_data values ('TT000002','橡胶运输任务0002','L000001','L000001','在二号通道0002','TTS000001','M000001','M000001','P000001','2019-01-11 03:51:08','2019-01-06 09:31:44','1');
-insert into transport_task_data values ('TT000003','橡胶运输任务0003','L000001','L000001','在二号通道0003','TTS000002','M000002','M000002','P000001','2018-12-31 11:00:51','2018-12-26 00:21:47','1');
-insert into transport_task_data values ('TT000004','橡胶运输任务0004','L000001','L000001','在二号通道0004','TTS000002','M000002','M000002','P000001','2018-12-29 19:04:31','2018-12-29 01:16:30','1');
-insert into transport_task_data values ('TT000005','橡胶运输任务0005','L000002','L000002','在二号通道0005','TTS000003','M000003','M000003','P000001','2019-01-12 20:05:08','2019-01-11 11:21:40','1');
-insert into transport_task_data values ('TT000006','橡胶运输任务0006','L000002','L000002','在二号通道0006','TTS000004','M000003','M000003','P000001','2019-01-16 00:24:22','2019-01-06 14:57:05','1');
-insert into transport_task_data values ('TT000007','橡胶运输任务0007','L000002','L000002','在二号通道0007','TTS000004','M000004','M000004','P000001','2019-01-10 03:04:54','2019-01-08 20:22:08','1');
-insert into transport_task_data values ('TT000008','橡胶运输任务0008','L000002','L000002','在二号通道0008','TTS000005','M000004','M000004','P000001','2019-01-10 10:02:16','2018-12-28 06:19:30','1');
+insert into transport_task_data values ('TT000001','橡胶运输任务','TP000001','L000001','L000001','在二号通道','TTS000001','M000001','M000001','P000001','2019-01-09 03:52:19','2019-01-14 16:24:52','1');
+insert into transport_task_data values ('TT000002','橡胶运输任务0002','TP000001','L000001','L000001','在二号通道0002','TTS000001','M000001','M000001','P000001','2019-01-15 01:11:53','2018-12-29 15:36:16','1');
+insert into transport_task_data values ('TT000003','橡胶运输任务0003','TP000002','L000001','L000001','在二号通道0003','TTS000001','M000001','M000001','P000001','2019-01-16 08:08:13','2019-01-16 12:47:31','1');
+insert into transport_task_data values ('TT000004','橡胶运输任务0004','TP000002','L000001','L000001','在二号通道0004','TTS000001','M000001','M000001','P000001','2019-01-07 19:25:09','2018-12-31 03:20:17','1');
+insert into transport_task_data values ('TT000005','橡胶运输任务0005','TP000003','L000001','L000001','在二号通道0005','TTS000002','M000002','M000002','P000001','2019-01-13 15:30:09','2018-12-29 11:31:20','1');
+insert into transport_task_data values ('TT000006','橡胶运输任务0006','TP000003','L000001','L000001','在二号通道0006','TTS000002','M000002','M000002','P000001','2019-01-08 22:08:43','2019-01-11 23:14:54','1');
+insert into transport_task_data values ('TT000007','橡胶运输任务0007','TP000004','L000001','L000001','在二号通道0007','TTS000002','M000002','M000002','P000001','2019-01-03 00:26:33','2019-01-05 02:05:59','1');
+insert into transport_task_data values ('TT000008','橡胶运输任务0008','TP000004','L000001','L000001','在二号通道0008','TTS000003','M000002','M000002','P000001','2018-12-27 23:45:39','2019-01-11 21:28:41','1');
+insert into transport_task_data values ('TT000009','橡胶运输任务0009','TP000005','L000002','L000002','在二号通道0009','TTS000003','M000003','M000003','P000001','2018-12-31 19:37:31','2019-01-03 20:58:53','1');
+insert into transport_task_data values ('TT000010','橡胶运输任务0010','TP000005','L000002','L000002','在二号通道0010','TTS000003','M000003','M000003','P000001','2018-12-30 00:09:33','2019-01-03 09:09:03','1');
+insert into transport_task_data values ('TT000011','橡胶运输任务0011','TP000006','L000002','L000002','在二号通道0011','TTS000004','M000003','M000003','P000001','2019-01-09 11:34:26','2019-01-02 09:29:01','1');
+insert into transport_task_data values ('TT000012','橡胶运输任务0012','TP000006','L000002','L000002','在二号通道0012','TTS000004','M000003','M000003','P000001','2018-12-27 18:20:29','2019-01-10 19:50:17','1');
+insert into transport_task_data values ('TT000013','橡胶运输任务0013','TP000007','L000002','L000002','在二号通道0013','TTS000004','M000004','M000004','P000001','2019-01-11 06:59:39','2019-01-05 06:49:50','1');
+insert into transport_task_data values ('TT000014','橡胶运输任务0014','TP000007','L000002','L000002','在二号通道0014','TTS000005','M000004','M000004','P000001','2019-01-16 16:12:21','2019-01-06 06:56:06','1');
+insert into transport_task_data values ('TT000015','橡胶运输任务0015','TP000008','L000002','L000002','在二号通道0015','TTS000005','M000004','M000004','P000001','2019-01-01 10:46:59','2019-01-11 15:14:08','1');
+insert into transport_task_data values ('TT000016','橡胶运输任务0016','TP000008','L000002','L000002','在二号通道0016','TTS000005','M000004','M000004','P000001','2019-01-07 14:33:36','2019-01-09 23:05:09','1');
 
 	
-insert into transport_task_track_data values ('TTT000001','陕西宝鸡','40.876575609469704','130.00954188173884','TT000001','2018-12-29 11:28:36','2018-12-26 16:39:21','1');
-insert into transport_task_track_data values ('TTT000002','陕西宝鸡0002','40.35657293932738','132.10881293783913','TT000001','2018-12-28 15:12:07','2018-12-30 19:13:37','1');
-insert into transport_task_track_data values ('TTT000003','陕西宝鸡0003','41.84555346111789','130.639560289115','TT000002','2019-01-04 21:11:42','2018-12-31 04:45:41','1');
-insert into transport_task_track_data values ('TTT000004','陕西宝鸡0004','40.54128688292514','132.00490962716776','TT000002','2019-01-05 22:52:14','2019-01-14 16:16:02','1');
-insert into transport_task_track_data values ('TTT000005','陕西宝鸡0005','41.44596582669013','131.17095935848795','TT000003','2019-01-13 20:38:32','2019-01-09 22:46:19','1');
-insert into transport_task_track_data values ('TTT000006','陕西宝鸡0006','42.50479881693595','129.32816503124775','TT000003','2019-01-06 03:23:24','2019-01-04 21:13:50','1');
-insert into transport_task_track_data values ('TTT000007','陕西宝鸡0007','40.35882841637728','130.46592229233272','TT000004','2019-01-13 00:26:30','2019-01-11 14:15:47','1');
-insert into transport_task_track_data values ('TTT000008','陕西宝鸡0008','42.523713812442026','130.13961670857293','TT000004','2019-01-15 04:34:18','2019-01-07 19:27:02','1');
-insert into transport_task_track_data values ('TTT000009','陕西宝鸡0009','42.727111958531005','129.90374075519316','TT000005','2018-12-26 10:42:31','2019-01-06 17:20:43','1');
-insert into transport_task_track_data values ('TTT000010','陕西宝鸡0010','41.776941215353524','129.54776771044388','TT000005','2018-12-31 02:23:27','2019-01-02 04:51:53','1');
-insert into transport_task_track_data values ('TTT000011','陕西宝鸡0011','42.69121082237564','130.4033055530381','TT000006','2019-01-03 01:14:39','2019-01-16 06:01:07','1');
-insert into transport_task_track_data values ('TTT000012','陕西宝鸡0012','40.897245775093864','129.59164205664848','TT000006','2019-01-11 18:45:01','2018-12-28 01:17:39','1');
-insert into transport_task_track_data values ('TTT000013','陕西宝鸡0013','41.104037390092536','131.15012581499116','TT000007','2018-12-29 20:40:05','2019-01-12 16:07:51','1');
-insert into transport_task_track_data values ('TTT000014','陕西宝鸡0014','40.96609660240286','129.51391638907526','TT000007','2019-01-16 09:30:12','2019-01-12 23:21:47','1');
-insert into transport_task_track_data values ('TTT000015','陕西宝鸡0015','39.89058656407917','130.83647089140638','TT000008','2019-01-12 20:34:41','2019-01-11 21:51:32','1');
-insert into transport_task_track_data values ('TTT000016','陕西宝鸡0016','42.29165852646194','130.107720637012','TT000008','2019-01-13 18:55:23','2019-01-04 09:04:16','1');
+insert into transport_task_track_data values ('TTT000001','陕西宝鸡','39.828301493672534','131.0609370317088','TT000001','2019-01-02 07:10:50','2019-01-01 18:40:28','1');
+insert into transport_task_track_data values ('TTT000002','陕西宝鸡0002','39.90214895543913','130.42217337937848','TT000001','2019-01-14 05:05:46','2019-01-10 11:34:45','1');
+insert into transport_task_track_data values ('TTT000003','陕西宝鸡0003','41.843512373629885','132.1227945778912','TT000002','2018-12-28 13:43:07','2019-01-06 03:07:00','1');
+insert into transport_task_track_data values ('TTT000004','陕西宝鸡0004','42.64038093698817','130.4159595317458','TT000002','2019-01-15 14:26:07','2019-01-12 12:31:48','1');
+insert into transport_task_track_data values ('TTT000005','陕西宝鸡0005','40.86825139227846','131.17775513972214','TT000003','2019-01-02 04:59:25','2019-01-02 02:33:03','1');
+insert into transport_task_track_data values ('TTT000006','陕西宝鸡0006','41.74055737307086','132.11509030216087','TT000003','2019-01-12 17:24:32','2019-01-09 21:51:25','1');
+insert into transport_task_track_data values ('TTT000007','陕西宝鸡0007','42.73855866347829','130.23233129512832','TT000004','2019-01-11 11:11:25','2019-01-01 04:39:13','1');
+insert into transport_task_track_data values ('TTT000008','陕西宝鸡0008','41.8577682297346','129.3718353464861','TT000004','2019-01-01 21:45:53','2019-01-06 22:21:48','1');
+insert into transport_task_track_data values ('TTT000009','陕西宝鸡0009','39.952331727771025','129.79880987639595','TT000005','2019-01-11 19:26:26','2019-01-03 20:39:34','1');
+insert into transport_task_track_data values ('TTT000010','陕西宝鸡0010','40.5718614292424','131.17494890233874','TT000005','2019-01-06 00:34:48','2019-01-13 00:52:59','1');
+insert into transport_task_track_data values ('TTT000011','陕西宝鸡0011','41.06705972083193','131.85807341054513','TT000006','2019-01-02 05:01:18','2019-01-02 15:47:33','1');
+insert into transport_task_track_data values ('TTT000012','陕西宝鸡0012','41.59105541811728','129.2765227586326','TT000006','2019-01-05 14:56:20','2018-12-29 20:02:06','1');
+insert into transport_task_track_data values ('TTT000013','陕西宝鸡0013','41.942712211475154','131.15732079761025','TT000007','2019-01-04 13:14:44','2019-01-03 06:30:12','1');
+insert into transport_task_track_data values ('TTT000014','陕西宝鸡0014','41.98625200158725','130.63616109178602','TT000007','2019-01-09 21:52:56','2018-12-30 06:01:29','1');
+insert into transport_task_track_data values ('TTT000015','陕西宝鸡0015','41.63837526915663','131.74503177188498','TT000008','2019-01-10 05:05:25','2018-12-31 07:14:50','1');
+insert into transport_task_track_data values ('TTT000016','陕西宝鸡0016','41.13964379810214','131.45982082517273','TT000008','2019-01-09 09:15:12','2019-01-07 17:20:12','1');
+insert into transport_task_track_data values ('TTT000017','陕西宝鸡0017','41.52122840497854','130.3955192106274','TT000009','2019-01-12 09:30:29','2019-01-03 08:08:58','1');
+insert into transport_task_track_data values ('TTT000018','陕西宝鸡0018','41.84120987410731','129.36066086664368','TT000009','2018-12-26 06:26:55','2019-01-11 13:45:24','1');
+insert into transport_task_track_data values ('TTT000019','陕西宝鸡0019','41.89645720366538','129.32541180127598','TT000010','2019-01-16 13:31:24','2018-12-26 08:17:37','1');
+insert into transport_task_track_data values ('TTT000020','陕西宝鸡0020','41.7166933986557','129.91924524415293','TT000010','2018-12-26 13:53:32','2018-12-29 14:09:48','1');
+insert into transport_task_track_data values ('TTT000021','陕西宝鸡0021','42.216694552908415','130.35441249512775','TT000011','2019-01-14 07:02:19','2018-12-26 13:34:44','1');
+insert into transport_task_track_data values ('TTT000022','陕西宝鸡0022','40.9206547662845','131.67044204145228','TT000011','2018-12-26 11:03:04','2019-01-11 04:31:56','1');
+insert into transport_task_track_data values ('TTT000023','陕西宝鸡0023','42.67958419231304','129.4126747891429','TT000012','2018-12-30 01:03:40','2019-01-10 10:40:49','1');
+insert into transport_task_track_data values ('TTT000024','陕西宝鸡0024','41.77819440771743','131.2943634444607','TT000012','2019-01-09 03:00:07','2019-01-01 12:59:29','1');
+insert into transport_task_track_data values ('TTT000025','陕西宝鸡0025','42.77206094120892','131.04714206266152','TT000013','2018-12-29 05:27:56','2019-01-11 21:39:28','1');
+insert into transport_task_track_data values ('TTT000026','陕西宝鸡0026','40.80893849094971','131.53868994021215','TT000013','2019-01-06 19:22:13','2019-01-13 00:10:05','1');
+insert into transport_task_track_data values ('TTT000027','陕西宝鸡0027','42.06994067935724','131.32919270360063','TT000014','2019-01-13 21:24:44','2018-12-31 04:45:17','1');
+insert into transport_task_track_data values ('TTT000028','陕西宝鸡0028','41.316881799332165','132.1497225261237','TT000014','2018-12-27 22:03:20','2019-01-14 04:28:17','1');
+insert into transport_task_track_data values ('TTT000029','陕西宝鸡0029','40.3514143727594','129.31593542390297','TT000015','2019-01-10 16:31:57','2018-12-26 02:19:14','1');
+insert into transport_task_track_data values ('TTT000030','陕西宝鸡0030','40.47968136919093','129.83950666439281','TT000015','2018-12-30 15:57:18','2019-01-09 11:44:40','1');
+insert into transport_task_track_data values ('TTT000031','陕西宝鸡0031','40.83303950917432','131.9674975658606','TT000016','2019-01-07 15:59:53','2019-01-01 14:36:24','1');
+insert into transport_task_track_data values ('TTT000032','陕西宝鸡0032','41.62099403366038','130.06637186161672','TT000016','2019-01-04 05:54:29','2019-01-04 09:20:10','1');
 
 	
-insert into merchant_account_data values ('MA000001','商户账户','M000001','2018-12-29 08:45:23','2018-12-30 21:29:10','1');
-insert into merchant_account_data values ('MA000002','商户账户0002','M000001','2019-01-04 00:37:41','2019-01-14 12:01:45','1');
-insert into merchant_account_data values ('MA000003','商户账户0003','M000002','2019-01-11 10:52:55','2019-01-11 13:21:48','1');
-insert into merchant_account_data values ('MA000004','商户账户0004','M000002','2019-01-08 21:00:38','2018-12-26 07:26:09','1');
-insert into merchant_account_data values ('MA000005','商户账户0005','M000003','2019-01-09 10:20:08','2019-01-04 08:09:20','1');
-insert into merchant_account_data values ('MA000006','商户账户0006','M000003','2019-01-03 15:24:51','2018-12-25 23:47:12','1');
-insert into merchant_account_data values ('MA000007','商户账户0007','M000004','2019-01-08 19:27:20','2019-01-15 01:19:37','1');
-insert into merchant_account_data values ('MA000008','商户账户0008','M000004','2018-12-29 14:37:59','2019-01-06 08:49:23','1');
+insert into merchant_account_data values ('MA000001','商户账户','M000001','2018-12-28 01:16:38','2019-01-01 08:28:49','1');
+insert into merchant_account_data values ('MA000002','商户账户0002','M000001','2019-01-07 09:59:27','2019-01-02 01:34:10','1');
+insert into merchant_account_data values ('MA000003','商户账户0003','M000002','2019-01-04 10:41:24','2019-01-15 20:00:12','1');
+insert into merchant_account_data values ('MA000004','商户账户0004','M000002','2019-01-07 06:28:19','2018-12-31 07:13:18','1');
+insert into merchant_account_data values ('MA000005','商户账户0005','M000003','2018-12-27 00:46:42','2018-12-25 20:59:07','1');
+insert into merchant_account_data values ('MA000006','商户账户0006','M000003','2019-01-05 06:17:17','2019-01-09 20:37:29','1');
+insert into merchant_account_data values ('MA000007','商户账户0007','M000004','2019-01-11 00:05:37','2019-01-07 16:47:11','1');
+insert into merchant_account_data values ('MA000008','商户账户0008','M000004','2019-01-16 10:32:36','2019-01-02 09:49:31','1');
 
 	
-insert into transaction_data values ('T000001','收入','12155.40','TT000001','MA000001','1');
-insert into transaction_data values ('T000002','支出','11015.79','TT000001','MA000001','1');
-insert into transaction_data values ('T000003','收入','8850.81','TT000001','MA000002','1');
-insert into transaction_data values ('T000004','支出','9318.29','TT000001','MA000002','1');
-insert into transaction_data values ('T000005','收入','8909.06','TT000001','MA000003','1');
-insert into transaction_data values ('T000006','支出','9187.67','TT000001','MA000003','1');
-insert into transaction_data values ('T000007','收入','9540.76','TT000001','MA000004','1');
-insert into transaction_data values ('T000008','支出','9289.91','TT000001','MA000004','1');
-insert into transaction_data values ('T000009','收入','10068.48','TT000002','MA000005','1');
-insert into transaction_data values ('T000010','支出','11552.54','TT000002','MA000005','1');
-insert into transaction_data values ('T000011','收入','10277.83','TT000002','MA000006','1');
-insert into transaction_data values ('T000012','支出','12183.15','TT000002','MA000006','1');
-insert into transaction_data values ('T000013','收入','9400.93','TT000002','MA000007','1');
-insert into transaction_data values ('T000014','支出','10535.01','TT000002','MA000007','1');
-insert into transaction_data values ('T000015','收入','11601.54','TT000002','MA000008','1');
-insert into transaction_data values ('T000016','支出','10868.35','TT000002','MA000008','1');
+insert into transaction_data values ('T000001','收入','9002.44','TT000001','MA000001','1');
+insert into transaction_data values ('T000002','支出','12251.45','TT000001','MA000001','1');
+insert into transaction_data values ('T000003','收入','11742.16','TT000001','MA000002','1');
+insert into transaction_data values ('T000004','支出','10311.28','TT000001','MA000002','1');
+insert into transaction_data values ('T000005','收入','8902.38','TT000001','MA000003','1');
+insert into transaction_data values ('T000006','支出','9388.36','TT000001','MA000003','1');
+insert into transaction_data values ('T000007','收入','11991.15','TT000001','MA000004','1');
+insert into transaction_data values ('T000008','支出','10196.87','TT000001','MA000004','1');
+insert into transaction_data values ('T000009','收入','11148.97','TT000002','MA000005','1');
+insert into transaction_data values ('T000010','支出','10515.29','TT000002','MA000005','1');
+insert into transaction_data values ('T000011','收入','10400.98','TT000002','MA000006','1');
+insert into transaction_data values ('T000012','支出','10346.57','TT000002','MA000006','1');
+insert into transaction_data values ('T000013','收入','10852.46','TT000002','MA000007','1');
+insert into transaction_data values ('T000014','支出','10556.54','TT000002','MA000007','1');
+insert into transaction_data values ('T000015','收入','10721.57','TT000002','MA000008','1');
+insert into transaction_data values ('T000016','支出','9967.41','TT000002','MA000008','1');
 
 	
 insert into user_domain_data values ('UD000001','用户区域','1');
@@ -475,11 +500,11 @@ insert into user_white_list_data values ('UWL000001','clariones','tester;ios-spo
 insert into user_white_list_data values ('UWL000002','13808188512','tester;ios-spokesperson0002','UD000001','1');
 
 	
-insert into sec_user_data values ('SU000001','login','13900000001','','C183EC89F92A462CF45B95504792EC4625E847C90536EEFE512D1C9DB8602E95','0','2019-01-04 18:06:45','2019-01-08 13:58:47','UD000001',NULL,'BLOCKED','1');
-insert into sec_user_data values ('SU000002','login0002','13900000002','suddy_chang@163.com','AC2F95628244C6975EB2C36942EA879ED93D93F5895EF3157733E4629FA86B92','9999999','2019-01-06 01:48:44','2019-01-06 23:47:17','UD000001',NULL,'BLOCKED0002','1');
+insert into sec_user_data values ('SU000001','login','13900000001','','C183EC89F92A462CF45B95504792EC4625E847C90536EEFE512D1C9DB8602E95','0','2018-12-27 19:31:08','2019-01-10 02:56:08','UD000001',NULL,'BLOCKED','1');
+insert into sec_user_data values ('SU000002','login0002','13900000002','suddy_chang@163.com','AC2F95628244C6975EB2C36942EA879ED93D93F5895EF3157733E4629FA86B92','9999999','2019-01-14 16:11:48','2019-01-13 12:41:17','UD000001',NULL,'BLOCKED0002','1');
 
 	
-insert into sec_user_blocking_data values ('SUB000001','currentUser()','2019-01-05 23:29:08','这个用户多次发送违反社区的帖子，现在把他给屏蔽了','1');
+insert into sec_user_blocking_data values ('SUB000001','currentUser()','2019-01-12 01:32:09','这个用户多次发送违反社区的帖子，现在把他给屏蔽了','1');
 
 	
 insert into user_app_data values ('UA000001','审车平台','SU000001','users',1,'MXWR','CarInspectionPlatform','CIP000001','/link/to/app','1');
@@ -510,10 +535,10 @@ insert into object_access_data values ('OA000007','控制访问列表10007','Fra
 insert into object_access_data values ('OA000008','控制访问列表10008','AccountSet','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','UA000006','1');
 
 	
-insert into login_history_data values ('LH000001','2019-01-10 15:13:58','192.168.1.1','登陆成功','SU000001','1');
-insert into login_history_data values ('LH000002','2019-01-04 14:32:06','192.168.1.2','登陆成功0002','SU000001','1');
-insert into login_history_data values ('LH000003','2018-12-29 11:52:00','192.168.1.1','登陆成功0003','SU000002','1');
-insert into login_history_data values ('LH000004','2018-12-28 03:53:02','192.168.1.2','登陆成功0004','SU000002','1');
+insert into login_history_data values ('LH000001','2018-12-27 06:36:08','192.168.1.1','登陆成功','SU000001','1');
+insert into login_history_data values ('LH000002','2019-01-14 15:54:11','192.168.1.2','登陆成功0002','SU000001','1');
+insert into login_history_data values ('LH000003','2018-12-29 10:37:44','192.168.1.1','登陆成功0003','SU000002','1');
+insert into login_history_data values ('LH000004','2018-12-27 11:21:09','192.168.1.2','登陆成功0004','SU000002','1');
 
 	
 insert into generic_form_data values ('GF000001','登记输入单','姓名就是你身份证上的名字','1');
@@ -581,6 +606,8 @@ alter table transport_item_data add constraint transport_item4platform_fk
 	foreign key(platform) references platform_data(id) on delete cascade on update cascade;
 create unique index idx_transport_task_version on transport_task_data(id, version);
 
+alter table transport_task_data add constraint transport_task4project_fk
+	foreign key(project) references transport_project_data(id) on delete cascade on update cascade;
 alter table transport_task_data add constraint transport_task4source_fk
 	foreign key(source) references location_data(id) on delete cascade on update cascade;
 alter table transport_task_data add constraint transport_task4destination_fk

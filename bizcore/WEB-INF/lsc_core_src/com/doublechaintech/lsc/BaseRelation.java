@@ -130,7 +130,7 @@ public class BaseRelation{
 		String [] transportItemRelatedObjectNames = {"project:TransportProject","merchant:MerchantType","platform:Platform"};
 		addRelationIndex("TransportItem",transportItemRelatedObjectNames);
 
-		String [] transportTaskRelatedObjectNames = {"source:Location","destination:Location","status:TransportTaskStatus","sender:Merchant","receiver:Merchant","platform:Platform"};
+		String [] transportTaskRelatedObjectNames = {"project:TransportProject","source:Location","destination:Location","status:TransportTaskStatus","sender:Merchant","receiver:Merchant","platform:Platform"};
 		addRelationIndex("TransportTask",transportTaskRelatedObjectNames);
 
 		String [] transportTaskTrackRelatedObjectNames = {"task:TransportTask"};
@@ -203,6 +203,7 @@ public class BaseRelation{
 		addGenericRelation("TransportItem"                         ,TRUST_CHAIN_READ,"project");
 		addGenericRelation("TransportItem"                         ,TRUST_CHAIN_READ,"merchant");
 		addGenericRelation("TransportItem"                         ,TRUST_CHAIN_READ,"platform");
+		addGenericRelation("TransportTask"                         ,TRUST_CHAIN_READ,"project");
 		addGenericRelation("TransportTask"                         ,TRUST_CHAIN_READ,"source");
 		addGenericRelation("TransportTask"                         ,TRUST_CHAIN_READ,"destination");
 		addGenericRelation("TransportTask"                         ,TRUST_CHAIN_READ,"status");

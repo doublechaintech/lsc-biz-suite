@@ -393,9 +393,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.TRANSACTION_TYPE_LIST);
  	}
  	protected boolean isAnalyzeTransactionTypeListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.TRANSACTION_TYPE_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.TRANSACTION_TYPE_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransactionTypeListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.TRANSACTION_TYPE_LIST);
 		
@@ -407,9 +408,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.MERCHANT_TYPE_LIST);
  	}
  	protected boolean isAnalyzeMerchantTypeListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.MERCHANT_TYPE_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.MERCHANT_TYPE_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveMerchantTypeListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.MERCHANT_TYPE_LIST);
 		
@@ -421,9 +423,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.TRANSPORT_TASK_STATUS_LIST);
  	}
  	protected boolean isAnalyzeTransportTaskStatusListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.TRANSPORT_TASK_STATUS_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.TRANSPORT_TASK_STATUS_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskStatusListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.TRANSPORT_TASK_STATUS_LIST);
 		
@@ -435,9 +438,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.LOCATION_LIST);
  	}
  	protected boolean isAnalyzeLocationListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.LOCATION_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.LOCATION_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveLocationListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.LOCATION_LIST);
 		
@@ -449,9 +453,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.MERCHANT_LIST);
  	}
  	protected boolean isAnalyzeMerchantListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.MERCHANT_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.MERCHANT_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveMerchantListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.MERCHANT_LIST);
 		
@@ -463,9 +468,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.TRANSPORT_PROJECT_LIST);
  	}
  	protected boolean isAnalyzeTransportProjectListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.TRANSPORT_PROJECT_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.TRANSPORT_PROJECT_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportProjectListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.TRANSPORT_PROJECT_LIST);
 		
@@ -477,9 +483,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.TRANSPORT_ITEM_LIST);
  	}
  	protected boolean isAnalyzeTransportItemListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.TRANSPORT_ITEM_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.TRANSPORT_ITEM_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportItemListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.TRANSPORT_ITEM_LIST);
 		
@@ -491,9 +498,10 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
  		return checkOptions(options,PlatformTokens.TRANSPORT_TASK_LIST);
  	}
  	protected boolean isAnalyzeTransportTaskListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,PlatformTokens.TRANSPORT_TASK_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,PlatformTokens.TRANSPORT_TASK_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskListEnabled(Map<String,Object> options){
 		return checkOptions(options, PlatformTokens.TRANSPORT_TASK_LIST);
 		
@@ -531,7 +539,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractTransactionTypeList(platform, loadOptions);
  		}	
  		if(isAnalyzeTransactionTypeListEnabled(loadOptions)){
-	 		// analyzeTransactionTypeList(platform, loadOptions);
+	 		analyzeTransactionTypeList(platform, loadOptions);
  		}
  		
 		
@@ -539,7 +547,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractMerchantTypeList(platform, loadOptions);
  		}	
  		if(isAnalyzeMerchantTypeListEnabled(loadOptions)){
-	 		// analyzeMerchantTypeList(platform, loadOptions);
+	 		analyzeMerchantTypeList(platform, loadOptions);
  		}
  		
 		
@@ -547,7 +555,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractTransportTaskStatusList(platform, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskStatusListEnabled(loadOptions)){
-	 		// analyzeTransportTaskStatusList(platform, loadOptions);
+	 		analyzeTransportTaskStatusList(platform, loadOptions);
  		}
  		
 		
@@ -555,7 +563,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractLocationList(platform, loadOptions);
  		}	
  		if(isAnalyzeLocationListEnabled(loadOptions)){
-	 		// analyzeLocationList(platform, loadOptions);
+	 		analyzeLocationList(platform, loadOptions);
  		}
  		
 		
@@ -563,7 +571,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractMerchantList(platform, loadOptions);
  		}	
  		if(isAnalyzeMerchantListEnabled(loadOptions)){
-	 		// analyzeMerchantList(platform, loadOptions);
+	 		analyzeMerchantList(platform, loadOptions);
  		}
  		
 		
@@ -571,7 +579,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractTransportProjectList(platform, loadOptions);
  		}	
  		if(isAnalyzeTransportProjectListEnabled(loadOptions)){
-	 		// analyzeTransportProjectList(platform, loadOptions);
+	 		analyzeTransportProjectList(platform, loadOptions);
  		}
  		
 		
@@ -579,7 +587,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractTransportItemList(platform, loadOptions);
  		}	
  		if(isAnalyzeTransportItemListEnabled(loadOptions)){
-	 		// analyzeTransportItemList(platform, loadOptions);
+	 		analyzeTransportItemList(platform, loadOptions);
  		}
  		
 		
@@ -587,7 +595,7 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	 		extractTransportTaskList(platform, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskListEnabled(loadOptions)){
-	 		// analyzeTransportTaskList(platform, loadOptions);
+	 		analyzeTransportTaskList(platform, loadOptions);
  		}
  		
 		
@@ -1635,6 +1643,50 @@ public class PlatformJDBCTemplateDAO extends LscNamingServiceDAO implements Plat
 	}
 
 
+	//disconnect Platform with project in TransportTask
+	public Platform planToRemoveTransportTaskListWithProject(Platform platform, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+		
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.PLATFORM_PROPERTY, platform.getId());
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		SmartList<TransportTask> externalTransportTaskList = getTransportTaskDAO().
+				findTransportTaskWithKey(key, options);
+		if(externalTransportTaskList == null){
+			return platform;
+		}
+		if(externalTransportTaskList.isEmpty()){
+			return platform;
+		}
+		
+		for(TransportTask transportTask: externalTransportTaskList){
+			transportTask.clearProject();
+			transportTask.clearPlatform();
+			
+		}
+		
+		
+		SmartList<TransportTask> transportTaskList = platform.getTransportTaskList();		
+		transportTaskList.addAllToRemoveList(externalTransportTaskList);
+		return platform;
+	}
+	
+	public int countTransportTaskListWithProject(String platformId, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.PLATFORM_PROPERTY, platformId);
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		int count = getTransportTaskDAO().countTransportTaskWithKey(key, options);
+		return count;
+	}
+	
 	//disconnect Platform with source in TransportTask
 	public Platform planToRemoveTransportTaskListWithSource(Platform platform, String sourceId, Map<String,Object> options)throws Exception{
 				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();

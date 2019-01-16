@@ -12,6 +12,7 @@ import com.doublechaintech.lsc.KeyValuePair;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.transporttasktrack.TransportTaskTrack;
 import com.doublechaintech.lsc.platform.Platform;
@@ -23,6 +24,7 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 	
 	public static final String ID_PROPERTY                    = "id"                ;
 	public static final String NAME_PROPERTY                  = "name"              ;
+	public static final String PROJECT_PROPERTY               = "project"           ;
 	public static final String SOURCE_PROPERTY                = "source"            ;
 	public static final String DESTINATION_PROPERTY           = "destination"       ;
 	public static final String REMARK_PROPERTY                = "remark"            ;
@@ -57,6 +59,7 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 
 	protected		String              	mId                 ;
 	protected		String              	mName               ;
+	protected		TransportProject    	mProject            ;
 	protected		Location            	mSource             ;
 	protected		Location            	mDestination        ;
 	protected		String              	mRemark             ;
@@ -77,6 +80,7 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 	}
 	//disconnect from all, 中文就是一了百了，跟所有一切尘世断绝往来藏身于茫茫数据海洋
 	public 	void clearFromAll(){
+		setProject( null );
 		setSource( null );
 		setDestination( null );
 		setStatus( null );
@@ -87,9 +91,10 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 		this.changed = true;
 	}
 	
-	public 	TransportTask(String name, Location source, Location destination, String remark, TransportTaskStatus status, Merchant sender, Merchant receiver, Platform platform, DateTime createTime, DateTime updateTime)
+	public 	TransportTask(String name, TransportProject project, Location source, Location destination, String remark, TransportTaskStatus status, Merchant sender, Merchant receiver, Platform platform, DateTime createTime, DateTime updateTime)
 	{
 		setName(name);
+		setProject(project);
 		setSource(source);
 		setDestination(destination);
 		setRemark(remark);
@@ -214,6 +219,24 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 		return this;
 	}
 	
+	
+	public void setProject(TransportProject project){
+		this.mProject = project;;
+	}
+	public TransportProject getProject(){
+		return this.mProject;
+	}
+	public TransportTask updateProject(TransportProject project){
+		this.mProject = project;;
+		this.changed = true;
+		return this;
+	}
+	
+	
+	public void clearProject(){
+		setProject ( null );
+		this.changed = true;
+	}
 	
 	public void setSource(Location source){
 		this.mSource = source;;
@@ -476,6 +499,7 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 
 	public void collectRefercences(BaseEntity owner, List<BaseEntity> entityList, String internalType){
 
+		addToEntityList(this, entityList, getProject(), internalType);
 		addToEntityList(this, entityList, getSource(), internalType);
 		addToEntityList(this, entityList, getDestination(), internalType);
 		addToEntityList(this, entityList, getStatus(), internalType);
@@ -509,6 +533,7 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 
 		appendKeyValuePair(result, ID_PROPERTY, getId());
 		appendKeyValuePair(result, NAME_PROPERTY, getName());
+		appendKeyValuePair(result, PROJECT_PROPERTY, getProject());
 		appendKeyValuePair(result, SOURCE_PROPERTY, getSource());
 		appendKeyValuePair(result, DESTINATION_PROPERTY, getDestination());
 		appendKeyValuePair(result, REMARK_PROPERTY, getRemark());
@@ -540,6 +565,7 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 		
 			dest.setId(getId());
 			dest.setName(getName());
+			dest.setProject(getProject());
 			dest.setSource(getSource());
 			dest.setDestination(getDestination());
 			dest.setRemark(getRemark());
@@ -563,6 +589,9 @@ public class TransportTask extends BaseEntity implements  java.io.Serializable{
 		stringBuilder.append("TransportTask{");
 		stringBuilder.append("\tid='"+getId()+"';");
 		stringBuilder.append("\tname='"+getName()+"';");
+		if(getProject() != null ){
+ 			stringBuilder.append("\tproject='TransportProject("+getProject().getId()+")';");
+ 		}
 		if(getSource() != null ){
  			stringBuilder.append("\tsource='Location("+getSource().getId()+")';");
  		}

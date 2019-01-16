@@ -334,6 +334,20 @@ public class MerchantForm extends BaseForm {
 	}
 
 
+	public MerchantForm projectIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  projectIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public MerchantForm projectIdFieldForTransportTask(String initValue){
+		return projectIdFieldForTransportTask("projectId",initValue);
+	}
+	public MerchantForm projectIdFieldForTransportTask(){
+		return projectIdFieldForTransportTask("projectId","");
+	}
+
+
 	public MerchantForm sourceIdFieldForTransportTask(String parameterName, String initValue){
 		FormField field =  sourceIdFromTransportTask(parameterName, initValue);		
 		this.addFormField(field);

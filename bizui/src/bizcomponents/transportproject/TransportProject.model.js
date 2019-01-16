@@ -182,6 +182,84 @@ export default {
 
     },
 
+
+
+
+    *addTransportTask({ payload }, { call, put }) {
+      const {TransportProjectService} = GlobalComponents;
+
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(TransportProjectService.addTransportTask, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+      yield put({ type: 'updateState', payload: newPlayload })
+      // yield put(routerRedux.push(`/transportProject/${id}/list/${role}CreateForm'))
+      notification.success({
+        message: '执行成功',
+        description: '执行成功',
+      })
+      if (continueNext) {
+        return
+      }
+      const partialList = true
+      const newState = {...data, partialList}
+      const location = { pathname: `/transportProject/${id}/list/\TransportTaskList/运输任务列表`, state: newState }
+      yield put(routerRedux.push(location))
+    },
+    *updateTransportTask({ payload }, { call, put }) {
+      const {TransportProjectService} = GlobalComponents;      
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(TransportProjectService.updateTransportTask, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const partialList = true
+      
+      const newPlayload = { ...payload, ...data, selectedRows, currentUpdateIndex,partialList }
+      yield put({ type: 'updateState', payload: newPlayload })
+      notification.success({
+        message: '执行成功',
+        description: '执行成功',
+      })
+      
+      if (continueNext) {
+        return
+      }
+      const location = { pathname: `/transportProject/${id}/list/\TransportTaskList/运输任务列表`, state: newPlayload }
+      yield put(routerRedux.push(location))
+    },
+    *gotoNextTransportTaskUpdateRow({ payload }, { call, put }) {
+      const { id, type, parameters, continueNext, selectedRows, currentUpdateIndex } = payload
+      const newPlayload = { ...payload, selectedRows, currentUpdateIndex }
+      yield put({ type: 'updateState', payload: newPlayload })
+    },
+    *removeTransportTaskList({ payload }, { call, put }) {
+      const {TransportProjectService} = GlobalComponents; 
+      const { id, role, parameters, continueNext } = payload
+      console.log('get form parameters', parameters)
+      const data = yield call(TransportProjectService.removeTransportTaskList, id, parameters)
+      if (hasError(data)) {
+        handleServerError(data)
+        return
+      }
+      const newPlayload = { ...payload, ...data }
+
+      yield put({ type: 'updateState', payload: newPlayload })
+        
+     
+      notification.success({
+        message: '执行成功',
+        description: '执行成功',
+      })
+
+    },
+
   },
   
   reducers: {

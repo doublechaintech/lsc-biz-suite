@@ -38,7 +38,7 @@ class TransportTaskModalTable extends PureComponent {
           dataSource={data}
           columns={displayColumns}
           size="small"
-          scroll={{ x: 1395 }}
+          scroll={{ x: 1530 }}
         />
       </div>
     )

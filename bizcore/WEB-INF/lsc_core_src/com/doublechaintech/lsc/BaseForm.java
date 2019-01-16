@@ -664,6 +664,19 @@ public class BaseForm extends GenericForm{
 		return field;
 	}
 
+	protected FormField projectIdFromTransportTask(String parameterName, String initValue){
+		FormField field = new FormField();
+		field.setLabel("项目");
+		field.setLocaleKey("transport_task.project");
+		field.setParameterName(parameterName);
+		field.setDefaultValue(initValue);
+		field.setFieldGroup("基本信息");
+		field.setType("TransportProject");
+		field.setRequired(true);
+		field.setPlaceholder("请填写项目");
+		return field;
+	}
+
 	protected FormField sourceIdFromTransportTask(String parameterName, String initValue){
 		FormField field = new FormField();
 		field.setLabel("源");

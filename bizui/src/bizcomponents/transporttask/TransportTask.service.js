@@ -18,6 +18,22 @@ const load = (targetObjectId, parameters) => {
 
 
 
+const requestCandidateProject = (ownerClass, id, filterKey, pageNo) => {
+ 
+  const url = `${PREFIX}transportTaskManager/requestCandidateProject/ownerClass/id/filterKey/pageNo/`
+  const requestParameters = {id, ownerClass,filterKey, pageNo}
+  return postForm({url,requestParameters})
+}	
+
+const transferToAnotherProject = (id, parameters) => {
+  //const parametersExpr = joinParameters(parameters)
+  const url = `${PREFIX}transportTaskManager/transferToAnotherProject/id/anotherProjectId/`
+  const requestParameters = {id, ...parameters}
+  return postForm({url,requestParameters})
+}
+
+
+
 const requestCandidateSource = (ownerClass, id, filterKey, pageNo) => {
  
   const url = `${PREFIX}transportTaskManager/requestCandidateSource/ownerClass/id/filterKey/pageNo/`
@@ -144,12 +160,14 @@ const TransportTaskService = { view,
   addTransportTaskTrack,
   updateTransportTaskTrack,
   removeTransportTaskTrackList,
+  requestCandidateProject,
   requestCandidateSource,
   requestCandidateDestination,
   requestCandidateStatus,
   requestCandidateSender,
   requestCandidateReceiver,
   requestCandidatePlatform,
+  transferToAnotherProject,
   transferToAnotherSource,
   transferToAnotherDestination,
   transferToAnotherStatus,

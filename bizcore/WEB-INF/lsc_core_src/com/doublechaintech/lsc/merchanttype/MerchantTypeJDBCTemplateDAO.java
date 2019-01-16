@@ -250,9 +250,10 @@ public class MerchantTypeJDBCTemplateDAO extends LscNamingServiceDAO implements 
  		return checkOptions(options,MerchantTypeTokens.MERCHANT_LIST);
  	}
  	protected boolean isAnalyzeMerchantListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantTypeTokens.MERCHANT_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantTypeTokens.MERCHANT_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveMerchantListEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantTypeTokens.MERCHANT_LIST);
 		
@@ -264,9 +265,10 @@ public class MerchantTypeJDBCTemplateDAO extends LscNamingServiceDAO implements 
  		return checkOptions(options,MerchantTypeTokens.TRANSPORT_ITEM_LIST);
  	}
  	protected boolean isAnalyzeTransportItemListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantTypeTokens.TRANSPORT_ITEM_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantTypeTokens.TRANSPORT_ITEM_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportItemListEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantTypeTokens.TRANSPORT_ITEM_LIST);
 		
@@ -308,7 +310,7 @@ public class MerchantTypeJDBCTemplateDAO extends LscNamingServiceDAO implements 
 	 		extractMerchantList(merchantType, loadOptions);
  		}	
  		if(isAnalyzeMerchantListEnabled(loadOptions)){
-	 		// analyzeMerchantList(merchantType, loadOptions);
+	 		analyzeMerchantList(merchantType, loadOptions);
  		}
  		
 		
@@ -316,7 +318,7 @@ public class MerchantTypeJDBCTemplateDAO extends LscNamingServiceDAO implements 
 	 		extractTransportItemList(merchantType, loadOptions);
  		}	
  		if(isAnalyzeTransportItemListEnabled(loadOptions)){
-	 		// analyzeTransportItemList(merchantType, loadOptions);
+	 		analyzeTransportItemList(merchantType, loadOptions);
  		}
  		
 		

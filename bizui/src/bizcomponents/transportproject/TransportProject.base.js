@@ -9,6 +9,7 @@ import moment from 'moment'
 const menuData = {menuName:"交通项目", menuFor: "transportProject",
   		subItems: [
   {name: 'transportItemList', displayName:'运输项目', icon:'sitemap',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportTaskList', displayName:'运输任务', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }

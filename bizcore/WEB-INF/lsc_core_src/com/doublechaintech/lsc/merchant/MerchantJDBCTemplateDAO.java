@@ -310,9 +310,10 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
  		return checkOptions(options,MerchantTokens.TRANSPORT_PROJECT_LIST);
  	}
  	protected boolean isAnalyzeTransportProjectListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantTokens.TRANSPORT_PROJECT_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantTokens.TRANSPORT_PROJECT_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportProjectListEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantTokens.TRANSPORT_PROJECT_LIST);
 		
@@ -324,9 +325,10 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
  		return checkOptions(options,MerchantTokens.TRANSPORT_TASK_LIST_AS_SENDER);
  	}
  	protected boolean isAnalyzeTransportTaskListAsSenderEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantTokens.TRANSPORT_TASK_LIST_AS_SENDER+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantTokens.TRANSPORT_TASK_LIST_AS_SENDER+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskListAsSenderEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantTokens.TRANSPORT_TASK_LIST_AS_SENDER);
 		
@@ -338,9 +340,10 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
  		return checkOptions(options,MerchantTokens.TRANSPORT_TASK_LIST_AS_RECEIVER);
  	}
  	protected boolean isAnalyzeTransportTaskListAsReceiverEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantTokens.TRANSPORT_TASK_LIST_AS_RECEIVER+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantTokens.TRANSPORT_TASK_LIST_AS_RECEIVER+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskListAsReceiverEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantTokens.TRANSPORT_TASK_LIST_AS_RECEIVER);
 		
@@ -352,9 +355,10 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
  		return checkOptions(options,MerchantTokens.MERCHANT_ACCOUNT_LIST);
  	}
  	protected boolean isAnalyzeMerchantAccountListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantTokens.MERCHANT_ACCOUNT_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantTokens.MERCHANT_ACCOUNT_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveMerchantAccountListEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantTokens.MERCHANT_ACCOUNT_LIST);
 		
@@ -400,7 +404,7 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
 	 		extractTransportProjectList(merchant, loadOptions);
  		}	
  		if(isAnalyzeTransportProjectListEnabled(loadOptions)){
-	 		// analyzeTransportProjectList(merchant, loadOptions);
+	 		analyzeTransportProjectList(merchant, loadOptions);
  		}
  		
 		
@@ -408,7 +412,7 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
 	 		extractTransportTaskListAsSender(merchant, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskListAsSenderEnabled(loadOptions)){
-	 		// analyzeTransportTaskListAsSender(merchant, loadOptions);
+	 		analyzeTransportTaskListAsSender(merchant, loadOptions);
  		}
  		
 		
@@ -416,7 +420,7 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
 	 		extractTransportTaskListAsReceiver(merchant, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskListAsReceiverEnabled(loadOptions)){
-	 		// analyzeTransportTaskListAsReceiver(merchant, loadOptions);
+	 		analyzeTransportTaskListAsReceiver(merchant, loadOptions);
  		}
  		
 		
@@ -424,7 +428,7 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
 	 		extractMerchantAccountList(merchant, loadOptions);
  		}	
  		if(isAnalyzeMerchantAccountListEnabled(loadOptions)){
-	 		// analyzeMerchantAccountList(merchant, loadOptions);
+	 		analyzeMerchantAccountList(merchant, loadOptions);
  		}
  		
 		
@@ -1150,6 +1154,50 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
 	}
 
 
+	//disconnect Merchant with project in TransportTask
+	public Merchant planToRemoveTransportTaskListAsSenderWithProject(Merchant merchant, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+		
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SENDER_PROPERTY, merchant.getId());
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		SmartList<TransportTask> externalTransportTaskList = getTransportTaskDAO().
+				findTransportTaskWithKey(key, options);
+		if(externalTransportTaskList == null){
+			return merchant;
+		}
+		if(externalTransportTaskList.isEmpty()){
+			return merchant;
+		}
+		
+		for(TransportTask transportTask: externalTransportTaskList){
+			transportTask.clearProject();
+			transportTask.clearSender();
+			
+		}
+		
+		
+		SmartList<TransportTask> transportTaskList = merchant.getTransportTaskListAsSender();		
+		transportTaskList.addAllToRemoveList(externalTransportTaskList);
+		return merchant;
+	}
+	
+	public int countTransportTaskListAsSenderWithProject(String merchantId, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SENDER_PROPERTY, merchantId);
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		int count = getTransportTaskDAO().countTransportTaskWithKey(key, options);
+		return count;
+	}
+	
 	//disconnect Merchant with source in TransportTask
 	public Merchant planToRemoveTransportTaskListAsSenderWithSource(Merchant merchant, String sourceId, Map<String,Object> options)throws Exception{
 				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
@@ -1354,6 +1402,50 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
 	}
 
 
+	//disconnect Merchant with project in TransportTask
+	public Merchant planToRemoveTransportTaskListAsReceiverWithProject(Merchant merchant, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+		
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SENDER_PROPERTY, merchant.getId());
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		SmartList<TransportTask> externalTransportTaskList = getTransportTaskDAO().
+				findTransportTaskWithKey(key, options);
+		if(externalTransportTaskList == null){
+			return merchant;
+		}
+		if(externalTransportTaskList.isEmpty()){
+			return merchant;
+		}
+		
+		for(TransportTask transportTask: externalTransportTaskList){
+			transportTask.clearProject();
+			transportTask.clearSender();
+			
+		}
+		
+		
+		SmartList<TransportTask> transportTaskList = merchant.getTransportTaskListAsSender();		
+		transportTaskList.addAllToRemoveList(externalTransportTaskList);
+		return merchant;
+	}
+	
+	public int countTransportTaskListAsReceiverWithProject(String merchantId, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.SENDER_PROPERTY, merchantId);
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		int count = getTransportTaskDAO().countTransportTaskWithKey(key, options);
+		return count;
+	}
+	
 	//disconnect Merchant with source in TransportTask
 	public Merchant planToRemoveTransportTaskListAsReceiverWithSource(Merchant merchant, String sourceId, Map<String,Object> options)throws Exception{
 				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();

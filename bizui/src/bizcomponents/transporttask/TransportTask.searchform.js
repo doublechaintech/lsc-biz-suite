@@ -130,6 +130,7 @@ componentDidMount() {
      
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'id'))
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'name'))
+		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'project'))
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'source'))
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'eq', 'destination'))
 		pushIfNotNull(paramList,this.buildStringSearchParameters(fieldsValue,'contains', 'remark'))
@@ -262,6 +263,21 @@ componentDidMount() {
               )}
             </FormItem>
           </Col>
+ <Col md={8} sm={24}>
+                    <Form.Item label="项目">
+                  {getFieldDecorator('project', {
+                    initialValue: tryinit('project'),
+                   
+                  })(
+                  
+                  <SelectObject 
+                    disabled={!availableForEdit('project')}
+                    targetType={"project"} 
+                    requestFunction={TransportTaskService.requestCandidateProject}/>
+                  
+                 
+                  )}
+                </Form.Item></Col>
  <Col md={8} sm={24}>
                     <Form.Item label="源">
                   {getFieldDecorator('source', {

@@ -19,7 +19,7 @@ const testValues = {};
 /*
 const testValues = {
   name: '收入',
-  amount: '8677.97',
+  amount: '11556.78',
   transactionTypeId: 'TT000001',
   accountId: 'MA000001',
 }

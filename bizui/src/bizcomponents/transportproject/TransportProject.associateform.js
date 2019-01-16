@@ -73,6 +73,7 @@ class TransportProjectAssociateForm extends Component {
     const { convertedImagesValues } = this.state
     const {TransportProjectService} = GlobalComponents
  const {TransportItemModalTable} = GlobalComponents;
+ const {TransportTaskModalTable} = GlobalComponents;
 
 
     const { getFieldDecorator, validateFieldsAndScroll, getFieldsError } = form
@@ -202,6 +203,7 @@ class TransportProjectAssociateForm extends Component {
         </Card>
         
 	<TransportItemModalTable data={data.transportItemList} owner={owner} />
+	<TransportTaskModalTable data={data.transportTaskList} owner={owner} />
         
         
         

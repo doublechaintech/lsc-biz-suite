@@ -21,12 +21,14 @@ import com.doublechaintech.lsc.LscCheckerManager;
 import com.doublechaintech.lsc.CustomLscCheckerManager;
 
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.transporttasktrack.TransportTaskTrack;
 import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
 
 import com.doublechaintech.lsc.merchant.CandidateMerchant;
+import com.doublechaintech.lsc.transportproject.CandidateTransportProject;
 import com.doublechaintech.lsc.location.CandidateLocation;
 import com.doublechaintech.lsc.platform.CandidatePlatform;
 import com.doublechaintech.lsc.transporttaskstatus.CandidateTransportTaskStatus;
@@ -156,6 +158,7 @@ public class TransportTaskManagerImpl extends CustomLscCheckerManager implements
 		addAction(userContext, transportTask, tokens,"@update","updateTransportTask","updateTransportTask/"+transportTask.getId()+"/","main","primary");
 		addAction(userContext, transportTask, tokens,"@copy","cloneTransportTask","cloneTransportTask/"+transportTask.getId()+"/","main","primary");
 		
+		addAction(userContext, transportTask, tokens,"transport_task.transfer_to_project","transferToAnotherProject","transferToAnotherProject/"+transportTask.getId()+"/","main","primary");
 		addAction(userContext, transportTask, tokens,"transport_task.transfer_to_source","transferToAnotherSource","transferToAnotherSource/"+transportTask.getId()+"/","main","primary");
 		addAction(userContext, transportTask, tokens,"transport_task.transfer_to_destination","transferToAnotherDestination","transferToAnotherDestination/"+transportTask.getId()+"/","main","primary");
 		addAction(userContext, transportTask, tokens,"transport_task.transfer_to_status","transferToAnotherStatus","transferToAnotherStatus/"+transportTask.getId()+"/","main","primary");
@@ -178,7 +181,7 @@ public class TransportTaskManagerImpl extends CustomLscCheckerManager implements
  	
 
 
-	public TransportTask createTransportTask(LscUserContext userContext,String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception
+	public TransportTask createTransportTask(LscUserContext userContext,String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception
 	{
 		
 		
@@ -194,6 +197,11 @@ public class TransportTaskManagerImpl extends CustomLscCheckerManager implements
 		TransportTask transportTask=createNewTransportTask();	
 
 		transportTask.setName(name);
+			
+		TransportProject project = loadTransportProject(userContext, projectId,emptyOptions());
+		transportTask.setProject(project);
+		
+		
 			
 		Location source = loadLocation(userContext, sourceId,emptyOptions());
 		transportTask.setSource(source);
@@ -254,6 +262,8 @@ public class TransportTaskManagerImpl extends CustomLscCheckerManager implements
 		if(TransportTask.NAME_PROPERTY.equals(property)){
 			userContext.getChecker().checkNameOfTransportTask(parseString(newValueExpr));
 		}		
+
+				
 
 				
 
@@ -374,7 +384,56 @@ public class TransportTaskManagerImpl extends CustomLscCheckerManager implements
 		return TransportTaskTokens.mergeAll(tokens).done();
 	}
 	
-	protected void checkParamsForTransferingAnotherSource(LscUserContext userContext, String transportTaskId, String anotherSourceId) throws Exception
+	protected void checkParamsForTransferingAnotherProject(LscUserContext userContext, String transportTaskId, String anotherProjectId) throws Exception
+ 	{
+ 		
+ 		userContext.getChecker().checkIdOfTransportTask(transportTaskId);
+ 		userContext.getChecker().checkIdOfTransportProject(anotherProjectId);//check for optional reference
+ 		userContext.getChecker().throwExceptionIfHasErrors(TransportTaskManagerException.class);
+ 		
+ 	}
+ 	public TransportTask transferToAnotherProject(LscUserContext userContext, String transportTaskId, String anotherProjectId) throws Exception
+ 	{
+ 		checkParamsForTransferingAnotherProject(userContext, transportTaskId,anotherProjectId);
+ 
+		TransportTask transportTask = loadTransportTask(userContext, transportTaskId, allTokens());	
+		synchronized(transportTask){
+			//will be good when the transportTask loaded from this JVM process cache.
+			//also good when there is a ram based DAO implementation
+			TransportProject project = loadTransportProject(userContext, anotherProjectId, emptyOptions());		
+			transportTask.updateProject(project);		
+			transportTask = saveTransportTask(userContext, transportTask, emptyOptions());
+			
+			return present(userContext,transportTask, allTokens());
+			
+		}
+
+ 	}
+ 	
+	 	
+ 	
+ 	
+	public CandidateTransportProject requestCandidateProject(LscUserContext userContext, String ownerClass, String id, String filterKey, int pageNo) throws Exception {
+
+		CandidateTransportProject result = new CandidateTransportProject();
+		result.setOwnerClass(ownerClass);
+		result.setOwnerId(id);
+		result.setFilterKey(filterKey==null?"":filterKey.trim());
+		result.setPageNo(pageNo);
+		result.setValueFieldName("id");
+		result.setDisplayFieldName("name");
+		
+		pageNo = Math.max(1, pageNo);
+		int pageSize = 20;
+		//requestCandidateProductForSkuAsOwner
+		SmartList<TransportProject> candidateList = userContext.getDAOGroup().getTransportProjectDAO().requestCandidateTransportProjectForTransportTask(userContext,ownerClass, id, filterKey, pageNo, pageSize);
+		result.setCandidates(candidateList);
+		int totalCount = candidateList.getTotalCount();
+		result.setTotalPage(Math.max(1, (totalCount + pageSize -1)/pageSize ));
+		return result;
+	}
+ 	
+ 	protected void checkParamsForTransferingAnotherSource(LscUserContext userContext, String transportTaskId, String anotherSourceId) throws Exception
  	{
  		
  		userContext.getChecker().checkIdOfTransportTask(transportTaskId);
@@ -669,6 +728,16 @@ public class TransportTaskManagerImpl extends CustomLscCheckerManager implements
 	}
  	
  //--------------------------------------------------------------
+	
+	 	
+ 	protected TransportProject loadTransportProject(LscUserContext userContext, String newProjectId, Map<String,Object> options) throws Exception
+ 	{
+		
+ 		return userContext.getDAOGroup().getTransportProjectDAO().load(newProjectId, options);
+ 	}
+ 	
+ 	
+ 	
 	
 	 	
  	protected TransportTaskStatus loadTransportTaskStatus(LscUserContext userContext, String newStatusId, Map<String,Object> options) throws Exception

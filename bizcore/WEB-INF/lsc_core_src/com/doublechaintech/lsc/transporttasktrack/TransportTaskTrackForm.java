@@ -149,6 +149,20 @@ public class TransportTaskTrackForm extends BaseForm {
 	}
 
 
+	public TransportTaskTrackForm projectIdFieldOfTransportTask(String parameterName, String initValue){
+		FormField field =  projectIdFromTransportTask(parameterName, initValue);
+		this.addFormField(field);	
+		return this;
+	}
+	
+	public TransportTaskTrackForm projectIdFieldOfTransportTask(String initValue){
+		return projectIdFieldOfTransportTask("projectId",initValue);
+	}
+	public TransportTaskTrackForm projectIdFieldOfTransportTask(){
+		return projectIdFieldOfTransportTask("projectId","");
+	}
+
+
 	public TransportTaskTrackForm sourceIdFieldOfTransportTask(String parameterName, String initValue){
 		FormField field =  sourceIdFromTransportTask(parameterName, initValue);
 		this.addFormField(field);	

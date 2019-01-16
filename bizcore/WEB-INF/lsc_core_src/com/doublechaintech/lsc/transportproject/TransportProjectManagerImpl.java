@@ -21,15 +21,19 @@ import com.doublechaintech.lsc.LscCheckerManager;
 import com.doublechaintech.lsc.CustomLscCheckerManager;
 
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transporttask.TransportTask;
 import com.doublechaintech.lsc.transportitem.TransportItem;
 import com.doublechaintech.lsc.platform.Platform;
 
 import com.doublechaintech.lsc.merchant.CandidateMerchant;
 import com.doublechaintech.lsc.platform.CandidatePlatform;
 
+import com.doublechaintech.lsc.merchant.Merchant;
 import com.doublechaintech.lsc.transportproject.TransportProject;
+import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.merchanttype.MerchantType;
+import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
 
 
 
@@ -160,6 +164,10 @@ public class TransportProjectManagerImpl extends CustomLscCheckerManager impleme
 		addAction(userContext, transportProject, tokens,"transport_project.removeTransportItem","removeTransportItem","removeTransportItem/"+transportProject.getId()+"/","transportItemList","primary");
 		addAction(userContext, transportProject, tokens,"transport_project.updateTransportItem","updateTransportItem","updateTransportItem/"+transportProject.getId()+"/","transportItemList","primary");
 		addAction(userContext, transportProject, tokens,"transport_project.copyTransportItemFrom","copyTransportItemFrom","copyTransportItemFrom/"+transportProject.getId()+"/","transportItemList","primary");
+		addAction(userContext, transportProject, tokens,"transport_project.addTransportTask","addTransportTask","addTransportTask/"+transportProject.getId()+"/","transportTaskList","primary");
+		addAction(userContext, transportProject, tokens,"transport_project.removeTransportTask","removeTransportTask","removeTransportTask/"+transportProject.getId()+"/","transportTaskList","primary");
+		addAction(userContext, transportProject, tokens,"transport_project.updateTransportTask","updateTransportTask","updateTransportTask/"+transportProject.getId()+"/","transportTaskList","primary");
+		addAction(userContext, transportProject, tokens,"transport_project.copyTransportTaskFrom","copyTransportTaskFrom","copyTransportTaskFrom/"+transportProject.getId()+"/","transportTaskList","primary");
 	
 		
 		
@@ -328,6 +336,7 @@ public class TransportProjectManagerImpl extends CustomLscCheckerManager impleme
 	protected Map<String,Object> viewTokens(){
 		return tokens().allTokens()
 		.sortTransportItemListWith("id","desc")
+		.sortTransportTaskListWith("id","desc")
 		.done();
 
 	}
@@ -527,6 +536,114 @@ public class TransportProjectManagerImpl extends CustomLscCheckerManager impleme
 				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportItemListWithPlatform(transportProject, platformId, this.emptyOptions());
 
 				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportItemList().done());
+				return transportProject;
+			}
+	}
+	//disconnect TransportProject with source in TransportTask
+	protected TransportProject breakWithTransportTaskBySource(LscUserContext userContext, String transportProjectId, String sourceId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+
+			synchronized(transportProject){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskListWithSource(transportProject, sourceId, this.emptyOptions());
+
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+				return transportProject;
+			}
+	}
+	//disconnect TransportProject with destination in TransportTask
+	protected TransportProject breakWithTransportTaskByDestination(LscUserContext userContext, String transportProjectId, String destinationId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+
+			synchronized(transportProject){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskListWithDestination(transportProject, destinationId, this.emptyOptions());
+
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+				return transportProject;
+			}
+	}
+	//disconnect TransportProject with status in TransportTask
+	protected TransportProject breakWithTransportTaskByStatus(LscUserContext userContext, String transportProjectId, String statusId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+
+			synchronized(transportProject){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskListWithStatus(transportProject, statusId, this.emptyOptions());
+
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+				return transportProject;
+			}
+	}
+	//disconnect TransportProject with sender in TransportTask
+	protected TransportProject breakWithTransportTaskBySender(LscUserContext userContext, String transportProjectId, String senderId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+
+			synchronized(transportProject){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskListWithSender(transportProject, senderId, this.emptyOptions());
+
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+				return transportProject;
+			}
+	}
+	//disconnect TransportProject with receiver in TransportTask
+	protected TransportProject breakWithTransportTaskByReceiver(LscUserContext userContext, String transportProjectId, String receiverId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+
+			synchronized(transportProject){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskListWithReceiver(transportProject, receiverId, this.emptyOptions());
+
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+				return transportProject;
+			}
+	}
+	//disconnect TransportProject with platform in TransportTask
+	protected TransportProject breakWithTransportTaskByPlatform(LscUserContext userContext, String transportProjectId, String platformId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+
+			synchronized(transportProject){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskListWithPlatform(transportProject, platformId, this.emptyOptions());
+
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
 				return transportProject;
 			}
 	}
@@ -789,6 +906,281 @@ public class TransportProjectManagerImpl extends CustomLscCheckerManager impleme
 			transportItem.changeProperty(property, newValueExpr);
 			transportItem.updateUpdateTime(userContext.now());
 			transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportItemList().done());
+			return present(userContext,transportProject, mergedAllTokens(tokensExpr));
+		}
+
+	}
+	/*
+
+	*/
+	
+
+
+
+	protected void checkParamsForAddingTransportTask(LscUserContext userContext, String transportProjectId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId,String [] tokensExpr) throws Exception{
+		
+		
+
+		
+		
+		userContext.getChecker().checkIdOfTransportProject(transportProjectId);
+
+		
+		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkSourceIdOfTransportTask(sourceId);
+		
+		userContext.getChecker().checkDestinationIdOfTransportTask(destinationId);
+		
+		userContext.getChecker().checkRemarkOfTransportTask(remark);
+		
+		userContext.getChecker().checkStatusIdOfTransportTask(statusId);
+		
+		userContext.getChecker().checkSenderIdOfTransportTask(senderId);
+		
+		userContext.getChecker().checkReceiverIdOfTransportTask(receiverId);
+		
+		userContext.getChecker().checkPlatformIdOfTransportTask(platformId);
+	
+		userContext.getChecker().throwExceptionIfHasErrors(TransportProjectManagerException.class);
+
+	
+	}
+	public  TransportProject addTransportTask(LscUserContext userContext, String transportProjectId, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId, String [] tokensExpr) throws Exception
+	{	
+		
+		checkParamsForAddingTransportTask(userContext,transportProjectId,name, sourceId, destinationId, remark, statusId, senderId, receiverId, platformId,tokensExpr);
+		
+		TransportTask transportTask = createTransportTask(userContext,name, sourceId, destinationId, remark, statusId, senderId, receiverId, platformId);
+		
+		TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+		synchronized(transportProject){ 
+			//Will be good when the transportProject loaded from this JVM process cache.
+			//Also good when there is a RAM based DAO implementation
+			transportProject.addTransportTask( transportTask );		
+			transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+			
+			userContext.getManagerGroup().getTransportTaskManager().onNewInstanceCreated(userContext, transportTask);
+			return present(userContext,transportProject, mergedAllTokens(tokensExpr));
+		}
+	}
+	protected void checkParamsForUpdatingTransportTaskProperties(LscUserContext userContext, String transportProjectId,String id,String name,String remark,String [] tokensExpr) throws Exception {
+		
+		userContext.getChecker().checkIdOfTransportProject(transportProjectId);
+		userContext.getChecker().checkIdOfTransportTask(id);
+		
+		userContext.getChecker().checkNameOfTransportTask( name);
+		userContext.getChecker().checkRemarkOfTransportTask( remark);
+
+		userContext.getChecker().throwExceptionIfHasErrors(TransportProjectManagerException.class);
+		
+	}
+	public  TransportProject updateTransportTaskProperties(LscUserContext userContext, String transportProjectId, String id,String name,String remark, String [] tokensExpr) throws Exception
+	{	
+		checkParamsForUpdatingTransportTaskProperties(userContext,transportProjectId,id,name,remark,tokensExpr);
+
+		Map<String, Object> options = tokens()
+				.allTokens()
+				//.withTransportTaskListList()
+				.searchTransportTaskListWith(TransportTask.ID_PROPERTY, "is", id).done();
+		
+		TransportProject transportProjectToUpdate = loadTransportProject(userContext, transportProjectId, options);
+		
+		if(transportProjectToUpdate.getTransportTaskList().isEmpty()){
+			throw new TransportProjectManagerException("TransportTask is NOT FOUND with id: '"+id+"'");
+		}
+		
+		TransportTask item = transportProjectToUpdate.getTransportTaskList().first();
+		
+		item.updateName( name );
+		item.updateRemark( remark );
+
+		
+		//checkParamsForAddingTransportTask(userContext,transportProjectId,name, code, used,tokensExpr);
+		TransportProject transportProject = saveTransportProject(userContext, transportProjectToUpdate, tokens().withTransportTaskList().done());
+		synchronized(transportProject){ 
+			return present(userContext,transportProject, mergedAllTokens(tokensExpr));
+		}
+	}
+	
+	
+	protected TransportTask createTransportTask(LscUserContext userContext, String name, String sourceId, String destinationId, String remark, String statusId, String senderId, String receiverId, String platformId) throws Exception{
+
+		TransportTask transportTask = new TransportTask();
+		
+		
+		transportTask.setName(name);		
+		Location  source = new Location();
+		source.setId(sourceId);		
+		transportTask.setSource(source);		
+		Location  destination = new Location();
+		destination.setId(destinationId);		
+		transportTask.setDestination(destination);		
+		transportTask.setRemark(remark);		
+		TransportTaskStatus  status = new TransportTaskStatus();
+		status.setId(statusId);		
+		transportTask.setStatus(status);		
+		Merchant  sender = new Merchant();
+		sender.setId(senderId);		
+		transportTask.setSender(sender);		
+		Merchant  receiver = new Merchant();
+		receiver.setId(receiverId);		
+		transportTask.setReceiver(receiver);		
+		Platform  platform = new Platform();
+		platform.setId(platformId);		
+		transportTask.setPlatform(platform);		
+		transportTask.setCreateTime(userContext.now());		
+		transportTask.setUpdateTime(userContext.now());
+	
+		
+		return transportTask;
+	
+		
+	}
+	
+	protected TransportTask createIndexedTransportTask(String id, int version){
+
+		TransportTask transportTask = new TransportTask();
+		transportTask.setId(id);
+		transportTask.setVersion(version);
+		return transportTask;			
+		
+	}
+	
+	protected void checkParamsForRemovingTransportTaskList(LscUserContext userContext, String transportProjectId, 
+			String transportTaskIds[],String [] tokensExpr) throws Exception {
+		
+		userContext.getChecker().checkIdOfTransportProject(transportProjectId);
+		for(String transportTaskId: transportTaskIds){
+			userContext.getChecker().checkIdOfTransportTask(transportTaskId);
+		}
+		
+		userContext.getChecker().throwExceptionIfHasErrors(TransportProjectManagerException.class);
+		
+	}
+	public  TransportProject removeTransportTaskList(LscUserContext userContext, String transportProjectId, 
+			String transportTaskIds[],String [] tokensExpr) throws Exception{
+			
+			checkParamsForRemovingTransportTaskList(userContext, transportProjectId,  transportTaskIds, tokensExpr);
+			
+			
+			TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+			synchronized(transportProject){ 
+				//Will be good when the transportProject loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				userContext.getDAOGroup().getTransportProjectDAO().planToRemoveTransportTaskList(transportProject, transportTaskIds, allTokens());
+				transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+				deleteRelationListInGraph(userContext, transportProject.getTransportTaskList());
+				return present(userContext,transportProject, mergedAllTokens(tokensExpr));
+			}
+	}
+	
+	protected void checkParamsForRemovingTransportTask(LscUserContext userContext, String transportProjectId, 
+		String transportTaskId, int transportTaskVersion,String [] tokensExpr) throws Exception{
+		
+		userContext.getChecker().checkIdOfTransportProject( transportProjectId);
+		userContext.getChecker().checkIdOfTransportTask(transportTaskId);
+		userContext.getChecker().checkVersionOfTransportTask(transportTaskVersion);
+		userContext.getChecker().throwExceptionIfHasErrors(TransportProjectManagerException.class);
+	
+	}
+	public  TransportProject removeTransportTask(LscUserContext userContext, String transportProjectId, 
+		String transportTaskId, int transportTaskVersion,String [] tokensExpr) throws Exception{
+		
+		checkParamsForRemovingTransportTask(userContext,transportProjectId, transportTaskId, transportTaskVersion,tokensExpr);
+		
+		TransportTask transportTask = createIndexedTransportTask(transportTaskId, transportTaskVersion);
+		TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+		synchronized(transportProject){ 
+			//Will be good when the transportProject loaded from this JVM process cache.
+			//Also good when there is a RAM based DAO implementation
+			transportProject.removeTransportTask( transportTask );		
+			transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+			deleteRelationInGraph(userContext, transportTask);
+			return present(userContext,transportProject, mergedAllTokens(tokensExpr));
+		}
+		
+		
+	}
+	protected void checkParamsForCopyingTransportTask(LscUserContext userContext, String transportProjectId, 
+		String transportTaskId, int transportTaskVersion,String [] tokensExpr) throws Exception{
+		
+		userContext.getChecker().checkIdOfTransportProject( transportProjectId);
+		userContext.getChecker().checkIdOfTransportTask(transportTaskId);
+		userContext.getChecker().checkVersionOfTransportTask(transportTaskVersion);
+		userContext.getChecker().throwExceptionIfHasErrors(TransportProjectManagerException.class);
+	
+	}
+	public  TransportProject copyTransportTaskFrom(LscUserContext userContext, String transportProjectId, 
+		String transportTaskId, int transportTaskVersion,String [] tokensExpr) throws Exception{
+		
+		checkParamsForCopyingTransportTask(userContext,transportProjectId, transportTaskId, transportTaskVersion,tokensExpr);
+		
+		TransportTask transportTask = createIndexedTransportTask(transportTaskId, transportTaskVersion);
+		TransportProject transportProject = loadTransportProject(userContext, transportProjectId, allTokens());
+		synchronized(transportProject){ 
+			//Will be good when the transportProject loaded from this JVM process cache.
+			//Also good when there is a RAM based DAO implementation
+			
+			transportTask.updateUpdateTime(userContext.now());
+			
+			transportProject.copyTransportTaskFrom( transportTask );		
+			transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
+			
+			userContext.getManagerGroup().getTransportTaskManager().onNewInstanceCreated(userContext, (TransportTask)transportProject.getFlexiableObjects().get(BaseEntity.COPIED_CHILD));
+			return present(userContext,transportProject, mergedAllTokens(tokensExpr));
+		}
+		
+	}
+	
+	protected void checkParamsForUpdatingTransportTask(LscUserContext userContext, String transportProjectId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr) throws Exception{
+		
+
+		
+		userContext.getChecker().checkIdOfTransportProject(transportProjectId);
+		userContext.getChecker().checkIdOfTransportTask(transportTaskId);
+		userContext.getChecker().checkVersionOfTransportTask(transportTaskVersion);
+		
+
+		if(TransportTask.NAME_PROPERTY.equals(property)){
+			userContext.getChecker().checkNameOfTransportTask(parseString(newValueExpr));
+		}
+		
+		if(TransportTask.REMARK_PROPERTY.equals(property)){
+			userContext.getChecker().checkRemarkOfTransportTask(parseString(newValueExpr));
+		}
+		
+	
+		userContext.getChecker().throwExceptionIfHasErrors(TransportProjectManagerException.class);
+	
+	}
+	
+	public  TransportProject updateTransportTask(LscUserContext userContext, String transportProjectId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)
+			throws Exception{
+		
+		checkParamsForUpdatingTransportTask(userContext, transportProjectId, transportTaskId, transportTaskVersion, property, newValueExpr,  tokensExpr);
+		
+		Map<String,Object> loadTokens = this.tokens().withTransportTaskList().searchTransportTaskListWith(TransportTask.ID_PROPERTY, "eq", transportTaskId).done();
+		
+		
+		
+		TransportProject transportProject = loadTransportProject(userContext, transportProjectId, loadTokens);
+		
+		synchronized(transportProject){ 
+			//Will be good when the transportProject loaded from this JVM process cache.
+			//Also good when there is a RAM based DAO implementation
+			//transportProject.removeTransportTask( transportTask );	
+			//make changes to AcceleraterAccount.
+			TransportTask transportTaskIndex = createIndexedTransportTask(transportTaskId, transportTaskVersion);
+		
+			TransportTask transportTask = transportProject.findTheTransportTask(transportTaskIndex);
+			if(transportTask == null){
+				throw new TransportProjectManagerException(transportTask+" is NOT FOUND" );
+			}
+			
+			transportTask.changeProperty(property, newValueExpr);
+			transportTask.updateUpdateTime(userContext.now());
+			transportProject = saveTransportProject(userContext, transportProject, tokens().withTransportTaskList().done());
 			return present(userContext,transportProject, mergedAllTokens(tokensExpr));
 		}
 

@@ -39,7 +39,7 @@ const transferToAnotherPlatform = (id, parameters) => {
 
 
 const addTransportTask = (targetObjectId, parameters) => {
-  const url = `${PREFIX}transportTaskStatusManager/addTransportTask/transportTaskStatusId/name/sourceId/destinationId/remark/senderId/receiverId/platformId/tokensExpr/`
+  const url = `${PREFIX}transportTaskStatusManager/addTransportTask/transportTaskStatusId/name/projectId/sourceId/destinationId/remark/senderId/receiverId/platformId/tokensExpr/`
   const transportTaskStatusId = targetObjectId
   const requestParameters = { ...parameters, transportTaskStatusId, tokensExpr: 'none' }
   return postForm({ url,requestParameters})

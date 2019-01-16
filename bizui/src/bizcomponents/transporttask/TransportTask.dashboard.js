@@ -81,6 +81,12 @@ const internalSummaryOf = (transportTask,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{transportTask.id}</Description> 
 <Description term="名称">{transportTask.name}</Description> 
+<Description term="项目">{transportTask.project==null?"未分配":transportTask.project.displayName}
+ <Icon type="swap" onClick={()=>
+  showTransferModel(targetComponent,"项目","transportProject",TransportTaskService.requestCandidateProject,
+	      TransportTaskService.transferToAnotherProject,"anotherProjectId",transportTask.project?transportTask.project.id:"")} 
+  style={{fontSize: 20,color:"red"}} />
+</Description>
 <Description term="源">{transportTask.source==null?"未分配":transportTask.source.displayName}
  <Icon type="swap" onClick={()=>
   showTransferModel(targetComponent,"源","location",TransportTaskService.requestCandidateSource,

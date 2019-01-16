@@ -1,7 +1,7 @@
 //savefileifnotexist
 export const SYSTEM_SHORT_NAME = "lsc" //Use for requssting different apps
 export const SYSTEM_LOCAL_NAME = "物流综合服务平台" 
-export const BUILD_TIIME="Wed Jan 16 16:31:11 CST 2019"
+export const BUILD_TIIME="Wed Jan 16 16:34:30 CST 2019"
 export const MEDIA_UPLOAD_URL="https://www.doublechaintech.com/mss/upload.html"
 export const MEDIA_PREFIX="https://www.doublechaintech.com/mss/"
 

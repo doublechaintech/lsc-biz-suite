@@ -1,7 +1,7 @@
 
 
 
-=================Execute Report (Model Time 190116T1604) @Wed Jan 16 16:31:10 CST 2019, 25 objects and 189 fields===========================
+=================Execute Report (Model Time 190116T1634) @Wed Jan 16 17:25:20 CST 2019, 25 objects and 190 fields===========================
 
 
 
@@ -96,6 +96,12 @@ Info: Add virtual field [transport_items(es)] to <platform>
 
 
  processing: transport_task
+
+
+ processing: transport_task.transport_project.project
+
+Info: Add virtual field [transport_tasks(es)] to <transport_project>
+	transport_task.project
 
 
  processing: transport_task.location.source
@@ -273,8 +279,9 @@ transport_project{
 		date_time_update	update_time('updateTime()'), verb: false, required: true;
 		int	version('2147483647'), verb: false, required: true;
 	}
-	references field(1){
+	references field(2){
 		transportItemList	project(基本信息)--project;
+		transportTaskList	project(基本信息)--project;
 	}
 } depth=3; isRoot = false
 
@@ -296,9 +303,10 @@ transport_item{
 } depth=4; isRoot = false
 
 transport_task{
-	fields(12){
+	fields(13){
 		string	id('ABCDEFGIJK000001'), verb: false, required: true;
 		string	name('橡胶运输任务'), verb: false, required: true;
+		transport_project	project('$(object)'), verb: false, required: true, referenceBy: transportTaskList;
 		location	source('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsSource;
 		location	destination('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsDestination;
 		string	remark('在二号通道'), verb: false, required: true;
@@ -313,7 +321,7 @@ transport_task{
 	references field(1){
 		transportTaskTrackList	task(基本信息)--task;
 	}
-} depth=3; isRoot = false
+} depth=4; isRoot = false
 
 transport_task_track{
 	fields(8){
@@ -328,7 +336,7 @@ transport_task_track{
 	}
 	references field(0){
 	}
-} depth=4; isRoot = false
+} depth=5; isRoot = false
 
 merchant_account{
 	fields(6){
@@ -461,8 +469,9 @@ transport_project{
 		date_time_update	update_time('updateTime()'), verb: false, required: true;
 		int	version('2147483647'), verb: false, required: true;
 	}
-	references field(1){
+	references field(2){
 		transportItemList	project(基本信息)--project;
+		transportTaskList	project(基本信息)--project;
 	}
 } depth=3; isRoot = false
 
@@ -484,9 +493,10 @@ transport_item{
 } depth=4; isRoot = false
 
 transport_task{
-	fields(12){
+	fields(13){
 		string	id('ABCDEFGIJK000001'), verb: false, required: true;
 		string	name('橡胶运输任务'), verb: false, required: true;
+		transport_project	project('$(object)'), verb: false, required: true, referenceBy: transportTaskList;
 		location	source('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsSource;
 		location	destination('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsDestination;
 		string	remark('在二号通道'), verb: false, required: true;
@@ -501,7 +511,7 @@ transport_task{
 	references field(1){
 		transportTaskTrackList	task(基本信息)--task;
 	}
-} depth=3; isRoot = false
+} depth=4; isRoot = false
 
 transport_task_track{
 	fields(8){
@@ -516,7 +526,7 @@ transport_task_track{
 	}
 	references field(0){
 	}
-} depth=4; isRoot = false
+} depth=5; isRoot = false
 
 merchant_account{
 	fields(6){
@@ -757,3 +767,11 @@ form_action{
 
 
 =================================End Report=================================
+
+
+
+
+
+
+
+

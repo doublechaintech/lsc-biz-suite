@@ -119,7 +119,7 @@ class TransportProjectDashboard extends Component {
 
   render() {
     // eslint-disable-next-line max-len
-    const { id,displayName, transportItemListMetaInfo, transportItemCount } = this.props.transportProject
+    const { id,displayName, transportItemListMetaInfo, transportTaskListMetaInfo, transportItemCount, transportTaskCount } = this.props.transportProject
     if(!this.props.transportProject.class){
       return null
     }
@@ -129,6 +129,7 @@ class TransportProjectDashboard extends Component {
     	cardsSource: this.props.transportProject,returnURL,displayName,
   		subItems: [
 {name: 'transportItemList', displayName:'运输项目',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
+{name: 'transportTaskList', displayName:'运输任务',type:'transportTask',count:transportTaskCount,addFunction: true, role: 'transportTask', metaInfo: transportTaskListMetaInfo},
     
       	],
   	};

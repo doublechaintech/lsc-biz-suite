@@ -96,6 +96,7 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="2" max="24" description="名称" />
+			<field name="project" type="reference" checkType="exist(transport_project)" description="项目" />
 			<field name="source" type="reference" checkType="exist(location)" description="源" />
 			<field name="destination" type="reference" checkType="exist(location)" description="目的地" />
 			<field name="remark" type="string" checkType="StringLengthRange" min="2" max="20" description="备注" />

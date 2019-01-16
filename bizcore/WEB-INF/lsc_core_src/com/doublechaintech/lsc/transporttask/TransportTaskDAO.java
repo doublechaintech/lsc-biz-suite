@@ -9,6 +9,7 @@ import com.doublechaintech.lsc.MultipleAccessKey;
 import com.doublechaintech.lsc.LscUserContext;
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatusDAO;
 import com.doublechaintech.lsc.transporttasktrack.TransportTaskTrackDAO;
+import com.doublechaintech.lsc.transportproject.TransportProjectDAO;
 import com.doublechaintech.lsc.location.LocationDAO;
 import com.doublechaintech.lsc.merchant.MerchantDAO;
 import com.doublechaintech.lsc.platform.PlatformDAO;
@@ -54,6 +55,14 @@ public interface TransportTaskDAO{
 	
 	public SmartList<TransportTask> queryList(String sql, Object ... parmeters);
  
+ 	public SmartList<TransportTask> findTransportTaskByProject(String transportProjectId, Map<String,Object> options);
+ 	public int countTransportTaskByProject(String transportProjectId, Map<String,Object> options);
+ 	public Map<String, Integer> countTransportTaskByProjectIds(String[] ids, Map<String,Object> options);
+ 	public SmartList<TransportTask> findTransportTaskByProject(String transportProjectId, int start, int count, Map<String,Object> options);
+ 	public void analyzeTransportTaskByProject(SmartList<TransportTask> resultList, String transportProjectId, Map<String,Object> options);
+
+ 
+  
  	public SmartList<TransportTask> findTransportTaskBySource(String locationId, Map<String,Object> options);
  	public int countTransportTaskBySource(String locationId, Map<String,Object> options);
  	public Map<String, Integer> countTransportTaskBySourceIds(String[] ids, Map<String,Object> options);

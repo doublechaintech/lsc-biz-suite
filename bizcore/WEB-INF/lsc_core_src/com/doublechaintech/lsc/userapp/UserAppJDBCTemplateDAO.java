@@ -250,9 +250,10 @@ public class UserAppJDBCTemplateDAO extends LscNamingServiceDAO implements UserA
  		return checkOptions(options,UserAppTokens.LIST_ACCESS_LIST);
  	}
  	protected boolean isAnalyzeListAccessListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,UserAppTokens.LIST_ACCESS_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,UserAppTokens.LIST_ACCESS_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveListAccessListEnabled(Map<String,Object> options){
 		return checkOptions(options, UserAppTokens.LIST_ACCESS_LIST);
 		
@@ -264,9 +265,10 @@ public class UserAppJDBCTemplateDAO extends LscNamingServiceDAO implements UserA
  		return checkOptions(options,UserAppTokens.OBJECT_ACCESS_LIST);
  	}
  	protected boolean isAnalyzeObjectAccessListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,UserAppTokens.OBJECT_ACCESS_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,UserAppTokens.OBJECT_ACCESS_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveObjectAccessListEnabled(Map<String,Object> options){
 		return checkOptions(options, UserAppTokens.OBJECT_ACCESS_LIST);
 		
@@ -308,7 +310,7 @@ public class UserAppJDBCTemplateDAO extends LscNamingServiceDAO implements UserA
 	 		extractListAccessList(userApp, loadOptions);
  		}	
  		if(isAnalyzeListAccessListEnabled(loadOptions)){
-	 		// analyzeListAccessList(userApp, loadOptions);
+	 		analyzeListAccessList(userApp, loadOptions);
  		}
  		
 		
@@ -316,7 +318,7 @@ public class UserAppJDBCTemplateDAO extends LscNamingServiceDAO implements UserA
 	 		extractObjectAccessList(userApp, loadOptions);
  		}	
  		if(isAnalyzeObjectAccessListEnabled(loadOptions)){
-	 		// analyzeObjectAccessList(userApp, loadOptions);
+	 		analyzeObjectAccessList(userApp, loadOptions);
  		}
  		
 		

@@ -222,9 +222,10 @@ public class TransportTaskStatusJDBCTemplateDAO extends LscNamingServiceDAO impl
  		return checkOptions(options,TransportTaskStatusTokens.TRANSPORT_TASK_LIST);
  	}
  	protected boolean isAnalyzeTransportTaskListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,TransportTaskStatusTokens.TRANSPORT_TASK_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,TransportTaskStatusTokens.TRANSPORT_TASK_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskListEnabled(Map<String,Object> options){
 		return checkOptions(options, TransportTaskStatusTokens.TRANSPORT_TASK_LIST);
 		
@@ -266,7 +267,7 @@ public class TransportTaskStatusJDBCTemplateDAO extends LscNamingServiceDAO impl
 	 		extractTransportTaskList(transportTaskStatus, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskListEnabled(loadOptions)){
-	 		// analyzeTransportTaskList(transportTaskStatus, loadOptions);
+	 		analyzeTransportTaskList(transportTaskStatus, loadOptions);
  		}
  		
 		
@@ -623,6 +624,50 @@ public class TransportTaskStatusJDBCTemplateDAO extends LscNamingServiceDAO impl
 	}
 
 
+	//disconnect TransportTaskStatus with project in TransportTask
+	public TransportTaskStatus planToRemoveTransportTaskListWithProject(TransportTaskStatus transportTaskStatus, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+		
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.STATUS_PROPERTY, transportTaskStatus.getId());
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		SmartList<TransportTask> externalTransportTaskList = getTransportTaskDAO().
+				findTransportTaskWithKey(key, options);
+		if(externalTransportTaskList == null){
+			return transportTaskStatus;
+		}
+		if(externalTransportTaskList.isEmpty()){
+			return transportTaskStatus;
+		}
+		
+		for(TransportTask transportTask: externalTransportTaskList){
+			transportTask.clearProject();
+			transportTask.clearStatus();
+			
+		}
+		
+		
+		SmartList<TransportTask> transportTaskList = transportTaskStatus.getTransportTaskList();		
+		transportTaskList.addAllToRemoveList(externalTransportTaskList);
+		return transportTaskStatus;
+	}
+	
+	public int countTransportTaskListWithProject(String transportTaskStatusId, String projectId, Map<String,Object> options)throws Exception{
+				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();
+		//the list will not be null here, empty, maybe
+		//getThreadLikeDAO().removeThreadLikeList(toRemoveThreadLikeList,options);
+
+		MultipleAccessKey key = new MultipleAccessKey();
+		key.put(TransportTask.STATUS_PROPERTY, transportTaskStatusId);
+		key.put(TransportTask.PROJECT_PROPERTY, projectId);
+		
+		int count = getTransportTaskDAO().countTransportTaskWithKey(key, options);
+		return count;
+	}
+	
 	//disconnect TransportTaskStatus with source in TransportTask
 	public TransportTaskStatus planToRemoveTransportTaskListWithSource(TransportTaskStatus transportTaskStatus, String sourceId, Map<String,Object> options)throws Exception{
 				//SmartList<ThreadLike> toRemoveThreadLikeList = threadLikeList.getToRemoveList();

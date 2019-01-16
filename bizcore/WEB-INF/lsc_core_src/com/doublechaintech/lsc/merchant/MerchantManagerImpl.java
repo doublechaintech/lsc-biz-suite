@@ -30,6 +30,7 @@ import com.doublechaintech.lsc.platform.CandidatePlatform;
 import com.doublechaintech.lsc.merchanttype.CandidateMerchantType;
 
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.platform.Platform;
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
@@ -535,6 +536,24 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 				return merchant;
 			}
 	}
+	//disconnect Merchant with project in TransportTask
+	protected Merchant breakWithTransportTaskAsSenderByProject(LscUserContext userContext, String merchantId, String projectId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			Merchant merchant = loadMerchant(userContext, merchantId, allTokens());
+
+			synchronized(merchant){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getMerchantDAO().planToRemoveTransportTaskListAsSenderWithProject(merchant, projectId, this.emptyOptions());
+
+				merchant = saveMerchant(userContext, merchant, tokens().withTransportTaskListAsSender().done());
+				return merchant;
+			}
+	}
 	//disconnect Merchant with source in TransportTask
 	protected Merchant breakWithTransportTaskAsSenderBySource(LscUserContext userContext, String merchantId, String sourceId,  String [] tokensExpr)
 		 throws Exception{
@@ -604,6 +623,24 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 				userContext.getDAOGroup().getMerchantDAO().planToRemoveTransportTaskListAsSenderWithPlatform(merchant, platformId, this.emptyOptions());
 
 				merchant = saveMerchant(userContext, merchant, tokens().withTransportTaskListAsSender().done());
+				return merchant;
+			}
+	}
+	//disconnect Merchant with project in TransportTask
+	protected Merchant breakWithTransportTaskAsReceiverByProject(LscUserContext userContext, String merchantId, String projectId,  String [] tokensExpr)
+		 throws Exception{
+			
+			//TODO add check code here
+			
+			Merchant merchant = loadMerchant(userContext, merchantId, allTokens());
+
+			synchronized(merchant){ 
+				//Will be good when the thread loaded from this JVM process cache.
+				//Also good when there is a RAM based DAO implementation
+				
+				userContext.getDAOGroup().getMerchantDAO().planToRemoveTransportTaskListAsReceiverWithProject(merchant, projectId, this.emptyOptions());
+
+				merchant = saveMerchant(userContext, merchant, tokens().withTransportTaskListAsReceiver().done());
 				return merchant;
 			}
 	}
@@ -926,7 +963,7 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 
 
 
-	protected void checkParamsForAddingTransportTaskAsSender(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId,String [] tokensExpr) throws Exception{
+	protected void checkParamsForAddingTransportTaskAsSender(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId,String [] tokensExpr) throws Exception{
 		
 		
 
@@ -936,6 +973,8 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 
 		
 		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkProjectIdOfTransportTask(projectId);
 		
 		userContext.getChecker().checkSourceIdOfTransportTask(sourceId);
 		
@@ -951,12 +990,12 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 
 	
 	}
-	public  Merchant addTransportTaskAsSender(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId, String [] tokensExpr) throws Exception
+	public  Merchant addTransportTaskAsSender(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId, String [] tokensExpr) throws Exception
 	{	
 		
-		checkParamsForAddingTransportTaskAsSender(userContext,merchantId,name, sourceId, destinationId, remark, statusId, platformId,tokensExpr);
+		checkParamsForAddingTransportTaskAsSender(userContext,merchantId,name, projectId, sourceId, destinationId, remark, statusId, platformId,tokensExpr);
 		
-		TransportTask transportTask = createTransportTaskAsSender(userContext,name, sourceId, destinationId, remark, statusId, platformId);
+		TransportTask transportTask = createTransportTaskAsSender(userContext,name, projectId, sourceId, destinationId, remark, statusId, platformId);
 		
 		Merchant merchant = loadMerchant(userContext, merchantId, allTokens());
 		synchronized(merchant){ 
@@ -1009,12 +1048,15 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 	}
 	
 	
-	protected TransportTask createTransportTaskAsSender(LscUserContext userContext, String name, String sourceId, String destinationId, String remark, String statusId, String platformId) throws Exception{
+	protected TransportTask createTransportTaskAsSender(LscUserContext userContext, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId) throws Exception{
 
 		TransportTask transportTask = new TransportTask();
 		
 		
 		transportTask.setName(name);		
+		TransportProject  project = new TransportProject();
+		project.setId(projectId);		
+		transportTask.setProject(project);		
 		Location  source = new Location();
 		source.setId(sourceId);		
 		transportTask.setSource(source);		
@@ -1191,7 +1233,7 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 
 
 
-	protected void checkParamsForAddingTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId,String [] tokensExpr) throws Exception{
+	protected void checkParamsForAddingTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId,String [] tokensExpr) throws Exception{
 		
 		
 
@@ -1201,6 +1243,8 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 
 		
 		userContext.getChecker().checkNameOfTransportTask(name);
+		
+		userContext.getChecker().checkProjectIdOfTransportTask(projectId);
 		
 		userContext.getChecker().checkSourceIdOfTransportTask(sourceId);
 		
@@ -1216,12 +1260,12 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 
 	
 	}
-	public  Merchant addTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId, String [] tokensExpr) throws Exception
+	public  Merchant addTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId, String [] tokensExpr) throws Exception
 	{	
 		
-		checkParamsForAddingTransportTaskAsReceiver(userContext,merchantId,name, sourceId, destinationId, remark, statusId, platformId,tokensExpr);
+		checkParamsForAddingTransportTaskAsReceiver(userContext,merchantId,name, projectId, sourceId, destinationId, remark, statusId, platformId,tokensExpr);
 		
-		TransportTask transportTask = createTransportTaskAsReceiver(userContext,name, sourceId, destinationId, remark, statusId, platformId);
+		TransportTask transportTask = createTransportTaskAsReceiver(userContext,name, projectId, sourceId, destinationId, remark, statusId, platformId);
 		
 		Merchant merchant = loadMerchant(userContext, merchantId, allTokens());
 		synchronized(merchant){ 
@@ -1274,12 +1318,15 @@ public class MerchantManagerImpl extends CustomLscCheckerManager implements Merc
 	}
 	
 	
-	protected TransportTask createTransportTaskAsReceiver(LscUserContext userContext, String name, String sourceId, String destinationId, String remark, String statusId, String platformId) throws Exception{
+	protected TransportTask createTransportTaskAsReceiver(LscUserContext userContext, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId) throws Exception{
 
 		TransportTask transportTask = new TransportTask();
 		
 		
 		transportTask.setName(name);		
+		TransportProject  project = new TransportProject();
+		project.setId(projectId);		
+		transportTask.setProject(project);		
 		Location  source = new Location();
 		source.setId(sourceId);		
 		transportTask.setSource(source);		

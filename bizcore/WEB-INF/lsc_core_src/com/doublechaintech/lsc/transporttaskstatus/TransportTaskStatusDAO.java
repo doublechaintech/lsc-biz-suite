@@ -48,6 +48,10 @@ public interface TransportTaskStatusDAO{
 	public TransportTaskStatus planToRemoveTransportTaskList(TransportTaskStatus transportTaskStatus, String transportTaskIds[], Map<String,Object> options)throws Exception;
 
 
+	//disconnect TransportTaskStatus with project in TransportTask
+	public TransportTaskStatus planToRemoveTransportTaskListWithProject(TransportTaskStatus transportTaskStatus, String projectId, Map<String,Object> options)throws Exception;
+	public int countTransportTaskListWithProject(String transportTaskStatusId, String projectId, Map<String,Object> options)throws Exception;
+	
 	//disconnect TransportTaskStatus with source in TransportTask
 	public TransportTaskStatus planToRemoveTransportTaskListWithSource(TransportTaskStatus transportTaskStatus, String sourceId, Map<String,Object> options)throws Exception;
 	public int countTransportTaskListWithSource(String transportTaskStatusId, String sourceId, Map<String,Object> options)throws Exception;

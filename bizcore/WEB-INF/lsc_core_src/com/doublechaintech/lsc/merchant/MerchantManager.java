@@ -39,9 +39,9 @@ public interface MerchantManager{
 
 	*/
 
-	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId ,String [] tokensExpr)  throws Exception;
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId ,String [] tokensExpr)  throws Exception;
 	
-	public  Merchant addTransportTaskAsSender(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId , String [] tokensExpr)  throws Exception;
+	public  Merchant addTransportTaskAsSender(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId , String [] tokensExpr)  throws Exception;
 	public  Merchant removeTransportTaskAsSender(LscUserContext userContext, String merchantId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
 	public  Merchant updateTransportTaskAsSender(LscUserContext userContext, String merchantId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
 
@@ -49,9 +49,9 @@ public interface MerchantManager{
 
 	*/
 
-	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId ,String [] tokensExpr)  throws Exception;
+	//public  TransportTaskManager getTransportTaskManager(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId ,String [] tokensExpr)  throws Exception;
 	
-	public  Merchant addTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String name, String sourceId, String destinationId, String remark, String statusId, String platformId , String [] tokensExpr)  throws Exception;
+	public  Merchant addTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String name, String projectId, String sourceId, String destinationId, String remark, String statusId, String platformId , String [] tokensExpr)  throws Exception;
 	public  Merchant removeTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String transportTaskId, int transportTaskVersion,String [] tokensExpr)  throws Exception;
 	public  Merchant updateTransportTaskAsReceiver(LscUserContext userContext, String merchantId, String transportTaskId, int transportTaskVersion, String property, String newValueExpr,String [] tokensExpr)  throws Exception;
 

@@ -222,9 +222,10 @@ public class MerchantAccountJDBCTemplateDAO extends LscNamingServiceDAO implemen
  		return checkOptions(options,MerchantAccountTokens.TRANSACTION_LIST);
  	}
  	protected boolean isAnalyzeTransactionListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,MerchantAccountTokens.TRANSACTION_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,MerchantAccountTokens.TRANSACTION_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransactionListEnabled(Map<String,Object> options){
 		return checkOptions(options, MerchantAccountTokens.TRANSACTION_LIST);
 		
@@ -266,7 +267,7 @@ public class MerchantAccountJDBCTemplateDAO extends LscNamingServiceDAO implemen
 	 		extractTransactionList(merchantAccount, loadOptions);
  		}	
  		if(isAnalyzeTransactionListEnabled(loadOptions)){
-	 		// analyzeTransactionList(merchantAccount, loadOptions);
+	 		analyzeTransactionList(merchantAccount, loadOptions);
  		}
  		
 		

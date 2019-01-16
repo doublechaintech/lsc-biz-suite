@@ -128,6 +128,9 @@
 	
 
 	<div class="row">
+<c:set var="transportProject" value="${ result.project}" scope="request" />
+<sky:include page="com/doublechaintech/lsc/transportproject/TransportProject$Info.jsp" />
+
 <c:set var="location" value="${ result.source}" scope="request" />
 <sky:include page="com/doublechaintech/lsc/location/Location$Info.jsp" />
 

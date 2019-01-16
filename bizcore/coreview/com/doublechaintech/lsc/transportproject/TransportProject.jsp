@@ -102,6 +102,7 @@
 	 
 	<% TransportProject result = (TransportProject)request.getAttribute("result");  %>
 			<li><a data-toggle="tab" href="#transportItemList" class="disabled"> ${userContext.localeMap['transport_item']}</a></li>
+			<li><a data-toggle="tab" href="#transportTaskList" class="disabled"> ${userContext.localeMap['transport_task']}</a></li>
  
 	</ul>
 	</div>
@@ -158,6 +159,14 @@
 		<c:set var="transportItemListName" value="transportItemList" scope="request"/>
 		<div id="transportItemList" class="tab-pane fade sublist" refer-name="project">
 			<sky:include page="com/doublechaintech/lsc/transportitem/TransportItem$List.jsp"
+					referName="project"/>
+		</div>
+	</c:if>
+	<c:if test='${not empty userContext.accessTokens["transportTaskList"] or ignoreListAccessControl}'>
+		<c:set var="transportTaskList" value="${result.transportTaskList}" scope="request"/>
+		<c:set var="transportTaskListName" value="transportTaskList" scope="request"/>
+		<div id="transportTaskList" class="tab-pane fade sublist" refer-name="project">
+			<sky:include page="com/doublechaintech/lsc/transporttask/TransportTask$List.jsp"
 					referName="project"/>
 		</div>
 	</c:if>

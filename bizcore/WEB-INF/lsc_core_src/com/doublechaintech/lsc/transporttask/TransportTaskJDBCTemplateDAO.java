@@ -19,6 +19,7 @@ import com.doublechaintech.lsc.LscUserContext;
 
 
 import com.doublechaintech.lsc.merchant.Merchant;
+import com.doublechaintech.lsc.transportproject.TransportProject;
 import com.doublechaintech.lsc.location.Location;
 import com.doublechaintech.lsc.transporttasktrack.TransportTaskTrack;
 import com.doublechaintech.lsc.platform.Platform;
@@ -26,6 +27,7 @@ import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatus;
 
 import com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatusDAO;
 import com.doublechaintech.lsc.transporttasktrack.TransportTaskTrackDAO;
+import com.doublechaintech.lsc.transportproject.TransportProjectDAO;
 import com.doublechaintech.lsc.location.LocationDAO;
 import com.doublechaintech.lsc.merchant.MerchantDAO;
 import com.doublechaintech.lsc.platform.PlatformDAO;
@@ -35,6 +37,15 @@ import com.doublechaintech.lsc.platform.PlatformDAO;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements TransportTaskDAO{
+ 
+ 	
+ 	private  TransportProjectDAO  transportProjectDAO;
+ 	public void setTransportProjectDAO(TransportProjectDAO transportProjectDAO){
+	 	this.transportProjectDAO = transportProjectDAO;
+ 	}
+ 	public TransportProjectDAO getTransportProjectDAO(){
+	 	return this.transportProjectDAO;
+ 	}
  
  	
  	private  TransportTaskStatusDAO  transportTaskStatusDAO;
@@ -236,6 +247,20 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 
  
 
+ 	protected boolean isExtractProjectEnabled(Map<String,Object> options){
+ 		
+	 	return checkOptions(options, TransportTaskTokens.PROJECT);
+ 	}
+
+ 	protected boolean isSaveProjectEnabled(Map<String,Object> options){
+	 	
+ 		return checkOptions(options, TransportTaskTokens.PROJECT);
+ 	}
+ 	
+
+ 	
+  
+
  	protected boolean isExtractSourceEnabled(Map<String,Object> options){
  		
 	 	return checkOptions(options, TransportTaskTokens.SOURCE);
@@ -325,9 +350,10 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  		return checkOptions(options,TransportTaskTokens.TRANSPORT_TASK_TRACK_LIST);
  	}
  	protected boolean isAnalyzeTransportTaskTrackListEnabled(Map<String,Object> options){		
- 		return checkOptions(options,TransportTaskTokens.TRANSPORT_TASK_TRACK_LIST+".analyze");
+ 		return true;
+ 		//return checkOptions(options,TransportTaskTokens.TRANSPORT_TASK_TRACK_LIST+".analyze");
  	}
-
+	
 	protected boolean isSaveTransportTaskTrackListEnabled(Map<String,Object> options){
 		return checkOptions(options, TransportTaskTokens.TRANSPORT_TASK_TRACK_LIST);
 		
@@ -360,6 +386,10 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 		
 		TransportTask transportTask = extractTransportTask(accessKey, loadOptions);
  	
+ 		if(isExtractProjectEnabled(loadOptions)){
+	 		extractProject(transportTask, loadOptions);
+ 		}
+  	
  		if(isExtractSourceEnabled(loadOptions)){
 	 		extractSource(transportTask, loadOptions);
  		}
@@ -389,7 +419,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 	 		extractTransportTaskTrackList(transportTask, loadOptions);
  		}	
  		if(isAnalyzeTransportTaskTrackListEnabled(loadOptions)){
-	 		// analyzeTransportTaskTrackList(transportTask, loadOptions);
+	 		analyzeTransportTaskTrackList(transportTask, loadOptions);
  		}
  		
 		
@@ -398,6 +428,26 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 	}
 
 	 
+
+ 	protected TransportTask extractProject(TransportTask transportTask, Map<String,Object> options) throws Exception{
+
+		if(transportTask.getProject() == null){
+			return transportTask;
+		}
+		String projectId = transportTask.getProject().getId();
+		if( projectId == null){
+			return transportTask;
+		}
+		TransportProject project = getTransportProjectDAO().load(projectId,options);
+		if(project != null){
+			transportTask.setProject(project);
+		}
+		
+ 		
+ 		return transportTask;
+ 	}
+ 		
+  
 
  	protected TransportTask extractSource(TransportTask transportTask, Map<String,Object> options) throws Exception{
 
@@ -570,6 +620,56 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 	
 		
 		
+  	
+ 	public SmartList<TransportTask> findTransportTaskByProject(String transportProjectId,Map<String,Object> options){
+ 	
+  		SmartList<TransportTask> resultList = queryWith(TransportTaskTable.COLUMN_PROJECT, transportProjectId, options, getTransportTaskMapper());
+		// analyzeTransportTaskByProject(resultList, transportProjectId, options);
+		return resultList;
+ 	}
+ 	 
+ 
+ 	public SmartList<TransportTask> findTransportTaskByProject(String transportProjectId, int start, int count,Map<String,Object> options){
+ 		
+ 		SmartList<TransportTask> resultList =  queryWithRange(TransportTaskTable.COLUMN_PROJECT, transportProjectId, options, getTransportTaskMapper(), start, count);
+ 		//analyzeTransportTaskByProject(resultList, transportProjectId, options);
+ 		return resultList;
+ 		
+ 	}
+ 	public void analyzeTransportTaskByProject(SmartList<TransportTask> resultList, String transportProjectId, Map<String,Object> options){
+		if(resultList==null){
+			return;//do nothing when the list is null.
+		}
+		
+ 		MultipleAccessKey filterKey = new MultipleAccessKey();
+ 		filterKey.put(TransportTask.PROJECT_PROPERTY, transportProjectId);
+ 		Map<String,Object> emptyOptions = new HashMap<String,Object>();
+ 		
+ 		StatsInfo info = new StatsInfo();
+ 		
+ 
+		StatsItem createTimeStatsItem = new StatsItem();
+		//TransportTask.CREATE_TIME_PROPERTY
+		createTimeStatsItem.setDisplayName("运输任务");
+		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
+		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
+		info.addItem(createTimeStatsItem);
+ 				
+ 		resultList.setStatsInfo(info);
+
+ 	
+ 		
+ 	}
+ 	@Override
+ 	public int countTransportTaskByProject(String transportProjectId,Map<String,Object> options){
+
+ 		return countWith(TransportTaskTable.COLUMN_PROJECT, transportProjectId, options);
+ 	}
+ 	@Override
+	public Map<String, Integer> countTransportTaskByProjectIds(String[] ids, Map<String, Object> options) {
+		return countWithIds(TransportTaskTable.COLUMN_PROJECT, ids, options);
+	}
+ 	
   	
  	public SmartList<TransportTask> findTransportTaskBySource(String locationId,Map<String,Object> options){
  	
@@ -1012,82 +1112,91 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  		return prepareTransportTaskCreateParameters(transportTask);
  	}
  	protected Object[] prepareTransportTaskUpdateParameters(TransportTask transportTask){
- 		Object[] parameters = new Object[13];
+ 		Object[] parameters = new Object[14];
  
  		parameters[0] = transportTask.getName(); 	
+ 		if(transportTask.getProject() != null){
+ 			parameters[1] = transportTask.getProject().getId();
+ 		}
+  	
  		if(transportTask.getSource() != null){
- 			parameters[1] = transportTask.getSource().getId();
+ 			parameters[2] = transportTask.getSource().getId();
  		}
   	
  		if(transportTask.getDestination() != null){
- 			parameters[2] = transportTask.getDestination().getId();
+ 			parameters[3] = transportTask.getDestination().getId();
  		}
  
- 		parameters[3] = transportTask.getRemark(); 	
+ 		parameters[4] = transportTask.getRemark(); 	
  		if(transportTask.getStatus() != null){
- 			parameters[4] = transportTask.getStatus().getId();
+ 			parameters[5] = transportTask.getStatus().getId();
  		}
   	
  		if(transportTask.getSender() != null){
- 			parameters[5] = transportTask.getSender().getId();
+ 			parameters[6] = transportTask.getSender().getId();
  		}
   	
  		if(transportTask.getReceiver() != null){
- 			parameters[6] = transportTask.getReceiver().getId();
+ 			parameters[7] = transportTask.getReceiver().getId();
  		}
   	
  		if(transportTask.getPlatform() != null){
- 			parameters[7] = transportTask.getPlatform().getId();
+ 			parameters[8] = transportTask.getPlatform().getId();
  		}
  
- 		parameters[8] = transportTask.getCreateTime();
- 		parameters[9] = transportTask.getUpdateTime();		
- 		parameters[10] = transportTask.nextVersion();
- 		parameters[11] = transportTask.getId();
- 		parameters[12] = transportTask.getVersion();
+ 		parameters[9] = transportTask.getCreateTime();
+ 		parameters[10] = transportTask.getUpdateTime();		
+ 		parameters[11] = transportTask.nextVersion();
+ 		parameters[12] = transportTask.getId();
+ 		parameters[13] = transportTask.getVersion();
  				
  		return parameters;
  	}
  	protected Object[] prepareTransportTaskCreateParameters(TransportTask transportTask){
-		Object[] parameters = new Object[11];
+		Object[] parameters = new Object[12];
 		String newTransportTaskId=getNextId();
 		transportTask.setId(newTransportTaskId);
 		parameters[0] =  transportTask.getId();
  
  		parameters[1] = transportTask.getName(); 	
+ 		if(transportTask.getProject() != null){
+ 			parameters[2] = transportTask.getProject().getId();
+ 		
+ 		}
+ 		 	
  		if(transportTask.getSource() != null){
- 			parameters[2] = transportTask.getSource().getId();
+ 			parameters[3] = transportTask.getSource().getId();
  		
  		}
  		 	
  		if(transportTask.getDestination() != null){
- 			parameters[3] = transportTask.getDestination().getId();
+ 			parameters[4] = transportTask.getDestination().getId();
  		
  		}
  		
- 		parameters[4] = transportTask.getRemark(); 	
+ 		parameters[5] = transportTask.getRemark(); 	
  		if(transportTask.getStatus() != null){
- 			parameters[5] = transportTask.getStatus().getId();
+ 			parameters[6] = transportTask.getStatus().getId();
  		
  		}
  		 	
  		if(transportTask.getSender() != null){
- 			parameters[6] = transportTask.getSender().getId();
+ 			parameters[7] = transportTask.getSender().getId();
  		
  		}
  		 	
  		if(transportTask.getReceiver() != null){
- 			parameters[7] = transportTask.getReceiver().getId();
+ 			parameters[8] = transportTask.getReceiver().getId();
  		
  		}
  		 	
  		if(transportTask.getPlatform() != null){
- 			parameters[8] = transportTask.getPlatform().getId();
+ 			parameters[9] = transportTask.getPlatform().getId();
  		
  		}
  		
- 		parameters[9] = transportTask.getCreateTime();
- 		parameters[10] = transportTask.getUpdateTime();		
+ 		parameters[10] = transportTask.getCreateTime();
+ 		parameters[11] = transportTask.getUpdateTime();		
  				
  		return parameters;
  	}
@@ -1096,6 +1205,10 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 		
 		saveTransportTask(transportTask);
  	
+ 		if(isSaveProjectEnabled(options)){
+	 		saveProject(transportTask, options);
+ 		}
+  	
  		if(isSaveSourceEnabled(options)){
 	 		saveSource(transportTask, options);
  		}
@@ -1136,6 +1249,23 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
 	
 	//======================================================================================
 	 
+ 
+ 	protected TransportTask saveProject(TransportTask transportTask, Map<String,Object> options){
+ 		//Call inject DAO to execute this method
+ 		if(transportTask.getProject() == null){
+ 			return transportTask;//do nothing when it is null
+ 		}
+ 		
+ 		getTransportProjectDAO().save(transportTask.getProject(),options);
+ 		return transportTask;
+ 		
+ 	}
+ 	
+ 	
+ 	
+ 	 
+	
+  
  
  	protected TransportTask saveSource(TransportTask transportTask, Map<String,Object> options){
  		//Call inject DAO to execute this method

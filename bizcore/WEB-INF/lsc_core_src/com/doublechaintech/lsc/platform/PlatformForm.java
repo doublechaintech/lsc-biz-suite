@@ -656,6 +656,20 @@ public class PlatformForm extends BaseForm {
 	}
 
 
+	public PlatformForm projectIdFieldForTransportTask(String parameterName, String initValue){
+		FormField field =  projectIdFromTransportTask(parameterName, initValue);		
+		this.addFormField(field);
+		return this;
+	}
+	
+	public PlatformForm projectIdFieldForTransportTask(String initValue){
+		return projectIdFieldForTransportTask("projectId",initValue);
+	}
+	public PlatformForm projectIdFieldForTransportTask(){
+		return projectIdFieldForTransportTask("projectId","");
+	}
+
+
 	public PlatformForm sourceIdFieldForTransportTask(String parameterName, String initValue){
 		FormField field =  sourceIdFromTransportTask(parameterName, initValue);		
 		this.addFormField(field);

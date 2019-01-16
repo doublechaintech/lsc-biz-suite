@@ -177,7 +177,7 @@ const removeTransportItemList = (targetObjectId, parameters) => {
 
 
 const addTransportTask = (targetObjectId, parameters) => {
-  const url = `${PREFIX}platformManager/addTransportTask/platformId/name/sourceId/destinationId/remark/statusId/senderId/receiverId/tokensExpr/`
+  const url = `${PREFIX}platformManager/addTransportTask/platformId/name/projectId/sourceId/destinationId/remark/statusId/senderId/receiverId/tokensExpr/`
   const platformId = targetObjectId
   const requestParameters = { ...parameters, platformId, tokensExpr: 'none' }
   return postForm({ url,requestParameters})

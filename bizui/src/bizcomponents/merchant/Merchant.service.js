@@ -77,7 +77,7 @@ const removeTransportProjectList = (targetObjectId, parameters) => {
 
 
 const addTransportTaskAsSender = (targetObjectId, parameters) => {
-  const url = `${PREFIX}merchantManager/addTransportTaskAsSender/merchantId/name/sourceId/destinationId/remark/statusId/platformId/tokensExpr/`
+  const url = `${PREFIX}merchantManager/addTransportTaskAsSender/merchantId/name/projectId/sourceId/destinationId/remark/statusId/platformId/tokensExpr/`
   const merchantId = targetObjectId
   const requestParameters = { ...parameters, merchantId, tokensExpr: 'none' }
   return postForm({ url,requestParameters})
@@ -99,7 +99,7 @@ const removeTransportTaskListAsSender = (targetObjectId, parameters) => {
 
 
 const addTransportTaskAsReceiver = (targetObjectId, parameters) => {
-  const url = `${PREFIX}merchantManager/addTransportTaskAsReceiver/merchantId/name/sourceId/destinationId/remark/statusId/platformId/tokensExpr/`
+  const url = `${PREFIX}merchantManager/addTransportTaskAsReceiver/merchantId/name/projectId/sourceId/destinationId/remark/statusId/platformId/tokensExpr/`
   const merchantId = targetObjectId
   const requestParameters = { ...parameters, merchantId, tokensExpr: 'none' }
   return postForm({ url,requestParameters})

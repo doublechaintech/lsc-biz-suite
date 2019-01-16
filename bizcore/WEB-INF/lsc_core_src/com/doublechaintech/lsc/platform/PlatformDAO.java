@@ -119,6 +119,10 @@ public interface PlatformDAO{
 	public Platform planToRemoveTransportTaskList(Platform platform, String transportTaskIds[], Map<String,Object> options)throws Exception;
 
 
+	//disconnect Platform with project in TransportTask
+	public Platform planToRemoveTransportTaskListWithProject(Platform platform, String projectId, Map<String,Object> options)throws Exception;
+	public int countTransportTaskListWithProject(String platformId, String projectId, Map<String,Object> options)throws Exception;
+	
 	//disconnect Platform with source in TransportTask
 	public Platform planToRemoveTransportTaskListWithSource(Platform platform, String sourceId, Map<String,Object> options)throws Exception;
 	public int countTransportTaskListWithSource(String platformId, String sourceId, Map<String,Object> options)throws Exception;
