@@ -22,7 +22,7 @@ public class SecUserCustomManagerImpl extends CustomSecUserManagerImpl{
 
 
     @Override
-	public Object login(LscUserContext userContext, String email, String password) {
+	public Object login(RetailscmUserContext userContext, String email, String password) {
 		
 		Object result = super.login(userContext, email, password);
 		String content="FYI";
@@ -49,7 +49,7 @@ public class SecUserCustomManagerImpl extends CustomSecUserManagerImpl{
 		return result;
 	}
 	
-	protected void sendMail(LscUserContext userContext, String title, String content) {
+	protected void sendMail(RetailscmUserContext userContext, String title, String content) {
 		
 		if("103.229.212.96".equals(userContext.getRemoteIP())) {
 			return;//do not send when the access from local service public ip
@@ -67,7 +67,7 @@ public class SecUserCustomManagerImpl extends CustomSecUserManagerImpl{
 	}
 
 
-	public Object changeCurUserPassword(LscUserContext userContext, String currentPassword, String newPassword)
+	public Object changeCurUserPassword(RetailscmUserContext userContext, String currentPassword, String newPassword)
 			throws Exception {
 		
 		this.sendMail(userContext, "试图修改密码@retailscm", "");
