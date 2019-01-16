@@ -1,0 +1,759 @@
+
+
+
+=================Execute Report (Model Time 190116T1604) @Wed Jan 16 16:06:38 CST 2019, 25 objects and 189 fields===========================
+
+
+
+ processing: platform
+
+
+ processing: transaction_type
+
+
+ processing: transaction_type.platform.platform
+
+Info: Add virtual field [transaction_types(es)] to <platform>
+	transaction_type.platform
+
+
+ processing: merchant_type
+
+
+ processing: merchant_type.platform.platform
+
+Info: Add virtual field [merchant_types(es)] to <platform>
+	merchant_type.platform
+
+
+ processing: transport_task_status
+
+
+ processing: transport_task_status.platform.platform
+
+Info: Add virtual field [transport_task_statuss(es)] to <platform>
+	transport_task_status.platform
+
+
+ processing: location
+
+
+ processing: location.platform.platform
+
+Info: Add virtual field [locations(es)] to <platform>
+	location.platform
+
+
+ processing: merchant
+
+
+ processing: merchant.merchant_type.type
+
+Info: Add virtual field [merchants(es)] to <merchant_type>
+	merchant.type
+
+
+ processing: merchant.platform.platform
+
+Info: Add virtual field [merchants(es)] to <platform>
+	merchant.platform
+
+
+ processing: transport_project
+
+
+ processing: transport_project.merchant.merchant
+
+Info: Add virtual field [transport_projects(es)] to <merchant>
+	transport_project.merchant
+
+
+ processing: transport_project.platform.platform
+
+Info: Add virtual field [transport_projects(es)] to <platform>
+	transport_project.platform
+
+
+ processing: transport_item
+
+
+ processing: transport_item.transport_project.project
+
+Info: Add virtual field [transport_items(es)] to <transport_project>
+	transport_item.project
+
+
+ processing: transport_item.merchant_type.merchant
+
+Info: Add virtual field [transport_items(es)] to <merchant_type>
+	transport_item.merchant
+
+
+ processing: transport_item.platform.platform
+
+Info: Add virtual field [transport_items(es)] to <platform>
+	transport_item.platform
+
+
+ processing: transport_task
+
+
+ processing: transport_task.location.source
+
+Info: Add virtual field [transport_tasks(es)] to <location>
+	transport_task.source
+
+
+ processing: transport_task.location.destination
+
+Info: Add virtual field [transport_tasks(es)] to <location>
+	transport_task.destination
+
+
+ processing: transport_task.transport_task_status.status
+
+Info: Add virtual field [transport_tasks(es)] to <transport_task_status>
+	transport_task.status
+
+
+ processing: transport_task.merchant.sender
+
+Info: Add virtual field [transport_tasks(es)] to <merchant>
+	transport_task.sender
+
+
+ processing: transport_task.merchant.receiver
+
+Info: Add virtual field [transport_tasks(es)] to <merchant>
+	transport_task.receiver
+
+
+ processing: transport_task.platform.platform
+
+Info: Add virtual field [transport_tasks(es)] to <platform>
+	transport_task.platform
+
+
+ processing: transport_task_track
+
+
+ processing: transport_task_track.transport_task.task
+
+Info: Add virtual field [transport_task_tracks(es)] to <transport_task>
+	transport_task_track.task
+
+
+ processing: merchant_account
+
+
+ processing: merchant_account.merchant.merchant
+
+Info: Add virtual field [merchant_accounts(es)] to <merchant>
+	merchant_account.merchant
+
+
+ processing: transaction
+
+
+ processing: transaction.transaction_type.transaction_type
+
+Info: Add virtual field [transactions(es)] to <transaction_type>
+	transaction.transaction_type
+
+
+ processing: transaction.merchant_account.account
+
+Info: Add virtual field [transactions(es)] to <merchant_account>
+	transaction.account
+
+
+**************************************************
+
+platform{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('物流综合服务平台'), verb: false, required: true;
+		string	introduction('一个连通货主和司机的物流综合服务平台'), verb: false, required: true;
+		string	current_version('V1.0'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(8){
+		transactionTypeList	platform(基本信息)--platform;
+		merchantTypeList	platform(基本信息)--platform;
+		transportTaskStatusList	platform(基本信息)--platform;
+		locationList	platform(基本信息)--platform;
+		merchantList	platform(基本信息)--platform;
+		transportProjectList	platform(基本信息)--platform;
+		transportItemList	platform(基本信息)--platform;
+		transportTaskList	platform(基本信息)--platform;
+	}
+} depth=0; isRoot = true
+
+transaction_type{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('支出|收入'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transactionTypeList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transactionList	transaction_type(基本信息)--transaction_type;
+	}
+} depth=1; isRoot = false
+
+merchant_type{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('司机|渠道|综合|平台'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantTypeList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		merchantList	type(基本信息)--type;
+		transportItemList	merchant(基本信息)--merchant;
+	}
+} depth=1; isRoot = false
+
+transport_task_status{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('初始|招标|抢单|执行中|完成'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportTaskStatusList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transportTaskList	status(基本信息)--status;
+	}
+} depth=1; isRoot = false
+
+location{
+	fields(9){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('河南橡胶二号仓'), verb: false, required: true;
+		string	contact_person('西蒙罗'), verb: false, required: true;
+		string_china_mobile_phone	contact_phone('18788887777'), verb: false, required: true;
+		string_longtext	description('text()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: locationList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		transportTaskListAsSource	source(基本信息)--source;
+		transportTaskListAsDestination	destination(基本信息)--source;
+	}
+} depth=1; isRoot = false
+
+merchant{
+	fields(8){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('王司机|青白江物流代理点'), verb: false, required: true;
+		merchant_type	type('$(object)'), verb: false, required: true, referenceBy: merchantList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList;
+		string_longtext	description('text()'), verb: false, required: true;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(4){
+		transportProjectList	merchant(基本信息)--merchant;
+		transportTaskListAsSender	sender(基本信息)--sender;
+		transportTaskListAsReceiver	receiver(基本信息)--sender;
+		merchantAccountList	merchant(基本信息)--merchant;
+	}
+} depth=2; isRoot = false
+
+transport_project{
+	fields(7){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('李先生的大批货物'), verb: false, required: true;
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: transportProjectList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportProjectList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transportItemList	project(基本信息)--project;
+	}
+} depth=3; isRoot = false
+
+transport_item{
+	fields(10){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('橡胶'), verb: false, required: true;
+		int	quantity('1000'), verb: false, required: true;
+		string	unit('吨|立方'), verb: false, required: true;
+		transport_project	project('$(object)'), verb: false, required: true, referenceBy: transportItemList;
+		merchant_type	merchant('$(object)'), verb: false, required: true, referenceBy: transportItemList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportItemList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+transport_task{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('橡胶运输任务'), verb: false, required: true;
+		location	source('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsSource;
+		location	destination('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsDestination;
+		string	remark('在二号通道'), verb: false, required: true;
+		transport_task_status	status('$(object)'), verb: false, required: true, referenceBy: transportTaskList;
+		merchant	sender('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsSender;
+		merchant	receiver('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsReceiver;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportTaskList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transportTaskTrackList	task(基本信息)--task;
+	}
+} depth=3; isRoot = false
+
+transport_task_track{
+	fields(8){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('陕西宝鸡'), verb: false, required: true;
+		double	latitude('40.776877'), verb: false, required: true;
+		double	longitude('130.273647'), verb: false, required: true;
+		transport_task	task('$(object)'), verb: false, required: true, referenceBy: transportTaskTrackList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+merchant_account{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('商户账户'), verb: false, required: true;
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantAccountList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transactionList	account(基本信息)--account;
+	}
+} depth=3; isRoot = false
+
+transaction{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('收入|支出'), verb: false, required: true;
+		money	amount('$12312.12'), verb: false, required: true;
+		transaction_type	transaction_type('$(object)'), verb: false, required: true, referenceBy: transactionList;
+		merchant_account	account('$(object)'), verb: false, required: true, referenceBy: transactionList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+platform{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('物流综合服务平台'), verb: false, required: true;
+		string	introduction('一个连通货主和司机的物流综合服务平台'), verb: false, required: true;
+		string	current_version('V1.0'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(8){
+		transactionTypeList	platform(基本信息)--platform;
+		merchantTypeList	platform(基本信息)--platform;
+		transportTaskStatusList	platform(基本信息)--platform;
+		locationList	platform(基本信息)--platform;
+		merchantList	platform(基本信息)--platform;
+		transportProjectList	platform(基本信息)--platform;
+		transportItemList	platform(基本信息)--platform;
+		transportTaskList	platform(基本信息)--platform;
+	}
+} depth=0; isRoot = true
+
+transaction_type{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('支出|收入'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transactionTypeList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transactionList	transaction_type(基本信息)--transaction_type;
+	}
+} depth=1; isRoot = false
+
+merchant_type{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('司机|渠道|综合|平台'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantTypeList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		merchantList	type(基本信息)--type;
+		transportItemList	merchant(基本信息)--merchant;
+	}
+} depth=1; isRoot = false
+
+transport_task_status{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('初始|招标|抢单|执行中|完成'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportTaskStatusList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transportTaskList	status(基本信息)--status;
+	}
+} depth=1; isRoot = false
+
+location{
+	fields(9){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('河南橡胶二号仓'), verb: false, required: true;
+		string	contact_person('西蒙罗'), verb: false, required: true;
+		string_china_mobile_phone	contact_phone('18788887777'), verb: false, required: true;
+		string_longtext	description('text()'), verb: false, required: true;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: locationList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		transportTaskListAsSource	source(基本信息)--source;
+		transportTaskListAsDestination	destination(基本信息)--source;
+	}
+} depth=1; isRoot = false
+
+merchant{
+	fields(8){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('王司机|青白江物流代理点'), verb: false, required: true;
+		merchant_type	type('$(object)'), verb: false, required: true, referenceBy: merchantList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList;
+		string_longtext	description('text()'), verb: false, required: true;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(4){
+		transportProjectList	merchant(基本信息)--merchant;
+		transportTaskListAsSender	sender(基本信息)--sender;
+		transportTaskListAsReceiver	receiver(基本信息)--sender;
+		merchantAccountList	merchant(基本信息)--merchant;
+	}
+} depth=2; isRoot = false
+
+transport_project{
+	fields(7){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('李先生的大批货物'), verb: false, required: true;
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: transportProjectList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportProjectList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transportItemList	project(基本信息)--project;
+	}
+} depth=3; isRoot = false
+
+transport_item{
+	fields(10){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('橡胶'), verb: false, required: true;
+		int	quantity('1000'), verb: false, required: true;
+		string	unit('吨|立方'), verb: false, required: true;
+		transport_project	project('$(object)'), verb: false, required: true, referenceBy: transportItemList;
+		merchant_type	merchant('$(object)'), verb: false, required: true, referenceBy: transportItemList;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportItemList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+transport_task{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('橡胶运输任务'), verb: false, required: true;
+		location	source('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsSource;
+		location	destination('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsDestination;
+		string	remark('在二号通道'), verb: false, required: true;
+		transport_task_status	status('$(object)'), verb: false, required: true, referenceBy: transportTaskList;
+		merchant	sender('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsSender;
+		merchant	receiver('$(object)'), verb: false, required: true, referenceBy: transportTaskListAsReceiver;
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: transportTaskList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transportTaskTrackList	task(基本信息)--task;
+	}
+} depth=3; isRoot = false
+
+transport_task_track{
+	fields(8){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('陕西宝鸡'), verb: false, required: true;
+		double	latitude('40.776877'), verb: false, required: true;
+		double	longitude('130.273647'), verb: false, required: true;
+		transport_task	task('$(object)'), verb: false, required: true, referenceBy: transportTaskTrackList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+merchant_account{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('商户账户'), verb: false, required: true;
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantAccountList;
+		date_time_create	create_time('createTime()'), verb: false, required: true;
+		date_time_update	update_time('updateTime()'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		transactionList	account(基本信息)--account;
+	}
+} depth=3; isRoot = false
+
+transaction{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('收入|支出'), verb: false, required: true;
+		money	amount('$12312.12'), verb: false, required: true;
+		transaction_type	transaction_type('$(object)'), verb: false, required: true, referenceBy: transactionList;
+		merchant_account	account('$(object)'), verb: false, required: true, referenceBy: transactionList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+user_domain{
+	fields(3){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('用户区域'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		userWhiteListList	domain(基本信息)--domain;
+		secUserList	domain(基本信息)--domain;
+	}
+} depth=0; isRoot = true
+
+user_white_list{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	user_identity('clariones|13808188512'), verb: false, required: true;
+		string	user_special_functions('tester;ios-spokesperson'), verb: false, required: true;
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: userWhiteListList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+sec_user{
+	fields(12){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	login('login'), verb: false, required: true;
+		string_china_mobile_phone	mobile('13900000001'), verb: false, required: true;
+		string	email('|suddy_chang@163.com'), verb: false, required: false;
+		string_password	pwd('*******'), verb: false, required: true;
+		int	verification_code('0|9999999'), verb: false, required: true;
+		date_time	verification_code_expire('2099-12-31T09:09:09'), verb: false, required: true;
+		date_time	last_login_time('2099-12-31T09:09:09'), verb: false, required: true;
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: secUserList;
+		sec_user_blocking	blocking('$(object)'), verb: true, required: true, referenceBy: secUserList;
+		string	current_status('BLOCKED'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		userAppList	sec_user(基本信息)--sec_user;
+		loginHistoryList	sec_user(基本信息)--sec_user;
+	}
+} depth=1; isRoot = false
+
+sec_user_blocking{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	who('currentUser()'), verb: false, required: true;
+		date_time_create	block_time('createTime()'), verb: false, required: true;
+		string	comments('这个用户多次发送违反社区的帖子，现在把他给屏蔽了'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(1){
+		secUserList	blocking(基本信息)--blocking;
+	}
+} depth=0; isRoot = true
+
+user_app{
+	fields(10){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	title('审车平台|账户管理|接车公司|审车公司|维修公司|顾客'), verb: false, required: true;
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: userAppList;
+		string	app_icon('users|bank|wechat|bar-chart|user|users'), verb: false, required: true;
+		bool	full_access('true'), verb: false, required: true;
+		string	permission('MXWR|MXWR'), verb: false, required: true;
+		string	object_type('CarInspectionPlatform|UserDomain|CarReceivingServiceCompany|CarInspectionServiceCompany|CarRepairingServiceCompany|CustomerInfo'), verb: false, required: true;
+		string	object_id('CIP000001|UD000001|CRSC000001|CISC000001|CRSC000001|CI000001'), verb: false, required: true;
+		string	location('/link/to/app'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(2){
+		listAccessList	app(基本信息)--app;
+		objectAccessList	app(基本信息)--app;
+	}
+} depth=2; isRoot = false
+
+list_access{
+	fields(10){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('列表'), verb: false, required: true;
+		string	internal_name('levelOneCategoryList'), verb: false, required: true;
+		bool	read_permission('true'), verb: false, required: true;
+		bool	create_permission('true'), verb: false, required: true;
+		bool	delete_permission('true'), verb: false, required: true;
+		bool	update_permission('true'), verb: false, required: true;
+		bool	execution_permission('true'), verb: false, required: true;
+		user_app	app('$(object)'), verb: false, required: true, referenceBy: listAccessList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+object_access{
+	fields(14){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	name('控制访问列表1'), verb: false, required: true;
+		string	object_type('FranchiseeStoreCountryCenter|AccountSet'), verb: false, required: true;
+		string	list1('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list2('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list3('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list4('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list5('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list6('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list7('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list8('catalogList|levelOneCategoryList'), verb: false, required: true;
+		string	list9('catalogList|levelOneCategoryList'), verb: false, required: true;
+		user_app	app('$(object)'), verb: false, required: true, referenceBy: objectAccessList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+login_history{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		date_time_create	login_time('createTime()'), verb: false, required: true;
+		string	from_ip('192.168.1.1|192.168.1.2'), verb: false, required: true;
+		string	description('登陆成功'), verb: false, required: true;
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: loginHistoryList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+generic_form{
+	fields(4){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	title('登记输入单'), verb: false, required: true;
+		string	description('姓名就是你身份证上的名字'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(4){
+		formMessageList	form(基本信息)--form;
+		formFieldMessageList	form(基本信息)--form;
+		formFieldList	form(基本信息)--form;
+		formActionList	form(基本信息)--form;
+	}
+} depth=0; isRoot = true
+
+form_message{
+	fields(5){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	title('字段组合错误'), verb: false, required: true;
+		generic_form	form('$(object)'), verb: false, required: true, referenceBy: formMessageList;
+		string	level('success|info|warning|danger'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+form_field_message{
+	fields(6){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	title('输入错误'), verb: false, required: true;
+		string	parameter_name('name'), verb: false, required: true;
+		generic_form	form('$(object)'), verb: false, required: true, referenceBy: formFieldMessageList;
+		string	level('success|info|warning|danger'), verb: false, required: true;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+form_field{
+	fields(18){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	label('姓名|年龄|出生地|国籍'), verb: false, required: true;
+		string	locale_key('name|age|birth_place|country'), verb: false, required: true;
+		string	parameter_name('name'), verb: false, required: true;
+		string	type('text|longtext|date|date_time|money|url|image|password|number|switch|vcode'), verb: false, required: true;
+		generic_form	form('$(object)'), verb: false, required: true, referenceBy: formFieldList;
+		string	placeholder('姓名就是你身份证上的名字'), verb: false, required: true;
+		string	default_value('李一一'), verb: false, required: true;
+		string	description('姓名就是你身份证上的名字'), verb: false, required: true;
+		string	field_group('基础信息|扩展信息'), verb: false, required: true;
+		string	minimum_value('maybe any value'), verb: false, required: true;
+		string	maximum_value('a value expression'), verb: false, required: true;
+		bool	required('true|false'), verb: false, required: true;
+		bool	disabled('true|false'), verb: false, required: true;
+		bool	custom_rendering('false'), verb: false, required: true;
+		string	candidate_values('|||男,女|高,矮'), verb: false, required: false;
+		string	suggest_values('|||男,女|高,矮'), verb: false, required: false;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+form_action{
+	fields(8){
+		string	id('ABCDEFGIJK000001'), verb: false, required: true;
+		string	label('功能'), verb: false, required: true;
+		string	locale_key('name'), verb: false, required: true;
+		string	action_key('save|update|remove'), verb: false, required: true;
+		string	level('default|warning|danger|primary'), verb: false, required: true;
+		string	url('genericFormManager/name/name0002/name0003/'), verb: false, required: true;
+		generic_form	form('$(object)'), verb: false, required: true, referenceBy: formActionList;
+		int	version('2147483647'), verb: false, required: true;
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+
+
+
+=================================End Report=================================

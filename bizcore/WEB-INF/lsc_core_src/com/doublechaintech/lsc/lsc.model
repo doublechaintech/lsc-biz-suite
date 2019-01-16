@@ -1,0 +1,49 @@
+<?xml version='1.0' ?>
+<root org="doublechaintech" chinese_name="物流综合服务平台" english_name="Logistics Service Platform">
+
+	<platform
+		name="物流综合服务平台"
+		introduction="一个连通货主和司机的物流综合服务平台"
+		current_version="V1.0"
+		
+	
+	/>
+	
+	<transaction_type name="支出|收入"  platform="$(platform)" _features="setting"/>
+	<merchant_type name="司机|渠道|综合|平台"  platform="$(platform)" _features="setting"/>
+	<transport_task_status name="初始|招标|抢单|执行中|完成"  platform="$(platform)" _features="setting"/>
+	<location name="河南橡胶二号仓" contact_person="西蒙罗" contact_phone="18788887777" description="text()" platform="$(platform)"  create_time="createTime()" update_time="updateTime()"/>
+	
+	
+	<merchant name="王司机|青白江物流代理点" type="$(merchant_type)" platform="$(platform)" description="text()" create_time="createTime()" update_time="updateTime()">
+	
+	<!-- 货主的货，这个信息由渠道录入 -->
+	<transport_project name="李先生的大批货物" merchant="$(merchant)"   platform="$(platform)"  create_time="createTime()" update_time="updateTime()"/>
+	<!-- 货主的货，这个信息由渠道录入 -->
+	<transport_item name="橡胶" quantity="1000" unit="吨|立方" project="$(transport_project)" merchant="$(merchant_type)"  platform="$(platform)" create_time="createTime()" update_time="updateTime()"/>
+	<!-- 运输任务，这个司机可以抢, merchant 是谁在运输, 是谁在运输 -->
+	<transport_task name="橡胶运输任务" source="$(location)" destination="$(location)" remark="在二号通道" status="$(transport_task_status)" sender="$(merchant)" receiver="$(merchant)" platform="$(platform)" create_time="createTime()" update_time="updateTime()"/>
+	<transport_task_track name="陕西宝鸡" latitude="40.776877" longitude="130.273647" task="$(transport_task)" create_time="createTime()" update_time="updateTime()"/>
+	
+	
+	
+	<!-- 账务处理 -->
+	<merchant_account name="商户账户" merchant="$(merchant)"   create_time="createTime()" update_time="updateTime()"/>
+	<transaction  name="收入|支出" amount="$12312.12" transaction_type="$(transaction_type)" account="$(merchant_account)"/>
+	
+	
+	
+	</merchant>
+	
+	
+</root>
+ 
+
+
+
+
+
+
+
+
+

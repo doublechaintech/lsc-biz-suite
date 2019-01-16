@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<bean id="checker" class="com.doublechaintech.lsc.LscChecker" scope="prototype"></bean>
+
+	<bean id="platformManagerBase" class="com.doublechaintech.lsc.platform.PlatformManagerImpl"/>
+	<bean id="platformManager" class="com.doublechaintech.lsc.platform.PlatformCustomManagerImpl" parent="platformManagerBase" ></bean>
+	
+	<bean id="transactionTypeManagerBase" class="com.doublechaintech.lsc.transactiontype.TransactionTypeManagerImpl"/>
+	<bean id="transactionTypeManager" class="com.doublechaintech.lsc.transactiontype.TransactionTypeManagerImpl" parent="transactionTypeManagerBase" ></bean>
+	
+	<bean id="merchantTypeManagerBase" class="com.doublechaintech.lsc.merchanttype.MerchantTypeManagerImpl"/>
+	<bean id="merchantTypeManager" class="com.doublechaintech.lsc.merchanttype.MerchantTypeManagerImpl" parent="merchantTypeManagerBase" ></bean>
+	
+	<bean id="transportTaskStatusManagerBase" class="com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatusManagerImpl"/>
+	<bean id="transportTaskStatusManager" class="com.doublechaintech.lsc.transporttaskstatus.TransportTaskStatusManagerImpl" parent="transportTaskStatusManagerBase" ></bean>
+	
+	<bean id="locationManagerBase" class="com.doublechaintech.lsc.location.LocationManagerImpl"/>
+	<bean id="locationManager" class="com.doublechaintech.lsc.location.LocationManagerImpl" parent="locationManagerBase" ></bean>
+	
+	<bean id="merchantManagerBase" class="com.doublechaintech.lsc.merchant.MerchantManagerImpl"/>
+	<bean id="merchantManager" class="com.doublechaintech.lsc.merchant.MerchantCustomManagerImpl" parent="merchantManagerBase" ></bean>
+	
+	<bean id="transportProjectManagerBase" class="com.doublechaintech.lsc.transportproject.TransportProjectManagerImpl"/>
+	<bean id="transportProjectManager" class="com.doublechaintech.lsc.transportproject.TransportProjectManagerImpl" parent="transportProjectManagerBase" ></bean>
+	
+	<bean id="transportItemManagerBase" class="com.doublechaintech.lsc.transportitem.TransportItemManagerImpl"/>
+	<bean id="transportItemManager" class="com.doublechaintech.lsc.transportitem.TransportItemManagerImpl" parent="transportItemManagerBase" ></bean>
+	
+	<bean id="transportTaskManagerBase" class="com.doublechaintech.lsc.transporttask.TransportTaskManagerImpl"/>
+	<bean id="transportTaskManager" class="com.doublechaintech.lsc.transporttask.TransportTaskManagerImpl" parent="transportTaskManagerBase" ></bean>
+	
+	<bean id="transportTaskTrackManagerBase" class="com.doublechaintech.lsc.transporttasktrack.TransportTaskTrackManagerImpl"/>
+	<bean id="transportTaskTrackManager" class="com.doublechaintech.lsc.transporttasktrack.TransportTaskTrackManagerImpl" parent="transportTaskTrackManagerBase" ></bean>
+	
+	<bean id="merchantAccountManagerBase" class="com.doublechaintech.lsc.merchantaccount.MerchantAccountManagerImpl"/>
+	<bean id="merchantAccountManager" class="com.doublechaintech.lsc.merchantaccount.MerchantAccountManagerImpl" parent="merchantAccountManagerBase" ></bean>
+	
+	<bean id="transactionManagerBase" class="com.doublechaintech.lsc.transaction.TransactionManagerImpl"/>
+	<bean id="transactionManager" class="com.doublechaintech.lsc.transaction.TransactionManagerImpl" parent="transactionManagerBase" ></bean>
+	
+	<bean id="userDomainManagerBase" class="com.doublechaintech.lsc.userdomain.UserDomainManagerImpl"/>
+	<bean id="userDomainManager" class="com.doublechaintech.lsc.userdomain.UserDomainManagerImpl" parent="userDomainManagerBase" ></bean>
+	
+	<bean id="userWhiteListManagerBase" class="com.doublechaintech.lsc.userwhitelist.UserWhiteListManagerImpl"/>
+	<bean id="userWhiteListManager" class="com.doublechaintech.lsc.userwhitelist.UserWhiteListManagerImpl" parent="userWhiteListManagerBase" ></bean>
+	
+	<bean id="secUserManagerBase" class="com.doublechaintech.lsc.secuser.SecUserManagerImpl"/>
+	<bean id="secUserManager" class="com.doublechaintech.lsc.secuser.SecUserManagerImpl" parent="secUserManagerBase" ></bean>
+	
+	<bean id="secUserBlockingManagerBase" class="com.doublechaintech.lsc.secuserblocking.SecUserBlockingManagerImpl"/>
+	<bean id="secUserBlockingManager" class="com.doublechaintech.lsc.secuserblocking.SecUserBlockingManagerImpl" parent="secUserBlockingManagerBase" ></bean>
+	
+	<bean id="userAppManagerBase" class="com.doublechaintech.lsc.userapp.UserAppManagerImpl"/>
+	<bean id="userAppManager" class="com.doublechaintech.lsc.userapp.UserAppManagerImpl" parent="userAppManagerBase" ></bean>
+	
+	<bean id="listAccessManagerBase" class="com.doublechaintech.lsc.listaccess.ListAccessManagerImpl"/>
+	<bean id="listAccessManager" class="com.doublechaintech.lsc.listaccess.ListAccessManagerImpl" parent="listAccessManagerBase" ></bean>
+	
+	<bean id="objectAccessManagerBase" class="com.doublechaintech.lsc.objectaccess.ObjectAccessManagerImpl"/>
+	<bean id="objectAccessManager" class="com.doublechaintech.lsc.objectaccess.ObjectAccessManagerImpl" parent="objectAccessManagerBase" ></bean>
+	
+	<bean id="loginHistoryManagerBase" class="com.doublechaintech.lsc.loginhistory.LoginHistoryManagerImpl"/>
+	<bean id="loginHistoryManager" class="com.doublechaintech.lsc.loginhistory.LoginHistoryManagerImpl" parent="loginHistoryManagerBase" ></bean>
+	
+	<bean id="genericFormManagerBase" class="com.doublechaintech.lsc.genericform.GenericFormManagerImpl"/>
+	<bean id="genericFormManager" class="com.doublechaintech.lsc.genericform.GenericFormCustomManagerImpl" parent="genericFormManagerBase" ></bean>
+	
+	<bean id="formMessageManagerBase" class="com.doublechaintech.lsc.formmessage.FormMessageManagerImpl"/>
+	<bean id="formMessageManager" class="com.doublechaintech.lsc.formmessage.FormMessageManagerImpl" parent="formMessageManagerBase" ></bean>
+	
+	<bean id="formFieldMessageManagerBase" class="com.doublechaintech.lsc.formfieldmessage.FormFieldMessageManagerImpl"/>
+	<bean id="formFieldMessageManager" class="com.doublechaintech.lsc.formfieldmessage.FormFieldMessageManagerImpl" parent="formFieldMessageManagerBase" ></bean>
+	
+	<bean id="formFieldManagerBase" class="com.doublechaintech.lsc.formfield.FormFieldManagerImpl"/>
+	<bean id="formFieldManager" class="com.doublechaintech.lsc.formfield.FormFieldManagerImpl" parent="formFieldManagerBase" ></bean>
+	
+	<bean id="formActionManagerBase" class="com.doublechaintech.lsc.formaction.FormActionManagerImpl"/>
+	<bean id="formActionManager" class="com.doublechaintech.lsc.formaction.FormActionManagerImpl" parent="formActionManagerBase" ></bean>
+	
+
+	<bean id="managerGroupBase" class="com.doublechaintech.lsc.ManagerGroup">
+		<property name="platformManager" ref="platformManager"/>
+		<property name="transactionTypeManager" ref="transactionTypeManager"/>
+		<property name="merchantTypeManager" ref="merchantTypeManager"/>
+		<property name="transportTaskStatusManager" ref="transportTaskStatusManager"/>
+		<property name="locationManager" ref="locationManager"/>
+		<property name="merchantManager" ref="merchantManager"/>
+		<property name="transportProjectManager" ref="transportProjectManager"/>
+		<property name="transportItemManager" ref="transportItemManager"/>
+		<property name="transportTaskManager" ref="transportTaskManager"/>
+		<property name="transportTaskTrackManager" ref="transportTaskTrackManager"/>
+		<property name="merchantAccountManager" ref="merchantAccountManager"/>
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="userDomainManager" ref="userDomainManager"/>
+		<property name="userWhiteListManager" ref="userWhiteListManager"/>
+		<property name="secUserManager" ref="secUserManager"/>
+		<property name="secUserBlockingManager" ref="secUserBlockingManager"/>
+		<property name="userAppManager" ref="userAppManager"/>
+		<property name="listAccessManager" ref="listAccessManager"/>
+		<property name="objectAccessManager" ref="objectAccessManager"/>
+		<property name="loginHistoryManager" ref="loginHistoryManager"/>
+		<property name="genericFormManager" ref="genericFormManager"/>
+		<property name="formMessageManager" ref="formMessageManager"/>
+		<property name="formFieldMessageManager" ref="formFieldMessageManager"/>
+		<property name="formFieldManager" ref="formFieldManager"/>
+		<property name="formActionManager" ref="formActionManager"/>
+	</bean>
+	<bean id="managerGroup" parent="managerGroupBase"></bean>
+	
+
+
+</beans>
+
+
+
+
+
+
+
+

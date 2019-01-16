@@ -1,0 +1,242 @@
+Summary|概览
+Platform|Platform
+Id|ID
+Name|名称
+Introduction|Introduction
+Current Version|Current Version
+Version|版本
+Transaction Type|Transaction Type
+Id|ID
+Name|名称
+Platform|Platform
+Version|版本
+Merchant Type|Merchant Type
+Id|ID
+Name|名称
+Platform|Platform
+Version|版本
+Transport Task Status|Transport Task Status
+Id|ID
+Name|名称
+Platform|Platform
+Version|版本
+Location|位置
+Id|ID
+Name|名称
+Contact Person|Contact Person
+Contact Phone|Contact Phone
+Description|描述
+Platform|Platform
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Merchant|Merchant
+Id|ID
+Name|名称
+Type|类型
+Platform|Platform
+Description|描述
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Transport Project|Transport Project
+Id|ID
+Name|名称
+Merchant|Merchant
+Platform|Platform
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Transport Item|Transport Item
+Id|ID
+Name|名称
+Quantity|Quantity
+Unit|Unit
+Project|Project
+Merchant|Merchant
+Platform|Platform
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Transport Task|Transport Task
+Id|ID
+Name|名称
+Source|Source
+Destination|Destination
+Remark|Remark
+Status|Status
+Sender|Sender
+Receiver|Receiver
+Platform|Platform
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Transport Task Track|Transport Task Track
+Id|ID
+Name|名称
+Latitude|Latitude
+Longitude|Longitude
+Task|Task
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Merchant Account|Merchant Account
+Id|ID
+Name|名称
+Merchant|Merchant
+Create Time|Create Time
+Update Time|Update Time
+Version|版本
+Transaction|Transaction
+Id|ID
+Name|名称
+Amount|金额
+Transaction Type|Transaction Type
+Account|Account
+Version|版本
+User Domain|用户域
+Id|ID
+Name|名称
+Version|版本
+User White List|User White List
+Id|ID
+User Identity|User Identity
+User Special Functions|User Special Functions
+Domain|域
+Version|版本
+Sec User|安全用户
+Id|ID
+Login|登录
+Mobile|手机号码
+Email|电子邮件
+Pwd|密码
+Verification Code|验证码
+Verification Code Expire|验证码过期
+Last Login Time|最后登录时间
+Domain|域
+Blocking|屏蔽
+Block|屏蔽
+Current Status|当前状态
+Version|版本
+Sec User Blocking|用户屏蔽
+Id|ID
+Who|谁
+Block Time|块时间
+Comments|评论
+Version|版本
+User App|用户应用程序
+Id|ID
+Title|标题
+Sec User|安全用户
+App Icon|应用程序图标
+Full Access|完全访问
+Permission|许可
+Object Type|访问对象类型
+Object Id|对象ID
+Location|位置
+Version|版本
+List Access|List Access
+Id|ID
+Name|名称
+Internal Name|Internal Name
+Read Permission|Read Permission
+Create Permission|Create Permission
+Delete Permission|Delete Permission
+Update Permission|Update Permission
+Execution Permission|Execution Permission
+App|应用程序
+Version|版本
+Object Access|对象访问
+Id|ID
+Name|名称
+Object Type|访问对象类型
+List1|列表1
+List2|列表2
+List3|列表3
+List4|列表4
+List5|列表5
+List6|列表6
+List7|列表7
+List8|列表8
+List9|列表9
+App|应用程序
+Version|版本
+Login History|登录历史
+Id|ID
+Login Time|登录时间
+From Ip|来自IP
+Description|描述
+Sec User|安全用户
+Version|版本
+Generic Form|通用的形式
+Id|ID
+Title|标题
+Description|描述
+Version|版本
+Form Message|表单信息
+Id|ID
+Title|标题
+Form|形式
+Level|水平
+Version|版本
+Form Field Message|表单字段的信息
+Id|ID
+Title|标题
+Parameter Name|参数名称
+Form|形式
+Level|水平
+Version|版本
+Form Field|表单字段
+Id|ID
+Label|标签
+Locale Key|语言环境的关键
+Parameter Name|参数名称
+Type|类型
+Form|形式
+Placeholder|占位符
+Default Value|默认值
+Description|描述
+Field Group|字段组
+Minimum Value|Minimum Value
+Maximum Value|Maximum Value
+Required|要求
+Disabled|Disabled
+Custom Rendering|自定义渲染
+Candidate Values|候选人的价值观
+Suggest Values|建议值
+Version|版本
+Form Action|表单动作
+Id|ID
+Label|标签
+Locale Key|语言环境的关键
+Action Key|Action Key
+Level|水平
+Url|url
+Form|形式
+Version|版本
+Transfer to Another Platform|Transfer to Another Platform
+Transfer to Another Transaction Type|Transfer to Another Transaction Type
+Transfer to Another Merchant Type|Transfer to Another Merchant Type
+Transfer to Another Transport Task Status|Transfer to Another Transport Task Status
+Transfer to Another Location|Transfer to Another Location
+Transfer to Another Merchant|Transfer to Another Merchant
+Transfer to Another Transport Project|Transfer to Another Transport Project
+Transfer to Another Transport Item|Transfer to Another Transport Item
+Transfer to Another Transport Task|Transfer to Another Transport Task
+Transfer to Another Transport Task Track|Transfer to Another Transport Task Track
+Transfer to Another Merchant Account|Transfer to Another Merchant Account
+Transfer to Another Transaction|Transfer to Another Transaction
+Transfer to Another User Domain|转移到另一个用户域
+Transfer to Another User White List|Transfer to Another User White List
+Transfer to Another Sec User|转移到另一个SEC用户
+Transfer to Another Sec User Blocking|转移到另一个SEC用户阻塞
+Transfer to Another User App|转移到另一个用户应用程序
+Transfer to Another List Access|Transfer to Another List Access
+Transfer to Another Object Access|转移到另一个对象访问
+Transfer to Another Login History|转移到另一个登录历史
+Transfer to Another Generic Form|转移到另一个通用表单
+Transfer to Another Form Message|转到另一个表单消息
+Transfer to Another Form Field Message|转到另一个表单字段消息
+Transfer to Another Form Field|转到另一个表单字段
+Transfer to Another Form Action|转移到另一个表单动作
+
