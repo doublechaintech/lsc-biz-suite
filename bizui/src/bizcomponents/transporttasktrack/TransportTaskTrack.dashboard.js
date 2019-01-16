@@ -81,16 +81,16 @@ const internalSummaryOf = (transportTaskTrack,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{transportTaskTrack.id}</Description> 
 <Description term="名称">{transportTaskTrack.name}</Description> 
-<Description term="Latitude">{transportTaskTrack.latitude}</Description> 
-<Description term="Longitude">{transportTaskTrack.longitude}</Description> 
-<Description term="Task">{transportTaskTrack.task==null?"未分配":transportTaskTrack.task.displayName}
+<Description term="纬度">{transportTaskTrack.latitude}</Description> 
+<Description term="经度">{transportTaskTrack.longitude}</Description> 
+<Description term="任务">{transportTaskTrack.task==null?"未分配":transportTaskTrack.task.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Task","transportTask",TransportTaskTrackService.requestCandidateTask,
+  showTransferModel(targetComponent,"任务","transportTask",TransportTaskTrackService.requestCandidateTask,
 	      TransportTaskTrackService.transferToAnotherTask,"anotherTaskId",transportTaskTrack.task?transportTaskTrack.task.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(transportTaskTrack.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(transportTaskTrack.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(transportTaskTrack.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(transportTaskTrack.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(transportTaskTrack,targetComponent)}
       </DescriptionList>
@@ -127,7 +127,7 @@ class TransportTaskTrackDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Transport Task Track",cardsFor: "transportTaskTrack",
+    const cardsData = {cardsName:"运输任务跟踪",cardsFor: "transportTaskTrack",
     	cardsSource: this.props.transportTaskTrack,returnURL,displayName,
   		subItems: [
     

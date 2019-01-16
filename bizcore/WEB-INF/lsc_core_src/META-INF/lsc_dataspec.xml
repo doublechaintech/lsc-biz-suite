@@ -5,8 +5,8 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="3" max="32" description="名称" />
-			<field name="introduction" type="string" checkType="StringLengthRange" min="5" max="72" description="Introduction" />
-			<field name="current_version" type="string" checkType="StringLengthRange" min="2" max="16" description="Current Version" />
+			<field name="introduction" type="string" checkType="StringLengthRange" min="5" max="72" description="介绍" />
+			<field name="current_version" type="string" checkType="StringLengthRange" min="2" max="16" description="当前版本" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -15,7 +15,7 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="1" max="8" description="名称" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -24,7 +24,7 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="1" max="8" description="名称" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -33,7 +33,7 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="1" max="12" description="名称" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -42,12 +42,12 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="2" max="28" description="名称" />
-			<field name="contact_person" type="string" checkType="StringLengthRange" min="1" max="12" description="Contact Person" />
-			<field name="contact_phone" type="string_china_mobile_phone" checkType="ChinaMobilePhone" min="5" max="44" description="Contact Phone" />
+			<field name="contact_person" type="string" checkType="StringLengthRange" min="1" max="12" description="联系人" />
+			<field name="contact_phone" type="string_china_mobile_phone" checkType="ChinaMobilePhone" min="5" max="44" description="联系电话" />
 			<field name="description" type="string_longtext" checkType="Longtext" min="0" max="1048576" description="描述" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -57,10 +57,10 @@
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="1" max="32" description="名称" />
 			<field name="type" type="reference" checkType="exist(merchant_type)" description="类型" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
 			<field name="description" type="string_longtext" checkType="Longtext" min="0" max="1048576" description="描述" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -69,10 +69,10 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="3" max="32" description="名称" />
-			<field name="merchant" type="reference" checkType="exist(merchant)" description="Merchant" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="merchant" type="reference" checkType="exist(merchant)" description="商人" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -81,13 +81,13 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="1" max="8" description="名称" />
-			<field name="quantity" type="int" checkType="IntegerRange" min="0" max="1000" description="Quantity" />
-			<field name="unit" type="string" checkType="StringLengthRange" min="0" max="8" description="Unit" />
-			<field name="project" type="reference" checkType="exist(transport_project)" description="Project" />
-			<field name="merchant" type="reference" checkType="exist(merchant_type)" description="Merchant" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="quantity" type="int" checkType="IntegerRange" min="0" max="1000" description="数量" />
+			<field name="unit" type="string" checkType="StringLengthRange" min="0" max="8" description="单位" />
+			<field name="project" type="reference" checkType="exist(transport_project)" description="项目" />
+			<field name="merchant" type="reference" checkType="exist(merchant_type)" description="商人" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -96,15 +96,15 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="2" max="24" description="名称" />
-			<field name="source" type="reference" checkType="exist(location)" description="Source" />
-			<field name="destination" type="reference" checkType="exist(location)" description="Destination" />
-			<field name="remark" type="string" checkType="StringLengthRange" min="2" max="20" description="Remark" />
-			<field name="status" type="reference" checkType="exist(transport_task_status)" description="Status" />
-			<field name="sender" type="reference" checkType="exist(merchant)" description="Sender" />
-			<field name="receiver" type="reference" checkType="exist(merchant)" description="Receiver" />
-			<field name="platform" type="reference" checkType="exist(platform)" description="Platform" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="source" type="reference" checkType="exist(location)" description="源" />
+			<field name="destination" type="reference" checkType="exist(location)" description="目的地" />
+			<field name="remark" type="string" checkType="StringLengthRange" min="2" max="20" description="备注" />
+			<field name="status" type="reference" checkType="exist(transport_task_status)" description="状态" />
+			<field name="sender" type="reference" checkType="exist(merchant)" description="发送方" />
+			<field name="receiver" type="reference" checkType="exist(merchant)" description="接收机" />
+			<field name="platform" type="reference" checkType="exist(platform)" description="平台" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -113,11 +113,11 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="2" max="16" description="名称" />
-			<field name="latitude" type="double" checkType="BigDecimalRange" min="-90.0" max="90.0" description="Latitude" />
-			<field name="longitude" type="double" checkType="BigDecimalRange" min="-180.0" max="180.0" description="Longitude" />
-			<field name="task" type="reference" checkType="exist(transport_task)" description="Task" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="latitude" type="double" checkType="BigDecimalRange" min="-90.0" max="90.0" description="纬度" />
+			<field name="longitude" type="double" checkType="BigDecimalRange" min="-180.0" max="180.0" description="经度" />
+			<field name="task" type="reference" checkType="exist(transport_task)" description="任务" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -126,9 +126,9 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="2" max="16" description="名称" />
-			<field name="merchant" type="reference" checkType="exist(merchant)" description="Merchant" />
-			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="Create Time" />
-			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="Update Time" />
+			<field name="merchant" type="reference" checkType="exist(merchant)" description="商人" />
+			<field name="create_time" type="date_time_create" checkType="DateTimeCreate" min="1900-01-01T00:00:00" max="createTime()" description="创建时间" />
+			<field name="update_time" type="date_time_update" checkType="DateTimeUpdate" min="1900-01-01T00:00:00" max="updateTime()" description="更新时间" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -138,8 +138,8 @@
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="1" max="8" description="名称" />
 			<field name="amount" type="money" checkType="MoneyAmount" min="0.0" max="12312.12" description="金额" />
-			<field name="transaction_type" type="reference" checkType="exist(transaction_type)" description="Transaction Type" />
-			<field name="account" type="reference" checkType="exist(merchant_account)" description="Account" />
+			<field name="transaction_type" type="reference" checkType="exist(transaction_type)" description="交易类型" />
+			<field name="account" type="reference" checkType="exist(merchant_account)" description="账户" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
 	</table>
@@ -155,8 +155,8 @@
 	<table name="user_white_list_data">
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
-			<field name="user_identity" type="string" checkType="StringLengthRange" min="1" max="40" description="User Identity" />
-			<field name="user_special_functions" type="string" checkType="StringLengthRange" min="1" max="200" description="User Special Functions" />
+			<field name="user_identity" type="string" checkType="StringLengthRange" min="1" max="40" description="用户身份" />
+			<field name="user_special_functions" type="string" checkType="StringLengthRange" min="1" max="200" description="用户特殊功能" />
 			<field name="domain" type="reference" checkType="exist(user_domain)" description="域" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
@@ -208,12 +208,12 @@
 		<fields>
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="name" type="string" checkType="StringLengthRange" min="2" max="200" description="名称" />
-			<field name="internal_name" type="string" checkType="StringLengthRange" min="2" max="200" description="Internal Name" />
-			<field name="read_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="Read Permission" />
-			<field name="create_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="Create Permission" />
-			<field name="delete_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="Delete Permission" />
-			<field name="update_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="Update Permission" />
-			<field name="execution_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="Execution Permission" />
+			<field name="internal_name" type="string" checkType="StringLengthRange" min="2" max="200" description="内部名称" />
+			<field name="read_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="读权限" />
+			<field name="create_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="创建权限" />
+			<field name="delete_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="删除权限" />
+			<field name="update_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="更新许可" />
+			<field name="execution_permission" type="bool" checkType="BooleanRange" min="0" max="true" description="执行权限" />
 			<field name="app" type="reference" checkType="exist(user_app)" description="应用程序" />
 			<field name="version" type="int" checkType="IntegerRange" min="0" max="Integer.MAX_VALUE" description="版本" />
 		</fields>
@@ -291,10 +291,10 @@
 			<field name="default_value" type="string" checkType="StringLengthRange" min="1" max="12" description="默认值" />
 			<field name="description" type="string" checkType="StringLengthRange" min="4" max="48" description="描述" />
 			<field name="field_group" type="string" checkType="StringLengthRange" min="2" max="16" description="字段组" />
-			<field name="minimum_value" type="string" checkType="StringLengthRange" min="4" max="60" description="Minimum Value" />
-			<field name="maximum_value" type="string" checkType="StringLengthRange" min="5" max="72" description="Maximum Value" />
+			<field name="minimum_value" type="string" checkType="StringLengthRange" min="4" max="60" description="最小值" />
+			<field name="maximum_value" type="string" checkType="StringLengthRange" min="5" max="72" description="最大值" />
 			<field name="required" type="bool" checkType="BooleanRange" min="0" max="true|false" description="要求" />
-			<field name="disabled" type="bool" checkType="BooleanRange" min="0" max="true|false" description="Disabled" />
+			<field name="disabled" type="bool" checkType="BooleanRange" min="0" max="true|false" description="禁用" />
 			<field name="custom_rendering" type="bool" checkType="BooleanRange" min="0" max="false" description="自定义渲染" />
 			<field name="candidate_values" type="string" checkType="StringLengthRange" min="0" max="12" description="候选人的价值观" />
 			<field name="suggest_values" type="string" checkType="StringLengthRange" min="0" max="12" description="建议值" />
@@ -307,7 +307,7 @@
 			<field name="id" nullable="false" type="string" checkType="StringLengthRange" min="5" max="64" description="ID" />
 			<field name="label" type="string" checkType="StringLengthRange" min="1" max="8" description="标签" />
 			<field name="locale_key" type="string" checkType="StringLengthRange" min="2" max="16" description="语言环境的关键" />
-			<field name="action_key" type="string" checkType="StringLengthRange" min="2" max="24" description="Action Key" />
+			<field name="action_key" type="string" checkType="StringLengthRange" min="2" max="24" description="行动的关键" />
 			<field name="level" type="string" checkType="StringLengthRange" min="3" max="28" description="水平" />
 			<field name="url" type="string" checkType="StringLengthRange" min="11" max="168" description="url" />
 			<field name="form" type="reference" checkType="exist(generic_form)" description="形式" />

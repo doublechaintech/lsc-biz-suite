@@ -129,7 +129,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\TransactionTypeList/Transaction Type列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\TransactionTypeList/交易类型列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransactionType({ payload }, { call, put }) {
@@ -153,7 +153,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\TransactionTypeList/Transaction Type列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\TransactionTypeList/交易类型列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransactionTypeUpdateRow({ payload }, { call, put }) {
@@ -207,7 +207,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\MerchantTypeList/Merchant Type列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\MerchantTypeList/商人类型列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateMerchantType({ payload }, { call, put }) {
@@ -231,7 +231,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\MerchantTypeList/Merchant Type列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\MerchantTypeList/商人类型列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextMerchantTypeUpdateRow({ payload }, { call, put }) {
@@ -285,7 +285,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\TransportTaskStatusList/Transport Task Status列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\TransportTaskStatusList/运输任务状态列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportTaskStatus({ payload }, { call, put }) {
@@ -309,7 +309,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\TransportTaskStatusList/Transport Task Status列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\TransportTaskStatusList/运输任务状态列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportTaskStatusUpdateRow({ payload }, { call, put }) {
@@ -441,7 +441,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\MerchantList/Merchant列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\MerchantList/商人列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateMerchant({ payload }, { call, put }) {
@@ -465,7 +465,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\MerchantList/Merchant列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\MerchantList/商人列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextMerchantUpdateRow({ payload }, { call, put }) {
@@ -519,7 +519,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\TransportProjectList/Transport Project列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\TransportProjectList/交通项目列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportProject({ payload }, { call, put }) {
@@ -543,7 +543,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\TransportProjectList/Transport Project列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\TransportProjectList/交通项目列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportProjectUpdateRow({ payload }, { call, put }) {
@@ -597,7 +597,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\TransportItemList/Transport Item列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\TransportItemList/运输项目列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportItem({ payload }, { call, put }) {
@@ -621,7 +621,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\TransportItemList/Transport Item列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\TransportItemList/运输项目列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportItemUpdateRow({ payload }, { call, put }) {
@@ -675,7 +675,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/platform/${id}/list/\TransportTaskList/Transport Task列表`, state: newState }
+      const location = { pathname: `/platform/${id}/list/\TransportTaskList/运输任务列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportTask({ payload }, { call, put }) {
@@ -699,7 +699,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/platform/${id}/list/\TransportTaskList/Transport Task列表`, state: newPlayload }
+      const location = { pathname: `/platform/${id}/list/\TransportTaskList/运输任务列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportTaskUpdateRow({ payload }, { call, put }) {

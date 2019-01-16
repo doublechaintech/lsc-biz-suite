@@ -6,9 +6,9 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Merchant Account", menuFor: "merchantAccount",
+const menuData = {menuName:"商家帐户", menuFor: "merchantAccount",
   		subItems: [
-  {name: 'transactionList', displayName:'Transaction', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transactionList', displayName:'事务', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }
@@ -70,18 +70,18 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'merchantAccount') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '8',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Merchant', dataIndex: 'merchant', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Create Time', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
-  { title: 'Update Time', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '商人', dataIndex: 'merchant', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '创建时间', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '更新时间', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  merchant: 'Merchant',
-  createTime: 'Create Time',
-  updateTime: 'Update Time',
+  merchant: '商人',
+  createTime: '创建时间',
+  updateTime: '更新时间',
 
 }
 

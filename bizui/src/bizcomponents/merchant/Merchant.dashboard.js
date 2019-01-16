@@ -90,8 +90,8 @@ const internalSummaryOf = (merchant,targetComponent) =>{
 	      MerchantService.transferToAnotherType,"anotherTypeId",merchant.type?merchant.type.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(merchant.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(merchant.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(merchant.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(merchant.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(merchant,targetComponent)}
       </DescriptionList>
@@ -128,13 +128,13 @@ class MerchantDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Merchant",cardsFor: "merchant",
+    const cardsData = {cardsName:"商人",cardsFor: "merchant",
     	cardsSource: this.props.merchant,returnURL,displayName,
   		subItems: [
-{name: 'transportProjectList', displayName:'Transport Project',type:'transportProject',count:transportProjectCount,addFunction: true, role: 'transportProject', metaInfo: transportProjectListMetaInfo},
-{name: 'transportTaskListAsSender', displayName:'Transport Task(Sender)',type:'transportTask',count:transportTaskAsSenderCount,addFunction: true, role: 'transportTaskAsSender', metaInfo: transportTaskListAsSenderMetaInfo},
-{name: 'transportTaskListAsReceiver', displayName:'Transport Task(Receiver)',type:'transportTask',count:transportTaskAsReceiverCount,addFunction: true, role: 'transportTaskAsReceiver', metaInfo: transportTaskListAsReceiverMetaInfo},
-{name: 'merchantAccountList', displayName:'Merchant Account',type:'merchantAccount',count:merchantAccountCount,addFunction: true, role: 'merchantAccount', metaInfo: merchantAccountListMetaInfo},
+{name: 'transportProjectList', displayName:'交通项目',type:'transportProject',count:transportProjectCount,addFunction: true, role: 'transportProject', metaInfo: transportProjectListMetaInfo},
+{name: 'transportTaskListAsSender', displayName:'运输任务(发送方)',type:'transportTask',count:transportTaskAsSenderCount,addFunction: true, role: 'transportTaskAsSender', metaInfo: transportTaskListAsSenderMetaInfo},
+{name: 'transportTaskListAsReceiver', displayName:'运输任务(接收机)',type:'transportTask',count:transportTaskAsReceiverCount,addFunction: true, role: 'transportTaskAsReceiver', metaInfo: transportTaskListAsReceiverMetaInfo},
+{name: 'merchantAccountList', displayName:'商家帐户',type:'merchantAccount',count:merchantAccountCount,addFunction: true, role: 'merchantAccount', metaInfo: merchantAccountListMetaInfo},
     
       	],
   	};

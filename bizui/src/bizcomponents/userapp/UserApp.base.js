@@ -8,7 +8,7 @@ import moment from 'moment'
 
 const menuData = {menuName:"用户应用程序", menuFor: "userApp",
   		subItems: [
-  {name: 'listAccessList', displayName:'List Access', icon:'list',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'listAccessList', displayName:'访问列表', icon:'list',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   {name: 'objectAccessList', displayName:'对象访问', icon:'accessible-icon',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],

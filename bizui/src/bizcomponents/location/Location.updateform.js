@@ -283,9 +283,9 @@ class LocationUpdateForm extends Component {
                 <Form.Item label={fieldLabels.contactPerson} {...formItemLayout}>
                   {getFieldDecorator('contactPerson', {
                     initialValue: selectedRow.contactPerson,
-                    rules: [{ required: true, message: '请输入Contact Person' }],
+                    rules: [{ required: true, message: '请输入联系人' }],
                   })(
-                    <Input placeholder="请输入Contact Person" />
+                    <Input placeholder="请输入联系人" />
                     
                   )}
                 </Form.Item>
@@ -295,9 +295,9 @@ class LocationUpdateForm extends Component {
                 <Form.Item label={fieldLabels.contactPhone} {...formItemLayout}>
                   {getFieldDecorator('contactPhone', {
                     initialValue: selectedRow.contactPhone,
-                    rules: [{ required: true, message: '请输入Contact Phone' }],
+                    rules: [{ required: true, message: '请输入联系电话' }],
                   })(
-                    <Input placeholder="请输入Contact Phone" />
+                    <Input placeholder="请输入联系电话" />
                     
                   )}
                 </Form.Item>

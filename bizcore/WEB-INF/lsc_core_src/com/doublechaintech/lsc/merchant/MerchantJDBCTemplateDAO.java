@@ -709,7 +709,7 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//Merchant.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Merchant");
+		createTimeStatsItem.setDisplayName("商人");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(Merchant.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(Merchant.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -759,7 +759,7 @@ public class MerchantJDBCTemplateDAO extends LscNamingServiceDAO implements Merc
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//Merchant.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Merchant");
+		createTimeStatsItem.setDisplayName("商人");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(Merchant.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(Merchant.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);

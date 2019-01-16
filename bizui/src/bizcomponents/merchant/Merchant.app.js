@@ -162,7 +162,7 @@ class MerchantBizApp extends React.PureComponent {
     const {TransportProjectSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Project",
+      name: "交通项目",
       role: "transportProject",
       data: state._merchant.transportProjectList,
       metaInfo: state._merchant.transportProjectListMetaInfo,
@@ -176,7 +176,7 @@ class MerchantBizApp extends React.PureComponent {
       owner: { type: '_merchant', id: state._merchant.id, 
       referenceName: 'merchant', 
       listName: 'transportProjectList', ref:state._merchant, 
-      listDisplayName: 'Transport Project列表' }, // this is for model namespace and
+      listDisplayName: '交通项目列表' }, // this is for model namespace and
     }))(TransportProjectSearch)
   }
   getTransportProjectCreateForm = () => {
@@ -190,7 +190,7 @@ class MerchantBizApp extends React.PureComponent {
       currentPage: state._merchant.transportProjectCurrentPageNumber,
       searchFormParameters: state._merchant.transportProjectSearchFormParameters,
       loading: state._merchant.loading,
-      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'merchant', listName: 'transportProjectList', ref:state._merchant, listDisplayName: 'Transport Project列表'}, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'merchant', listName: 'transportProjectList', ref:state._merchant, listDisplayName: '交通项目列表'}, // this is for model namespace and
     }))(TransportProjectCreateForm)
   }
   
@@ -200,7 +200,7 @@ class MerchantBizApp extends React.PureComponent {
       selectedRows: state._merchant.selectedRows,
       role: "transportProject",
       currentUpdateIndex: state._merchant.currentUpdateIndex,
-      owner: { type: '_merchant', id: state._merchant.id, listName: 'transportProjectList', ref:state._merchant, listDisplayName: 'Transport Project列表' }, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, listName: 'transportProjectList', ref:state._merchant, listDisplayName: '交通项目列表' }, // this is for model namespace and
     }))(TransportProjectUpdateForm)
   }
 
@@ -208,7 +208,7 @@ class MerchantBizApp extends React.PureComponent {
     const {TransportTaskSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task(Sender)",
+      name: "运输任务(发送方)",
       role: "transportTaskAsSender",
       data: state._merchant.transportTaskListAsSender,
       metaInfo: state._merchant.transportTaskListAsSenderMetaInfo,
@@ -222,7 +222,7 @@ class MerchantBizApp extends React.PureComponent {
       owner: { type: '_merchant', id: state._merchant.id, 
       referenceName: 'sender', 
       listName: 'transportTaskListAsSender', ref:state._merchant, 
-      listDisplayName: 'Transport Task(Sender)列表' }, // this is for model namespace and
+      listDisplayName: '运输任务(发送方)列表' }, // this is for model namespace and
     }))(TransportTaskSearch)
   }
   getTransportTaskAsSenderCreateForm = () => {
@@ -236,7 +236,7 @@ class MerchantBizApp extends React.PureComponent {
       currentPage: state._merchant.transportTaskAsSenderCurrentPageNumber,
       searchFormParameters: state._merchant.transportTaskAsSenderSearchFormParameters,
       loading: state._merchant.loading,
-      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'sender', listName: 'transportTaskListAsSender', ref:state._merchant, listDisplayName: 'Transport Task列表'}, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'sender', listName: 'transportTaskListAsSender', ref:state._merchant, listDisplayName: '运输任务列表'}, // this is for model namespace and
     }))(TransportTaskCreateForm)
   }
   
@@ -246,7 +246,7 @@ class MerchantBizApp extends React.PureComponent {
       selectedRows: state._merchant.selectedRows,
       role: "transportTaskAsSender",
       currentUpdateIndex: state._merchant.currentUpdateIndex,
-      owner: { type: '_merchant', id: state._merchant.id, listName: 'transportTaskListAsSender', ref:state._merchant, listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, listName: 'transportTaskListAsSender', ref:state._merchant, listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskUpdateForm)
   }
 
@@ -254,7 +254,7 @@ class MerchantBizApp extends React.PureComponent {
     const {TransportTaskSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task(Receiver)",
+      name: "运输任务(接收机)",
       role: "transportTaskAsReceiver",
       data: state._merchant.transportTaskListAsReceiver,
       metaInfo: state._merchant.transportTaskListAsReceiverMetaInfo,
@@ -268,7 +268,7 @@ class MerchantBizApp extends React.PureComponent {
       owner: { type: '_merchant', id: state._merchant.id, 
       referenceName: 'receiver', 
       listName: 'transportTaskListAsReceiver', ref:state._merchant, 
-      listDisplayName: 'Transport Task(Receiver)列表' }, // this is for model namespace and
+      listDisplayName: '运输任务(接收机)列表' }, // this is for model namespace and
     }))(TransportTaskSearch)
   }
   getTransportTaskAsReceiverCreateForm = () => {
@@ -282,7 +282,7 @@ class MerchantBizApp extends React.PureComponent {
       currentPage: state._merchant.transportTaskAsReceiverCurrentPageNumber,
       searchFormParameters: state._merchant.transportTaskAsReceiverSearchFormParameters,
       loading: state._merchant.loading,
-      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'receiver', listName: 'transportTaskListAsReceiver', ref:state._merchant, listDisplayName: 'Transport Task列表'}, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'receiver', listName: 'transportTaskListAsReceiver', ref:state._merchant, listDisplayName: '运输任务列表'}, // this is for model namespace and
     }))(TransportTaskCreateForm)
   }
   
@@ -292,7 +292,7 @@ class MerchantBizApp extends React.PureComponent {
       selectedRows: state._merchant.selectedRows,
       role: "transportTaskAsReceiver",
       currentUpdateIndex: state._merchant.currentUpdateIndex,
-      owner: { type: '_merchant', id: state._merchant.id, listName: 'transportTaskListAsReceiver', ref:state._merchant, listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, listName: 'transportTaskListAsReceiver', ref:state._merchant, listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskUpdateForm)
   }
 
@@ -300,7 +300,7 @@ class MerchantBizApp extends React.PureComponent {
     const {MerchantAccountSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Merchant Account",
+      name: "商家帐户",
       role: "merchantAccount",
       data: state._merchant.merchantAccountList,
       metaInfo: state._merchant.merchantAccountListMetaInfo,
@@ -314,7 +314,7 @@ class MerchantBizApp extends React.PureComponent {
       owner: { type: '_merchant', id: state._merchant.id, 
       referenceName: 'merchant', 
       listName: 'merchantAccountList', ref:state._merchant, 
-      listDisplayName: 'Merchant Account列表' }, // this is for model namespace and
+      listDisplayName: '商家帐户列表' }, // this is for model namespace and
     }))(MerchantAccountSearch)
   }
   getMerchantAccountCreateForm = () => {
@@ -328,7 +328,7 @@ class MerchantBizApp extends React.PureComponent {
       currentPage: state._merchant.merchantAccountCurrentPageNumber,
       searchFormParameters: state._merchant.merchantAccountSearchFormParameters,
       loading: state._merchant.loading,
-      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'merchant', listName: 'merchantAccountList', ref:state._merchant, listDisplayName: 'Merchant Account列表'}, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, referenceName: 'merchant', listName: 'merchantAccountList', ref:state._merchant, listDisplayName: '商家帐户列表'}, // this is for model namespace and
     }))(MerchantAccountCreateForm)
   }
   
@@ -338,7 +338,7 @@ class MerchantBizApp extends React.PureComponent {
       selectedRows: state._merchant.selectedRows,
       role: "merchantAccount",
       currentUpdateIndex: state._merchant.currentUpdateIndex,
-      owner: { type: '_merchant', id: state._merchant.id, listName: 'merchantAccountList', ref:state._merchant, listDisplayName: 'Merchant Account列表' }, // this is for model namespace and
+      owner: { type: '_merchant', id: state._merchant.id, listName: 'merchantAccountList', ref:state._merchant, listDisplayName: '商家帐户列表' }, // this is for model namespace and
     }))(MerchantAccountUpdateForm)
   }
 

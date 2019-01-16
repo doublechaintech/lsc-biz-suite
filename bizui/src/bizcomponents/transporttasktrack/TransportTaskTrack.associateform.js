@@ -19,8 +19,8 @@ const testValues = {};
 /*
 const testValues = {
   name: '陕西宝鸡',
-  latitude: '41.182917061769416',
-  longitude: '129.92676546900523',
+  latitude: '42.0563855523798',
+  longitude: '130.8947440297036',
   taskId: 'TT000001',
 }
 */
@@ -146,9 +146,9 @@ class TransportTaskTrackAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.latitude} {...formItemLayout}>
                   {getFieldDecorator('latitude', {
-                    rules: [{ required: true, message: '请输入Latitude' }],
+                    rules: [{ required: true, message: '请输入纬度' }],
                   })(
-                    <Input placeholder="请输入Latitude" />
+                    <Input placeholder="请输入纬度" />
                   )}
                 </Form.Item>
               </Col>
@@ -156,9 +156,9 @@ class TransportTaskTrackAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.longitude} {...formItemLayout}>
                   {getFieldDecorator('longitude', {
-                    rules: [{ required: true, message: '请输入Longitude' }],
+                    rules: [{ required: true, message: '请输入经度' }],
                   })(
-                    <Input placeholder="请输入Longitude" />
+                    <Input placeholder="请输入经度" />
                   )}
                 </Form.Item>
               </Col>
@@ -184,7 +184,7 @@ class TransportTaskTrackAssociateForm extends Component {
                 <Form.Item label={fieldLabels.task} {...formItemLayout}>
                   {getFieldDecorator('taskId', {
                   	initialValue: tryinit('task'),
-                    rules: [{ required: true, message: '请输入Task' }],
+                    rules: [{ required: true, message: '请输入任务' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('task')}

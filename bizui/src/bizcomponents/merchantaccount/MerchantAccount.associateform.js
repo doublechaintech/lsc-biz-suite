@@ -163,7 +163,7 @@ class MerchantAccountAssociateForm extends Component {
                 <Form.Item label={fieldLabels.merchant} {...formItemLayout}>
                   {getFieldDecorator('merchantId', {
                   	initialValue: tryinit('merchant'),
-                    rules: [{ required: true, message: '请输入Merchant' }],
+                    rules: [{ required: true, message: '请输入商人' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('merchant')}

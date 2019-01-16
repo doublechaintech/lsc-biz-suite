@@ -186,7 +186,7 @@ class TransportItemUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'transportItem',
-          listName:'Transport Item列表' 
+          listName:'运输项目列表' 
         },
       })
     }
@@ -246,8 +246,8 @@ class TransportItemUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Transport Item"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Transport Item"
+        title={"更新运输项目"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新运输项目"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -283,9 +283,9 @@ class TransportItemUpdateForm extends Component {
                 <Form.Item label={fieldLabels.quantity} {...formItemLayout}>
                   {getFieldDecorator('quantity', {
                     initialValue: selectedRow.quantity,
-                    rules: [{ required: true, message: '请输入Quantity' }],
+                    rules: [{ required: true, message: '请输入数量' }],
                   })(
-                    <Input placeholder="请输入Quantity" />
+                    <Input placeholder="请输入数量" />
                     
                   )}
                 </Form.Item>
@@ -295,9 +295,9 @@ class TransportItemUpdateForm extends Component {
                 <Form.Item label={fieldLabels.unit} {...formItemLayout}>
                   {getFieldDecorator('unit', {
                     initialValue: selectedRow.unit,
-                    rules: [{ required: true, message: '请输入Unit' }],
+                    rules: [{ required: true, message: '请输入单位' }],
                   })(
-                    <Input placeholder="请输入Unit" />
+                    <Input placeholder="请输入单位" />
                     
                   )}
                 </Form.Item>

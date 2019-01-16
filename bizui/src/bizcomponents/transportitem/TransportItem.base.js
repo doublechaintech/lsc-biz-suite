@@ -6,7 +6,7 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Transport Item", menuFor: "transportItem",
+const menuData = {menuName:"运输项目", menuFor: "transportItem",
   		subItems: [
   
   		],
@@ -69,26 +69,26 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20',render: (text, record)=>renderTextCell(text,record) },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '6',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Quantity', debugtype: 'int', dataIndex: 'quantity', width: '8',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Unit', debugtype: 'string', dataIndex: 'unit', width: '6',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Project', dataIndex: 'project', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Merchant', dataIndex: 'merchant', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Platform', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Create Time', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
-  { title: 'Update Time', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '数量', debugtype: 'int', dataIndex: 'quantity', width: '8',render: (text, record)=>renderTextCell(text,record) },
+  { title: '单位', debugtype: 'string', dataIndex: 'unit', width: '6',render: (text, record)=>renderTextCell(text,record) },
+  { title: '项目', dataIndex: 'project', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '商人', dataIndex: 'merchant', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '平台', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '创建时间', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '更新时间', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  quantity: 'Quantity',
-  unit: 'Unit',
-  project: 'Project',
-  merchant: 'Merchant',
-  platform: 'Platform',
-  createTime: 'Create Time',
-  updateTime: 'Update Time',
+  quantity: '数量',
+  unit: '单位',
+  project: '项目',
+  merchant: '商人',
+  platform: '平台',
+  createTime: '创建时间',
+  updateTime: '更新时间',
 
 }
 

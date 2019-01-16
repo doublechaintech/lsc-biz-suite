@@ -162,7 +162,7 @@ class MerchantTypeBizApp extends React.PureComponent {
     const {MerchantSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Merchant",
+      name: "商人",
       role: "merchant",
       data: state._merchantType.merchantList,
       metaInfo: state._merchantType.merchantListMetaInfo,
@@ -176,7 +176,7 @@ class MerchantTypeBizApp extends React.PureComponent {
       owner: { type: '_merchantType', id: state._merchantType.id, 
       referenceName: 'type', 
       listName: 'merchantList', ref:state._merchantType, 
-      listDisplayName: 'Merchant列表' }, // this is for model namespace and
+      listDisplayName: '商人列表' }, // this is for model namespace and
     }))(MerchantSearch)
   }
   getMerchantCreateForm = () => {
@@ -190,7 +190,7 @@ class MerchantTypeBizApp extends React.PureComponent {
       currentPage: state._merchantType.merchantCurrentPageNumber,
       searchFormParameters: state._merchantType.merchantSearchFormParameters,
       loading: state._merchantType.loading,
-      owner: { type: '_merchantType', id: state._merchantType.id, referenceName: 'type', listName: 'merchantList', ref:state._merchantType, listDisplayName: 'Merchant列表'}, // this is for model namespace and
+      owner: { type: '_merchantType', id: state._merchantType.id, referenceName: 'type', listName: 'merchantList', ref:state._merchantType, listDisplayName: '商人列表'}, // this is for model namespace and
     }))(MerchantCreateForm)
   }
   
@@ -200,7 +200,7 @@ class MerchantTypeBizApp extends React.PureComponent {
       selectedRows: state._merchantType.selectedRows,
       role: "merchant",
       currentUpdateIndex: state._merchantType.currentUpdateIndex,
-      owner: { type: '_merchantType', id: state._merchantType.id, listName: 'merchantList', ref:state._merchantType, listDisplayName: 'Merchant列表' }, // this is for model namespace and
+      owner: { type: '_merchantType', id: state._merchantType.id, listName: 'merchantList', ref:state._merchantType, listDisplayName: '商人列表' }, // this is for model namespace and
     }))(MerchantUpdateForm)
   }
 
@@ -208,7 +208,7 @@ class MerchantTypeBizApp extends React.PureComponent {
     const {TransportItemSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Item",
+      name: "运输项目",
       role: "transportItem",
       data: state._merchantType.transportItemList,
       metaInfo: state._merchantType.transportItemListMetaInfo,
@@ -222,7 +222,7 @@ class MerchantTypeBizApp extends React.PureComponent {
       owner: { type: '_merchantType', id: state._merchantType.id, 
       referenceName: 'merchant', 
       listName: 'transportItemList', ref:state._merchantType, 
-      listDisplayName: 'Transport Item列表' }, // this is for model namespace and
+      listDisplayName: '运输项目列表' }, // this is for model namespace and
     }))(TransportItemSearch)
   }
   getTransportItemCreateForm = () => {
@@ -236,7 +236,7 @@ class MerchantTypeBizApp extends React.PureComponent {
       currentPage: state._merchantType.transportItemCurrentPageNumber,
       searchFormParameters: state._merchantType.transportItemSearchFormParameters,
       loading: state._merchantType.loading,
-      owner: { type: '_merchantType', id: state._merchantType.id, referenceName: 'merchant', listName: 'transportItemList', ref:state._merchantType, listDisplayName: 'Transport Item列表'}, // this is for model namespace and
+      owner: { type: '_merchantType', id: state._merchantType.id, referenceName: 'merchant', listName: 'transportItemList', ref:state._merchantType, listDisplayName: '运输项目列表'}, // this is for model namespace and
     }))(TransportItemCreateForm)
   }
   
@@ -246,7 +246,7 @@ class MerchantTypeBizApp extends React.PureComponent {
       selectedRows: state._merchantType.selectedRows,
       role: "transportItem",
       currentUpdateIndex: state._merchantType.currentUpdateIndex,
-      owner: { type: '_merchantType', id: state._merchantType.id, listName: 'transportItemList', ref:state._merchantType, listDisplayName: 'Transport Item列表' }, // this is for model namespace and
+      owner: { type: '_merchantType', id: state._merchantType.id, listName: 'transportItemList', ref:state._merchantType, listDisplayName: '运输项目列表' }, // this is for model namespace and
     }))(TransportItemUpdateForm)
   }
 

@@ -260,8 +260,8 @@ const internalSummaryOf = (platform,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{platform.id}</Description> 
 <Description term="名称">{platform.name}</Description> 
-<Description term="Introduction">{platform.introduction}</Description> 
-<Description term="Current Version">{platform.currentVersion}</Description> 
+<Description term="介绍">{platform.introduction}</Description> 
+<Description term="当前版本">{platform.currentVersion}</Description> 
 	
         {buildTransferModal(platform,targetComponent)}
       </DescriptionList>
@@ -300,11 +300,11 @@ class PlatformPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, transactionTypeCount, merchantTypeCount, transportTaskStatusCount, locationCount, merchantCount, transportProjectCount, transportItemCount, transportTaskCount } = this.props.platform
-    const cardsData = {cardsName:"Platform",cardsFor: "platform",cardsSource: this.props.platform,
+    const cardsData = {cardsName:"平台",cardsFor: "platform",cardsSource: this.props.platform,
   		subItems: [
-{name: 'transactionTypeList', displayName:'Transaction Type',type:'transactionType',count:transactionTypeCount,addFunction: true, role: 'transactionType'},
-{name: 'merchantTypeList', displayName:'Merchant Type',type:'merchantType',count:merchantTypeCount,addFunction: true, role: 'merchantType'},
-{name: 'transportTaskStatusList', displayName:'Transport Task Status',type:'transportTaskStatus',count:transportTaskStatusCount,addFunction: true, role: 'transportTaskStatus'},
+{name: 'transactionTypeList', displayName:'交易类型',type:'transactionType',count:transactionTypeCount,addFunction: true, role: 'transactionType'},
+{name: 'merchantTypeList', displayName:'商人类型',type:'merchantType',count:merchantTypeCount,addFunction: true, role: 'merchantType'},
+{name: 'transportTaskStatusList', displayName:'运输任务状态',type:'transportTaskStatus',count:transportTaskStatusCount,addFunction: true, role: 'transportTaskStatus'},
     
       	],
   	};

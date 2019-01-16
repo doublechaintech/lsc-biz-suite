@@ -119,7 +119,7 @@ class UserWhiteListCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'userWhiteList',listName:'User White List列表' },
+        payload: { id: owner.id, type: 'userWhiteList',listName:'用户白名单列表' },
       })
     }
     const errors = getFieldsError()
@@ -194,8 +194,8 @@ class UserWhiteListCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个User White List"
-        content="新建一个User White List"
+        title="新建一个用户白名单"
+        content="新建一个用户白名单"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -205,9 +205,9 @@ class UserWhiteListCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.userIdentity} {...formItemLayout}>
                   {getFieldDecorator('userIdentity', {
-                    rules: [{ required: true, message: '请输入User Identity' }],
+                    rules: [{ required: true, message: '请输入用户身份' }],
                   })(
-                    <Input placeholder="请输入User Identity" />
+                    <Input placeholder="请输入用户身份" />
                   )}
                 </Form.Item>
               </Col>
@@ -215,9 +215,9 @@ class UserWhiteListCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.userSpecialFunctions} {...formItemLayout}>
                   {getFieldDecorator('userSpecialFunctions', {
-                    rules: [{ required: true, message: '请输入User Special Functions' }],
+                    rules: [{ required: true, message: '请输入用户特殊功能' }],
                   })(
-                    <Input placeholder="请输入User Special Functions" />
+                    <Input placeholder="请输入用户特殊功能" />
                   )}
                 </Form.Item>
               </Col>

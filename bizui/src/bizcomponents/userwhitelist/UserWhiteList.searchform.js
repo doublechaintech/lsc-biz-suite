@@ -196,9 +196,9 @@ componentDidMount() {
        </Col>
 
        <Col md={8} sm={24}>
-         <FormItem label="User Identity">
+         <FormItem label="用户身份">
            {getFieldDecorator('userIdentity')(
-             <Input placeholder="请输入User Identity" />
+             <Input placeholder="请输入用户身份" />
            )}
          </FormItem>
        </Col>
@@ -251,17 +251,17 @@ componentDidMount() {
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="User Identity">
+            <FormItem label="用户身份">
               {getFieldDecorator('userIdentity')(
-                <Input placeholder="请输入User Identity" />
+                <Input placeholder="请输入用户身份" />
               )}
             </FormItem>
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="User Special Functions">
+            <FormItem label="用户特殊功能">
               {getFieldDecorator('userSpecialFunctions')(
-                <Input placeholder="请输入User Special Functions" />
+                <Input placeholder="请输入用户特殊功能" />
               )}
             </FormItem>
           </Col>

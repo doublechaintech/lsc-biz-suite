@@ -81,8 +81,8 @@ const internalSummaryOf = (platform,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{platform.id}</Description> 
 <Description term="名称">{platform.name}</Description> 
-<Description term="Introduction">{platform.introduction}</Description> 
-<Description term="Current Version">{platform.currentVersion}</Description> 
+<Description term="介绍">{platform.introduction}</Description> 
+<Description term="当前版本">{platform.currentVersion}</Description> 
 	
         {buildTransferModal(platform,targetComponent)}
       </DescriptionList>
@@ -119,14 +119,14 @@ class PlatformDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Platform",cardsFor: "platform",
+    const cardsData = {cardsName:"平台",cardsFor: "platform",
     	cardsSource: this.props.platform,returnURL,displayName,
   		subItems: [
 {name: 'locationList', displayName:'位置',type:'location',count:locationCount,addFunction: true, role: 'location', metaInfo: locationListMetaInfo},
-{name: 'merchantList', displayName:'Merchant',type:'merchant',count:merchantCount,addFunction: true, role: 'merchant', metaInfo: merchantListMetaInfo},
-{name: 'transportProjectList', displayName:'Transport Project',type:'transportProject',count:transportProjectCount,addFunction: true, role: 'transportProject', metaInfo: transportProjectListMetaInfo},
-{name: 'transportItemList', displayName:'Transport Item',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
-{name: 'transportTaskList', displayName:'Transport Task',type:'transportTask',count:transportTaskCount,addFunction: true, role: 'transportTask', metaInfo: transportTaskListMetaInfo},
+{name: 'merchantList', displayName:'商人',type:'merchant',count:merchantCount,addFunction: true, role: 'merchant', metaInfo: merchantListMetaInfo},
+{name: 'transportProjectList', displayName:'交通项目',type:'transportProject',count:transportProjectCount,addFunction: true, role: 'transportProject', metaInfo: transportProjectListMetaInfo},
+{name: 'transportItemList', displayName:'运输项目',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
+{name: 'transportTaskList', displayName:'运输任务',type:'transportTask',count:transportTaskCount,addFunction: true, role: 'transportTask', metaInfo: transportTaskListMetaInfo},
     
       	],
   	};

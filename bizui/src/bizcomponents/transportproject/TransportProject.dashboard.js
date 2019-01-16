@@ -81,14 +81,14 @@ const internalSummaryOf = (transportProject,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{transportProject.id}</Description> 
 <Description term="名称">{transportProject.name}</Description> 
-<Description term="Merchant">{transportProject.merchant==null?"未分配":transportProject.merchant.displayName}
+<Description term="商人">{transportProject.merchant==null?"未分配":transportProject.merchant.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Merchant","merchant",TransportProjectService.requestCandidateMerchant,
+  showTransferModel(targetComponent,"商人","merchant",TransportProjectService.requestCandidateMerchant,
 	      TransportProjectService.transferToAnotherMerchant,"anotherMerchantId",transportProject.merchant?transportProject.merchant.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(transportProject.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(transportProject.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(transportProject.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(transportProject.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(transportProject,targetComponent)}
       </DescriptionList>
@@ -125,10 +125,10 @@ class TransportProjectDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Transport Project",cardsFor: "transportProject",
+    const cardsData = {cardsName:"交通项目",cardsFor: "transportProject",
     	cardsSource: this.props.transportProject,returnURL,displayName,
   		subItems: [
-{name: 'transportItemList', displayName:'Transport Item',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
+{name: 'transportItemList', displayName:'运输项目',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
     
       	],
   	};

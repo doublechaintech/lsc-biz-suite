@@ -261,17 +261,17 @@ componentDidMount() {
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Contact Person">
+            <FormItem label="联系人">
               {getFieldDecorator('contactPerson')(
-                <Input placeholder="请输入Contact Person" />
+                <Input placeholder="请输入联系人" />
               )}
             </FormItem>
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Contact Phone">
+            <FormItem label="联系电话">
               {getFieldDecorator('contactPhone')(
-                <Input placeholder="请输入Contact Phone" />
+                <Input placeholder="请输入联系电话" />
               )}
             </FormItem>
           </Col>
@@ -284,7 +284,7 @@ componentDidMount() {
             </FormItem>
           </Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Platform">
+                    <Form.Item label="平台">
                   {getFieldDecorator('platform', {
                     initialValue: tryinit('platform'),
                    

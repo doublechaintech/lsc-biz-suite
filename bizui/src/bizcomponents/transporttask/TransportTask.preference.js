@@ -260,39 +260,39 @@ const internalSummaryOf = (transportTask,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{transportTask.id}</Description> 
 <Description term="名称">{transportTask.name}</Description> 
-<Description term="Source">{transportTask.source==null?"未分配":transportTask.source.displayName}
+<Description term="源">{transportTask.source==null?"未分配":transportTask.source.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Source","location","requestCandidateSource",
+  showTransferModel(targetComponent,"源","location","requestCandidateSource",
 	      "transferToAnotherSource","anotherSourceId",transportTask.source?transportTask.source.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Destination">{transportTask.destination==null?"未分配":transportTask.destination.displayName}
+<Description term="目的地">{transportTask.destination==null?"未分配":transportTask.destination.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Destination","location","requestCandidateDestination",
+  showTransferModel(targetComponent,"目的地","location","requestCandidateDestination",
 	      "transferToAnotherDestination","anotherDestinationId",transportTask.destination?transportTask.destination.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Remark">{transportTask.remark}</Description> 
-<Description term="Status">{transportTask.status==null?"未分配":transportTask.status.displayName}
+<Description term="备注">{transportTask.remark}</Description> 
+<Description term="状态">{transportTask.status==null?"未分配":transportTask.status.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Status","transportTaskStatus","requestCandidateStatus",
+  showTransferModel(targetComponent,"状态","transportTaskStatus","requestCandidateStatus",
 	      "transferToAnotherStatus","anotherStatusId",transportTask.status?transportTask.status.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Sender">{transportTask.sender==null?"未分配":transportTask.sender.displayName}
+<Description term="发送方">{transportTask.sender==null?"未分配":transportTask.sender.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Sender","merchant","requestCandidateSender",
+  showTransferModel(targetComponent,"发送方","merchant","requestCandidateSender",
 	      "transferToAnotherSender","anotherSenderId",transportTask.sender?transportTask.sender.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Receiver">{transportTask.receiver==null?"未分配":transportTask.receiver.displayName}
+<Description term="接收机">{transportTask.receiver==null?"未分配":transportTask.receiver.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Receiver","merchant","requestCandidateReceiver",
+  showTransferModel(targetComponent,"接收机","merchant","requestCandidateReceiver",
 	      "transferToAnotherReceiver","anotherReceiverId",transportTask.receiver?transportTask.receiver.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(transportTask.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(transportTask.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(transportTask.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(transportTask.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(transportTask,targetComponent)}
       </DescriptionList>
@@ -331,7 +331,7 @@ class TransportTaskPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, transportTaskTrackCount } = this.props.transportTask
-    const cardsData = {cardsName:"Transport Task",cardsFor: "transportTask",cardsSource: this.props.transportTask,
+    const cardsData = {cardsName:"运输任务",cardsFor: "transportTask",cardsSource: this.props.transportTask,
   		subItems: [
     
       	],

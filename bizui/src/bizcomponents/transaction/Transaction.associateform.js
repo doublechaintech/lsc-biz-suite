@@ -19,7 +19,7 @@ const testValues = {};
 /*
 const testValues = {
   name: '收入',
-  amount: '12199.89',
+  amount: '8677.97',
   transactionTypeId: 'TT000001',
   accountId: 'MA000001',
 }
@@ -174,7 +174,7 @@ class TransactionAssociateForm extends Component {
                 <Form.Item label={fieldLabels.transactionType} {...formItemLayout}>
                   {getFieldDecorator('transactionTypeId', {
                   	initialValue: tryinit('transactionType'),
-                    rules: [{ required: true, message: '请输入Transaction Type' }],
+                    rules: [{ required: true, message: '请输入交易类型' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('transactionType')}
@@ -189,7 +189,7 @@ class TransactionAssociateForm extends Component {
                 <Form.Item label={fieldLabels.account} {...formItemLayout}>
                   {getFieldDecorator('accountId', {
                   	initialValue: tryinit('account'),
-                    rules: [{ required: true, message: '请输入Account' }],
+                    rules: [{ required: true, message: '请输入账户' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('account')}

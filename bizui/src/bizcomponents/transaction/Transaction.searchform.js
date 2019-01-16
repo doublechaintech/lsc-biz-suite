@@ -258,7 +258,7 @@ componentDidMount() {
             </FormItem>
           </Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Transaction Type">
+                    <Form.Item label="交易类型">
                   {getFieldDecorator('transactionType', {
                     initialValue: tryinit('transactionType'),
                    
@@ -273,7 +273,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Account">
+                    <Form.Item label="账户">
                   {getFieldDecorator('account', {
                     initialValue: tryinit('account'),
                    

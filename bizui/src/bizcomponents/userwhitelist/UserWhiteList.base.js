@@ -6,7 +6,7 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"User White List", menuFor: "userWhiteList",
+const menuData = {menuName:"用户白名单", menuFor: "userWhiteList",
   		subItems: [
   
   		],
@@ -68,16 +68,16 @@ const renderReferenceCell=(value, record)=>{
 
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'User Identity', debugtype: 'string', dataIndex: 'userIdentity', width: '15',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'User Special Functions', debugtype: 'string', dataIndex: 'userSpecialFunctions', width: '27',render: (text, record)=>renderTextCell(text,record) },
+  { title: '用户身份', debugtype: 'string', dataIndex: 'userIdentity', width: '15',render: (text, record)=>renderTextCell(text,record) },
+  { title: '用户特殊功能', debugtype: 'string', dataIndex: 'userSpecialFunctions', width: '27',render: (text, record)=>renderTextCell(text,record) },
   { title: '域', dataIndex: 'domain', render: (text, record) => renderReferenceCell(text, record)},
 
 ]
 
 const fieldLabels = {
   id: 'ID',
-  userIdentity: 'User Identity',
-  userSpecialFunctions: 'User Special Functions',
+  userIdentity: '用户身份',
+  userSpecialFunctions: '用户特殊功能',
   domain: '域',
 
 }

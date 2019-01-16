@@ -18,7 +18,7 @@ const testValues = {};
 /*
 const testValues = {
   name: '收入',
-  amount: '11610.65',
+  amount: '10884.36',
   transactionTypeId: 'TT000001',
   accountId: 'MA000001',
 }
@@ -120,7 +120,7 @@ class TransactionCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'transaction',listName:'Transaction列表' },
+        payload: { id: owner.id, type: 'transaction',listName:'事务列表' },
       })
     }
     const errors = getFieldsError()
@@ -195,8 +195,8 @@ class TransactionCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Transaction"
-        content="新建一个Transaction"
+        title="新建一个事务"
+        content="新建一个事务"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -248,7 +248,7 @@ class TransactionCreateForm extends Component {
                 <Form.Item label={fieldLabels.transactionType} {...formItemLayout}>
                   {getFieldDecorator('transactionTypeId', {
                   	initialValue: tryinit('transactionType'),
-                    rules: [{ required: true, message: '请输入Transaction Type' }],
+                    rules: [{ required: true, message: '请输入交易类型' }],
                   })(
                   
                   <SelectObject 
@@ -265,7 +265,7 @@ class TransactionCreateForm extends Component {
                 <Form.Item label={fieldLabels.account} {...formItemLayout}>
                   {getFieldDecorator('accountId', {
                   	initialValue: tryinit('account'),
-                    rules: [{ required: true, message: '请输入Account' }],
+                    rules: [{ required: true, message: '请输入账户' }],
                   })(
                   
                   <SelectObject 

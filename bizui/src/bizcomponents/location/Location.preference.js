@@ -263,10 +263,10 @@ const internalSummaryOf = (location,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{location.id}</Description> 
 <Description term="名称">{location.name}</Description> 
-<Description term="Contact Person">{location.contactPerson}</Description> 
-<Description term="Contact Phone">{location.contactPhone}</Description> 
-<Description term="Create Time">{ moment(location.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(location.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="联系人">{location.contactPerson}</Description> 
+<Description term="联系电话">{location.contactPhone}</Description> 
+<Description term="创建时间">{ moment(location.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(location.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(location,targetComponent)}
       </DescriptionList>

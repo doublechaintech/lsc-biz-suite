@@ -117,11 +117,11 @@ class MerchantTypeDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Merchant Type",cardsFor: "merchantType",
+    const cardsData = {cardsName:"商人类型",cardsFor: "merchantType",
     	cardsSource: this.props.merchantType,returnURL,displayName,
   		subItems: [
-{name: 'merchantList', displayName:'Merchant',type:'merchant',count:merchantCount,addFunction: true, role: 'merchant', metaInfo: merchantListMetaInfo},
-{name: 'transportItemList', displayName:'Transport Item',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
+{name: 'merchantList', displayName:'商人',type:'merchant',count:merchantCount,addFunction: true, role: 'merchant', metaInfo: merchantListMetaInfo},
+{name: 'transportItemList', displayName:'运输项目',type:'transportItem',count:transportItemCount,addFunction: true, role: 'transportItem', metaInfo: transportItemListMetaInfo},
     
       	],
   	};

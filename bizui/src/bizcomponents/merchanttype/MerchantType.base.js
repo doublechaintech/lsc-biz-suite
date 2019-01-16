@@ -6,10 +6,10 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Merchant Type", menuFor: "merchantType",
+const menuData = {menuName:"商人类型", menuFor: "merchantType",
   		subItems: [
-  {name: 'merchantList', displayName:'Merchant', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'transportItemList', displayName:'Transport Item', icon:'sitemap',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'merchantList', displayName:'商人', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportItemList', displayName:'运输项目', icon:'sitemap',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }
@@ -71,14 +71,14 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'merchantType') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '6',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Platform', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '平台', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  platform: 'Platform',
+  platform: '平台',
 
 }
 

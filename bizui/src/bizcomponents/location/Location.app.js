@@ -162,7 +162,7 @@ class LocationBizApp extends React.PureComponent {
     const {TransportTaskSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task(Source)",
+      name: "运输任务(源)",
       role: "transportTaskAsSource",
       data: state._location.transportTaskListAsSource,
       metaInfo: state._location.transportTaskListAsSourceMetaInfo,
@@ -176,7 +176,7 @@ class LocationBizApp extends React.PureComponent {
       owner: { type: '_location', id: state._location.id, 
       referenceName: 'source', 
       listName: 'transportTaskListAsSource', ref:state._location, 
-      listDisplayName: 'Transport Task(Source)列表' }, // this is for model namespace and
+      listDisplayName: '运输任务(源)列表' }, // this is for model namespace and
     }))(TransportTaskSearch)
   }
   getTransportTaskAsSourceCreateForm = () => {
@@ -190,7 +190,7 @@ class LocationBizApp extends React.PureComponent {
       currentPage: state._location.transportTaskAsSourceCurrentPageNumber,
       searchFormParameters: state._location.transportTaskAsSourceSearchFormParameters,
       loading: state._location.loading,
-      owner: { type: '_location', id: state._location.id, referenceName: 'source', listName: 'transportTaskListAsSource', ref:state._location, listDisplayName: 'Transport Task列表'}, // this is for model namespace and
+      owner: { type: '_location', id: state._location.id, referenceName: 'source', listName: 'transportTaskListAsSource', ref:state._location, listDisplayName: '运输任务列表'}, // this is for model namespace and
     }))(TransportTaskCreateForm)
   }
   
@@ -200,7 +200,7 @@ class LocationBizApp extends React.PureComponent {
       selectedRows: state._location.selectedRows,
       role: "transportTaskAsSource",
       currentUpdateIndex: state._location.currentUpdateIndex,
-      owner: { type: '_location', id: state._location.id, listName: 'transportTaskListAsSource', ref:state._location, listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      owner: { type: '_location', id: state._location.id, listName: 'transportTaskListAsSource', ref:state._location, listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskUpdateForm)
   }
 
@@ -208,7 +208,7 @@ class LocationBizApp extends React.PureComponent {
     const {TransportTaskSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task(Destination)",
+      name: "运输任务(目的地)",
       role: "transportTaskAsDestination",
       data: state._location.transportTaskListAsDestination,
       metaInfo: state._location.transportTaskListAsDestinationMetaInfo,
@@ -222,7 +222,7 @@ class LocationBizApp extends React.PureComponent {
       owner: { type: '_location', id: state._location.id, 
       referenceName: 'destination', 
       listName: 'transportTaskListAsDestination', ref:state._location, 
-      listDisplayName: 'Transport Task(Destination)列表' }, // this is for model namespace and
+      listDisplayName: '运输任务(目的地)列表' }, // this is for model namespace and
     }))(TransportTaskSearch)
   }
   getTransportTaskAsDestinationCreateForm = () => {
@@ -236,7 +236,7 @@ class LocationBizApp extends React.PureComponent {
       currentPage: state._location.transportTaskAsDestinationCurrentPageNumber,
       searchFormParameters: state._location.transportTaskAsDestinationSearchFormParameters,
       loading: state._location.loading,
-      owner: { type: '_location', id: state._location.id, referenceName: 'destination', listName: 'transportTaskListAsDestination', ref:state._location, listDisplayName: 'Transport Task列表'}, // this is for model namespace and
+      owner: { type: '_location', id: state._location.id, referenceName: 'destination', listName: 'transportTaskListAsDestination', ref:state._location, listDisplayName: '运输任务列表'}, // this is for model namespace and
     }))(TransportTaskCreateForm)
   }
   
@@ -246,7 +246,7 @@ class LocationBizApp extends React.PureComponent {
       selectedRows: state._location.selectedRows,
       role: "transportTaskAsDestination",
       currentUpdateIndex: state._location.currentUpdateIndex,
-      owner: { type: '_location', id: state._location.id, listName: 'transportTaskListAsDestination', ref:state._location, listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      owner: { type: '_location', id: state._location.id, listName: 'transportTaskListAsDestination', ref:state._location, listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskUpdateForm)
   }
 

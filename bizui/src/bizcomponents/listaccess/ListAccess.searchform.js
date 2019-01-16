@@ -259,9 +259,9 @@ componentDidMount() {
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Internal Name">
+            <FormItem label="内部名称">
               {getFieldDecorator('internalName')(
-                <Input placeholder="请输入Internal Name" />
+                <Input placeholder="请输入内部名称" />
               )}
             </FormItem>
           </Col>

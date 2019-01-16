@@ -600,7 +600,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTask.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task");
+		createTimeStatsItem.setDisplayName("运输任务");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -650,7 +650,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTask.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task");
+		createTimeStatsItem.setDisplayName("运输任务");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -700,7 +700,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTask.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task");
+		createTimeStatsItem.setDisplayName("运输任务");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -750,7 +750,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTask.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task");
+		createTimeStatsItem.setDisplayName("运输任务");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -800,7 +800,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTask.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task");
+		createTimeStatsItem.setDisplayName("运输任务");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -850,7 +850,7 @@ public class TransportTaskJDBCTemplateDAO extends LscNamingServiceDAO implements
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTask.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task");
+		createTimeStatsItem.setDisplayName("运输任务");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTask.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTask.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);

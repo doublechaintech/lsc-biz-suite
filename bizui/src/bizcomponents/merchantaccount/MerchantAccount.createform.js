@@ -118,7 +118,7 @@ class MerchantAccountCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'merchantAccount',listName:'Merchant Account列表' },
+        payload: { id: owner.id, type: 'merchantAccount',listName:'商家帐户列表' },
       })
     }
     const errors = getFieldsError()
@@ -193,8 +193,8 @@ class MerchantAccountCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Merchant Account"
-        content="新建一个Merchant Account"
+        title="新建一个商家帐户"
+        content="新建一个商家帐户"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -236,7 +236,7 @@ class MerchantAccountCreateForm extends Component {
                 <Form.Item label={fieldLabels.merchant} {...formItemLayout}>
                   {getFieldDecorator('merchantId', {
                   	initialValue: tryinit('merchant'),
-                    rules: [{ required: true, message: '请输入Merchant' }],
+                    rules: [{ required: true, message: '请输入商人' }],
                   })(
                   
                   <SelectObject 

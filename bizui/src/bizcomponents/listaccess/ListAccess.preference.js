@@ -54,11 +54,11 @@ const internalImageListOf = (listAccess) =>{
 const internalSettingListOf = (listAccess) =>{
 
 	const optionList = [ 
-	  {"title":'Read Permission',"value":listAccess.readPermission,"parameterName":"readPermission"},
-  {"title":'Create Permission',"value":listAccess.createPermission,"parameterName":"createPermission"},
-  {"title":'Delete Permission',"value":listAccess.deletePermission,"parameterName":"deletePermission"},
-  {"title":'Update Permission',"value":listAccess.updatePermission,"parameterName":"updatePermission"},
-  {"title":'Execution Permission',"value":listAccess.executionPermission,"parameterName":"executionPermission"},
+	  {"title":'读权限',"value":listAccess.readPermission,"parameterName":"readPermission"},
+  {"title":'创建权限',"value":listAccess.createPermission,"parameterName":"createPermission"},
+  {"title":'删除权限',"value":listAccess.deletePermission,"parameterName":"deletePermission"},
+  {"title":'更新许可',"value":listAccess.updatePermission,"parameterName":"updatePermission"},
+  {"title":'执行权限',"value":listAccess.executionPermission,"parameterName":"executionPermission"},
 ]
 	
   if(optionList.length===0){
@@ -265,7 +265,7 @@ const internalSummaryOf = (listAccess,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{listAccess.id}</Description> 
 <Description term="名称">{listAccess.name}</Description> 
-<Description term="Internal Name">{listAccess.internalName}</Description> 
+<Description term="内部名称">{listAccess.internalName}</Description> 
 <Description term="应用程序">{listAccess.app==null?"未分配":listAccess.app.displayName}
  <Icon type="swap" onClick={()=>
   showTransferModel(targetComponent,"应用程序","userApp","requestCandidateApp",
@@ -310,7 +310,7 @@ class ListAccessPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName,  } = this.props.listAccess
-    const cardsData = {cardsName:"List Access",cardsFor: "listAccess",cardsSource: this.props.listAccess,
+    const cardsData = {cardsName:"访问列表",cardsFor: "listAccess",cardsSource: this.props.listAccess,
   		subItems: [
     
       	],

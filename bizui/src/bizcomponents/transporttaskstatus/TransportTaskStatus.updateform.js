@@ -184,7 +184,7 @@ class TransportTaskStatusUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'transportTaskStatus',
-          listName:'Transport Task Status列表' 
+          listName:'运输任务状态列表' 
         },
       })
     }
@@ -244,8 +244,8 @@ class TransportTaskStatusUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Transport Task Status"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Transport Task Status"
+        title={"更新运输任务状态"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新运输任务状态"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>

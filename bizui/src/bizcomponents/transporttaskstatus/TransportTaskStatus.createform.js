@@ -118,7 +118,7 @@ class TransportTaskStatusCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'transportTaskStatus',listName:'Transport Task Status列表' },
+        payload: { id: owner.id, type: 'transportTaskStatus',listName:'运输任务状态列表' },
       })
     }
     const errors = getFieldsError()
@@ -193,8 +193,8 @@ class TransportTaskStatusCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Transport Task Status"
-        content="新建一个Transport Task Status"
+        title="新建一个运输任务状态"
+        content="新建一个运输任务状态"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -236,7 +236,7 @@ class TransportTaskStatusCreateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                   
                   <SelectObject 

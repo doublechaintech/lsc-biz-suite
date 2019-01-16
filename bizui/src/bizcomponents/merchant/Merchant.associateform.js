@@ -201,7 +201,7 @@ class MerchantAssociateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('platform')}

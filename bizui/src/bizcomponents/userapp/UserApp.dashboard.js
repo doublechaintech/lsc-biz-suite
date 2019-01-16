@@ -132,7 +132,7 @@ class UserAppDashboard extends Component {
     const cardsData = {cardsName:"用户应用程序",cardsFor: "userApp",
     	cardsSource: this.props.userApp,returnURL,displayName,
   		subItems: [
-{name: 'listAccessList', displayName:'List Access',type:'listAccess',count:listAccessCount,addFunction: true, role: 'listAccess', metaInfo: listAccessListMetaInfo},
+{name: 'listAccessList', displayName:'访问列表',type:'listAccess',count:listAccessCount,addFunction: true, role: 'listAccess', metaInfo: listAccessListMetaInfo},
 {name: 'objectAccessList', displayName:'对象访问',type:'objectAccess',count:objectAccessCount,addFunction: true, role: 'objectAccess', metaInfo: objectAccessListMetaInfo},
     
       	],

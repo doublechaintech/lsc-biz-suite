@@ -124,7 +124,7 @@ class TransportTaskCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'transportTask',listName:'Transport Task列表' },
+        payload: { id: owner.id, type: 'transportTask',listName:'运输任务列表' },
       })
     }
     const errors = getFieldsError()
@@ -199,8 +199,8 @@ class TransportTaskCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Transport Task"
-        content="新建一个Transport Task"
+        title="新建一个运输任务"
+        content="新建一个运输任务"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -220,9 +220,9 @@ class TransportTaskCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.remark} {...formItemLayout}>
                   {getFieldDecorator('remark', {
-                    rules: [{ required: true, message: '请输入Remark' }],
+                    rules: [{ required: true, message: '请输入备注' }],
                   })(
-                    <Input placeholder="请输入Remark" />
+                    <Input placeholder="请输入备注" />
                   )}
                 </Form.Item>
               </Col>
@@ -252,7 +252,7 @@ class TransportTaskCreateForm extends Component {
                 <Form.Item label={fieldLabels.source} {...formItemLayout}>
                   {getFieldDecorator('sourceId', {
                   	initialValue: tryinit('source'),
-                    rules: [{ required: true, message: '请输入Source' }],
+                    rules: [{ required: true, message: '请输入源' }],
                   })(
                   
                   <SelectObject 
@@ -269,7 +269,7 @@ class TransportTaskCreateForm extends Component {
                 <Form.Item label={fieldLabels.destination} {...formItemLayout}>
                   {getFieldDecorator('destinationId', {
                   	initialValue: tryinit('destination'),
-                    rules: [{ required: true, message: '请输入Destination' }],
+                    rules: [{ required: true, message: '请输入目的地' }],
                   })(
                   
                   <SelectObject 
@@ -286,7 +286,7 @@ class TransportTaskCreateForm extends Component {
                 <Form.Item label={fieldLabels.status} {...formItemLayout}>
                   {getFieldDecorator('statusId', {
                   	initialValue: tryinit('status'),
-                    rules: [{ required: true, message: '请输入Status' }],
+                    rules: [{ required: true, message: '请输入状态' }],
                   })(
                   
                   <SelectObject 
@@ -303,7 +303,7 @@ class TransportTaskCreateForm extends Component {
                 <Form.Item label={fieldLabels.sender} {...formItemLayout}>
                   {getFieldDecorator('senderId', {
                   	initialValue: tryinit('sender'),
-                    rules: [{ required: true, message: '请输入Sender' }],
+                    rules: [{ required: true, message: '请输入发送方' }],
                   })(
                   
                   <SelectObject 
@@ -320,7 +320,7 @@ class TransportTaskCreateForm extends Component {
                 <Form.Item label={fieldLabels.receiver} {...formItemLayout}>
                   {getFieldDecorator('receiverId', {
                   	initialValue: tryinit('receiver'),
-                    rules: [{ required: true, message: '请输入Receiver' }],
+                    rules: [{ required: true, message: '请输入接收机' }],
                   })(
                   
                   <SelectObject 
@@ -337,7 +337,7 @@ class TransportTaskCreateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                   
                   <SelectObject 

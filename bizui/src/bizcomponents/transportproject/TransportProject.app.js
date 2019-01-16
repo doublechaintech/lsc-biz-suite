@@ -162,7 +162,7 @@ class TransportProjectBizApp extends React.PureComponent {
     const {TransportItemSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Item",
+      name: "运输项目",
       role: "transportItem",
       data: state._transportProject.transportItemList,
       metaInfo: state._transportProject.transportItemListMetaInfo,
@@ -176,7 +176,7 @@ class TransportProjectBizApp extends React.PureComponent {
       owner: { type: '_transportProject', id: state._transportProject.id, 
       referenceName: 'project', 
       listName: 'transportItemList', ref:state._transportProject, 
-      listDisplayName: 'Transport Item列表' }, // this is for model namespace and
+      listDisplayName: '运输项目列表' }, // this is for model namespace and
     }))(TransportItemSearch)
   }
   getTransportItemCreateForm = () => {
@@ -190,7 +190,7 @@ class TransportProjectBizApp extends React.PureComponent {
       currentPage: state._transportProject.transportItemCurrentPageNumber,
       searchFormParameters: state._transportProject.transportItemSearchFormParameters,
       loading: state._transportProject.loading,
-      owner: { type: '_transportProject', id: state._transportProject.id, referenceName: 'project', listName: 'transportItemList', ref:state._transportProject, listDisplayName: 'Transport Item列表'}, // this is for model namespace and
+      owner: { type: '_transportProject', id: state._transportProject.id, referenceName: 'project', listName: 'transportItemList', ref:state._transportProject, listDisplayName: '运输项目列表'}, // this is for model namespace and
     }))(TransportItemCreateForm)
   }
   
@@ -200,7 +200,7 @@ class TransportProjectBizApp extends React.PureComponent {
       selectedRows: state._transportProject.selectedRows,
       role: "transportItem",
       currentUpdateIndex: state._transportProject.currentUpdateIndex,
-      owner: { type: '_transportProject', id: state._transportProject.id, listName: 'transportItemList', ref:state._transportProject, listDisplayName: 'Transport Item列表' }, // this is for model namespace and
+      owner: { type: '_transportProject', id: state._transportProject.id, listName: 'transportItemList', ref:state._transportProject, listDisplayName: '运输项目列表' }, // this is for model namespace and
     }))(TransportItemUpdateForm)
   }
 

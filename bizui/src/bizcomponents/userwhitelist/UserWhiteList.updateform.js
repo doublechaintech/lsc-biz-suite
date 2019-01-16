@@ -184,7 +184,7 @@ class UserWhiteListUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'userWhiteList',
-          listName:'User White List列表' 
+          listName:'用户白名单列表' 
         },
       })
     }
@@ -244,8 +244,8 @@ class UserWhiteListUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新User White List"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新User White List"
+        title={"更新用户白名单"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新用户白名单"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -269,9 +269,9 @@ class UserWhiteListUpdateForm extends Component {
                 <Form.Item label={fieldLabels.userIdentity} {...formItemLayout}>
                   {getFieldDecorator('userIdentity', {
                     initialValue: selectedRow.userIdentity,
-                    rules: [{ required: true, message: '请输入User Identity' }],
+                    rules: [{ required: true, message: '请输入用户身份' }],
                   })(
-                    <Input placeholder="请输入User Identity" />
+                    <Input placeholder="请输入用户身份" />
                     
                   )}
                 </Form.Item>
@@ -281,9 +281,9 @@ class UserWhiteListUpdateForm extends Component {
                 <Form.Item label={fieldLabels.userSpecialFunctions} {...formItemLayout}>
                   {getFieldDecorator('userSpecialFunctions', {
                     initialValue: selectedRow.userSpecialFunctions,
-                    rules: [{ required: true, message: '请输入User Special Functions' }],
+                    rules: [{ required: true, message: '请输入用户特殊功能' }],
                   })(
-                    <Input placeholder="请输入User Special Functions" />
+                    <Input placeholder="请输入用户特殊功能" />
                     
                   )}
                 </Form.Item>

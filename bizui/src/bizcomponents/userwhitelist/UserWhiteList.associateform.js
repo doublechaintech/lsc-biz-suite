@@ -135,9 +135,9 @@ class UserWhiteListAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.userIdentity} {...formItemLayout}>
                   {getFieldDecorator('userIdentity', {
-                    rules: [{ required: true, message: '请输入User Identity' }],
+                    rules: [{ required: true, message: '请输入用户身份' }],
                   })(
-                    <Input placeholder="请输入User Identity" />
+                    <Input placeholder="请输入用户身份" />
                   )}
                 </Form.Item>
               </Col>
@@ -145,9 +145,9 @@ class UserWhiteListAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.userSpecialFunctions} {...formItemLayout}>
                   {getFieldDecorator('userSpecialFunctions', {
-                    rules: [{ required: true, message: '请输入User Special Functions' }],
+                    rules: [{ required: true, message: '请输入用户特殊功能' }],
                   })(
-                    <Input placeholder="请输入User Special Functions" />
+                    <Input placeholder="请输入用户特殊功能" />
                   )}
                 </Form.Item>
               </Col>

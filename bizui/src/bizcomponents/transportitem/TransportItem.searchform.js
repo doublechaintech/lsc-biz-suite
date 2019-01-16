@@ -261,14 +261,14 @@ componentDidMount() {
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Unit">
+            <FormItem label="单位">
               {getFieldDecorator('unit')(
-                <Input placeholder="请输入Unit" />
+                <Input placeholder="请输入单位" />
               )}
             </FormItem>
           </Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Project">
+                    <Form.Item label="项目">
                   {getFieldDecorator('project', {
                     initialValue: tryinit('project'),
                    
@@ -283,7 +283,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Merchant">
+                    <Form.Item label="商人">
                   {getFieldDecorator('merchant', {
                     initialValue: tryinit('merchant'),
                    
@@ -298,7 +298,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Platform">
+                    <Form.Item label="平台">
                   {getFieldDecorator('platform', {
                     initialValue: tryinit('platform'),
                    

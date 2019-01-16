@@ -298,7 +298,7 @@ class TransactionTypePreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, transactionCount } = this.props.transactionType
-    const cardsData = {cardsName:"Transaction Type",cardsFor: "transactionType",cardsSource: this.props.transactionType,
+    const cardsData = {cardsName:"交易类型",cardsFor: "transactionType",cardsSource: this.props.transactionType,
   		subItems: [
     
       	],

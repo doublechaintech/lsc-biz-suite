@@ -257,7 +257,7 @@ componentDidMount() {
             </FormItem>
           </Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Merchant">
+                    <Form.Item label="商人">
                   {getFieldDecorator('merchant', {
                     initialValue: tryinit('merchant'),
                    

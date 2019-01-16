@@ -269,8 +269,8 @@ const internalSummaryOf = (merchant,targetComponent) =>{
 	      "transferToAnotherType","anotherTypeId",merchant.type?merchant.type.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(merchant.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(merchant.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(merchant.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(merchant.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(merchant,targetComponent)}
       </DescriptionList>
@@ -309,7 +309,7 @@ class MerchantPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, transportProjectCount, transportTaskAsSenderCount, transportTaskAsReceiverCount, merchantAccountCount } = this.props.merchant
-    const cardsData = {cardsName:"Merchant",cardsFor: "merchant",cardsSource: this.props.merchant,
+    const cardsData = {cardsName:"商人",cardsFor: "merchant",cardsSource: this.props.merchant,
   		subItems: [
     
       	],

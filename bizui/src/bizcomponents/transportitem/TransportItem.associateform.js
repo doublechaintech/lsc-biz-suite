@@ -19,7 +19,7 @@ const testValues = {};
 /*
 const testValues = {
   name: '橡胶',
-  quantity: '828',
+  quantity: '774',
   unit: '吨',
   projectId: 'TP000001',
   merchantId: 'MT000001',
@@ -148,9 +148,9 @@ class TransportItemAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.quantity} {...formItemLayout}>
                   {getFieldDecorator('quantity', {
-                    rules: [{ required: true, message: '请输入Quantity' }],
+                    rules: [{ required: true, message: '请输入数量' }],
                   })(
-                    <Input placeholder="请输入Quantity" />
+                    <Input placeholder="请输入数量" />
                   )}
                 </Form.Item>
               </Col>
@@ -158,9 +158,9 @@ class TransportItemAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.unit} {...formItemLayout}>
                   {getFieldDecorator('unit', {
-                    rules: [{ required: true, message: '请输入Unit' }],
+                    rules: [{ required: true, message: '请输入单位' }],
                   })(
-                    <Input placeholder="请输入Unit" />
+                    <Input placeholder="请输入单位" />
                   )}
                 </Form.Item>
               </Col>
@@ -186,7 +186,7 @@ class TransportItemAssociateForm extends Component {
                 <Form.Item label={fieldLabels.project} {...formItemLayout}>
                   {getFieldDecorator('projectId', {
                   	initialValue: tryinit('project'),
-                    rules: [{ required: true, message: '请输入Project' }],
+                    rules: [{ required: true, message: '请输入项目' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('project')}
@@ -201,7 +201,7 @@ class TransportItemAssociateForm extends Component {
                 <Form.Item label={fieldLabels.merchant} {...formItemLayout}>
                   {getFieldDecorator('merchantId', {
                   	initialValue: tryinit('merchant'),
-                    rules: [{ required: true, message: '请输入Merchant' }],
+                    rules: [{ required: true, message: '请输入商人' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('merchant')}
@@ -216,7 +216,7 @@ class TransportItemAssociateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('platform')}

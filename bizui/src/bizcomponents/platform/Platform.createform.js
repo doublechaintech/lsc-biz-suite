@@ -119,7 +119,7 @@ class PlatformCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'platform',listName:'Platform列表' },
+        payload: { id: owner.id, type: 'platform',listName:'平台列表' },
       })
     }
     const errors = getFieldsError()
@@ -194,8 +194,8 @@ class PlatformCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Platform"
-        content="新建一个Platform"
+        title="新建一个平台"
+        content="新建一个平台"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -215,9 +215,9 @@ class PlatformCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.introduction} {...formItemLayout}>
                   {getFieldDecorator('introduction', {
-                    rules: [{ required: true, message: '请输入Introduction' }],
+                    rules: [{ required: true, message: '请输入介绍' }],
                   })(
-                    <Input placeholder="请输入Introduction" />
+                    <Input placeholder="请输入介绍" />
                   )}
                 </Form.Item>
               </Col>
@@ -225,9 +225,9 @@ class PlatformCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.currentVersion} {...formItemLayout}>
                   {getFieldDecorator('currentVersion', {
-                    rules: [{ required: true, message: '请输入Current Version' }],
+                    rules: [{ required: true, message: '请输入当前版本' }],
                   })(
-                    <Input placeholder="请输入Current Version" />
+                    <Input placeholder="请输入当前版本" />
                   )}
                 </Form.Item>
               </Col>

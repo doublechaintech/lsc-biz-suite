@@ -377,7 +377,7 @@ public class MerchantAccountJDBCTemplateDAO extends LscNamingServiceDAO implemen
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//MerchantAccount.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Merchant Account");
+		createTimeStatsItem.setDisplayName("商家帐户");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(MerchantAccount.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(MerchantAccount.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);

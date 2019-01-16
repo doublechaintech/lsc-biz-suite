@@ -186,7 +186,7 @@ class MerchantUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'merchant',
-          listName:'Merchant列表' 
+          listName:'商人列表' 
         },
       })
     }
@@ -246,8 +246,8 @@ class MerchantUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Merchant"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Merchant"
+        title={"更新商人"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新商人"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>

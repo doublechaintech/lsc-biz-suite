@@ -263,7 +263,7 @@ componentDidMount() {
             </FormItem>
           </Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Source">
+                    <Form.Item label="源">
                   {getFieldDecorator('source', {
                     initialValue: tryinit('source'),
                    
@@ -278,7 +278,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Destination">
+                    <Form.Item label="目的地">
                   {getFieldDecorator('destination', {
                     initialValue: tryinit('destination'),
                    
@@ -294,14 +294,14 @@ componentDidMount() {
                 </Form.Item></Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Remark">
+            <FormItem label="备注">
               {getFieldDecorator('remark')(
-                <Input placeholder="请输入Remark" />
+                <Input placeholder="请输入备注" />
               )}
             </FormItem>
           </Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Status">
+                    <Form.Item label="状态">
                   {getFieldDecorator('status', {
                     initialValue: tryinit('status'),
                    
@@ -316,7 +316,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Sender">
+                    <Form.Item label="发送方">
                   {getFieldDecorator('sender', {
                     initialValue: tryinit('sender'),
                    
@@ -331,7 +331,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Receiver">
+                    <Form.Item label="接收机">
                   {getFieldDecorator('receiver', {
                     initialValue: tryinit('receiver'),
                    
@@ -346,7 +346,7 @@ componentDidMount() {
                   )}
                 </Form.Item></Col>
  <Col md={8} sm={24}>
-                    <Form.Item label="Platform">
+                    <Form.Item label="平台">
                   {getFieldDecorator('platform', {
                     initialValue: tryinit('platform'),
                    

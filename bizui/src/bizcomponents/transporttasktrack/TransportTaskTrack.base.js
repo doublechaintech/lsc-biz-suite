@@ -6,7 +6,7 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Transport Task Track", menuFor: "transportTaskTrack",
+const menuData = {menuName:"运输任务跟踪", menuFor: "transportTaskTrack",
   		subItems: [
   
   		],
@@ -69,22 +69,22 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20',render: (text, record)=>renderTextCell(text,record) },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '8',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Latitude', debugtype: 'double', dataIndex: 'latitude', width: '13',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Longitude', debugtype: 'double', dataIndex: 'longitude', width: '14',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Task', dataIndex: 'task', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Create Time', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
-  { title: 'Update Time', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '纬度', debugtype: 'double', dataIndex: 'latitude', width: '13',render: (text, record)=>renderTextCell(text,record) },
+  { title: '经度', debugtype: 'double', dataIndex: 'longitude', width: '14',render: (text, record)=>renderTextCell(text,record) },
+  { title: '任务', dataIndex: 'task', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '创建时间', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '更新时间', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  latitude: 'Latitude',
-  longitude: 'Longitude',
-  task: 'Task',
-  createTime: 'Create Time',
-  updateTime: 'Update Time',
+  latitude: '纬度',
+  longitude: '经度',
+  task: '任务',
+  createTime: '创建时间',
+  updateTime: '更新时间',
 
 }
 

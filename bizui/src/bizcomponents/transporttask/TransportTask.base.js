@@ -6,9 +6,9 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Transport Task", menuFor: "transportTask",
+const menuData = {menuName:"运输任务", menuFor: "transportTask",
   		subItems: [
-  {name: 'transportTaskTrackList', displayName:'Transport Task Track', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportTaskTrackList', displayName:'运输任务跟踪', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }
@@ -70,30 +70,30 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'transportTask') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '10',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Source', dataIndex: 'source', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Destination', dataIndex: 'destination', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Remark', debugtype: 'string', dataIndex: 'remark', width: '9',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Status', dataIndex: 'status', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Sender', dataIndex: 'sender', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Receiver', dataIndex: 'receiver', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Platform', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Create Time', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
-  { title: 'Update Time', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '源', dataIndex: 'source', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '目的地', dataIndex: 'destination', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '备注', debugtype: 'string', dataIndex: 'remark', width: '9',render: (text, record)=>renderTextCell(text,record) },
+  { title: '状态', dataIndex: 'status', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '发送方', dataIndex: 'sender', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '接收机', dataIndex: 'receiver', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '平台', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '创建时间', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '更新时间', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  source: 'Source',
-  destination: 'Destination',
-  remark: 'Remark',
-  status: 'Status',
-  sender: 'Sender',
-  receiver: 'Receiver',
-  platform: 'Platform',
-  createTime: 'Create Time',
-  updateTime: 'Update Time',
+  source: '源',
+  destination: '目的地',
+  remark: '备注',
+  status: '状态',
+  sender: '发送方',
+  receiver: '接收机',
+  platform: '平台',
+  createTime: '创建时间',
+  updateTime: '更新时间',
 
 }
 

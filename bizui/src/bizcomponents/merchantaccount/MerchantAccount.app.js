@@ -162,7 +162,7 @@ class MerchantAccountBizApp extends React.PureComponent {
     const {TransactionSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transaction",
+      name: "事务",
       role: "transaction",
       data: state._merchantAccount.transactionList,
       metaInfo: state._merchantAccount.transactionListMetaInfo,
@@ -176,7 +176,7 @@ class MerchantAccountBizApp extends React.PureComponent {
       owner: { type: '_merchantAccount', id: state._merchantAccount.id, 
       referenceName: 'account', 
       listName: 'transactionList', ref:state._merchantAccount, 
-      listDisplayName: 'Transaction列表' }, // this is for model namespace and
+      listDisplayName: '事务列表' }, // this is for model namespace and
     }))(TransactionSearch)
   }
   getTransactionCreateForm = () => {
@@ -190,7 +190,7 @@ class MerchantAccountBizApp extends React.PureComponent {
       currentPage: state._merchantAccount.transactionCurrentPageNumber,
       searchFormParameters: state._merchantAccount.transactionSearchFormParameters,
       loading: state._merchantAccount.loading,
-      owner: { type: '_merchantAccount', id: state._merchantAccount.id, referenceName: 'account', listName: 'transactionList', ref:state._merchantAccount, listDisplayName: 'Transaction列表'}, // this is for model namespace and
+      owner: { type: '_merchantAccount', id: state._merchantAccount.id, referenceName: 'account', listName: 'transactionList', ref:state._merchantAccount, listDisplayName: '事务列表'}, // this is for model namespace and
     }))(TransactionCreateForm)
   }
   
@@ -200,7 +200,7 @@ class MerchantAccountBizApp extends React.PureComponent {
       selectedRows: state._merchantAccount.selectedRows,
       role: "transaction",
       currentUpdateIndex: state._merchantAccount.currentUpdateIndex,
-      owner: { type: '_merchantAccount', id: state._merchantAccount.id, listName: 'transactionList', ref:state._merchantAccount, listDisplayName: 'Transaction列表' }, // this is for model namespace and
+      owner: { type: '_merchantAccount', id: state._merchantAccount.id, listName: 'transactionList', ref:state._merchantAccount, listDisplayName: '事务列表' }, // this is for model namespace and
     }))(TransactionUpdateForm)
   }
 

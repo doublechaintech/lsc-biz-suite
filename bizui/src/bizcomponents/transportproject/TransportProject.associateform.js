@@ -164,7 +164,7 @@ class TransportProjectAssociateForm extends Component {
                 <Form.Item label={fieldLabels.merchant} {...formItemLayout}>
                   {getFieldDecorator('merchantId', {
                   	initialValue: tryinit('merchant'),
-                    rules: [{ required: true, message: '请输入Merchant' }],
+                    rules: [{ required: true, message: '请输入商人' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('merchant')}
@@ -179,7 +179,7 @@ class TransportProjectAssociateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('platform')}

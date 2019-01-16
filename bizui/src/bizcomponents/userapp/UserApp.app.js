@@ -162,7 +162,7 @@ class UserAppBizApp extends React.PureComponent {
     const {ListAccessSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "List Access",
+      name: "访问列表",
       role: "listAccess",
       data: state._userApp.listAccessList,
       metaInfo: state._userApp.listAccessListMetaInfo,
@@ -176,7 +176,7 @@ class UserAppBizApp extends React.PureComponent {
       owner: { type: '_userApp', id: state._userApp.id, 
       referenceName: 'app', 
       listName: 'listAccessList', ref:state._userApp, 
-      listDisplayName: 'List Access列表' }, // this is for model namespace and
+      listDisplayName: '访问列表列表' }, // this is for model namespace and
     }))(ListAccessSearch)
   }
   getListAccessCreateForm = () => {
@@ -190,7 +190,7 @@ class UserAppBizApp extends React.PureComponent {
       currentPage: state._userApp.listAccessCurrentPageNumber,
       searchFormParameters: state._userApp.listAccessSearchFormParameters,
       loading: state._userApp.loading,
-      owner: { type: '_userApp', id: state._userApp.id, referenceName: 'app', listName: 'listAccessList', ref:state._userApp, listDisplayName: 'List Access列表'}, // this is for model namespace and
+      owner: { type: '_userApp', id: state._userApp.id, referenceName: 'app', listName: 'listAccessList', ref:state._userApp, listDisplayName: '访问列表列表'}, // this is for model namespace and
     }))(ListAccessCreateForm)
   }
   
@@ -200,7 +200,7 @@ class UserAppBizApp extends React.PureComponent {
       selectedRows: state._userApp.selectedRows,
       role: "listAccess",
       currentUpdateIndex: state._userApp.currentUpdateIndex,
-      owner: { type: '_userApp', id: state._userApp.id, listName: 'listAccessList', ref:state._userApp, listDisplayName: 'List Access列表' }, // this is for model namespace and
+      owner: { type: '_userApp', id: state._userApp.id, listName: 'listAccessList', ref:state._userApp, listDisplayName: '访问列表列表' }, // this is for model namespace and
     }))(ListAccessUpdateForm)
   }
 

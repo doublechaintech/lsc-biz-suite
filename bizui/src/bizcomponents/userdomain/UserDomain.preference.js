@@ -300,7 +300,7 @@ class UserDomainPreference extends Component {
     const { id,displayName, userWhiteListCount, secUserCount } = this.props.userDomain
     const cardsData = {cardsName:"用户域",cardsFor: "userDomain",cardsSource: this.props.userDomain,
   		subItems: [
-{name: 'userWhiteListList', displayName:'User White List',type:'userWhiteList',count:userWhiteListCount,addFunction: true, role: 'userWhiteList'},
+{name: 'userWhiteListList', displayName:'用户白名单',type:'userWhiteList',count:userWhiteListCount,addFunction: true, role: 'userWhiteList'},
     
       	],
   	};

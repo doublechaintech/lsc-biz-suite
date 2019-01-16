@@ -260,14 +260,14 @@ const internalSummaryOf = (merchantAccount,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{merchantAccount.id}</Description> 
 <Description term="名称">{merchantAccount.name}</Description> 
-<Description term="Merchant">{merchantAccount.merchant==null?"未分配":merchantAccount.merchant.displayName}
+<Description term="商人">{merchantAccount.merchant==null?"未分配":merchantAccount.merchant.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Merchant","merchant","requestCandidateMerchant",
+  showTransferModel(targetComponent,"商人","merchant","requestCandidateMerchant",
 	      "transferToAnotherMerchant","anotherMerchantId",merchantAccount.merchant?merchantAccount.merchant.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(merchantAccount.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(merchantAccount.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(merchantAccount.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(merchantAccount.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(merchantAccount,targetComponent)}
       </DescriptionList>
@@ -306,7 +306,7 @@ class MerchantAccountPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, transactionCount } = this.props.merchantAccount
-    const cardsData = {cardsName:"Merchant Account",cardsFor: "merchantAccount",cardsSource: this.props.merchantAccount,
+    const cardsData = {cardsName:"商家帐户",cardsFor: "merchantAccount",cardsSource: this.props.merchantAccount,
   		subItems: [
     
       	],

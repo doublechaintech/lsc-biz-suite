@@ -8,8 +8,8 @@ drop table  if exists platform_data;
 create table platform_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(32)                              comment '名称',
-	introduction        	varchar(72)                              comment 'Introduction',
-	current_version     	varchar(16)                              comment 'Current Version',
+	introduction        	varchar(72)                              comment '介绍',
+	current_version     	varchar(16)                              comment '当前版本',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -18,7 +18,7 @@ drop table  if exists transaction_type_data;
 create table transaction_type_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(8)                               comment '名称',
-	platform            	varchar(48)                              comment 'Platform',
+	platform            	varchar(48)                              comment '平台',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -27,7 +27,7 @@ drop table  if exists merchant_type_data;
 create table merchant_type_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(8)                               comment '名称',
-	platform            	varchar(48)                              comment 'Platform',
+	platform            	varchar(48)                              comment '平台',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -36,7 +36,7 @@ drop table  if exists transport_task_status_data;
 create table transport_task_status_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(12)                              comment '名称',
-	platform            	varchar(48)                              comment 'Platform',
+	platform            	varchar(48)                              comment '平台',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -45,12 +45,12 @@ drop table  if exists location_data;
 create table location_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(28)                              comment '名称',
-	contact_person      	varchar(12)                              comment 'Contact Person',
-	contact_phone       	varchar(44)                              comment 'Contact Phone',
+	contact_person      	varchar(12)                              comment '联系人',
+	contact_phone       	varchar(44)                              comment '联系电话',
 	description         	longtext                                 comment '描述',
-	platform            	varchar(48)                              comment 'Platform',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	platform            	varchar(48)                              comment '平台',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -60,10 +60,10 @@ create table merchant_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(32)                              comment '名称',
 	type                	varchar(48)                              comment '类型',
-	platform            	varchar(48)                              comment 'Platform',
+	platform            	varchar(48)                              comment '平台',
 	description         	longtext                                 comment '描述',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -72,10 +72,10 @@ drop table  if exists transport_project_data;
 create table transport_project_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(32)                              comment '名称',
-	merchant            	varchar(48)                              comment 'Merchant',
-	platform            	varchar(48)                              comment 'Platform',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	merchant            	varchar(48)                              comment '商人',
+	platform            	varchar(48)                              comment '平台',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -84,13 +84,13 @@ drop table  if exists transport_item_data;
 create table transport_item_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(8)                               comment '名称',
-	quantity            	int                                      comment 'Quantity',
-	unit                	varchar(8)                               comment 'Unit',
-	project             	varchar(48)                              comment 'Project',
-	merchant            	varchar(48)                              comment 'Merchant',
-	platform            	varchar(48)                              comment 'Platform',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	quantity            	int                                      comment '数量',
+	unit                	varchar(8)                               comment '单位',
+	project             	varchar(48)                              comment '项目',
+	merchant            	varchar(48)                              comment '商人',
+	platform            	varchar(48)                              comment '平台',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -99,15 +99,15 @@ drop table  if exists transport_task_data;
 create table transport_task_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(24)                              comment '名称',
-	source              	varchar(48)                              comment 'Source',
-	destination         	varchar(48)                              comment 'Destination',
-	remark              	varchar(20)                              comment 'Remark',
-	status              	varchar(48)                              comment 'Status',
-	sender              	varchar(48)                              comment 'Sender',
-	receiver            	varchar(48)                              comment 'Receiver',
-	platform            	varchar(48)                              comment 'Platform',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	source              	varchar(48)                              comment '源',
+	destination         	varchar(48)                              comment '目的地',
+	remark              	varchar(20)                              comment '备注',
+	status              	varchar(48)                              comment '状态',
+	sender              	varchar(48)                              comment '发送方',
+	receiver            	varchar(48)                              comment '接收机',
+	platform            	varchar(48)                              comment '平台',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -116,11 +116,11 @@ drop table  if exists transport_task_track_data;
 create table transport_task_track_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(16)                              comment '名称',
-	latitude            	numeric(9,6)                             comment 'Latitude',
-	longitude           	numeric(10,6)                            comment 'Longitude',
-	task                	varchar(48)                              comment 'Task',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	latitude            	numeric(9,6)                             comment '纬度',
+	longitude           	numeric(10,6)                            comment '经度',
+	task                	varchar(48)                              comment '任务',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -129,9 +129,9 @@ drop table  if exists merchant_account_data;
 create table merchant_account_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(16)                              comment '名称',
-	merchant            	varchar(48)                              comment 'Merchant',
-	create_time         	datetime                                 comment 'Create Time',
-	update_time         	datetime                                 comment 'Update Time',
+	merchant            	varchar(48)                              comment '商人',
+	create_time         	datetime                                 comment '创建时间',
+	update_time         	datetime                                 comment '更新时间',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -141,8 +141,8 @@ create table transaction_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(8)                               comment '名称',
 	amount              	numeric(9,2)                             comment '金额',
-	transaction_type    	varchar(48)                              comment 'Transaction Type',
-	account             	varchar(48)                              comment 'Account',
+	transaction_type    	varchar(48)                              comment '交易类型',
+	account             	varchar(48)                              comment '账户',
 	version             	int                                      comment '版本',
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ;
@@ -158,8 +158,8 @@ create table user_domain_data (
 drop table  if exists user_white_list_data;
 create table user_white_list_data (
 	id                  	varchar(64)          not null            comment 'ID',
-	user_identity       	varchar(40)                              comment 'User Identity',
-	user_special_functions	varchar(200)                             comment 'User Special Functions',
+	user_identity       	varchar(40)                              comment '用户身份',
+	user_special_functions	varchar(200)                             comment '用户特殊功能',
 	domain              	varchar(48)                              comment '域',
 	version             	int                                      comment '版本',
 	primary key(id)
@@ -211,12 +211,12 @@ drop table  if exists list_access_data;
 create table list_access_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	name                	varchar(200)                             comment '名称',
-	internal_name       	varchar(200)                             comment 'Internal Name',
-	read_permission     	tinyint                                  comment 'Read Permission',
-	create_permission   	tinyint                                  comment 'Create Permission',
-	delete_permission   	tinyint                                  comment 'Delete Permission',
-	update_permission   	tinyint                                  comment 'Update Permission',
-	execution_permission	tinyint                                  comment 'Execution Permission',
+	internal_name       	varchar(200)                             comment '内部名称',
+	read_permission     	tinyint                                  comment '读权限',
+	create_permission   	tinyint                                  comment '创建权限',
+	delete_permission   	tinyint                                  comment '删除权限',
+	update_permission   	tinyint                                  comment '更新许可',
+	execution_permission	tinyint                                  comment '执行权限',
 	app                 	varchar(48)                              comment '应用程序',
 	version             	int                                      comment '版本',
 	primary key(id)
@@ -294,10 +294,10 @@ create table form_field_data (
 	default_value       	varchar(12)                              comment '默认值',
 	description         	varchar(48)                              comment '描述',
 	field_group         	varchar(16)                              comment '字段组',
-	minimum_value       	varchar(60)                              comment 'Minimum Value',
-	maximum_value       	varchar(72)                              comment 'Maximum Value',
+	minimum_value       	varchar(60)                              comment '最小值',
+	maximum_value       	varchar(72)                              comment '最大值',
 	required            	tinyint                                  comment '要求',
-	disabled            	tinyint                                  comment 'Disabled',
+	disabled            	tinyint                                  comment '禁用',
 	custom_rendering    	tinyint                                  comment '自定义渲染',
 	candidate_values    	varchar(12)                              comment '候选人的价值观',
 	suggest_values      	varchar(12)                              comment '建议值',
@@ -310,7 +310,7 @@ create table form_action_data (
 	id                  	varchar(64)          not null            comment 'ID',
 	label               	varchar(8)                               comment '标签',
 	locale_key          	varchar(16)                              comment '语言环境的关键',
-	action_key          	varchar(24)                              comment 'Action Key',
+	action_key          	varchar(24)                              comment '行动的关键',
 	level               	varchar(28)                              comment '水平',
 	url                 	varchar(168)                             comment 'url',
 	form                	varchar(48)                              comment '形式',
@@ -349,13 +349,13 @@ insert into location_data values ('L000001','河南橡胶二号仓','西蒙罗',
 
 可以空行。
 
-','P000001','2019-01-05 23:30:30','2018-12-27 09:07:38','1');
+','P000001','2018-12-29 05:07:41','2019-01-10 15:58:12','1');
 insert into location_data values ('L000002','河南橡胶二号仓0002','西蒙罗0002','13900000002','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','P000001','2018-12-31 04:24:22','2019-01-11 08:57:34','1');
+','P000001','2019-01-06 15:47:03','2019-01-11 09:33:04','1');
 
 	
 insert into merchant_data values ('M000001','王司机','MT000001','P000001','    一段样例文字。
@@ -363,109 +363,109 @@ insert into merchant_data values ('M000001','王司机','MT000001','P000001','  
 
 可以空行。
 
-','2019-01-14 16:33:07','2019-01-09 21:25:52','1');
+','2019-01-12 10:45:32','2018-12-30 10:05:35','1');
 insert into merchant_data values ('M000002','青白江物流代理点','MT000002','P000001','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','2019-01-15 16:48:24','2019-01-06 12:47:44','1');
+','2019-01-01 13:03:50','2019-01-08 05:11:53','1');
 insert into merchant_data values ('M000003','王司机','MT000003','P000001','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','2018-12-27 02:28:37','2019-01-08 02:44:28','1');
+','2019-01-15 21:23:08','2018-12-26 13:22:22','1');
 insert into merchant_data values ('M000004','青白江物流代理点','MT000004','P000001','    一段样例文字。
 可以分段。
 
 可以空行。
 
-','2019-01-14 05:53:46','2019-01-09 20:15:23','1');
+','2018-12-31 23:15:56','2019-01-01 15:08:33','1');
 
 	
-insert into transport_project_data values ('TP000001','李先生的大批货物','M000001','P000001','2019-01-03 05:15:51','2019-01-03 02:32:44','1');
-insert into transport_project_data values ('TP000002','李先生的大批货物0002','M000001','P000001','2019-01-09 18:01:14','2019-01-04 07:00:38','1');
-insert into transport_project_data values ('TP000003','李先生的大批货物0003','M000002','P000001','2018-12-28 04:43:49','2018-12-28 17:16:56','1');
-insert into transport_project_data values ('TP000004','李先生的大批货物0004','M000002','P000001','2018-12-26 04:31:51','2019-01-08 21:40:10','1');
-insert into transport_project_data values ('TP000005','李先生的大批货物0005','M000003','P000001','2018-12-28 19:05:18','2019-01-16 07:23:24','1');
-insert into transport_project_data values ('TP000006','李先生的大批货物0006','M000003','P000001','2019-01-10 01:11:13','2019-01-01 04:12:02','1');
-insert into transport_project_data values ('TP000007','李先生的大批货物0007','M000004','P000001','2018-12-25 21:55:56','2019-01-15 06:16:16','1');
-insert into transport_project_data values ('TP000008','李先生的大批货物0008','M000004','P000001','2018-12-31 09:27:03','2019-01-14 18:41:48','1');
+insert into transport_project_data values ('TP000001','李先生的大批货物','M000001','P000001','2019-01-11 18:07:31','2019-01-04 22:49:33','1');
+insert into transport_project_data values ('TP000002','李先生的大批货物0002','M000001','P000001','2018-12-31 17:14:01','2019-01-09 12:42:36','1');
+insert into transport_project_data values ('TP000003','李先生的大批货物0003','M000002','P000001','2019-01-09 18:24:12','2019-01-13 03:46:05','1');
+insert into transport_project_data values ('TP000004','李先生的大批货物0004','M000002','P000001','2019-01-12 20:47:20','2019-01-03 20:53:59','1');
+insert into transport_project_data values ('TP000005','李先生的大批货物0005','M000003','P000001','2018-12-30 03:10:14','2019-01-04 04:59:00','1');
+insert into transport_project_data values ('TP000006','李先生的大批货物0006','M000003','P000001','2019-01-11 18:40:45','2018-12-28 05:06:34','1');
+insert into transport_project_data values ('TP000007','李先生的大批货物0007','M000004','P000001','2019-01-09 00:17:17','2019-01-15 22:12:12','1');
+insert into transport_project_data values ('TP000008','李先生的大批货物0008','M000004','P000001','2018-12-26 06:24:19','2018-12-27 19:52:26','1');
 
 	
-insert into transport_item_data values ('TI000001','橡胶','780','吨','TP000001','MT000001','P000001','2019-01-06 11:36:07','2018-12-27 01:07:29','1');
-insert into transport_item_data values ('TI000002','橡胶0002','818','立方','TP000001','MT000001','P000001','2019-01-08 13:50:21','2019-01-08 05:38:06','1');
-insert into transport_item_data values ('TI000003','橡胶0003','792','吨','TP000002','MT000001','P000001','2019-01-16 11:14:43','2019-01-14 06:19:14','1');
-insert into transport_item_data values ('TI000004','橡胶0004','878','立方','TP000002','MT000001','P000001','2019-01-01 19:02:49','2019-01-07 03:37:23','1');
-insert into transport_item_data values ('TI000005','橡胶0005','742','吨','TP000003','MT000002','P000001','2019-01-10 23:58:22','2018-12-31 02:44:09','1');
-insert into transport_item_data values ('TI000006','橡胶0006','945','立方','TP000003','MT000002','P000001','2019-01-04 13:14:36','2018-12-30 02:27:04','1');
-insert into transport_item_data values ('TI000007','橡胶0007','806','吨','TP000004','MT000002','P000001','2019-01-08 08:03:42','2019-01-16 03:34:00','1');
-insert into transport_item_data values ('TI000008','橡胶0008','714','立方','TP000004','MT000002','P000001','2019-01-14 08:49:19','2019-01-11 10:08:54','1');
-insert into transport_item_data values ('TI000009','橡胶0009','920','吨','TP000005','MT000003','P000001','2019-01-04 10:38:27','2018-12-30 15:11:31','1');
-insert into transport_item_data values ('TI000010','橡胶0010','798','立方','TP000005','MT000003','P000001','2019-01-01 00:30:06','2018-12-28 05:39:00','1');
-insert into transport_item_data values ('TI000011','橡胶0011','711','吨','TP000006','MT000003','P000001','2019-01-06 04:22:22','2018-12-25 19:56:30','1');
-insert into transport_item_data values ('TI000012','橡胶0012','882','立方','TP000006','MT000003','P000001','2019-01-10 01:01:42','2019-01-02 16:36:42','1');
-insert into transport_item_data values ('TI000013','橡胶0013','830','吨','TP000007','MT000004','P000001','2019-01-01 07:17:02','2019-01-11 03:03:53','1');
-insert into transport_item_data values ('TI000014','橡胶0014','705','立方','TP000007','MT000004','P000001','2019-01-14 08:06:09','2019-01-01 07:38:49','1');
-insert into transport_item_data values ('TI000015','橡胶0015','799','吨','TP000008','MT000004','P000001','2018-12-30 06:25:23','2018-12-27 20:20:44','1');
-insert into transport_item_data values ('TI000016','橡胶0016','763','立方','TP000008','MT000004','P000001','2018-12-28 07:16:30','2019-01-06 09:21:46','1');
+insert into transport_item_data values ('TI000001','橡胶','915','吨','TP000001','MT000001','P000001','2019-01-06 19:02:07','2018-12-29 20:14:06','1');
+insert into transport_item_data values ('TI000002','橡胶0002','993','立方','TP000001','MT000001','P000001','2018-12-29 07:48:00','2019-01-13 06:02:13','1');
+insert into transport_item_data values ('TI000003','橡胶0003','798','吨','TP000002','MT000001','P000001','2019-01-15 15:54:49','2019-01-01 20:41:40','1');
+insert into transport_item_data values ('TI000004','橡胶0004','797','立方','TP000002','MT000001','P000001','2018-12-27 19:00:09','2019-01-02 23:00:17','1');
+insert into transport_item_data values ('TI000005','橡胶0005','779','吨','TP000003','MT000002','P000001','2019-01-09 13:40:22','2019-01-09 05:48:13','1');
+insert into transport_item_data values ('TI000006','橡胶0006','911','立方','TP000003','MT000002','P000001','2018-12-31 07:50:14','2018-12-28 21:40:06','1');
+insert into transport_item_data values ('TI000007','橡胶0007','832','吨','TP000004','MT000002','P000001','2019-01-01 13:35:16','2019-01-08 21:39:10','1');
+insert into transport_item_data values ('TI000008','橡胶0008','948','立方','TP000004','MT000002','P000001','2019-01-08 07:34:39','2019-01-02 11:48:35','1');
+insert into transport_item_data values ('TI000009','橡胶0009','867','吨','TP000005','MT000003','P000001','2019-01-14 04:46:39','2019-01-11 11:28:14','1');
+insert into transport_item_data values ('TI000010','橡胶0010','895','立方','TP000005','MT000003','P000001','2019-01-13 03:54:13','2019-01-11 07:26:38','1');
+insert into transport_item_data values ('TI000011','橡胶0011','956','吨','TP000006','MT000003','P000001','2019-01-12 09:18:16','2019-01-03 05:41:54','1');
+insert into transport_item_data values ('TI000012','橡胶0012','928','立方','TP000006','MT000003','P000001','2019-01-06 00:43:33','2018-12-29 05:08:33','1');
+insert into transport_item_data values ('TI000013','橡胶0013','801','吨','TP000007','MT000004','P000001','2019-01-02 01:34:31','2019-01-09 13:50:05','1');
+insert into transport_item_data values ('TI000014','橡胶0014','967','立方','TP000007','MT000004','P000001','2019-01-01 08:45:13','2018-12-27 20:41:06','1');
+insert into transport_item_data values ('TI000015','橡胶0015','826','吨','TP000008','MT000004','P000001','2018-12-26 17:01:27','2019-01-15 07:37:44','1');
+insert into transport_item_data values ('TI000016','橡胶0016','967','立方','TP000008','MT000004','P000001','2019-01-04 04:19:04','2019-01-01 06:02:05','1');
 
 	
-insert into transport_task_data values ('TT000001','橡胶运输任务','L000001','L000001','在二号通道','TTS000001','M000001','M000001','P000001','2018-12-26 07:59:53','2019-01-14 02:03:49','1');
-insert into transport_task_data values ('TT000002','橡胶运输任务0002','L000001','L000001','在二号通道0002','TTS000001','M000001','M000001','P000001','2019-01-03 22:57:16','2019-01-09 11:22:29','1');
-insert into transport_task_data values ('TT000003','橡胶运输任务0003','L000001','L000001','在二号通道0003','TTS000002','M000002','M000002','P000001','2019-01-01 03:18:19','2019-01-01 14:13:00','1');
-insert into transport_task_data values ('TT000004','橡胶运输任务0004','L000001','L000001','在二号通道0004','TTS000002','M000002','M000002','P000001','2018-12-26 02:52:42','2018-12-29 18:02:36','1');
-insert into transport_task_data values ('TT000005','橡胶运输任务0005','L000002','L000002','在二号通道0005','TTS000003','M000003','M000003','P000001','2019-01-10 18:36:12','2018-12-25 19:52:26','1');
-insert into transport_task_data values ('TT000006','橡胶运输任务0006','L000002','L000002','在二号通道0006','TTS000004','M000003','M000003','P000001','2019-01-03 08:01:58','2019-01-03 08:38:12','1');
-insert into transport_task_data values ('TT000007','橡胶运输任务0007','L000002','L000002','在二号通道0007','TTS000004','M000004','M000004','P000001','2019-01-02 09:47:39','2018-12-28 20:38:49','1');
-insert into transport_task_data values ('TT000008','橡胶运输任务0008','L000002','L000002','在二号通道0008','TTS000005','M000004','M000004','P000001','2019-01-14 07:53:38','2019-01-14 09:16:08','1');
+insert into transport_task_data values ('TT000001','橡胶运输任务','L000001','L000001','在二号通道','TTS000001','M000001','M000001','P000001','2019-01-14 15:02:26','2019-01-04 23:17:30','1');
+insert into transport_task_data values ('TT000002','橡胶运输任务0002','L000001','L000001','在二号通道0002','TTS000001','M000001','M000001','P000001','2019-01-11 03:51:08','2019-01-06 09:31:44','1');
+insert into transport_task_data values ('TT000003','橡胶运输任务0003','L000001','L000001','在二号通道0003','TTS000002','M000002','M000002','P000001','2018-12-31 11:00:51','2018-12-26 00:21:47','1');
+insert into transport_task_data values ('TT000004','橡胶运输任务0004','L000001','L000001','在二号通道0004','TTS000002','M000002','M000002','P000001','2018-12-29 19:04:31','2018-12-29 01:16:30','1');
+insert into transport_task_data values ('TT000005','橡胶运输任务0005','L000002','L000002','在二号通道0005','TTS000003','M000003','M000003','P000001','2019-01-12 20:05:08','2019-01-11 11:21:40','1');
+insert into transport_task_data values ('TT000006','橡胶运输任务0006','L000002','L000002','在二号通道0006','TTS000004','M000003','M000003','P000001','2019-01-16 00:24:22','2019-01-06 14:57:05','1');
+insert into transport_task_data values ('TT000007','橡胶运输任务0007','L000002','L000002','在二号通道0007','TTS000004','M000004','M000004','P000001','2019-01-10 03:04:54','2019-01-08 20:22:08','1');
+insert into transport_task_data values ('TT000008','橡胶运输任务0008','L000002','L000002','在二号通道0008','TTS000005','M000004','M000004','P000001','2019-01-10 10:02:16','2018-12-28 06:19:30','1');
 
 	
-insert into transport_task_track_data values ('TTT000001','陕西宝鸡','39.911626276213646','131.33997319163183','TT000001','2018-12-29 16:44:22','2018-12-27 08:34:28','1');
-insert into transport_task_track_data values ('TTT000002','陕西宝鸡0002','40.77332853066675','132.06931377243586','TT000001','2019-01-04 19:51:04','2019-01-06 07:06:14','1');
-insert into transport_task_track_data values ('TTT000003','陕西宝鸡0003','40.999826171269255','129.27769953199598','TT000002','2019-01-16 05:58:46','2019-01-13 09:33:13','1');
-insert into transport_task_track_data values ('TTT000004','陕西宝鸡0004','41.500370012051704','130.1796878151324','TT000002','2019-01-03 12:22:14','2019-01-13 04:57:19','1');
-insert into transport_task_track_data values ('TTT000005','陕西宝鸡0005','39.85165273627242','130.59093486852544','TT000003','2019-01-11 13:17:17','2018-12-28 17:18:14','1');
-insert into transport_task_track_data values ('TTT000006','陕西宝鸡0006','41.05152509655537','130.89564123172147','TT000003','2019-01-14 01:32:02','2018-12-31 03:46:45','1');
-insert into transport_task_track_data values ('TTT000007','陕西宝鸡0007','41.49364405856223','131.7952538753853','TT000004','2019-01-09 04:09:41','2018-12-29 18:30:17','1');
-insert into transport_task_track_data values ('TTT000008','陕西宝鸡0008','41.697933021622184','129.29786673421407','TT000004','2019-01-16 06:23:19','2018-12-27 21:07:00','1');
-insert into transport_task_track_data values ('TTT000009','陕西宝鸡0009','40.268259647953464','132.2427237767594','TT000005','2018-12-31 03:40:01','2019-01-15 11:15:51','1');
-insert into transport_task_track_data values ('TTT000010','陕西宝鸡0010','42.704010499458064','129.45793738378117','TT000005','2019-01-03 10:31:16','2019-01-11 12:31:39','1');
-insert into transport_task_track_data values ('TTT000011','陕西宝鸡0011','42.06626290229995','130.42199788552747','TT000006','2019-01-13 04:34:07','2019-01-15 09:45:00','1');
-insert into transport_task_track_data values ('TTT000012','陕西宝鸡0012','42.09203070006869','131.04085990279634','TT000006','2018-12-26 14:14:47','2019-01-13 01:35:15','1');
-insert into transport_task_track_data values ('TTT000013','陕西宝鸡0013','41.16158211562952','131.86235193832226','TT000007','2019-01-14 07:36:41','2018-12-29 23:38:37','1');
-insert into transport_task_track_data values ('TTT000014','陕西宝鸡0014','41.55410183821348','130.7283678315709','TT000007','2019-01-03 11:56:50','2018-12-27 13:12:52','1');
-insert into transport_task_track_data values ('TTT000015','陕西宝鸡0015','40.675993137809606','129.5127575722555','TT000008','2018-12-27 04:12:17','2019-01-04 22:04:46','1');
-insert into transport_task_track_data values ('TTT000016','陕西宝鸡0016','40.41388950700253','131.2090482548113','TT000008','2019-01-11 18:54:42','2018-12-28 09:17:15','1');
+insert into transport_task_track_data values ('TTT000001','陕西宝鸡','40.876575609469704','130.00954188173884','TT000001','2018-12-29 11:28:36','2018-12-26 16:39:21','1');
+insert into transport_task_track_data values ('TTT000002','陕西宝鸡0002','40.35657293932738','132.10881293783913','TT000001','2018-12-28 15:12:07','2018-12-30 19:13:37','1');
+insert into transport_task_track_data values ('TTT000003','陕西宝鸡0003','41.84555346111789','130.639560289115','TT000002','2019-01-04 21:11:42','2018-12-31 04:45:41','1');
+insert into transport_task_track_data values ('TTT000004','陕西宝鸡0004','40.54128688292514','132.00490962716776','TT000002','2019-01-05 22:52:14','2019-01-14 16:16:02','1');
+insert into transport_task_track_data values ('TTT000005','陕西宝鸡0005','41.44596582669013','131.17095935848795','TT000003','2019-01-13 20:38:32','2019-01-09 22:46:19','1');
+insert into transport_task_track_data values ('TTT000006','陕西宝鸡0006','42.50479881693595','129.32816503124775','TT000003','2019-01-06 03:23:24','2019-01-04 21:13:50','1');
+insert into transport_task_track_data values ('TTT000007','陕西宝鸡0007','40.35882841637728','130.46592229233272','TT000004','2019-01-13 00:26:30','2019-01-11 14:15:47','1');
+insert into transport_task_track_data values ('TTT000008','陕西宝鸡0008','42.523713812442026','130.13961670857293','TT000004','2019-01-15 04:34:18','2019-01-07 19:27:02','1');
+insert into transport_task_track_data values ('TTT000009','陕西宝鸡0009','42.727111958531005','129.90374075519316','TT000005','2018-12-26 10:42:31','2019-01-06 17:20:43','1');
+insert into transport_task_track_data values ('TTT000010','陕西宝鸡0010','41.776941215353524','129.54776771044388','TT000005','2018-12-31 02:23:27','2019-01-02 04:51:53','1');
+insert into transport_task_track_data values ('TTT000011','陕西宝鸡0011','42.69121082237564','130.4033055530381','TT000006','2019-01-03 01:14:39','2019-01-16 06:01:07','1');
+insert into transport_task_track_data values ('TTT000012','陕西宝鸡0012','40.897245775093864','129.59164205664848','TT000006','2019-01-11 18:45:01','2018-12-28 01:17:39','1');
+insert into transport_task_track_data values ('TTT000013','陕西宝鸡0013','41.104037390092536','131.15012581499116','TT000007','2018-12-29 20:40:05','2019-01-12 16:07:51','1');
+insert into transport_task_track_data values ('TTT000014','陕西宝鸡0014','40.96609660240286','129.51391638907526','TT000007','2019-01-16 09:30:12','2019-01-12 23:21:47','1');
+insert into transport_task_track_data values ('TTT000015','陕西宝鸡0015','39.89058656407917','130.83647089140638','TT000008','2019-01-12 20:34:41','2019-01-11 21:51:32','1');
+insert into transport_task_track_data values ('TTT000016','陕西宝鸡0016','42.29165852646194','130.107720637012','TT000008','2019-01-13 18:55:23','2019-01-04 09:04:16','1');
 
 	
-insert into merchant_account_data values ('MA000001','商户账户','M000001','2019-01-06 23:48:40','2019-01-16 06:12:04','1');
-insert into merchant_account_data values ('MA000002','商户账户0002','M000001','2019-01-10 06:20:41','2019-01-02 18:20:15','1');
-insert into merchant_account_data values ('MA000003','商户账户0003','M000002','2019-01-05 19:41:04','2019-01-01 18:18:29','1');
-insert into merchant_account_data values ('MA000004','商户账户0004','M000002','2019-01-11 00:12:01','2019-01-14 03:19:45','1');
-insert into merchant_account_data values ('MA000005','商户账户0005','M000003','2019-01-09 22:25:39','2019-01-12 03:59:32','1');
-insert into merchant_account_data values ('MA000006','商户账户0006','M000003','2019-01-10 12:00:59','2018-12-26 22:09:09','1');
-insert into merchant_account_data values ('MA000007','商户账户0007','M000004','2018-12-26 10:11:13','2019-01-14 10:11:27','1');
-insert into merchant_account_data values ('MA000008','商户账户0008','M000004','2019-01-04 09:29:34','2019-01-01 16:48:34','1');
+insert into merchant_account_data values ('MA000001','商户账户','M000001','2018-12-29 08:45:23','2018-12-30 21:29:10','1');
+insert into merchant_account_data values ('MA000002','商户账户0002','M000001','2019-01-04 00:37:41','2019-01-14 12:01:45','1');
+insert into merchant_account_data values ('MA000003','商户账户0003','M000002','2019-01-11 10:52:55','2019-01-11 13:21:48','1');
+insert into merchant_account_data values ('MA000004','商户账户0004','M000002','2019-01-08 21:00:38','2018-12-26 07:26:09','1');
+insert into merchant_account_data values ('MA000005','商户账户0005','M000003','2019-01-09 10:20:08','2019-01-04 08:09:20','1');
+insert into merchant_account_data values ('MA000006','商户账户0006','M000003','2019-01-03 15:24:51','2018-12-25 23:47:12','1');
+insert into merchant_account_data values ('MA000007','商户账户0007','M000004','2019-01-08 19:27:20','2019-01-15 01:19:37','1');
+insert into merchant_account_data values ('MA000008','商户账户0008','M000004','2018-12-29 14:37:59','2019-01-06 08:49:23','1');
 
 	
-insert into transaction_data values ('T000001','收入','11056.17','TT000001','MA000001','1');
-insert into transaction_data values ('T000002','支出','11565.11','TT000001','MA000001','1');
-insert into transaction_data values ('T000003','收入','12255.86','TT000001','MA000002','1');
-insert into transaction_data values ('T000004','支出','10236.22','TT000001','MA000002','1');
-insert into transaction_data values ('T000005','收入','10913.39','TT000001','MA000003','1');
-insert into transaction_data values ('T000006','支出','10590.24','TT000001','MA000003','1');
-insert into transaction_data values ('T000007','收入','10027.22','TT000001','MA000004','1');
-insert into transaction_data values ('T000008','支出','8952.05','TT000001','MA000004','1');
-insert into transaction_data values ('T000009','收入','12045.74','TT000002','MA000005','1');
-insert into transaction_data values ('T000010','支出','9822.05','TT000002','MA000005','1');
-insert into transaction_data values ('T000011','收入','11832.66','TT000002','MA000006','1');
-insert into transaction_data values ('T000012','支出','12150.01','TT000002','MA000006','1');
-insert into transaction_data values ('T000013','收入','10222.36','TT000002','MA000007','1');
-insert into transaction_data values ('T000014','支出','9672.63','TT000002','MA000007','1');
-insert into transaction_data values ('T000015','收入','10577.65','TT000002','MA000008','1');
-insert into transaction_data values ('T000016','支出','12261.97','TT000002','MA000008','1');
+insert into transaction_data values ('T000001','收入','12155.40','TT000001','MA000001','1');
+insert into transaction_data values ('T000002','支出','11015.79','TT000001','MA000001','1');
+insert into transaction_data values ('T000003','收入','8850.81','TT000001','MA000002','1');
+insert into transaction_data values ('T000004','支出','9318.29','TT000001','MA000002','1');
+insert into transaction_data values ('T000005','收入','8909.06','TT000001','MA000003','1');
+insert into transaction_data values ('T000006','支出','9187.67','TT000001','MA000003','1');
+insert into transaction_data values ('T000007','收入','9540.76','TT000001','MA000004','1');
+insert into transaction_data values ('T000008','支出','9289.91','TT000001','MA000004','1');
+insert into transaction_data values ('T000009','收入','10068.48','TT000002','MA000005','1');
+insert into transaction_data values ('T000010','支出','11552.54','TT000002','MA000005','1');
+insert into transaction_data values ('T000011','收入','10277.83','TT000002','MA000006','1');
+insert into transaction_data values ('T000012','支出','12183.15','TT000002','MA000006','1');
+insert into transaction_data values ('T000013','收入','9400.93','TT000002','MA000007','1');
+insert into transaction_data values ('T000014','支出','10535.01','TT000002','MA000007','1');
+insert into transaction_data values ('T000015','收入','11601.54','TT000002','MA000008','1');
+insert into transaction_data values ('T000016','支出','10868.35','TT000002','MA000008','1');
 
 	
 insert into user_domain_data values ('UD000001','用户区域','1');
@@ -475,11 +475,11 @@ insert into user_white_list_data values ('UWL000001','clariones','tester;ios-spo
 insert into user_white_list_data values ('UWL000002','13808188512','tester;ios-spokesperson0002','UD000001','1');
 
 	
-insert into sec_user_data values ('SU000001','login','13900000001','','C183EC89F92A462CF45B95504792EC4625E847C90536EEFE512D1C9DB8602E95','0','2019-01-12 16:37:59','2018-12-29 04:14:03','UD000001',NULL,'BLOCKED','1');
-insert into sec_user_data values ('SU000002','login0002','13900000002','suddy_chang@163.com','AC2F95628244C6975EB2C36942EA879ED93D93F5895EF3157733E4629FA86B92','9999999','2019-01-08 21:15:12','2019-01-03 22:17:07','UD000001',NULL,'BLOCKED0002','1');
+insert into sec_user_data values ('SU000001','login','13900000001','','C183EC89F92A462CF45B95504792EC4625E847C90536EEFE512D1C9DB8602E95','0','2019-01-04 18:06:45','2019-01-08 13:58:47','UD000001',NULL,'BLOCKED','1');
+insert into sec_user_data values ('SU000002','login0002','13900000002','suddy_chang@163.com','AC2F95628244C6975EB2C36942EA879ED93D93F5895EF3157733E4629FA86B92','9999999','2019-01-06 01:48:44','2019-01-06 23:47:17','UD000001',NULL,'BLOCKED0002','1');
 
 	
-insert into sec_user_blocking_data values ('SUB000001','currentUser()','2018-12-26 09:30:54','这个用户多次发送违反社区的帖子，现在把他给屏蔽了','1');
+insert into sec_user_blocking_data values ('SUB000001','currentUser()','2019-01-05 23:29:08','这个用户多次发送违反社区的帖子，现在把他给屏蔽了','1');
 
 	
 insert into user_app_data values ('UA000001','审车平台','SU000001','users',1,'MXWR','CarInspectionPlatform','CIP000001','/link/to/app','1');
@@ -510,10 +510,10 @@ insert into object_access_data values ('OA000007','控制访问列表10007','Fra
 insert into object_access_data values ('OA000008','控制访问列表10008','AccountSet','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','levelOneCategoryList','UA000006','1');
 
 	
-insert into login_history_data values ('LH000001','2018-12-26 06:31:47','192.168.1.1','登陆成功','SU000001','1');
-insert into login_history_data values ('LH000002','2019-01-09 03:47:05','192.168.1.2','登陆成功0002','SU000001','1');
-insert into login_history_data values ('LH000003','2018-12-26 11:30:40','192.168.1.1','登陆成功0003','SU000002','1');
-insert into login_history_data values ('LH000004','2018-12-28 19:51:31','192.168.1.2','登陆成功0004','SU000002','1');
+insert into login_history_data values ('LH000001','2019-01-10 15:13:58','192.168.1.1','登陆成功','SU000001','1');
+insert into login_history_data values ('LH000002','2019-01-04 14:32:06','192.168.1.2','登陆成功0002','SU000001','1');
+insert into login_history_data values ('LH000003','2018-12-29 11:52:00','192.168.1.1','登陆成功0003','SU000002','1');
+insert into login_history_data values ('LH000004','2018-12-28 03:53:02','192.168.1.2','登陆成功0004','SU000002','1');
 
 	
 insert into generic_form_data values ('GF000001','登记输入单','姓名就是你身份证上的名字','1');
@@ -743,10 +743,10 @@ delete from user_app_data;
 */
 
 insert into sec_user_data values('SU000001','u000001','13900000001','1000001@qq.com','258D9BB89BBC1F2A6CDDD3A4CB300E6CD9B83F3FC9984619DF1A59F6051F1F44','9292993','2019-09-09 09:09:09','2019-09-09 09:09:09','UD000001',NULL,'INIT',1);
-insert into user_app_data values('UA000001','Platform','SU000001','at',1,'MXWR','Platform','P000001','/link/to/app','1'); -- REFER COUNT: 8
+insert into user_app_data values('UA000001','平台','SU000001','at',1,'MXWR','Platform','P000001','/link/to/app','1'); -- REFER COUNT: 8
 insert into user_app_data values('UA000002','My Account','SU000001','lock',1,'MXWR','SecUser','SU000001','/link/to/app','1'); -- REFER COUNT: 8
 insert into sec_user_data values('SU000002','u000002','13900000002','1000002@qq.com','7FEABCC19D638787655F9FFC2C22755D5771184D85D000147D643D22F6617F7B','9292993','2019-09-09 09:09:09','2019-09-09 09:09:09','UD000001',NULL,'INIT',1);
-insert into user_app_data values('UA000003','Merchant','SU000002','address-book',1,'MXWR','Merchant','M000001','/link/to/app','1'); -- REFER COUNT: 4
+insert into user_app_data values('UA000003','商人','SU000002','address-book',1,'MXWR','Merchant','M000001','/link/to/app','1'); -- REFER COUNT: 4
 insert into user_app_data values('UA000004','My Account','SU000002','lock',1,'MXWR','SecUser','SU000002','/link/to/app','1'); -- REFER COUNT: 4
 insert into sec_user_data values('SU000003','u000003','13900000003','1000003@qq.com','8169C17063461B0B0CC210CE5EF682E9517A19170F7DCA3C76170229D765DE7A','9292993','2019-09-09 09:09:09','2019-09-09 09:09:09','UD000001',NULL,'INIT',1);
 insert into user_app_data values('UA000005','用户域','SU000003','user',1,'MXWR','UserDomain','UD000001','/link/to/app','1'); -- REFER COUNT: 2
@@ -761,8 +761,8 @@ insert into user_app_data values('UA000008','My Account','SU000004','lock',1,'MX
 /*
 | 角色        | 用户名           | 密码         |
 | ------------- |:-------------:|:-------------------:|
-|Platform|13900000001|DoubleChain!y1|
-|Merchant|13900000002|DoubleChain!y1|
+|平台|13900000001|DoubleChain!y1|
+|商人|13900000002|DoubleChain!y1|
 |用户域|13900000003|DoubleChain!y1|
 |用户屏蔽|13900000004|DoubleChain!y1|
 

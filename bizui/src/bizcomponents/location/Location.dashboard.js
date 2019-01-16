@@ -84,10 +84,10 @@ const internalSummaryOf = (location,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{location.id}</Description> 
 <Description term="名称">{location.name}</Description> 
-<Description term="Contact Person">{location.contactPerson}</Description> 
-<Description term="Contact Phone">{location.contactPhone}</Description> 
-<Description term="Create Time">{ moment(location.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(location.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="联系人">{location.contactPerson}</Description> 
+<Description term="联系电话">{location.contactPhone}</Description> 
+<Description term="创建时间">{ moment(location.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(location.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(location,targetComponent)}
       </DescriptionList>
@@ -127,8 +127,8 @@ class LocationDashboard extends Component {
     const cardsData = {cardsName:"位置",cardsFor: "location",
     	cardsSource: this.props.location,returnURL,displayName,
   		subItems: [
-{name: 'transportTaskListAsSource', displayName:'Transport Task(Source)',type:'transportTask',count:transportTaskAsSourceCount,addFunction: true, role: 'transportTaskAsSource', metaInfo: transportTaskListAsSourceMetaInfo},
-{name: 'transportTaskListAsDestination', displayName:'Transport Task(Destination)',type:'transportTask',count:transportTaskAsDestinationCount,addFunction: true, role: 'transportTaskAsDestination', metaInfo: transportTaskListAsDestinationMetaInfo},
+{name: 'transportTaskListAsSource', displayName:'运输任务(源)',type:'transportTask',count:transportTaskAsSourceCount,addFunction: true, role: 'transportTaskAsSource', metaInfo: transportTaskListAsSourceMetaInfo},
+{name: 'transportTaskListAsDestination', displayName:'运输任务(目的地)',type:'transportTask',count:transportTaskAsDestinationCount,addFunction: true, role: 'transportTaskAsDestination', metaInfo: transportTaskListAsDestinationMetaInfo},
     
       	],
   	};

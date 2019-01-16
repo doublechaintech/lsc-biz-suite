@@ -162,7 +162,7 @@ class TransportTaskStatusBizApp extends React.PureComponent {
     const {TransportTaskSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task",
+      name: "运输任务",
       role: "transportTask",
       data: state._transportTaskStatus.transportTaskList,
       metaInfo: state._transportTaskStatus.transportTaskListMetaInfo,
@@ -176,7 +176,7 @@ class TransportTaskStatusBizApp extends React.PureComponent {
       owner: { type: '_transportTaskStatus', id: state._transportTaskStatus.id, 
       referenceName: 'status', 
       listName: 'transportTaskList', ref:state._transportTaskStatus, 
-      listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskSearch)
   }
   getTransportTaskCreateForm = () => {
@@ -190,7 +190,7 @@ class TransportTaskStatusBizApp extends React.PureComponent {
       currentPage: state._transportTaskStatus.transportTaskCurrentPageNumber,
       searchFormParameters: state._transportTaskStatus.transportTaskSearchFormParameters,
       loading: state._transportTaskStatus.loading,
-      owner: { type: '_transportTaskStatus', id: state._transportTaskStatus.id, referenceName: 'status', listName: 'transportTaskList', ref:state._transportTaskStatus, listDisplayName: 'Transport Task列表'}, // this is for model namespace and
+      owner: { type: '_transportTaskStatus', id: state._transportTaskStatus.id, referenceName: 'status', listName: 'transportTaskList', ref:state._transportTaskStatus, listDisplayName: '运输任务列表'}, // this is for model namespace and
     }))(TransportTaskCreateForm)
   }
   
@@ -200,7 +200,7 @@ class TransportTaskStatusBizApp extends React.PureComponent {
       selectedRows: state._transportTaskStatus.selectedRows,
       role: "transportTask",
       currentUpdateIndex: state._transportTaskStatus.currentUpdateIndex,
-      owner: { type: '_transportTaskStatus', id: state._transportTaskStatus.id, listName: 'transportTaskList', ref:state._transportTaskStatus, listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      owner: { type: '_transportTaskStatus', id: state._transportTaskStatus.id, listName: 'transportTaskList', ref:state._transportTaskStatus, listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskUpdateForm)
   }
 

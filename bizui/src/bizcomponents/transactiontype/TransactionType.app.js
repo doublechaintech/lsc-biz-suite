@@ -162,7 +162,7 @@ class TransactionTypeBizApp extends React.PureComponent {
     const {TransactionSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transaction",
+      name: "事务",
       role: "transaction",
       data: state._transactionType.transactionList,
       metaInfo: state._transactionType.transactionListMetaInfo,
@@ -176,7 +176,7 @@ class TransactionTypeBizApp extends React.PureComponent {
       owner: { type: '_transactionType', id: state._transactionType.id, 
       referenceName: 'transactionType', 
       listName: 'transactionList', ref:state._transactionType, 
-      listDisplayName: 'Transaction列表' }, // this is for model namespace and
+      listDisplayName: '事务列表' }, // this is for model namespace and
     }))(TransactionSearch)
   }
   getTransactionCreateForm = () => {
@@ -190,7 +190,7 @@ class TransactionTypeBizApp extends React.PureComponent {
       currentPage: state._transactionType.transactionCurrentPageNumber,
       searchFormParameters: state._transactionType.transactionSearchFormParameters,
       loading: state._transactionType.loading,
-      owner: { type: '_transactionType', id: state._transactionType.id, referenceName: 'transactionType', listName: 'transactionList', ref:state._transactionType, listDisplayName: 'Transaction列表'}, // this is for model namespace and
+      owner: { type: '_transactionType', id: state._transactionType.id, referenceName: 'transactionType', listName: 'transactionList', ref:state._transactionType, listDisplayName: '事务列表'}, // this is for model namespace and
     }))(TransactionCreateForm)
   }
   
@@ -200,7 +200,7 @@ class TransactionTypeBizApp extends React.PureComponent {
       selectedRows: state._transactionType.selectedRows,
       role: "transaction",
       currentUpdateIndex: state._transactionType.currentUpdateIndex,
-      owner: { type: '_transactionType', id: state._transactionType.id, listName: 'transactionList', ref:state._transactionType, listDisplayName: 'Transaction列表' }, // this is for model namespace and
+      owner: { type: '_transactionType', id: state._transactionType.id, listName: 'transactionList', ref:state._transactionType, listDisplayName: '事务列表' }, // this is for model namespace and
     }))(TransactionUpdateForm)
   }
 

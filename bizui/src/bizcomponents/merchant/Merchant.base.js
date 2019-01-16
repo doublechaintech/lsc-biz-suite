@@ -6,12 +6,12 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Merchant", menuFor: "merchant",
+const menuData = {menuName:"商人", menuFor: "merchant",
   		subItems: [
-  {name: 'transportProjectList', displayName:'Transport Project', icon:'project-diagram',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'transportTaskListAsSender', displayName:'Transport Task(Sender)', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'transportTaskListAsReceiver', displayName:'Transport Task(Receiver)', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'merchantAccountList', displayName:'Merchant Account', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportProjectList', displayName:'交通项目', icon:'project-diagram',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportTaskListAsSender', displayName:'运输任务(发送方)', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportTaskListAsReceiver', displayName:'运输任务(接收机)', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'merchantAccountList', displayName:'商家帐户', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }
@@ -74,10 +74,10 @@ const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'merchant') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '12',render: (text, record)=>renderTextCell(text,record) },
   { title: '类型', dataIndex: 'type', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Platform', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '平台', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
   { title: '描述', debugtype: 'string_longtext', dataIndex: 'description', width: '10',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Create Time', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
-  { title: 'Update Time', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '创建时间', dataIndex: 'createTime', render: (text, record) =>renderDateTimeCell(text,record)  },
+  { title: '更新时间', dataIndex: 'updateTime', render: (text, record) =>renderDateTimeCell(text,record)  },
 
 ]
 
@@ -85,10 +85,10 @@ const fieldLabels = {
   id: 'ID',
   name: '名称',
   type: '类型',
-  platform: 'Platform',
+  platform: '平台',
   description: '描述',
-  createTime: 'Create Time',
-  updateTime: 'Update Time',
+  createTime: '创建时间',
+  updateTime: '更新时间',
 
 }
 

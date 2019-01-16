@@ -260,22 +260,22 @@ const internalSummaryOf = (transportItem,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{transportItem.id}</Description> 
 <Description term="名称">{transportItem.name}</Description> 
-<Description term="Quantity">{transportItem.quantity}</Description> 
-<Description term="Unit">{transportItem.unit}</Description> 
-<Description term="Project">{transportItem.project==null?"未分配":transportItem.project.displayName}
+<Description term="数量">{transportItem.quantity}</Description> 
+<Description term="单位">{transportItem.unit}</Description> 
+<Description term="项目">{transportItem.project==null?"未分配":transportItem.project.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Project","transportProject","requestCandidateProject",
+  showTransferModel(targetComponent,"项目","transportProject","requestCandidateProject",
 	      "transferToAnotherProject","anotherProjectId",transportItem.project?transportItem.project.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Merchant">{transportItem.merchant==null?"未分配":transportItem.merchant.displayName}
+<Description term="商人">{transportItem.merchant==null?"未分配":transportItem.merchant.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Merchant","merchantType","requestCandidateMerchant",
+  showTransferModel(targetComponent,"商人","merchantType","requestCandidateMerchant",
 	      "transferToAnotherMerchant","anotherMerchantId",transportItem.merchant?transportItem.merchant.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(transportItem.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(transportItem.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(transportItem.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(transportItem.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(transportItem,targetComponent)}
       </DescriptionList>
@@ -314,7 +314,7 @@ class TransportItemPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName,  } = this.props.transportItem
-    const cardsData = {cardsName:"Transport Item",cardsFor: "transportItem",cardsSource: this.props.transportItem,
+    const cardsData = {cardsName:"运输项目",cardsFor: "transportItem",cardsSource: this.props.transportItem,
   		subItems: [
     
       	],

@@ -18,8 +18,8 @@ const testValues = {};
 /*
 const testValues = {
   name: '陕西宝鸡',
-  latitude: '42.09911919781043',
-  longitude: '131.90925460964385',
+  latitude: '40.228903515677786',
+  longitude: '129.3855159670576',
   taskId: 'TT000001',
 }
 */
@@ -120,7 +120,7 @@ class TransportTaskTrackCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'transportTaskTrack',listName:'Transport Task Track列表' },
+        payload: { id: owner.id, type: 'transportTaskTrack',listName:'运输任务跟踪列表' },
       })
     }
     const errors = getFieldsError()
@@ -195,8 +195,8 @@ class TransportTaskTrackCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Transport Task Track"
-        content="新建一个Transport Task Track"
+        title="新建一个运输任务跟踪"
+        content="新建一个运输任务跟踪"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -216,9 +216,9 @@ class TransportTaskTrackCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.latitude} {...formItemLayout}>
                   {getFieldDecorator('latitude', {
-                    rules: [{ required: true, message: '请输入Latitude' }],
+                    rules: [{ required: true, message: '请输入纬度' }],
                   })(
-                    <Input placeholder="请输入Latitude" />
+                    <Input placeholder="请输入纬度" />
                   )}
                 </Form.Item>
               </Col>
@@ -226,9 +226,9 @@ class TransportTaskTrackCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.longitude} {...formItemLayout}>
                   {getFieldDecorator('longitude', {
-                    rules: [{ required: true, message: '请输入Longitude' }],
+                    rules: [{ required: true, message: '请输入经度' }],
                   })(
-                    <Input placeholder="请输入Longitude" />
+                    <Input placeholder="请输入经度" />
                   )}
                 </Form.Item>
               </Col>
@@ -258,7 +258,7 @@ class TransportTaskTrackCreateForm extends Component {
                 <Form.Item label={fieldLabels.task} {...formItemLayout}>
                   {getFieldDecorator('taskId', {
                   	initialValue: tryinit('task'),
-                    rules: [{ required: true, message: '请输入Task' }],
+                    rules: [{ required: true, message: '请输入任务' }],
                   })(
                   
                   <SelectObject 

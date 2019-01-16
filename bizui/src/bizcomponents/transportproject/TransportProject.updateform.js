@@ -186,7 +186,7 @@ class TransportProjectUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'transportProject',
-          listName:'Transport Project列表' 
+          listName:'交通项目列表' 
         },
       })
     }
@@ -246,8 +246,8 @@ class TransportProjectUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Transport Project"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Transport Project"
+        title={"更新交通项目"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新交通项目"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>

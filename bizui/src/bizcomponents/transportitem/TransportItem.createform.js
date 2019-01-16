@@ -18,7 +18,7 @@ const testValues = {};
 /*
 const testValues = {
   name: '橡胶',
-  quantity: '725',
+  quantity: '976',
   unit: '吨',
   projectId: 'TP000001',
   merchantId: 'MT000001',
@@ -122,7 +122,7 @@ class TransportItemCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'transportItem',listName:'Transport Item列表' },
+        payload: { id: owner.id, type: 'transportItem',listName:'运输项目列表' },
       })
     }
     const errors = getFieldsError()
@@ -197,8 +197,8 @@ class TransportItemCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Transport Item"
-        content="新建一个Transport Item"
+        title="新建一个运输项目"
+        content="新建一个运输项目"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -218,9 +218,9 @@ class TransportItemCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.quantity} {...formItemLayout}>
                   {getFieldDecorator('quantity', {
-                    rules: [{ required: true, message: '请输入Quantity' }],
+                    rules: [{ required: true, message: '请输入数量' }],
                   })(
-                    <Input placeholder="请输入Quantity" />
+                    <Input placeholder="请输入数量" />
                   )}
                 </Form.Item>
               </Col>
@@ -228,9 +228,9 @@ class TransportItemCreateForm extends Component {
               <Col lg={12} md={12} sm={24}>
                 <Form.Item label={fieldLabels.unit} {...formItemLayout}>
                   {getFieldDecorator('unit', {
-                    rules: [{ required: true, message: '请输入Unit' }],
+                    rules: [{ required: true, message: '请输入单位' }],
                   })(
-                    <Input placeholder="请输入Unit" />
+                    <Input placeholder="请输入单位" />
                   )}
                 </Form.Item>
               </Col>
@@ -260,7 +260,7 @@ class TransportItemCreateForm extends Component {
                 <Form.Item label={fieldLabels.project} {...formItemLayout}>
                   {getFieldDecorator('projectId', {
                   	initialValue: tryinit('project'),
-                    rules: [{ required: true, message: '请输入Project' }],
+                    rules: [{ required: true, message: '请输入项目' }],
                   })(
                   
                   <SelectObject 
@@ -277,7 +277,7 @@ class TransportItemCreateForm extends Component {
                 <Form.Item label={fieldLabels.merchant} {...formItemLayout}>
                   {getFieldDecorator('merchantId', {
                   	initialValue: tryinit('merchant'),
-                    rules: [{ required: true, message: '请输入Merchant' }],
+                    rules: [{ required: true, message: '请输入商人' }],
                   })(
                   
                   <SelectObject 
@@ -294,7 +294,7 @@ class TransportItemCreateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                   
                   <SelectObject 

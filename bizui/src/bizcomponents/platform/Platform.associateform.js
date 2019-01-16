@@ -153,9 +153,9 @@ class PlatformAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.introduction} {...formItemLayout}>
                   {getFieldDecorator('introduction', {
-                    rules: [{ required: true, message: '请输入Introduction' }],
+                    rules: [{ required: true, message: '请输入介绍' }],
                   })(
-                    <Input placeholder="请输入Introduction" />
+                    <Input placeholder="请输入介绍" />
                   )}
                 </Form.Item>
               </Col>
@@ -163,9 +163,9 @@ class PlatformAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.currentVersion} {...formItemLayout}>
                   {getFieldDecorator('currentVersion', {
-                    rules: [{ required: true, message: '请输入Current Version' }],
+                    rules: [{ required: true, message: '请输入当前版本' }],
                   })(
-                    <Input placeholder="请输入Current Version" />
+                    <Input placeholder="请输入当前版本" />
                   )}
                 </Form.Item>
               </Col>

@@ -6,7 +6,7 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Transaction", menuFor: "transaction",
+const menuData = {menuName:"事务", menuFor: "transaction",
   		subItems: [
   
   		],
@@ -70,8 +70,8 @@ const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20',render: (text, record)=>renderTextCell(text,record) },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '6',render: (text, record)=>renderTextCell(text,record) },
   { title: '金额', dataIndex: 'amount', className:'money', render: (text, record) => renderMoneyCell(text, record) },
-  { title: 'Transaction Type', dataIndex: 'transactionType', render: (text, record) => renderReferenceCell(text, record)},
-  { title: 'Account', dataIndex: 'account', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '交易类型', dataIndex: 'transactionType', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '账户', dataIndex: 'account', render: (text, record) => renderReferenceCell(text, record)},
 
 ]
 
@@ -79,8 +79,8 @@ const fieldLabels = {
   id: 'ID',
   name: '名称',
   amount: '金额',
-  transactionType: 'Transaction Type',
-  account: 'Account',
+  transactionType: '交易类型',
+  account: '账户',
 
 }
 

@@ -118,7 +118,7 @@ class TransactionTypeCreateForm extends Component {
       const { owner } = this.props
       dispatch({
         type: `${owner.type}/goback`,
-        payload: { id: owner.id, type: 'transactionType',listName:'Transaction Type列表' },
+        payload: { id: owner.id, type: 'transactionType',listName:'交易类型列表' },
       })
     }
     const errors = getFieldsError()
@@ -193,8 +193,8 @@ class TransactionTypeCreateForm extends Component {
     }
     return (
       <PageHeaderLayout
-        title="新建一个Transaction Type"
-        content="新建一个Transaction Type"
+        title="新建一个交易类型"
+        content="新建一个交易类型"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -236,7 +236,7 @@ class TransactionTypeCreateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                   
                   <SelectObject 

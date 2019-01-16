@@ -261,15 +261,15 @@ const internalSummaryOf = (transaction,targetComponent) =>{
 <Description term="ID">{transaction.id}</Description> 
 <Description term="名称">{transaction.name}</Description> 
 <Description term="金额">{transaction.amount}</Description> 
-<Description term="Transaction Type">{transaction.transactionType==null?"未分配":transaction.transactionType.displayName}
+<Description term="交易类型">{transaction.transactionType==null?"未分配":transaction.transactionType.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Transaction Type","transactionType","requestCandidateTransactionType",
+  showTransferModel(targetComponent,"交易类型","transactionType","requestCandidateTransactionType",
 	      "transferToAnotherTransactionType","anotherTransactionTypeId",transaction.transactionType?transaction.transactionType.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Account">{transaction.account==null?"未分配":transaction.account.displayName}
+<Description term="账户">{transaction.account==null?"未分配":transaction.account.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Account","merchantAccount","requestCandidateAccount",
+  showTransferModel(targetComponent,"账户","merchantAccount","requestCandidateAccount",
 	      "transferToAnotherAccount","anotherAccountId",transaction.account?transaction.account.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
@@ -311,7 +311,7 @@ class TransactionPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName,  } = this.props.transaction
-    const cardsData = {cardsName:"Transaction",cardsFor: "transaction",cardsSource: this.props.transaction,
+    const cardsData = {cardsName:"事务",cardsFor: "transaction",cardsSource: this.props.transaction,
   		subItems: [
     
       	],

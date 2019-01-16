@@ -153,9 +153,9 @@ class LocationAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.contactPerson} {...formItemLayout}>
                   {getFieldDecorator('contactPerson', {
-                    rules: [{ required: true, message: '请输入Contact Person' }],
+                    rules: [{ required: true, message: '请输入联系人' }],
                   })(
-                    <Input placeholder="请输入Contact Person" />
+                    <Input placeholder="请输入联系人" />
                   )}
                 </Form.Item>
               </Col>
@@ -163,9 +163,9 @@ class LocationAssociateForm extends Component {
               <Col lg={12} md={12} sm={12}>
                 <Form.Item label={fieldLabels.contactPhone} {...formItemLayout}>
                   {getFieldDecorator('contactPhone', {
-                    rules: [{ required: true, message: '请输入Contact Phone' }],
+                    rules: [{ required: true, message: '请输入联系电话' }],
                   })(
-                    <Input placeholder="请输入Contact Phone" />
+                    <Input placeholder="请输入联系电话" />
                   )}
                 </Form.Item>
               </Col>
@@ -205,7 +205,7 @@ class LocationAssociateForm extends Component {
                 <Form.Item label={fieldLabels.platform} {...formItemLayout}>
                   {getFieldDecorator('platformId', {
                   	initialValue: tryinit('platform'),
-                    rules: [{ required: true, message: '请输入Platform' }],
+                    rules: [{ required: true, message: '请输入平台' }],
                   })(
                 <SelectObject 
                     disabled={!availableForEdit('platform')}

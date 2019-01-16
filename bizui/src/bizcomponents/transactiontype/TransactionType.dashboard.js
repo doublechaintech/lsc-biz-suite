@@ -117,10 +117,10 @@ class TransactionTypeDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Transaction Type",cardsFor: "transactionType",
+    const cardsData = {cardsName:"交易类型",cardsFor: "transactionType",
     	cardsSource: this.props.transactionType,returnURL,displayName,
   		subItems: [
-{name: 'transactionList', displayName:'Transaction',type:'transaction',count:transactionCount,addFunction: true, role: 'transaction', metaInfo: transactionListMetaInfo},
+{name: 'transactionList', displayName:'事务',type:'transaction',count:transactionCount,addFunction: true, role: 'transaction', metaInfo: transactionListMetaInfo},
     
       	],
   	};

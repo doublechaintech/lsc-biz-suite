@@ -277,7 +277,7 @@ public class TransportTaskTrackJDBCTemplateDAO extends LscNamingServiceDAO imple
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportTaskTrack.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Task Track");
+		createTimeStatsItem.setDisplayName("运输任务跟踪");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportTaskTrack.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportTaskTrack.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);

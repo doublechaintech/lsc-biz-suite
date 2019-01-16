@@ -162,7 +162,7 @@ class PlatformBizApp extends React.PureComponent {
     const {TransactionTypeSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transaction Type",
+      name: "交易类型",
       role: "transactionType",
       data: state._platform.transactionTypeList,
       metaInfo: state._platform.transactionTypeListMetaInfo,
@@ -176,7 +176,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'transactionTypeList', ref:state._platform, 
-      listDisplayName: 'Transaction Type列表' }, // this is for model namespace and
+      listDisplayName: '交易类型列表' }, // this is for model namespace and
     }))(TransactionTypeSearch)
   }
   getTransactionTypeCreateForm = () => {
@@ -190,7 +190,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.transactionTypeCurrentPageNumber,
       searchFormParameters: state._platform.transactionTypeSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transactionTypeList', ref:state._platform, listDisplayName: 'Transaction Type列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transactionTypeList', ref:state._platform, listDisplayName: '交易类型列表'}, // this is for model namespace and
     }))(TransactionTypeCreateForm)
   }
   
@@ -200,7 +200,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "transactionType",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'transactionTypeList', ref:state._platform, listDisplayName: 'Transaction Type列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'transactionTypeList', ref:state._platform, listDisplayName: '交易类型列表' }, // this is for model namespace and
     }))(TransactionTypeUpdateForm)
   }
 
@@ -208,7 +208,7 @@ class PlatformBizApp extends React.PureComponent {
     const {MerchantTypeSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Merchant Type",
+      name: "商人类型",
       role: "merchantType",
       data: state._platform.merchantTypeList,
       metaInfo: state._platform.merchantTypeListMetaInfo,
@@ -222,7 +222,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'merchantTypeList', ref:state._platform, 
-      listDisplayName: 'Merchant Type列表' }, // this is for model namespace and
+      listDisplayName: '商人类型列表' }, // this is for model namespace and
     }))(MerchantTypeSearch)
   }
   getMerchantTypeCreateForm = () => {
@@ -236,7 +236,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.merchantTypeCurrentPageNumber,
       searchFormParameters: state._platform.merchantTypeSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'merchantTypeList', ref:state._platform, listDisplayName: 'Merchant Type列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'merchantTypeList', ref:state._platform, listDisplayName: '商人类型列表'}, // this is for model namespace and
     }))(MerchantTypeCreateForm)
   }
   
@@ -246,7 +246,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "merchantType",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'merchantTypeList', ref:state._platform, listDisplayName: 'Merchant Type列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'merchantTypeList', ref:state._platform, listDisplayName: '商人类型列表' }, // this is for model namespace and
     }))(MerchantTypeUpdateForm)
   }
 
@@ -254,7 +254,7 @@ class PlatformBizApp extends React.PureComponent {
     const {TransportTaskStatusSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task Status",
+      name: "运输任务状态",
       role: "transportTaskStatus",
       data: state._platform.transportTaskStatusList,
       metaInfo: state._platform.transportTaskStatusListMetaInfo,
@@ -268,7 +268,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'transportTaskStatusList', ref:state._platform, 
-      listDisplayName: 'Transport Task Status列表' }, // this is for model namespace and
+      listDisplayName: '运输任务状态列表' }, // this is for model namespace and
     }))(TransportTaskStatusSearch)
   }
   getTransportTaskStatusCreateForm = () => {
@@ -282,7 +282,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.transportTaskStatusCurrentPageNumber,
       searchFormParameters: state._platform.transportTaskStatusSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportTaskStatusList', ref:state._platform, listDisplayName: 'Transport Task Status列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportTaskStatusList', ref:state._platform, listDisplayName: '运输任务状态列表'}, // this is for model namespace and
     }))(TransportTaskStatusCreateForm)
   }
   
@@ -292,7 +292,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "transportTaskStatus",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'transportTaskStatusList', ref:state._platform, listDisplayName: 'Transport Task Status列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'transportTaskStatusList', ref:state._platform, listDisplayName: '运输任务状态列表' }, // this is for model namespace and
     }))(TransportTaskStatusUpdateForm)
   }
 
@@ -346,7 +346,7 @@ class PlatformBizApp extends React.PureComponent {
     const {MerchantSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Merchant",
+      name: "商人",
       role: "merchant",
       data: state._platform.merchantList,
       metaInfo: state._platform.merchantListMetaInfo,
@@ -360,7 +360,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'merchantList', ref:state._platform, 
-      listDisplayName: 'Merchant列表' }, // this is for model namespace and
+      listDisplayName: '商人列表' }, // this is for model namespace and
     }))(MerchantSearch)
   }
   getMerchantCreateForm = () => {
@@ -374,7 +374,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.merchantCurrentPageNumber,
       searchFormParameters: state._platform.merchantSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'merchantList', ref:state._platform, listDisplayName: 'Merchant列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'merchantList', ref:state._platform, listDisplayName: '商人列表'}, // this is for model namespace and
     }))(MerchantCreateForm)
   }
   
@@ -384,7 +384,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "merchant",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'merchantList', ref:state._platform, listDisplayName: 'Merchant列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'merchantList', ref:state._platform, listDisplayName: '商人列表' }, // this is for model namespace and
     }))(MerchantUpdateForm)
   }
 
@@ -392,7 +392,7 @@ class PlatformBizApp extends React.PureComponent {
     const {TransportProjectSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Project",
+      name: "交通项目",
       role: "transportProject",
       data: state._platform.transportProjectList,
       metaInfo: state._platform.transportProjectListMetaInfo,
@@ -406,7 +406,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'transportProjectList', ref:state._platform, 
-      listDisplayName: 'Transport Project列表' }, // this is for model namespace and
+      listDisplayName: '交通项目列表' }, // this is for model namespace and
     }))(TransportProjectSearch)
   }
   getTransportProjectCreateForm = () => {
@@ -420,7 +420,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.transportProjectCurrentPageNumber,
       searchFormParameters: state._platform.transportProjectSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportProjectList', ref:state._platform, listDisplayName: 'Transport Project列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportProjectList', ref:state._platform, listDisplayName: '交通项目列表'}, // this is for model namespace and
     }))(TransportProjectCreateForm)
   }
   
@@ -430,7 +430,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "transportProject",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'transportProjectList', ref:state._platform, listDisplayName: 'Transport Project列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'transportProjectList', ref:state._platform, listDisplayName: '交通项目列表' }, // this is for model namespace and
     }))(TransportProjectUpdateForm)
   }
 
@@ -438,7 +438,7 @@ class PlatformBizApp extends React.PureComponent {
     const {TransportItemSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Item",
+      name: "运输项目",
       role: "transportItem",
       data: state._platform.transportItemList,
       metaInfo: state._platform.transportItemListMetaInfo,
@@ -452,7 +452,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'transportItemList', ref:state._platform, 
-      listDisplayName: 'Transport Item列表' }, // this is for model namespace and
+      listDisplayName: '运输项目列表' }, // this is for model namespace and
     }))(TransportItemSearch)
   }
   getTransportItemCreateForm = () => {
@@ -466,7 +466,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.transportItemCurrentPageNumber,
       searchFormParameters: state._platform.transportItemSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportItemList', ref:state._platform, listDisplayName: 'Transport Item列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportItemList', ref:state._platform, listDisplayName: '运输项目列表'}, // this is for model namespace and
     }))(TransportItemCreateForm)
   }
   
@@ -476,7 +476,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "transportItem",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'transportItemList', ref:state._platform, listDisplayName: 'Transport Item列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'transportItemList', ref:state._platform, listDisplayName: '运输项目列表' }, // this is for model namespace and
     }))(TransportItemUpdateForm)
   }
 
@@ -484,7 +484,7 @@ class PlatformBizApp extends React.PureComponent {
     const {TransportTaskSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "Transport Task",
+      name: "运输任务",
       role: "transportTask",
       data: state._platform.transportTaskList,
       metaInfo: state._platform.transportTaskListMetaInfo,
@@ -498,7 +498,7 @@ class PlatformBizApp extends React.PureComponent {
       owner: { type: '_platform', id: state._platform.id, 
       referenceName: 'platform', 
       listName: 'transportTaskList', ref:state._platform, 
-      listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskSearch)
   }
   getTransportTaskCreateForm = () => {
@@ -512,7 +512,7 @@ class PlatformBizApp extends React.PureComponent {
       currentPage: state._platform.transportTaskCurrentPageNumber,
       searchFormParameters: state._platform.transportTaskSearchFormParameters,
       loading: state._platform.loading,
-      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportTaskList', ref:state._platform, listDisplayName: 'Transport Task列表'}, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, referenceName: 'platform', listName: 'transportTaskList', ref:state._platform, listDisplayName: '运输任务列表'}, // this is for model namespace and
     }))(TransportTaskCreateForm)
   }
   
@@ -522,7 +522,7 @@ class PlatformBizApp extends React.PureComponent {
       selectedRows: state._platform.selectedRows,
       role: "transportTask",
       currentUpdateIndex: state._platform.currentUpdateIndex,
-      owner: { type: '_platform', id: state._platform.id, listName: 'transportTaskList', ref:state._platform, listDisplayName: 'Transport Task列表' }, // this is for model namespace and
+      owner: { type: '_platform', id: state._platform.id, listName: 'transportTaskList', ref:state._platform, listDisplayName: '运输任务列表' }, // this is for model namespace and
     }))(TransportTaskUpdateForm)
   }
 

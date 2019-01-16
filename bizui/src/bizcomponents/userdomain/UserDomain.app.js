@@ -162,7 +162,7 @@ class UserDomainBizApp extends React.PureComponent {
     const {UserWhiteListSearch} = GlobalComponents;
     return connect(state => ({
       rule: state.rule,
-      name: "User White List",
+      name: "用户白名单",
       role: "userWhiteList",
       data: state._userDomain.userWhiteListList,
       metaInfo: state._userDomain.userWhiteListListMetaInfo,
@@ -176,7 +176,7 @@ class UserDomainBizApp extends React.PureComponent {
       owner: { type: '_userDomain', id: state._userDomain.id, 
       referenceName: 'domain', 
       listName: 'userWhiteListList', ref:state._userDomain, 
-      listDisplayName: 'User White List列表' }, // this is for model namespace and
+      listDisplayName: '用户白名单列表' }, // this is for model namespace and
     }))(UserWhiteListSearch)
   }
   getUserWhiteListCreateForm = () => {
@@ -190,7 +190,7 @@ class UserDomainBizApp extends React.PureComponent {
       currentPage: state._userDomain.userWhiteListCurrentPageNumber,
       searchFormParameters: state._userDomain.userWhiteListSearchFormParameters,
       loading: state._userDomain.loading,
-      owner: { type: '_userDomain', id: state._userDomain.id, referenceName: 'domain', listName: 'userWhiteListList', ref:state._userDomain, listDisplayName: 'User White List列表'}, // this is for model namespace and
+      owner: { type: '_userDomain', id: state._userDomain.id, referenceName: 'domain', listName: 'userWhiteListList', ref:state._userDomain, listDisplayName: '用户白名单列表'}, // this is for model namespace and
     }))(UserWhiteListCreateForm)
   }
   
@@ -200,7 +200,7 @@ class UserDomainBizApp extends React.PureComponent {
       selectedRows: state._userDomain.selectedRows,
       role: "userWhiteList",
       currentUpdateIndex: state._userDomain.currentUpdateIndex,
-      owner: { type: '_userDomain', id: state._userDomain.id, listName: 'userWhiteListList', ref:state._userDomain, listDisplayName: 'User White List列表' }, // this is for model namespace and
+      owner: { type: '_userDomain', id: state._userDomain.id, listName: 'userWhiteListList', ref:state._userDomain, listDisplayName: '用户白名单列表' }, // this is for model namespace and
     }))(UserWhiteListUpdateForm)
   }
 

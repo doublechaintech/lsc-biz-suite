@@ -184,7 +184,7 @@ class TransactionUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'transaction',
-          listName:'Transaction列表' 
+          listName:'事务列表' 
         },
       })
     }
@@ -244,8 +244,8 @@ class TransactionUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Transaction"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Transaction"
+        title={"更新事务"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新事务"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>

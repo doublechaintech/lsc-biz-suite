@@ -129,7 +129,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/userApp/${id}/list/\ListAccessList/List Access列表`, state: newState }
+      const location = { pathname: `/userApp/${id}/list/\ListAccessList/访问列表列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateListAccess({ payload }, { call, put }) {
@@ -153,7 +153,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/userApp/${id}/list/\ListAccessList/List Access列表`, state: newPlayload }
+      const location = { pathname: `/userApp/${id}/list/\ListAccessList/访问列表列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextListAccessUpdateRow({ payload }, { call, put }) {

@@ -129,7 +129,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/merchant/${id}/list/\TransportProjectList/Transport Project列表`, state: newState }
+      const location = { pathname: `/merchant/${id}/list/\TransportProjectList/交通项目列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportProject({ payload }, { call, put }) {
@@ -153,7 +153,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/merchant/${id}/list/\TransportProjectList/Transport Project列表`, state: newPlayload }
+      const location = { pathname: `/merchant/${id}/list/\TransportProjectList/交通项目列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportProjectUpdateRow({ payload }, { call, put }) {
@@ -207,7 +207,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsSender/Transport Task列表`, state: newState }
+      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsSender/运输任务列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportTaskAsSender({ payload }, { call, put }) {
@@ -231,7 +231,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsSender/Transport Task列表`, state: newPlayload }
+      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsSender/运输任务列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportTaskUpdateRow({ payload }, { call, put }) {
@@ -285,7 +285,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsReceiver/Transport Task列表`, state: newState }
+      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsReceiver/运输任务列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateTransportTaskAsReceiver({ payload }, { call, put }) {
@@ -309,7 +309,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsReceiver/Transport Task列表`, state: newPlayload }
+      const location = { pathname: `/merchant/${id}/list/\TransportTaskListAsReceiver/运输任务列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextTransportTaskUpdateRow({ payload }, { call, put }) {
@@ -363,7 +363,7 @@ export default {
       }
       const partialList = true
       const newState = {...data, partialList}
-      const location = { pathname: `/merchant/${id}/list/\MerchantAccountList/Merchant Account列表`, state: newState }
+      const location = { pathname: `/merchant/${id}/list/\MerchantAccountList/商家帐户列表`, state: newState }
       yield put(routerRedux.push(location))
     },
     *updateMerchantAccount({ payload }, { call, put }) {
@@ -387,7 +387,7 @@ export default {
       if (continueNext) {
         return
       }
-      const location = { pathname: `/merchant/${id}/list/\MerchantAccountList/Merchant Account列表`, state: newPlayload }
+      const location = { pathname: `/merchant/${id}/list/\MerchantAccountList/商家帐户列表`, state: newPlayload }
       yield put(routerRedux.push(location))
     },
     *gotoNextMerchantAccountUpdateRow({ payload }, { call, put }) {

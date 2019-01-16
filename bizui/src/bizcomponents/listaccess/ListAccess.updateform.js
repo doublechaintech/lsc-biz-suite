@@ -184,7 +184,7 @@ class ListAccessUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'listAccess',
-          listName:'List Access列表' 
+          listName:'访问列表列表' 
         },
       })
     }
@@ -244,8 +244,8 @@ class ListAccessUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新List Access"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新List Access"
+        title={"更新访问列表"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新访问列表"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -281,9 +281,9 @@ class ListAccessUpdateForm extends Component {
                 <Form.Item label={fieldLabels.internalName} {...formItemLayout}>
                   {getFieldDecorator('internalName', {
                     initialValue: selectedRow.internalName,
-                    rules: [{ required: true, message: '请输入Internal Name' }],
+                    rules: [{ required: true, message: '请输入内部名称' }],
                   })(
-                    <Input placeholder="请输入Internal Name" />
+                    <Input placeholder="请输入内部名称" />
                     
                   )}
                 </Form.Item>
@@ -302,10 +302,10 @@ class ListAccessUpdateForm extends Component {
                 <Form.Item label={fieldLabels.readPermission} {...switchFormItemLayout}>
                   {getFieldDecorator('readPermission', {
                     initialValue: selectedRow.readPermission,
-                    rules: [{ required: true, message: '请输入Read Permission' }],
+                    rules: [{ required: true, message: '请输入读权限' }],
                     valuePropName: 'checked'
                   })(
-                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入Read Permissionbool" />
+                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入读权限bool" />
                   )}
                 </Form.Item>
               </Col>
@@ -314,10 +314,10 @@ class ListAccessUpdateForm extends Component {
                 <Form.Item label={fieldLabels.createPermission} {...switchFormItemLayout}>
                   {getFieldDecorator('createPermission', {
                     initialValue: selectedRow.createPermission,
-                    rules: [{ required: true, message: '请输入Create Permission' }],
+                    rules: [{ required: true, message: '请输入创建权限' }],
                     valuePropName: 'checked'
                   })(
-                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入Create Permissionbool" />
+                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入创建权限bool" />
                   )}
                 </Form.Item>
               </Col>
@@ -326,10 +326,10 @@ class ListAccessUpdateForm extends Component {
                 <Form.Item label={fieldLabels.deletePermission} {...switchFormItemLayout}>
                   {getFieldDecorator('deletePermission', {
                     initialValue: selectedRow.deletePermission,
-                    rules: [{ required: true, message: '请输入Delete Permission' }],
+                    rules: [{ required: true, message: '请输入删除权限' }],
                     valuePropName: 'checked'
                   })(
-                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入Delete Permissionbool" />
+                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入删除权限bool" />
                   )}
                 </Form.Item>
               </Col>
@@ -338,10 +338,10 @@ class ListAccessUpdateForm extends Component {
                 <Form.Item label={fieldLabels.updatePermission} {...switchFormItemLayout}>
                   {getFieldDecorator('updatePermission', {
                     initialValue: selectedRow.updatePermission,
-                    rules: [{ required: true, message: '请输入Update Permission' }],
+                    rules: [{ required: true, message: '请输入更新许可' }],
                     valuePropName: 'checked'
                   })(
-                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入Update Permissionbool" />
+                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入更新许可bool" />
                   )}
                 </Form.Item>
               </Col>
@@ -350,10 +350,10 @@ class ListAccessUpdateForm extends Component {
                 <Form.Item label={fieldLabels.executionPermission} {...switchFormItemLayout}>
                   {getFieldDecorator('executionPermission', {
                     initialValue: selectedRow.executionPermission,
-                    rules: [{ required: true, message: '请输入Execution Permission' }],
+                    rules: [{ required: true, message: '请输入执行权限' }],
                     valuePropName: 'checked'
                   })(
-                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入Execution Permissionbool" />
+                    <Switch checkedChildren="是" unCheckedChildren="否"  placeholder="请输入执行权限bool" />
                   )}
                 </Form.Item>
               </Col>

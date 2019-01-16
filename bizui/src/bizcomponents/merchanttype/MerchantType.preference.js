@@ -298,7 +298,7 @@ class MerchantTypePreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, merchantCount, transportItemCount } = this.props.merchantType
-    const cardsData = {cardsName:"Merchant Type",cardsFor: "merchantType",cardsSource: this.props.merchantType,
+    const cardsData = {cardsName:"商人类型",cardsFor: "merchantType",cardsSource: this.props.merchantType,
   		subItems: [
     
       	],

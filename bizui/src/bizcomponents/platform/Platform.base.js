@@ -6,13 +6,13 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Platform", menuFor: "platform",
+const menuData = {menuName:"平台", menuFor: "platform",
   		subItems: [
   {name: 'locationList', displayName:'位置', icon:'at',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'merchantList', displayName:'Merchant', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'transportProjectList', displayName:'Transport Project', icon:'project-diagram',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'transportItemList', displayName:'Transport Item', icon:'sitemap',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
-  {name: 'transportTaskList', displayName:'Transport Task', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'merchantList', displayName:'商人', icon:'500px',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportProjectList', displayName:'交通项目', icon:'project-diagram',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportItemList', displayName:'运输项目', icon:'sitemap',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportTaskList', displayName:'运输任务', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }
@@ -74,16 +74,16 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'platform') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '12',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Introduction', debugtype: 'string', dataIndex: 'introduction', width: '22',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Current Version', debugtype: 'string', dataIndex: 'currentVersion', width: '8',render: (text, record)=>renderTextCell(text,record) },
+  { title: '介绍', debugtype: 'string', dataIndex: 'introduction', width: '22',render: (text, record)=>renderTextCell(text,record) },
+  { title: '当前版本', debugtype: 'string', dataIndex: 'currentVersion', width: '8',render: (text, record)=>renderTextCell(text,record) },
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  introduction: 'Introduction',
-  currentVersion: 'Current Version',
+  introduction: '介绍',
+  currentVersion: '当前版本',
 
 }
 

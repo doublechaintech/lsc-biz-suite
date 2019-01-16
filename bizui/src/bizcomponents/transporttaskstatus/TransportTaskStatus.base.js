@@ -6,9 +6,9 @@ import moment from 'moment'
 
 
 
-const menuData = {menuName:"Transport Task Status", menuFor: "transportTaskStatus",
+const menuData = {menuName:"运输任务状态", menuFor: "transportTaskStatus",
   		subItems: [
-  {name: 'transportTaskList', displayName:'Transport Task', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
+  {name: 'transportTaskList', displayName:'运输任务', icon:'tasks',readPermission: false,createPermission: false,deletePermission: false,updatePermission: false,executionPermission: false},
   
   		],
 }
@@ -70,14 +70,14 @@ const renderReferenceCell=(value, record)=>{
 const displayColumns = [
   { title: 'ID', debugtype: 'string', dataIndex: 'id', width: '20', render: (text, record)=>renderTextCell(text,record,'transportTaskStatus') },
   { title: '名称', debugtype: 'string', dataIndex: 'name', width: '7',render: (text, record)=>renderTextCell(text,record) },
-  { title: 'Platform', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
+  { title: '平台', dataIndex: 'platform', render: (text, record) => renderReferenceCell(text, record)},
 
 ]
 
 const fieldLabels = {
   id: 'ID',
   name: '名称',
-  platform: 'Platform',
+  platform: '平台',
 
 }
 

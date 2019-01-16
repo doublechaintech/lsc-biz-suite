@@ -184,7 +184,7 @@ class PlatformUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'platform',
-          listName:'Platform列表' 
+          listName:'平台列表' 
         },
       })
     }
@@ -244,8 +244,8 @@ class PlatformUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Platform"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Platform"
+        title={"更新平台"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新平台"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -281,9 +281,9 @@ class PlatformUpdateForm extends Component {
                 <Form.Item label={fieldLabels.introduction} {...formItemLayout}>
                   {getFieldDecorator('introduction', {
                     initialValue: selectedRow.introduction,
-                    rules: [{ required: true, message: '请输入Introduction' }],
+                    rules: [{ required: true, message: '请输入介绍' }],
                   })(
-                    <Input placeholder="请输入Introduction" />
+                    <Input placeholder="请输入介绍" />
                     
                   )}
                 </Form.Item>
@@ -293,9 +293,9 @@ class PlatformUpdateForm extends Component {
                 <Form.Item label={fieldLabels.currentVersion} {...formItemLayout}>
                   {getFieldDecorator('currentVersion', {
                     initialValue: selectedRow.currentVersion,
-                    rules: [{ required: true, message: '请输入Current Version' }],
+                    rules: [{ required: true, message: '请输入当前版本' }],
                   })(
-                    <Input placeholder="请输入Current Version" />
+                    <Input placeholder="请输入当前版本" />
                     
                   )}
                 </Form.Item>

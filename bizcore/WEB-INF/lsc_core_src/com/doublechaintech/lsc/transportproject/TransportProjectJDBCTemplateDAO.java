@@ -426,7 +426,7 @@ public class TransportProjectJDBCTemplateDAO extends LscNamingServiceDAO impleme
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportProject.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Project");
+		createTimeStatsItem.setDisplayName("交通项目");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportProject.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportProject.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);
@@ -476,7 +476,7 @@ public class TransportProjectJDBCTemplateDAO extends LscNamingServiceDAO impleme
  
 		StatsItem createTimeStatsItem = new StatsItem();
 		//TransportProject.CREATE_TIME_PROPERTY
-		createTimeStatsItem.setDisplayName("Transport Project");
+		createTimeStatsItem.setDisplayName("交通项目");
 		createTimeStatsItem.setInternalName(formatKeyForDateLine(TransportProject.CREATE_TIME_PROPERTY));
 		createTimeStatsItem.setResult(statsWithGroup(DateKey.class,wrapWithDate(TransportProject.CREATE_TIME_PROPERTY),filterKey,emptyOptions));
 		info.addItem(createTimeStatsItem);

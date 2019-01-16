@@ -1,107 +1,107 @@
 Summary|概览
-Platform|Platform
+Platform|平台
 Id|ID
 Name|名称
-Introduction|Introduction
-Current Version|Current Version
+Introduction|介绍
+Current Version|当前版本
 Version|版本
-Transaction Type|Transaction Type
+Transaction Type|交易类型
 Id|ID
 Name|名称
-Platform|Platform
+Platform|平台
 Version|版本
-Merchant Type|Merchant Type
+Merchant Type|商人类型
 Id|ID
 Name|名称
-Platform|Platform
+Platform|平台
 Version|版本
-Transport Task Status|Transport Task Status
+Transport Task Status|运输任务状态
 Id|ID
 Name|名称
-Platform|Platform
+Platform|平台
 Version|版本
 Location|位置
 Id|ID
 Name|名称
-Contact Person|Contact Person
-Contact Phone|Contact Phone
+Contact Person|联系人
+Contact Phone|联系电话
 Description|描述
-Platform|Platform
-Create Time|Create Time
-Update Time|Update Time
+Platform|平台
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Merchant|Merchant
+Merchant|商人
 Id|ID
 Name|名称
 Type|类型
-Platform|Platform
+Platform|平台
 Description|描述
-Create Time|Create Time
-Update Time|Update Time
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Transport Project|Transport Project
+Transport Project|交通项目
 Id|ID
 Name|名称
-Merchant|Merchant
-Platform|Platform
-Create Time|Create Time
-Update Time|Update Time
+Merchant|商人
+Platform|平台
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Transport Item|Transport Item
+Transport Item|运输项目
 Id|ID
 Name|名称
-Quantity|Quantity
-Unit|Unit
-Project|Project
-Merchant|Merchant
-Platform|Platform
-Create Time|Create Time
-Update Time|Update Time
+Quantity|数量
+Unit|单位
+Project|项目
+Merchant|商人
+Platform|平台
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Transport Task|Transport Task
+Transport Task|运输任务
 Id|ID
 Name|名称
-Source|Source
-Destination|Destination
-Remark|Remark
-Status|Status
-Sender|Sender
-Receiver|Receiver
-Platform|Platform
-Create Time|Create Time
-Update Time|Update Time
+Source|源
+Destination|目的地
+Remark|备注
+Status|状态
+Sender|发送方
+Receiver|接收机
+Platform|平台
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Transport Task Track|Transport Task Track
+Transport Task Track|运输任务跟踪
 Id|ID
 Name|名称
-Latitude|Latitude
-Longitude|Longitude
-Task|Task
-Create Time|Create Time
-Update Time|Update Time
+Latitude|纬度
+Longitude|经度
+Task|任务
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Merchant Account|Merchant Account
+Merchant Account|商家帐户
 Id|ID
 Name|名称
-Merchant|Merchant
-Create Time|Create Time
-Update Time|Update Time
+Merchant|商人
+Create Time|创建时间
+Update Time|更新时间
 Version|版本
-Transaction|Transaction
+Transaction|事务
 Id|ID
 Name|名称
 Amount|金额
-Transaction Type|Transaction Type
-Account|Account
+Transaction Type|交易类型
+Account|账户
 Version|版本
 User Domain|用户域
 Id|ID
 Name|名称
 Version|版本
-User White List|User White List
+User White List|用户白名单
 Id|ID
-User Identity|User Identity
-User Special Functions|User Special Functions
+User Identity|用户身份
+User Special Functions|用户特殊功能
 Domain|域
 Version|版本
 Sec User|安全用户
@@ -135,15 +135,15 @@ Object Type|访问对象类型
 Object Id|对象ID
 Location|位置
 Version|版本
-List Access|List Access
+List Access|访问列表
 Id|ID
 Name|名称
-Internal Name|Internal Name
-Read Permission|Read Permission
-Create Permission|Create Permission
-Delete Permission|Delete Permission
-Update Permission|Update Permission
-Execution Permission|Execution Permission
+Internal Name|内部名称
+Read Permission|读权限
+Create Permission|创建权限
+Delete Permission|删除权限
+Update Permission|更新许可
+Execution Permission|执行权限
 App|应用程序
 Version|版本
 Object Access|对象访问
@@ -197,10 +197,10 @@ Placeholder|占位符
 Default Value|默认值
 Description|描述
 Field Group|字段组
-Minimum Value|Minimum Value
-Maximum Value|Maximum Value
+Minimum Value|最小值
+Maximum Value|最大值
 Required|要求
-Disabled|Disabled
+Disabled|禁用
 Custom Rendering|自定义渲染
 Candidate Values|候选人的价值观
 Suggest Values|建议值
@@ -209,29 +209,29 @@ Form Action|表单动作
 Id|ID
 Label|标签
 Locale Key|语言环境的关键
-Action Key|Action Key
+Action Key|行动的关键
 Level|水平
 Url|url
 Form|形式
 Version|版本
-Transfer to Another Platform|Transfer to Another Platform
-Transfer to Another Transaction Type|Transfer to Another Transaction Type
-Transfer to Another Merchant Type|Transfer to Another Merchant Type
-Transfer to Another Transport Task Status|Transfer to Another Transport Task Status
-Transfer to Another Location|Transfer to Another Location
-Transfer to Another Merchant|Transfer to Another Merchant
-Transfer to Another Transport Project|Transfer to Another Transport Project
-Transfer to Another Transport Item|Transfer to Another Transport Item
-Transfer to Another Transport Task|Transfer to Another Transport Task
-Transfer to Another Transport Task Track|Transfer to Another Transport Task Track
-Transfer to Another Merchant Account|Transfer to Another Merchant Account
-Transfer to Another Transaction|Transfer to Another Transaction
+Transfer to Another Platform|转到另一个平台
+Transfer to Another Transaction Type|转移到另一种事务类型
+Transfer to Another Merchant Type|转移到另一种商人类型
+Transfer to Another Transport Task Status|转移到另一个传输任务状态
+Transfer to Another Location|转往其他地点
+Transfer to Another Merchant|转让给其他商户
+Transfer to Another Transport Project|转到另一个运输项目
+Transfer to Another Transport Item|转移到另一个传输项
+Transfer to Another Transport Task|转移到另一个传输任务
+Transfer to Another Transport Task Track|转移到另一个传输任务轨道
+Transfer to Another Merchant Account|转移到另一个商户帐户
+Transfer to Another Transaction|转移到另一个事务
 Transfer to Another User Domain|转移到另一个用户域
-Transfer to Another User White List|Transfer to Another User White List
+Transfer to Another User White List|转移到另一个用户白名单
 Transfer to Another Sec User|转移到另一个SEC用户
 Transfer to Another Sec User Blocking|转移到另一个SEC用户阻塞
 Transfer to Another User App|转移到另一个用户应用程序
-Transfer to Another List Access|Transfer to Another List Access
+Transfer to Another List Access|转移到另一个列表访问
 Transfer to Another Object Access|转移到另一个对象访问
 Transfer to Another Login History|转移到另一个登录历史
 Transfer to Another Generic Form|转移到另一个通用表单

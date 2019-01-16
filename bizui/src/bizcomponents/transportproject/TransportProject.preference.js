@@ -260,14 +260,14 @@ const internalSummaryOf = (transportProject,targetComponent) =>{
 	<DescriptionList className={styles.headerList} size="small" col="4">
 <Description term="ID">{transportProject.id}</Description> 
 <Description term="名称">{transportProject.name}</Description> 
-<Description term="Merchant">{transportProject.merchant==null?"未分配":transportProject.merchant.displayName}
+<Description term="商人">{transportProject.merchant==null?"未分配":transportProject.merchant.displayName}
  <Icon type="swap" onClick={()=>
-  showTransferModel(targetComponent,"Merchant","merchant","requestCandidateMerchant",
+  showTransferModel(targetComponent,"商人","merchant","requestCandidateMerchant",
 	      "transferToAnotherMerchant","anotherMerchantId",transportProject.merchant?transportProject.merchant.id:"")} 
   style={{fontSize: 20,color:"red"}} />
 </Description>
-<Description term="Create Time">{ moment(transportProject.createTime).format('YYYY-MM-DD')}</Description> 
-<Description term="Update Time">{ moment(transportProject.updateTime).format('YYYY-MM-DD')}</Description> 
+<Description term="创建时间">{ moment(transportProject.createTime).format('YYYY-MM-DD')}</Description> 
+<Description term="更新时间">{ moment(transportProject.updateTime).format('YYYY-MM-DD')}</Description> 
 	
         {buildTransferModal(transportProject,targetComponent)}
       </DescriptionList>
@@ -306,7 +306,7 @@ class TransportProjectPreference extends Component {
   render() {
     // eslint-disable-next-line max-len
     const { id,displayName, transportItemCount } = this.props.transportProject
-    const cardsData = {cardsName:"Transport Project",cardsFor: "transportProject",cardsSource: this.props.transportProject,
+    const cardsData = {cardsName:"交通项目",cardsFor: "transportProject",cardsSource: this.props.transportProject,
   		subItems: [
     
       	],

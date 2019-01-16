@@ -259,17 +259,17 @@ componentDidMount() {
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Introduction">
+            <FormItem label="介绍">
               {getFieldDecorator('introduction')(
-                <Input placeholder="请输入Introduction" />
+                <Input placeholder="请输入介绍" />
               )}
             </FormItem>
           </Col>
 
           <Col md={8} sm={24}>
-            <FormItem label="Current Version">
+            <FormItem label="当前版本">
               {getFieldDecorator('currentVersion')(
-                <Input placeholder="请输入Current Version" />
+                <Input placeholder="请输入当前版本" />
               )}
             </FormItem>
           </Col>

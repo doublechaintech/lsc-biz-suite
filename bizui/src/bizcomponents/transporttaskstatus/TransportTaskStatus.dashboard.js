@@ -117,10 +117,10 @@ class TransportTaskStatusDashboard extends Component {
     }
     const returnURL = this.props.returnURL
     
-    const cardsData = {cardsName:"Transport Task Status",cardsFor: "transportTaskStatus",
+    const cardsData = {cardsName:"运输任务状态",cardsFor: "transportTaskStatus",
     	cardsSource: this.props.transportTaskStatus,returnURL,displayName,
   		subItems: [
-{name: 'transportTaskList', displayName:'Transport Task',type:'transportTask',count:transportTaskCount,addFunction: true, role: 'transportTask', metaInfo: transportTaskListMetaInfo},
+{name: 'transportTaskList', displayName:'运输任务',type:'transportTask',count:transportTaskCount,addFunction: true, role: 'transportTask', metaInfo: transportTaskListMetaInfo},
     
       	],
   	};

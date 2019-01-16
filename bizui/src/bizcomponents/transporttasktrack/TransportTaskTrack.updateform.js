@@ -186,7 +186,7 @@ class TransportTaskTrackUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'transportTaskTrack',
-          listName:'Transport Task Track列表' 
+          listName:'运输任务跟踪列表' 
         },
       })
     }
@@ -246,8 +246,8 @@ class TransportTaskTrackUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Transport Task Track"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Transport Task Track"
+        title={"更新运输任务跟踪"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新运输任务跟踪"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -283,9 +283,9 @@ class TransportTaskTrackUpdateForm extends Component {
                 <Form.Item label={fieldLabels.latitude} {...formItemLayout}>
                   {getFieldDecorator('latitude', {
                     initialValue: selectedRow.latitude,
-                    rules: [{ required: true, message: '请输入Latitude' }],
+                    rules: [{ required: true, message: '请输入纬度' }],
                   })(
-                    <Input placeholder="请输入Latitude" />
+                    <Input placeholder="请输入纬度" />
                     
                   )}
                 </Form.Item>
@@ -295,9 +295,9 @@ class TransportTaskTrackUpdateForm extends Component {
                 <Form.Item label={fieldLabels.longitude} {...formItemLayout}>
                   {getFieldDecorator('longitude', {
                     initialValue: selectedRow.longitude,
-                    rules: [{ required: true, message: '请输入Longitude' }],
+                    rules: [{ required: true, message: '请输入经度' }],
                   })(
-                    <Input placeholder="请输入Longitude" />
+                    <Input placeholder="请输入经度" />
                     
                   )}
                 </Form.Item>

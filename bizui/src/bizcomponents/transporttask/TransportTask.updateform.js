@@ -186,7 +186,7 @@ class TransportTaskUpdateForm extends Component {
         payload: {
           id: owner.id,
           type: 'transportTask',
-          listName:'Transport Task列表' 
+          listName:'运输任务列表' 
         },
       })
     }
@@ -246,8 +246,8 @@ class TransportTaskUpdateForm extends Component {
 
     return (
       <PageHeaderLayout
-        title={"更新Transport Task"+(currentUpdateIndex+1)+"/"+selectedRows.length}
-        content="更新Transport Task"
+        title={"更新运输任务"+(currentUpdateIndex+1)+"/"+selectedRows.length}
+        content="更新运输任务"
         wrapperClassName={styles.advancedForm}
       >
         <Card title="基础信息" className={styles.card} bordered={false}>
@@ -283,9 +283,9 @@ class TransportTaskUpdateForm extends Component {
                 <Form.Item label={fieldLabels.remark} {...formItemLayout}>
                   {getFieldDecorator('remark', {
                     initialValue: selectedRow.remark,
-                    rules: [{ required: true, message: '请输入Remark' }],
+                    rules: [{ required: true, message: '请输入备注' }],
                   })(
-                    <Input placeholder="请输入Remark" />
+                    <Input placeholder="请输入备注" />
                     
                   )}
                 </Form.Item>
