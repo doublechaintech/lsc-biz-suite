@@ -558,7 +558,7 @@ public class CustomSecUserManagerImpl extends SecUserManagerImpl implements
         }
         userContext.setPublicMediaServicePrefix(getPublicMediaServicePrefix());
        
-        userContext.setRequestParameters(request.getParameterMap());
+        //userContext.setRequestParameters(request.getParameterMap());
         userContext.setDaoGroup(getDaoGroup());
         userContext.setEventService(this.getEventService());
         userContext.setManagerGroup(getManagerGroup());

@@ -18,10 +18,14 @@ import com.doublechaintech.lsc.LscUserContext;
 public class GenericFormCustomManagerImpl extends GenericFormManagerImpl{
 
 
-
+	public void share() {
+		
+	}
 
 
 }
+
+
 
 
 

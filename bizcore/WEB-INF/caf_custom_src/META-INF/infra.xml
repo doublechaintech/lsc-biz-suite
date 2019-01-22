@@ -66,10 +66,7 @@
         <property name="filePath" value="classpath:/META-INF/stop-words.txt" />
     </bean>
 
-    <bean id="sensitiveWordFilterService" class="com.skynet.infrastructure.SensitiveWordFilterService">
-        <property name="sensitiveWordsProvider" ref="sensitiveWordsProvider"/>
-        <property name="stopWordsProvider" ref="stopWordsProvider"/>
-    </bean>
+    
 
     <bean id="kafkaMessageEventService" class="com.skynet.infrastructure.kafkaservice.KafkaMessageEventService">
         <property name="producerProperties">

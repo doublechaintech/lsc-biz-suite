@@ -27,3 +27,4 @@ output/*
 lib/*
 WEB-INF/lib/*
 
+/classes/
