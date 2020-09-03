@@ -91,7 +91,7 @@
     "stylelint-config-standard": "^18.0.0"
   },
   "optionalDependencies": {
-    "puppeteer": "^1.1.1"
+    "puppeteer": "^1.13.0"
   },
   "lint-staged": {
     "**/*.{js,jsx,less}": [
